@@ -25,6 +25,8 @@ public class UIManager : MonoBehaviour
     // Method to call when a tab is clicked
     public void OnTabClick(string tabName)
     {
+        AudioManager_2.SoundPlay(4);//手动SE音频替换
+
         Title_Setting_System.sprite = Bar_Hidden;
         Title_Setting_Audio.sprite = Bar_Hidden;
         Title_Setting_Display.sprite = Bar_Hidden;
@@ -63,7 +65,9 @@ public class UIManager : MonoBehaviour
     //--------语言
     public void Setlanguage(int number)
     {
-        PlayerPrefs.SetInt("language", number);
+        AudioManager_2.SoundPlay(4);//手动SE音频替换
+
+        PlayerPrefs.SetInt("language", number);//0日语 1简体中文 2繁体中文 3英语 4韩语
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
@@ -127,8 +131,8 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
-    public AudioMixer audioMixer;
-    public AudioMixer audioMixer_2;
+    public AudioMixer audioMixer;//效果音
+    public AudioMixer audioMixer_2;//BGM
 
     public void SetVolume(float value)
     {
@@ -138,5 +142,11 @@ public class UIManager : MonoBehaviour
     public void SetVolume_2(float value)
     {
         audioMixer_2.SetFloat("MainVolume_2", value);
+    }
+
+    public void SetMasterVolume(float value)
+    {
+        audioMixer.SetFloat("MainVolume", value); // 确保在效果音混音器中存在名为MasterVolume的参数
+        audioMixer_2.SetFloat("MainVolume_2", value); // 确保在BGM混音器中存在名为MasterVolume的参数
     }
 }

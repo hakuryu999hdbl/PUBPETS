@@ -11,7 +11,7 @@ namespace Roulette_Game
         public void Start()
         {
             //Debug.Log("【综合】目前储存的余额数量" + PlayerPrefs.GetFloat("BalanceKey"));
-            Debug.Log("【综合】目前储存的语言" + PlayerPrefs.GetFloat("language"));
+            Debug.Log("【综合】目前储存的语言" + PlayerPrefs.GetFloat("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
         }
 
 
