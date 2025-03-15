@@ -6073,6 +6073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  List: []
 --- !u!95 &861404574
 Animator:
   serializedVersion: 7
@@ -13667,6 +13668,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1779364565}
   - component: {fileID: 1779364566}
+  - component: {fileID: 1779364567}
   m_Layer: 5
   m_Name: SeToggle
   m_TagString: Untagged
@@ -13742,9 +13744,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1844165847}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnMusicToggleChanged_2
+      - m_Target: {fileID: 1779364567}
+        m_TargetAssemblyTypeName: Anim_Trigger, Assembly-CSharp
+        m_MethodName: SwitchOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13755,6 +13757,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1779364567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1779364564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List:
+  - {fileID: 594247559}
 --- !u!1 &1810688556
 GameObject:
   m_ObjectHideFlags: 0
@@ -14570,10 +14586,6 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Display: {fileID: 0}
   Operation: {fileID: 0}
-  volumeSlider_1: {fileID: 1731266981}
-  isOn: 0
-  volumeSlider_2: {fileID: 594247559}
-  isOn_2: 0
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
   audioMixer_2: {fileID: 24100000, guid: 317d300cd24a1974191b52009ce18deb, type: 2}
 --- !u!1 &1845366659
@@ -15764,6 +15776,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2019647558}
   - component: {fileID: 2019647559}
+  - component: {fileID: 2019647560}
   m_Layer: 5
   m_Name: MusicToggle
   m_TagString: Untagged
@@ -15839,9 +15852,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1844165847}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnMusicToggleChanged
+      - m_Target: {fileID: 2019647560}
+        m_TargetAssemblyTypeName: Anim_Trigger, Assembly-CSharp
+        m_MethodName: SwitchOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15852,6 +15865,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &2019647560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2019647557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List:
+  - {fileID: 1731266981}
 --- !u!1 &2022229171
 GameObject:
   m_ObjectHideFlags: 0

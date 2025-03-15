@@ -1562,6 +1562,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1100756409}
   - component: {fileID: 1100756410}
+  - component: {fileID: 1100756411}
   m_Layer: 5
   m_Name: MusicToggle
   m_TagString: Untagged
@@ -1637,9 +1638,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1285335163}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnMusicToggleChanged
+      - m_Target: {fileID: 1100756411}
+        m_TargetAssemblyTypeName: Anim_Trigger, Assembly-CSharp
+        m_MethodName: SwitchOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1650,6 +1651,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1100756411
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1100756408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List:
+  - {fileID: 1477670057}
 --- !u!1 &1107407699
 GameObject:
   m_ObjectHideFlags: 0
@@ -1904,6 +1919,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1232688144}
   - component: {fileID: 1232688145}
+  - component: {fileID: 1232688146}
   m_Layer: 5
   m_Name: SeToggle
   m_TagString: Untagged
@@ -1979,9 +1995,9 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1285335163}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: OnMusicToggleChanged_2
+      - m_Target: {fileID: 1232688146}
+        m_TargetAssemblyTypeName: Anim_Trigger, Assembly-CSharp
+        m_MethodName: SwitchOnOff
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1992,6 +2008,20 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   m_IsOn: 0
+--- !u!114 &1232688146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232688143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  List:
+  - {fileID: 53774179}
 --- !u!1 &1259399399
 GameObject:
   m_ObjectHideFlags: 0
@@ -2190,10 +2220,6 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Display: {fileID: 0}
   Operation: {fileID: 0}
-  volumeSlider_1: {fileID: 1477670057}
-  isOn: 0
-  volumeSlider_2: {fileID: 53774179}
-  isOn_2: 0
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
   audioMixer_2: {fileID: 24100000, guid: 317d300cd24a1974191b52009ce18deb, type: 2}
 --- !u!1 &1333524834

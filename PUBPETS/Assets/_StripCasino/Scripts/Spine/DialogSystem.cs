@@ -26,10 +26,13 @@ public class DialogSystem : MonoBehaviour
 
     private void OnEnable()
     {
+        //读取textSpeed
+
+        textSpeed = PlayerPrefs.GetFloat("TextSpeed");
+
         Invoke("Read", 0.1f);
 
     }//一开始不会产生空白，OnEnable会在Start之前，Awake之后被调用
-
 
     public void ForceEndDialogue()
     {
