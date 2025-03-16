@@ -54,7 +54,7 @@ public class UIManager : MonoBehaviour
         //Debug.Log("目前储存的Back按键设置: " + PlayerPrefs.GetString("KeyBindings_Back"));
         //Debug.Log("目前是否有存档" + PlayerPrefs.GetInt("Story"));//0没有  1有
 
-        Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
+        //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
     }
 
     public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;
@@ -461,5 +461,102 @@ public class UIManager : MonoBehaviour
     }
     #endregion
 
+    /// <summary>
+    /// 頁面設置
+    /// </summary>
+    #region
+    [Header("画面显示方法")]
+    public GameObject DisplayMode_1;
+    public GameObject DisplayMode_2;
 
+    public bool isDisplayMode = false;
+
+    public void _DisplayMode()
+    {
+        isDisplayMode = !isDisplayMode;
+
+        if (isDisplayMode)
+        {
+            DisplayMode_1.SetActive(false);
+            DisplayMode_2.SetActive(true);
+        }
+        else 
+        {
+            DisplayMode_1.SetActive(true);
+            DisplayMode_2.SetActive(false);
+        }
+
+    }
+
+    [Header("自由改变游戏画面大小")]
+    public GameObject AllowedResizingGameWindow_1;
+    public GameObject AllowedResizingGameWindow_2;
+
+    public bool isAllowedResizingGameWindow = false;
+
+    public void _ResizingGameWindow()
+    {
+        isAllowedResizingGameWindow = !isAllowedResizingGameWindow;
+
+        if (isAllowedResizingGameWindow)
+        {
+            AllowedResizingGameWindow_1.SetActive(false);
+            AllowedResizingGameWindow_2.SetActive(true);
+        }
+        else
+        {
+            AllowedResizingGameWindow_1.SetActive(true);
+            AllowedResizingGameWindow_2.SetActive(false);
+        }
+
+    }
+
+    [Header("保持窗口处于最上方")]
+    public GameObject KeepWindowTop_1;
+    public GameObject KeepWindowTop_2;
+
+    public bool isKeepWindowTop = false;
+
+    public void _KeepWindowTop()
+    {
+        isKeepWindowTop = !isKeepWindowTop;
+
+        if (isKeepWindowTop)
+        {
+            KeepWindowTop_1.SetActive(false);
+            KeepWindowTop_2.SetActive(true);
+        }
+        else
+        {
+            KeepWindowTop_1.SetActive(true);
+            KeepWindowTop_2.SetActive(false);
+        }
+
+    }
+
+
+    [Header("允许后台运行")]
+    public GameObject AllowedBackgroundRunning_1;
+    public GameObject AllowedBackgroundRunning_2;
+
+    public bool isAllowedBackgroundRunning = false;
+
+    public void _AllowBackgroundRunning()
+    {
+        isAllowedBackgroundRunning = !isAllowedBackgroundRunning;
+
+        if (isAllowedBackgroundRunning)
+        {
+            AllowedBackgroundRunning_1.SetActive(false);
+            AllowedBackgroundRunning_2.SetActive(true);
+        }
+        else
+        {
+            AllowedBackgroundRunning_1.SetActive(true);
+            AllowedBackgroundRunning_2.SetActive(false);
+        }
+
+    }
+
+    #endregion
 }

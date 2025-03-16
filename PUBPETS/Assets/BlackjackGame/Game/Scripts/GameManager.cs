@@ -212,6 +212,11 @@ namespace Blackjack_Game
 
         public void EndGame()
         {
+
+            mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
+            ChangeViewButon.SetActive(true);
+
+
             print("Game Ended");
             ChangeGameState(GameState.OnRewards);
 
@@ -305,12 +310,27 @@ namespace Blackjack_Game
             table.Cleanup();
             ChangeGameState(GameState.OnIdle);
             GameActive = false;
+
+
         }
+
+
 
         private void ChangeGameState(GameState newState)
         {
             State = newState;
             _ui.ChangeByGameState(State);
+        }
+
+
+
+        [Header("摄像头")]
+        public Animator mainCamera;
+        public GameObject ChangeViewButon;
+        public void ChangeViewBack()
+        {
+            ChangeViewButon.SetActive(false);
+            mainCamera.SetInteger("ChangeView", 0);//摄像头转回
         }
     }
 }
