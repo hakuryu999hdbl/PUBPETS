@@ -1,9 +1,24 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Anim_Trigger : MonoBehaviour
 {
+    Button myButton;
+    void Start()
+    {
+        myButton = GetComponent<Button>();
+        myButton.onClick.AddListener(OnButtonClick);
+    }
+    void OnButtonClick()
+    {
+        myButton.OnDeselect(null);
+        Debug.Log("按钮被点击！");
+    }
+
+
     public void ButtonVoice() 
     {
         AudioManager_2.SoundPlay(1);//手动SE音频替换
