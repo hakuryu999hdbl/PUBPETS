@@ -9,13 +9,13 @@ public class Anim_Trigger : MonoBehaviour
     Button myButton;
     void Start()
     {
-        myButton = GetComponent<Button>();
-        myButton.onClick.AddListener(OnButtonClick);
+       // myButton = GetComponent<Button>();
+       // myButton.onClick.AddListener(OnButtonClick);
     }
     void OnButtonClick()
     {
-        myButton.OnDeselect(null);
-        Debug.Log("按钮被点击！");
+       // myButton.OnDeselect(null);
+       // Debug.Log("按钮被点击！");
     }
 
 
