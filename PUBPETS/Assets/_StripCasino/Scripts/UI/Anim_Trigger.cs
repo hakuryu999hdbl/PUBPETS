@@ -9,17 +9,27 @@ public class Anim_Trigger : MonoBehaviour
     Button myButton;
     void Start()
     {
-       // myButton = GetComponent<Button>();
-       // myButton.onClick.AddListener(OnButtonClick);
+        myButton = GetComponent<Button>();
+        if (myButton != null)
+        {
+            myButton.onClick.AddListener(OnButtonClick);
+        }
     }
     void OnButtonClick()
     {
-       // myButton.OnDeselect(null);
-       // Debug.Log("按钮被点击！");
+        if (myButton != null)
+        {
+            myButton.OnDeselect(null);
+            //Debug.Log("按钮被点击！");
+        }
+      
     }
 
-
-    public void ButtonVoice() 
+    public void ChipVoice()
+    {
+        AudioManager_2.SoundPlay(0);//手动SE音频替换
+    }
+    public void ButtonVoice()
     {
         AudioManager_2.SoundPlay(1);//手动SE音频替换
     }
@@ -27,7 +37,7 @@ public class Anim_Trigger : MonoBehaviour
     {
         AudioManager_2.SoundPlay(4);//手动SE音频替换
     }
-    public void SetActiveFalse() 
+    public void SetActiveFalse()
     {
         gameObject.SetActive(false);
     }
@@ -37,7 +47,7 @@ public class Anim_Trigger : MonoBehaviour
 
     bool isOn = false;
 
-    public void SwitchOnOff() 
+    public void SwitchOnOff()
     {
         isOn = !isOn;
 

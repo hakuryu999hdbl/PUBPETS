@@ -442,7 +442,7 @@ public class UIManager : MonoBehaviour
 
 
     /// <summary>
-    /// 跳转网页
+    /// 跳转网页/退出游戏
     /// </summary>
     #region
     public void OpenURL_Patreon()
@@ -459,10 +459,20 @@ public class UIManager : MonoBehaviour
     {
         Application.OpenURL("https://store.steampowered.com/");
     }
+
+    public void ExitGame()
+    {
+        Debug.Log("Exiting game...");
+
+        Application.Quit();
+    }
+
     #endregion
 
+
+
     /// <summary>
-    /// 頁面設置
+    /// 頁面設置UI显示
     /// </summary>
     #region
     [Header("画面显示方法")]
@@ -479,11 +489,21 @@ public class UIManager : MonoBehaviour
         {
             DisplayMode_1.SetActive(false);
             DisplayMode_2.SetActive(true);
+
+            
+            Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
+
+
+           
         }
         else 
         {
             DisplayMode_1.SetActive(true);
             DisplayMode_2.SetActive(false);
+
+            
+            Screen.SetResolution(1280, 720, false);//设置为1280 * 720不全屏
+           
         }
 
     }
@@ -502,11 +522,17 @@ public class UIManager : MonoBehaviour
         {
             AllowedResizingGameWindow_1.SetActive(false);
             AllowedResizingGameWindow_2.SetActive(true);
+
+            Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率
+            Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+            Screen.fullScreen = true;  //设置成全屏
         }
         else
         {
             AllowedResizingGameWindow_1.SetActive(true);
             AllowedResizingGameWindow_2.SetActive(false);
+
+            Screen.fullScreen = false;  //退出全屏  
         }
 
     }

@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+
 namespace Blackjack_Game
 {
     public enum GameState
@@ -213,9 +215,7 @@ namespace Blackjack_Game
         public void EndGame()
         {
 
-            mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
-            ChangeViewButon.SetActive(true);
-
+            ChangeView();//游戏结束时触发哪些
 
             print("Game Ended");
             ChangeGameState(GameState.OnRewards);
@@ -322,15 +322,151 @@ namespace Blackjack_Game
             _ui.ChangeByGameState(State);
         }
 
+        /// <summary>
+        /// 游戏结束时镜头转向女荷官
+        /// </summary>
+        #region
 
-
-        [Header("摄像头")]
+        [Header("摄像头/桌子变淡动画器")]
         public Animator mainCamera;
+        public Animator TableAnim;
+
+ 
         public GameObject ChangeViewButon;
+
+        public void ChangeView()
+        {
+            StartCoroutine(ShowRandomGuestsSequentially());//展示客人骚话
+
+            mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
+            ChangeViewButon.SetActive(true);
+            TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
+
+
+
+            Invoke("StartDialog", 2f);
+        }
+
+        void StartDialog() 
+        {
+            if (!isDisplaying) // 如果当前女荷官垃圾话未显示，开始显示
+            {
+                isDisplaying = true;
+                StartCoroutine(DisplayRandomDialogue());
+            }
+        }
+
         public void ChangeViewBack()
         {
+            HideAllGuests();//隐藏客人骚话
+
             ChangeViewButon.SetActive(false);
             mainCamera.SetInteger("ChangeView", 0);//摄像头转回
+
+            TableAnim.SetInteger("ChangeColor", 0);//桌子强制变回颜色
+
+
+            // 停止显示女荷官垃圾话对话框
+            isDisplaying = false;
+            foreach (var diagol in Diagol)
+            {
+                diagol.SetActive(false);
+            }
         }
+        #endregion
+
+
+        /// <summary>
+        /// 随机显示客人骚话
+        /// </summary>
+        #region
+        [Header("客人列表")]
+        public List<GameObject> Guests = new List<GameObject>();
+
+        // 隐藏所有游戏对象
+        public void HideAllGuests()
+        {
+            foreach (var guest in Guests)
+            {
+                guest.SetActive(false);
+            }
+        }
+
+        // 随机显示一部分游戏对象，每隔一秒显示一个
+        public IEnumerator ShowRandomGuestsSequentially()
+        {
+            HideAllGuests();  // 首先隐藏所有游戏对象
+
+            // 随机决定显示的数量
+            int numberToShow = Random.Range(1, Guests.Count + 1);
+
+            // 随机排序列表
+            List<GameObject> shuffledGuests = new List<GameObject>(Guests);
+            Shuffle(shuffledGuests);
+
+            // 取出要显示的游戏对象部分
+            List<GameObject> guestsToShow = shuffledGuests.GetRange(0, numberToShow);
+
+            // 逐个显示，每个间隔一秒
+            foreach (var guest in guestsToShow)
+            {
+                guest.SetActive(true);
+                yield return new WaitForSeconds(1); // 等待一秒
+            }
+        }
+
+        // 随机排序列表
+        private void Shuffle(List<GameObject> list)
+        {
+            for (int i = list.Count - 1; i > 0; i--)
+            {
+                int swapIndex = Random.Range(0, i + 1);
+                GameObject temp = list[i];
+                list[i] = list[swapIndex];
+                list[swapIndex] = temp;
+            }
+        }
+
+        #endregion
+
+
+        /// <summary>
+        /// 随机显示女荷官垃圾话
+        /// </summary>
+        #region
+
+        [Header("女荷官垃圾话列表")]
+        public List<GameObject> Diagol = new List<GameObject>();
+        public float displayInterval = 5.0f; // 显示每个对话框的时间间隔
+        private GameObject currentDisplayedDialogue; // 当前显示的对话框
+
+        private bool isDisplaying = false; // 控制显示对话的状态
+        IEnumerator DisplayRandomDialogue()
+        {
+            while (isDisplaying) // 只有在isDisplaying为true时才运行
+            {
+                if (currentDisplayedDialogue != null)
+                {
+                    currentDisplayedDialogue.SetActive(false); // 隐藏当前显示的对话框
+                }
+
+                // 随机选择一个对话框并显示
+                int randomIndex = Random.Range(0, Diagol.Count);
+                currentDisplayedDialogue = Diagol[randomIndex];
+                currentDisplayedDialogue.SetActive(true);
+
+                // 等待指定的时间间隔
+                yield return new WaitForSeconds(displayInterval);
+            }
+
+            // 当停止显示时，确保所有对话框都被隐藏
+            if (currentDisplayedDialogue != null)
+            {
+                currentDisplayedDialogue.SetActive(false);
+            }
+        }
+
+
+        #endregion
     }
 }

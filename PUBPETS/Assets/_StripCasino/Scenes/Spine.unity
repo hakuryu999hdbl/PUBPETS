@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.46169513, g: 0.5124164, b: 0.58993304, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2220,8 +2220,30 @@ MonoBehaviour:
   Audio: {fileID: 0}
   Display: {fileID: 0}
   Operation: {fileID: 0}
+  textSpeedSlider: {fileID: 0}
+  MakeSureStartNewGameMenu: {fileID: 0}
+  LoadGame: {fileID: 0}
+  LoadingImage: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
   audioMixer_2: {fileID: 24100000, guid: 317d300cd24a1974191b52009ce18deb, type: 2}
+  keybindText_Hit: {fileID: 0}
+  keybindText_Stand: {fileID: 0}
+  keybindText_DoubleDown: {fileID: 0}
+  keybindText_Skip: {fileID: 0}
+  keybindText_Confirm: {fileID: 0}
+  keybindText_Back: {fileID: 0}
+  DisplayMode_1: {fileID: 0}
+  DisplayMode_2: {fileID: 0}
+  isDisplayMode: 0
+  AllowedResizingGameWindow_1: {fileID: 0}
+  AllowedResizingGameWindow_2: {fileID: 0}
+  isAllowedResizingGameWindow: 0
+  KeepWindowTop_1: {fileID: 0}
+  KeepWindowTop_2: {fileID: 0}
+  isKeepWindowTop: 0
+  AllowedBackgroundRunning_1: {fileID: 0}
+  AllowedBackgroundRunning_2: {fileID: 0}
+  isAllowedBackgroundRunning: 0
 --- !u!1 &1333524834
 GameObject:
   m_ObjectHideFlags: 0
