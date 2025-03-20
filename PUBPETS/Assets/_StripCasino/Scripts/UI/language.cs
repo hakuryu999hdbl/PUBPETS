@@ -15,7 +15,7 @@ public class language : MonoBehaviour
     public string E;
     public string K;
 
-    void Start()
+    public void OnEnable()
     {
         Text=GetComponent<Text>();
 

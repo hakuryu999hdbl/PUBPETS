@@ -26,6 +26,21 @@ namespace Blackjack_Game
                     });
         }
 
+        //手动修改，卡牌从正面翻回背面
+        public delegate void CardConceal();
+        public void Conceal(CardConceal concealCallback)
+        {
+            side = FlipType.FlipDown;
+            DOTween.Sequence()
+                .Append(transform.DOLocalJump(transform.localPosition, .03f, 1, .6f))
+                .Join(transform.DOLocalRotate(new Vector3(180, 180, 0), .6f))
+                .OnComplete(() =>
+                {
+                    concealCallback();
+                    DealQueue.CheckDealing();
+                });
+        }
+
         public void MoveTo(Vector3 target)
         {
             DOTween.Sequence()

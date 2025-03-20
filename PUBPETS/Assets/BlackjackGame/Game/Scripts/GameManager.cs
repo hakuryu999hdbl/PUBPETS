@@ -331,7 +331,7 @@ namespace Blackjack_Game
         public Animator mainCamera;
         public Animator TableAnim;
 
- 
+
         public GameObject ChangeViewButon;
 
         public void ChangeView()
@@ -344,17 +344,9 @@ namespace Blackjack_Game
 
 
 
-            Invoke("StartDialog", 2f);
+            Invoke("StartDialog", 2f);//显示女荷官垃圾话
         }
 
-        void StartDialog() 
-        {
-            if (!isDisplaying) // 如果当前女荷官垃圾话未显示，开始显示
-            {
-                isDisplaying = true;
-                StartCoroutine(DisplayRandomDialogue());
-            }
-        }
 
         public void ChangeViewBack()
         {
@@ -367,11 +359,7 @@ namespace Blackjack_Game
 
 
             // 停止显示女荷官垃圾话对话框
-            isDisplaying = false;
-            foreach (var diagol in Diagol)
-            {
-                diagol.SetActive(false);
-            }
+            OverDialog();
         }
         #endregion
 
@@ -437,36 +425,45 @@ namespace Blackjack_Game
 
         [Header("女荷官垃圾话列表")]
         public List<GameObject> Diagol = new List<GameObject>();
-        public float displayInterval = 5.0f; // 显示每个对话框的时间间隔
         private GameObject currentDisplayedDialogue; // 当前显示的对话框
 
-        private bool isDisplaying = false; // 控制显示对话的状态
-        IEnumerator DisplayRandomDialogue()
+
+
+        void StartDialog()
         {
-            while (isDisplaying) // 只有在isDisplaying为true时才运行
+            // 随机选择一个对话框并显示
+            int randomIndex = Random.Range(0, Diagol.Count);
+            currentDisplayedDialogue = Diagol[randomIndex];
+            currentDisplayedDialogue.SetActive(true);
+        }
+
+        void OverDialog() 
+        {
+            foreach (var diagol in Diagol)
             {
-                if (currentDisplayedDialogue != null)
-                {
-                    currentDisplayedDialogue.SetActive(false); // 隐藏当前显示的对话框
-                }
-
-                // 随机选择一个对话框并显示
-                int randomIndex = Random.Range(0, Diagol.Count);
-                currentDisplayedDialogue = Diagol[randomIndex];
-                currentDisplayedDialogue.SetActive(true);
-
-                // 等待指定的时间间隔
-                yield return new WaitForSeconds(displayInterval);
-            }
-
-            // 当停止显示时，确保所有对话框都被隐藏
-            if (currentDisplayedDialogue != null)
-            {
-                currentDisplayedDialogue.SetActive(false);
+                diagol.SetActive(false);
             }
         }
 
+        #endregion
 
+
+        /// <summary>
+        /// 物品栏
+        /// </summary>
+        #region
+
+        public void Item_ViewCard() 
+        {
+            dealer.ConcealCard();
+        }
+        public MeshFilter ShowCard;
+        public void Item_ViewNextCard() 
+        {
+            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
+            ShowCard.mesh = nextCard.GetMesh();
+
+        }
         #endregion
     }
 }

@@ -29,6 +29,19 @@ namespace Blackjack_Game
             hand.GetSecondCard().Reveal(() => { hand.CalculateScore(); hand.UpdateScoreView(); });
         }
 
+        public void ConcealCard()
+        {
+            hand.GetSecondCard().Reveal(() => { Debug.Log(""); });
+
+            Invoke("Conceal", 1f);
+
+        }//手动修改，将卡翻回背面
+
+        void Conceal() 
+        {
+            hand.GetSecondCard().Conceal(() => { Debug.Log(""); });
+        }
+
         public GameObject DealCard(CardData card, FlipType flip)
         {
             return hand.DealCard(card, flip);
