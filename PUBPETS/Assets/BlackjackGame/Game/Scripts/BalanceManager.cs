@@ -28,6 +28,13 @@ namespace Blackjack_Game
 
         public static void ChangeBalance(float value)
         {
+
+            if (value>0&& GameManager.GameActive)//只有游戲中活得籌碼才可以改變生命值
+            {
+                GameManager.ChangeHealth(-value);
+            }
+           
+
             _Instance.balance += value;
             //_Instance.balanceText.text = "<color=yellow>Balance</color> " + _Instance.balance.ToString();
             _Instance.balanceText.text = _Instance.balance.ToString();
@@ -35,6 +42,8 @@ namespace Blackjack_Game
 
             PlayerPrefs.SetFloat("BalanceKey", _Instance.balance);
             Debug.Log("黑杰克【赌博/押注】完成，目前储存的余额数量" + _Instance.balance);
+
+
         }
 
 

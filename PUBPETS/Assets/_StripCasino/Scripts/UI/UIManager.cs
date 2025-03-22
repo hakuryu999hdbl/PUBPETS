@@ -55,6 +55,8 @@ public class UIManager : MonoBehaviour
         //Debug.Log("目前是否有存档" + PlayerPrefs.GetInt("Story"));//0没有  1有
 
         //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
+
+       
     }
 
     public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;

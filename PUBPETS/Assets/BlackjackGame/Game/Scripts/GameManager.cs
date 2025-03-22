@@ -1,6 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
+using JetBrains.Annotations;
+using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Blackjack_Game
 {
@@ -70,6 +75,7 @@ namespace Blackjack_Game
 
         public void OnClickStand()
         {
+
             StandPlayerHand();
         }
 
@@ -160,6 +166,7 @@ namespace Blackjack_Game
 
         public void CheckStatus()
         {
+
             _ui.PlayingState(player, State == GameState.OnDealing);
 
             if (DealQueue.processing) return;
@@ -336,6 +343,14 @@ namespace Blackjack_Game
 
         public void ChangeView()
         {
+            if (SameScore) { dealer.hand.SetScore(player.Score); SameScore = false; }//女荷官强制变成玩家点数
+            if (SaveScore&& player.Score>21)
+            {
+                Debug.Log("【救場：点数超过21，强制削减随机3~5】");
+                player.hand.ChangeScore(-Random.Range(3,6)); 
+            }// 点数超过21，强制削减随机3~5
+            SaveScore = false;
+
             StartCoroutine(ShowRandomGuestsSequentially());//展示客人骚话
 
             mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
@@ -345,6 +360,9 @@ namespace Blackjack_Game
 
 
             Invoke("StartDialog", 2f);//显示女荷官垃圾话
+
+
+            player.hand.CheatNumber = 0;//作弊點數清零
         }
 
 
@@ -449,21 +467,174 @@ namespace Blackjack_Game
 
 
         /// <summary>
-        /// 物品栏
+        /// 物品栏和筹码栏
         /// </summary>
         #region
-
-        public void Item_ViewCard() 
+        [Header("物品栏和筹码栏")]
+        public Animator ChipBox;
+        bool ChipBoxisClosed = false;
+        public void ChipBoxTrigger() 
         {
-            dealer.ConcealCard();
+            AudioManager.SoundPlay(1);
+
+            ChipBoxisClosed = !ChipBoxisClosed;
+
+            if (ChipBoxisClosed) 
+            {
+                ChipBox.SetInteger("Situation", 1);
+            } 
+            else
+            {
+                ChipBox.SetInteger("Situation", 0);
+            }
         }
-        public MeshFilter ShowCard;
-        public void Item_ViewNextCard() 
+
+       //public Animator ItemBox;
+       //bool ItemBoxisClosed = true;
+       //public void ItemBoxTrigger()
+       //{
+       //    AudioManager.SoundPlay(1);
+       //
+       //    ItemBoxisClosed = !ItemBoxisClosed;
+       //
+       //    if (ItemBoxisClosed)
+       //    {
+       //        ItemBox.SetInteger("Situation", 0);
+       //    }
+       //    else
+       //    {
+       //        ItemBox.SetInteger("Situation", 1);
+       //    }
+       //}
+       
+       public void Item_ViewCard() 
+       {
+           dealer.ConcealCard();
+       }//看女荷官的盖牌
+       public MeshFilter ShowCard;
+       public void Item_ViewNextCard() 
+       {
+           CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
+           ShowCard.gameObject.SetActive(true);
+           ShowCard.mesh = nextCard.GetMesh();
+       
+       }//看你的下一张卡
+
+        public void Item_ChangePlayerScore() 
         {
-            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
-            ShowCard.mesh = nextCard.GetMesh();
+            if (Random.Range(0, 2) == 0)
+            {
+                player.hand.ChangeScore(-1);
+            }
+            else
+            {
+                player.hand.ChangeScore(1);
+            }
+        }//修改你的点数
+
+        public void Item_ChangeFemaleDealerScore()
+        {
+            if (Random.Range(0, 2) == 0)
+            {
+                dealer.hand.ChangeScore(-1);
+            }
+            else
+            {
+                dealer.hand.ChangeScore(1);
+            }
+          
+
+        }//修改女荷官点数
+
+        public void Item_RandomDoubleScore() 
+        {
+          
+            if (Random.Range(0, 2) == 0)
+            {
+                player.hand.ChangeScore(player.Score);
+            }
+            else
+            {
+                dealer.hand.ChangeScore(dealer.Score);
+            }
+        }//双方随机一方双倍
+
+        bool SameScore = false;
+        public void Item_SameScore()
+        {
+            SameScore = true;
+        }// 强制平局
+
+        bool SaveScore = false;
+        public void Item_SaveScore()
+        {
+            SaveScore = true;
+        }// 点数超过21，强制削减随机3~5
+
+        #endregion
+
+
+
+        /// <summary>
+        /// 关卡与女荷官生命值
+        /// </summary>
+        #region
+        [Header("女荷官生命值")]
+        public Text healthText;
+        public Image healthFillImage;
+        public float maxHealth = 1000f;
+        private float currentHealth;
+
+        public Text Lv_Anto;
+
+        void Start()
+        {
+            Debug.Log("目前储存的关卡进度_安托" + PlayerPrefs.GetInt("Story_Anto"));
+            if (PlayerPrefs.GetInt("Story_Anto") <= 0) { PlayerPrefs.SetInt("Story_Anto", 1); }
+
+            //检测安托等级
+            Lv_Anto.text = PlayerPrefs.GetInt("Story_Anto").ToString();
+            maxHealth = PlayerPrefs.GetInt("Story_Anto") * 1000;
+
+            currentHealth = maxHealth;
+            UpdateFill();
 
         }
+
+        public static void ChangeHealth(float amount)
+        {
+
+            _Instance.currentHealth += amount;
+            _Instance.currentHealth = Mathf.Clamp(_Instance.currentHealth, 0, _Instance.maxHealth);
+            _Instance.UpdateFill();
+
+
+            if (_Instance.currentHealth<=0) 
+            {
+                _Instance.Invoke("ShowWINButton", 1f);
+            }
+
+        }
+
+        void UpdateFill()
+        {
+            healthFillImage.fillAmount = currentHealth / maxHealth;
+            healthText.text = $"{currentHealth} / {maxHealth}";
+        }
+
+        public UIManager UIManager;
+        public GameObject WinButton;
+        void ShowWINButton() 
+        {
+            WinButton.SetActive(true);
+            int currentLV = PlayerPrefs.GetInt("Story_Anto");
+            PlayerPrefs.SetInt("Story_Anto", currentLV += 1);
+        }
+        public void ReLoadScene()
+        {
+            UIManager.LoadingGame();
+        }
+
         #endregion
     }
 }

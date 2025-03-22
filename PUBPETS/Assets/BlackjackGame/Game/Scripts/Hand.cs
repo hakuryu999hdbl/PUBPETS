@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
+using Baccarat_Game;
 namespace Blackjack_Game
 {
     public enum Outcome { Win, NoWin, Push, Bust, Blackjack }
@@ -276,6 +277,10 @@ namespace Blackjack_Game
                     currentScore++;
                 }
             }
+
+            //最後結算增加作弊數字
+            currentScore += CheatNumber;
+
         }
 
         public bool MightHave21()
@@ -334,6 +339,63 @@ namespace Blackjack_Game
             Gizmos.DrawWireCube(transform.position, new Vector3(.12f, .005f, .15f));
             Gizmos.color = Color.yellow;
             Gizmos.DrawWireCube(transform.position + cardShift, new Vector3(.12f, .005f, .15f));
+        }
+
+        //手动修改
+        public void SetScore(int score) 
+        {
+            currentScore = score;
+            diminishedScore = score;
+
+            ShowNumber();
+        }//设置点数
+
+        public int CheatNumber;//作弊點數
+        public void ChangeScore(int score) 
+        {
+            CheatNumber += score;
+            currentScore += score;
+            diminishedScore += score;
+
+            ShowNumber();
+
+        }//增加点数
+
+        void ShowNumber() 
+        {
+            // 限制分数不能为负
+            currentScore = Mathf.Max(currentScore, 0);
+
+            // 刷新界面
+            scoreOutput.text = currentScore.ToString();
+
+            //黑桃数字变化
+            if (currentScore < 21)
+                scoreOutput.color = Color.white;
+            else
+                scoreOutput.color = currentScore == 21 ? Color.yellow : Color.red;
+
+            scorePanel.SetActive(true);
+
+            if (Check_Blackjack())
+            {
+                scoreOutput.text = "BJ";
+                scoreOutput.fontSize = .55f;
+                return;
+            }
+
+            //if (diminishedScore > 0 && currentScore != 21 && currentScore != diminishedScore)
+            //{
+            //    scoreOutput.text = diminishedScore.ToString("0") + "/" + currentScore.ToString("0");
+            //    scoreOutput.fontSize = .35f;
+            //}
+            //else
+            //{
+            //    scoreOutput.text = currentScore.ToString("0");
+            //    scoreOutput.fontSize = .55f;
+            //}
+
+            //Debug.Log("ChangeScore"+ currentScore);
         }
     }
 }
