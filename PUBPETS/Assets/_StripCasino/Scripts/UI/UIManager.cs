@@ -269,8 +269,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            keybindText_Hit.text = "U";
-            PlayerPrefs.SetString("KeyBindings_Hit", "U");
+            keybindText_Hit.text = "Space";
+            PlayerPrefs.SetString("KeyBindings_Hit", "Space");
         }
 
         // Stand
@@ -410,8 +410,8 @@ public class UIManager : MonoBehaviour
 
     public void ResetButton()
     {
-        keybindText_Hit.text = "U";
-        PlayerPrefs.SetString("KeyBindings_Hit", "U");
+        keybindText_Hit.text = "Space";
+        PlayerPrefs.SetString("KeyBindings_Hit", "Space");
 
         keybindText_Stand.text = "S";
         PlayerPrefs.SetString("KeyBindings_Stand", "S");

@@ -489,23 +489,27 @@ namespace Blackjack_Game
             }
         }
 
-       //public Animator ItemBox;
-       //bool ItemBoxisClosed = true;
-       //public void ItemBoxTrigger()
-       //{
-       //    AudioManager.SoundPlay(1);
-       //
-       //    ItemBoxisClosed = !ItemBoxisClosed;
-       //
-       //    if (ItemBoxisClosed)
-       //    {
-       //        ItemBox.SetInteger("Situation", 0);
-       //    }
-       //    else
-       //    {
-       //        ItemBox.SetInteger("Situation", 1);
-       //    }
-       //}
+        //public Animator ItemBox;
+        public Image ItemBox;
+        public Sprite Box_Close, Box_Open;
+       bool ItemBoxisClosed = true;
+       public void ItemBoxTrigger()
+       {
+           AudioManager.SoundPlay(0);
+       
+           ItemBoxisClosed = !ItemBoxisClosed;
+       
+           if (ItemBoxisClosed)
+           {
+                ItemBox.sprite = Box_Close;
+               //ItemBox.SetInteger("Situation", 0);
+           }
+           else
+           {
+                ItemBox.sprite = Box_Open;
+                //ItemBox.SetInteger("Situation", 1);
+            }
+       }
        
        public void Item_ViewCard() 
        {
@@ -635,6 +639,45 @@ namespace Blackjack_Game
             UIManager.LoadingGame();
         }
 
+        #endregion
+
+
+        /// <summary>
+        /// 设置好的快捷键触发
+        /// </summary>
+        #region
+
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space)) 
+            {
+                OnClickDeal();//下注完成或者拿牌
+            }
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                OnClickStand();//站牌
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                OnClickDouble();//双倍
+            }
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                OnClickSplit();//分牌
+            }
+
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                BetHistoryManager._Instance.Undo();
+                //取消
+            }
+
+            if (Input.GetKeyDown(KeyCode.X))
+            {
+                BetHistoryManager._Instance.ClearHistory();
+                //清除
+            }
+        }
         #endregion
     }
 }
