@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using JetBrains.Annotations;
 using UnityEngine.SceneManagement;
 using UnityEngine.SocialPlatforms.Impl;
-using static UnityEditor.Experimental.GraphView.GraphView;
+//using static UnityEditor.Experimental.GraphView.GraphView;
 
 namespace Blackjack_Game
 {
@@ -66,10 +66,14 @@ namespace Blackjack_Game
             if (State == GameState.OnIdle)
             {
                 StartCoroutine(InitialDeal());
+
+                ChipBox.SetInteger("Situation", 1);//开赌后筹码消失
             }
             else
             {
                 StartCoroutine(PlayerDeal());
+
+                
             }
         }
 
@@ -378,6 +382,10 @@ namespace Blackjack_Game
 
             // 停止显示女荷官垃圾话对话框
             OverDialog();
+
+
+
+            ChipBox.SetInteger("Situation", 0);//筹码出现
         }
         #endregion
 
@@ -649,30 +657,30 @@ namespace Blackjack_Game
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.A)&& _ui.dealButton.interactable==true) 
             {
                 OnClickDeal();//下注完成或者拿牌
             }
-            if (Input.GetKeyDown(KeyCode.S))
+            if (Input.GetKeyDown(KeyCode.S) && _ui.standButton.interactable == true)
             {
                 OnClickStand();//站牌
             }
-            if (Input.GetKeyDown(KeyCode.D))
+            if (Input.GetKeyDown(KeyCode.D) && _ui.doubleButton.interactable == true)
             {
                 OnClickDouble();//双倍
             }
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(KeyCode.F) && _ui.splitButton.interactable == true)
             {
                 OnClickSplit();//分牌
             }
 
-            if (Input.GetKeyDown(KeyCode.Z))
+            if (Input.GetKeyDown(KeyCode.Z) && _ui.undoButton.interactable == true)
             {
                 BetHistoryManager._Instance.Undo();
                 //取消
             }
 
-            if (Input.GetKeyDown(KeyCode.X))
+            if (Input.GetKeyDown(KeyCode.X) && _ui.clearButton.interactable == true)
             {
                 BetHistoryManager._Instance.ClearHistory();
                 //清除

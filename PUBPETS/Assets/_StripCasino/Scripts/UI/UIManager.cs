@@ -40,6 +40,40 @@ public class UIManager : MonoBehaviour
             //}//检测文字加载速度，默认为0.05f
 
 
+
+            if (PlayerPrefs.GetInt("Setting_Windows") == 0)
+            {
+                isDisplayMode = true; // 全屏
+            }//检测当前的画面设置
+            DisplayMode();
+
+
+            if (isDisplayMode)
+            {
+                if (PlayerPrefs.GetInt("Setting_ResolutionWindows") == 0)
+                {
+                    isAllowedResizingGameWindow = true; // 全屏
+                }//检测当前是否基于当前分辨率全屏
+                ResizingGameWindow();
+
+            }
+            else 
+            {
+                if (PlayerPrefs.GetInt("Setting_WindowedCurrentResolution") == 0)
+                {
+                    isWindowedCurrentResolution = true; // 窗口
+                }//检测当前是否基于当前分辨率全屏
+                WindowedCurrentResolution();
+            }
+          
+           
+
+            if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
+            {
+                isAllowedBackgroundRunning = true; // 允许
+            }//检测允许游戏在后台运行
+            AllowBackgroundRunning();
+
         }//主菜单的设置
 
 
@@ -56,7 +90,10 @@ public class UIManager : MonoBehaviour
 
         //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
-       
+        Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
+        Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
+        Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
+        Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
     }
 
     public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;
@@ -269,8 +306,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            keybindText_Hit.text = "Space";
-            PlayerPrefs.SetString("KeyBindings_Hit", "Space");
+            keybindText_Hit.text = "A";
+            PlayerPrefs.SetString("KeyBindings_Hit", "A");
         }
 
         // Stand
@@ -291,8 +328,8 @@ public class UIManager : MonoBehaviour
         }
         else
         {
-            keybindText_DoubleDown.text = "O";
-            PlayerPrefs.SetString("KeyBindings_DoubleDown", "O");
+            keybindText_DoubleDown.text = "D";
+            PlayerPrefs.SetString("KeyBindings_DoubleDown", "D");
         }
 
         // Skip
@@ -410,14 +447,14 @@ public class UIManager : MonoBehaviour
 
     public void ResetButton()
     {
-        keybindText_Hit.text = "Space";
-        PlayerPrefs.SetString("KeyBindings_Hit", "Space");
+        keybindText_Hit.text = "A";
+        PlayerPrefs.SetString("KeyBindings_Hit", "A");
 
         keybindText_Stand.text = "S";
         PlayerPrefs.SetString("KeyBindings_Stand", "S");
 
-        keybindText_DoubleDown.text = "O";
-        PlayerPrefs.SetString("KeyBindings_DoubleDown", "O");
+        keybindText_DoubleDown.text = "D";
+        PlayerPrefs.SetString("KeyBindings_DoubleDown", "D");
 
         keybindText_Skip.text = "LeftShift";
         PlayerPrefs.SetString("KeyBindings_Skip", "LeftShift");
@@ -481,83 +518,120 @@ public class UIManager : MonoBehaviour
     public GameObject DisplayMode_1;
     public GameObject DisplayMode_2;
 
-    public bool isDisplayMode = false;
+    public bool isDisplayMode = true;//是否全屏
+
 
     public void _DisplayMode()
     {
         isDisplayMode = !isDisplayMode;
-
+        DisplayMode();
+    }
+    void DisplayMode()
+    {
         if (isDisplayMode)
+        {
+
+            DisplayMode_1.SetActive(true);
+            DisplayMode_2.SetActive(false);
+
+            //Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
+            Screen.fullScreen = true;  //设置成全屏
+            PlayerPrefs.SetInt("Setting_Windows", 0);
+
+            AllowedResizingGameWindow.SetActive(true);//只有在全屏模式下可以选分辨率全屏
+            WindowedCurrent.SetActive(false);//只有在全屏模式下可以选分辨率窗口化
+        }
+        else
         {
             DisplayMode_1.SetActive(false);
             DisplayMode_2.SetActive(true);
 
-            
-            Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
 
+            //Screen.SetResolution(1280, 720, false);//设置为1280 * 720不全屏
+            Screen.fullScreen = false;  //退出全屏 
+            PlayerPrefs.SetInt("Setting_Windows", 1);
 
-           
-        }
-        else 
-        {
-            DisplayMode_1.SetActive(true);
-            DisplayMode_2.SetActive(false);
-
-            
-            Screen.SetResolution(1280, 720, false);//设置为1280 * 720不全屏
-           
+            AllowedResizingGameWindow.SetActive(false);//只有在全屏模式下可以选分辨率全屏
+            WindowedCurrent.SetActive(true);//只有在全屏模式下可以选分辨率窗口化
         }
 
     }
+    [Header("设置当前分辨率全屏")]
+    public GameObject AllowedResizingGameWindow;//只有在全屏模式下可以选
 
-    [Header("自由改变游戏画面大小")]
     public GameObject AllowedResizingGameWindow_1;
     public GameObject AllowedResizingGameWindow_2;
 
-    public bool isAllowedResizingGameWindow = false;
+    public bool isAllowedResizingGameWindow = true;
 
     public void _ResizingGameWindow()
     {
         isAllowedResizingGameWindow = !isAllowedResizingGameWindow;
 
-        if (isAllowedResizingGameWindow)
-        {
-            AllowedResizingGameWindow_1.SetActive(false);
-            AllowedResizingGameWindow_2.SetActive(true);
+        ResizingGameWindow();
+    }
 
-            Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率
-            Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
-            Screen.fullScreen = true;  //设置成全屏
-        }
-        else
+    void ResizingGameWindow()
+    {
+        if (isAllowedResizingGameWindow)
         {
             AllowedResizingGameWindow_1.SetActive(true);
             AllowedResizingGameWindow_2.SetActive(false);
 
-            Screen.fullScreen = false;  //退出全屏  
+            Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
+            Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+            Screen.fullScreen = true;  //设置成全屏
+
+            PlayerPrefs.SetInt("Setting_ResolutionWindows", 0);
+        }
+        else
+        {
+            AllowedResizingGameWindow_1.SetActive(false);
+            AllowedResizingGameWindow_2.SetActive(true);
+
+            Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
+
+            PlayerPrefs.SetInt("Setting_ResolutionWindows", 1);
         }
 
     }
 
-    [Header("保持窗口处于最上方")]
-    public GameObject KeepWindowTop_1;
-    public GameObject KeepWindowTop_2;
+    [Header("设置当前分辨率窗口化")]
+    public GameObject WindowedCurrent;
 
-    public bool isKeepWindowTop = false;
+    public GameObject WindowedCurrentResolution_1;
+    public GameObject WindowedCurrentResolution_2;
 
-    public void _KeepWindowTop()
+    public bool isWindowedCurrentResolution = false;
+
+    public void _WindowedCurrentResolution()
     {
-        isKeepWindowTop = !isKeepWindowTop;
+        isWindowedCurrentResolution = !isWindowedCurrentResolution;
 
-        if (isKeepWindowTop)
+        WindowedCurrentResolution();
+    }
+    public void WindowedCurrentResolution()
+    {
+
+        if (isWindowedCurrentResolution)
         {
-            KeepWindowTop_1.SetActive(false);
-            KeepWindowTop_2.SetActive(true);
+            WindowedCurrentResolution_1.SetActive(true);
+            WindowedCurrentResolution_2.SetActive(false);
+
+            Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
+            Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+            Screen.fullScreen = false;  //设置成窗口化
+
+            PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 0);
         }
         else
         {
-            KeepWindowTop_1.SetActive(true);
-            KeepWindowTop_2.SetActive(false);
+            WindowedCurrentResolution_1.SetActive(false);
+            WindowedCurrentResolution_2.SetActive(true);
+
+            Screen.SetResolution(1280, 720, false);//设置1280*720的全屏
+
+            PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 1);
         }
 
     }
@@ -567,24 +641,43 @@ public class UIManager : MonoBehaviour
     public GameObject AllowedBackgroundRunning_1;
     public GameObject AllowedBackgroundRunning_2;
 
-    public bool isAllowedBackgroundRunning = false;
+    public bool isAllowedBackgroundRunning = true;//默认允许
 
     public void _AllowBackgroundRunning()
     {
         isAllowedBackgroundRunning = !isAllowedBackgroundRunning;
 
+        AllowBackgroundRunning();
+
+    }
+
+    void AllowBackgroundRunning()
+    {
+       
         if (isAllowedBackgroundRunning)
         {
-            AllowedBackgroundRunning_1.SetActive(false);
-            AllowedBackgroundRunning_2.SetActive(true);
+
+            AllowedBackgroundRunning_1.SetActive(true);
+            AllowedBackgroundRunning_2.SetActive(false);
+
+            Application.runInBackground = true; // 允许游戏在后台运行
+            PlayerPrefs.SetInt("Setting_AllowBackgroundRunning", 0);
+
         }
         else
         {
-            AllowedBackgroundRunning_1.SetActive(true);
-            AllowedBackgroundRunning_2.SetActive(false);
+            AllowedBackgroundRunning_1.SetActive(false);
+            AllowedBackgroundRunning_2.SetActive(true);
+
+            Application.runInBackground = false; // 不允许游戏在后台运行
+            PlayerPrefs.SetInt("Setting_AllowBackgroundRunning", 1);
+
         }
 
     }
+
+  
+
 
     #endregion
 }
