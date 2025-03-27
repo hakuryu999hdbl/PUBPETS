@@ -55,7 +55,7 @@ public class language : MonoBehaviour
     }
 
     public bool isTyped = false;//是否需要这种打字效果
-    public float delay = 0.1f;   // 每个字的显示延迟时间
+    float delay = 0.05f;   // 每个字的显示延迟时间
 
     IEnumerator ShowText(string textToShow)
     {

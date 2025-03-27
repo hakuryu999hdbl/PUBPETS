@@ -68,12 +68,14 @@ namespace Blackjack_Game
                 StartCoroutine(InitialDeal());
 
                 ChipBox.SetInteger("Situation", 1);//开赌后筹码消失
+
+                TreasureBox.SetActive(true);//宝箱出现
             }
             else
             {
                 StartCoroutine(PlayerDeal());
 
-                
+
             }
         }
 
@@ -345,13 +347,15 @@ namespace Blackjack_Game
 
         public GameObject ChangeViewButon;
 
+        public GameObject TreasureBox;//宝箱
+
         public void ChangeView()
         {
             if (SameScore) { dealer.hand.SetScore(player.Score); SameScore = false; }//女荷官强制变成玩家点数
-            if (SaveScore&& player.Score>21)
+            if (SaveScore && player.Score > 21)
             {
                 Debug.Log("【救場：点数超过21，强制削减随机3~5】");
-                player.hand.ChangeScore(-Random.Range(3,6)); 
+                player.hand.ChangeScore(-Random.Range(3, 6));
             }// 点数超过21，强制削减随机3~5
             SaveScore = false;
 
@@ -367,6 +371,8 @@ namespace Blackjack_Game
 
 
             player.hand.CheatNumber = 0;//作弊點數清零
+
+            TreasureBox.SetActive(false);//宝箱消失
         }
 
 
@@ -463,7 +469,7 @@ namespace Blackjack_Game
             currentDisplayedDialogue.SetActive(true);
         }
 
-        void OverDialog() 
+        void OverDialog()
         {
             foreach (var diagol in Diagol)
             {
@@ -478,61 +484,106 @@ namespace Blackjack_Game
         /// 物品栏和筹码栏
         /// </summary>
         #region
-        [Header("物品栏和筹码栏")]
+        [Header("筹码栏")]
         public Animator ChipBox;
         bool ChipBoxisClosed = false;
-        public void ChipBoxTrigger() 
+        public void ChipBoxTrigger()
         {
             AudioManager.SoundPlay(1);
 
             ChipBoxisClosed = !ChipBoxisClosed;
 
-            if (ChipBoxisClosed) 
+            if (ChipBoxisClosed)
             {
                 ChipBox.SetInteger("Situation", 1);
-            } 
+            }
             else
             {
                 ChipBox.SetInteger("Situation", 0);
             }
         }
+        #endregion
 
-        //public Animator ItemBox;
-        public Image ItemBox;
-        public Sprite Box_Close, Box_Open;
-       bool ItemBoxisClosed = true;
-       public void ItemBoxTrigger()
-       {
-           AudioManager.SoundPlay(0);
-       
-           ItemBoxisClosed = !ItemBoxisClosed;
-       
-           if (ItemBoxisClosed)
-           {
-                ItemBox.sprite = Box_Close;
-               //ItemBox.SetInteger("Situation", 0);
-           }
-           else
-           {
-                ItemBox.sprite = Box_Open;
-                //ItemBox.SetInteger("Situation", 1);
+
+        /// <summary>
+        /// 使用物品
+        /// </summary>
+        #region
+        [Header("使用物品")]
+        public GameObject USE_Button;
+        public GameObject Item_Panel;
+        int CurrentItem;
+        public List<GameObject> List_Item_Light; // 使用List来存储多个物品选中
+        public List<GameObject> List_Item_Introduce; // 使用List来存储多个物品介绍
+        public void Item_Setting(int Item_Number) 
+        {
+            CurrentItem = Item_Number;
+
+            foreach (GameObject Light in List_Item_Light) 
+            {
+                Light.SetActive(false);
             }
-       }
-       
-       public void Item_ViewCard() 
-       {
-           dealer.ConcealCard();
-       }//看女荷官的盖牌
-       public MeshFilter ShowCard;
-       public void Item_ViewNextCard() 
-       {
-           CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
-           ShowCard.gameObject.SetActive(true);
-           ShowCard.mesh = nextCard.GetMesh();
-       
-       }//看你的下一张卡
+            foreach (GameObject Introduce in List_Item_Introduce)
+            {
+                Introduce.SetActive(false);
+            }
 
-        public void Item_ChangePlayerScore() 
+            List_Item_Light[Item_Number].SetActive(true);
+            List_Item_Introduce[Item_Number].SetActive(true);
+
+            AudioManager.SoundPlay(0);
+
+            USE_Button.SetActive(true);
+        }
+
+
+        public void _UseItem() 
+        {
+
+            switch (CurrentItem) 
+            {
+                case 0:
+                    Item_ViewCard();//看女荷官的盖牌
+                    break;
+                case 1:
+                    Item_ViewNextCard();//看你的下一张卡
+                    break;
+                case 2:
+                    Item_ChangePlayerScore();//修改你的点数
+                    break;
+                case 3:
+                    Item_ChangeFemaleDealerScore();//修改女荷官点数
+                    break;
+                case 4:
+                    Item_RandomDoubleScore();//双方随机一方双倍
+                    break;
+                case 5:
+                    Item_SameScore();//强制平局
+                    break;
+                case 6:
+                    Item_SaveScore();//点数超过21，强制削减随机3~5
+                    break;
+            }
+
+            Item_Panel.SetActive(false);
+        }
+
+
+
+        public void Item_ViewCard()
+        {
+            dealer.ConcealCard();
+        }//看女荷官的盖牌
+        public MeshFilter ShowCard;
+        public void Item_ViewNextCard()
+        {
+            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
+            ShowCard.gameObject.SetActive(true);
+            ShowCard.mesh = nextCard.GetMesh();
+
+        }//看你的下一张卡
+
+        public void Item_ChangePlayerScore()
         {
             if (Random.Range(0, 2) == 0)
             {
@@ -554,13 +605,13 @@ namespace Blackjack_Game
             {
                 dealer.hand.ChangeScore(1);
             }
-          
+
 
         }//修改女荷官点数
 
-        public void Item_RandomDoubleScore() 
+        public void Item_RandomDoubleScore()
         {
-          
+
             if (Random.Range(0, 2) == 0)
             {
                 player.hand.ChangeScore(player.Score);
@@ -575,13 +626,13 @@ namespace Blackjack_Game
         public void Item_SameScore()
         {
             SameScore = true;
-        }// 强制平局
+        }//强制平局
 
         bool SaveScore = false;
         public void Item_SaveScore()
         {
             SaveScore = true;
-        }// 点数超过21，强制削减随机3~5
+        }//点数超过21，强制削减随机3~5
 
         #endregion
 
@@ -621,7 +672,7 @@ namespace Blackjack_Game
             _Instance.UpdateFill();
 
 
-            if (_Instance.currentHealth<=0) 
+            if (_Instance.currentHealth <= 0)
             {
                 _Instance.Invoke("ShowWINButton", 1f);
             }
@@ -636,7 +687,7 @@ namespace Blackjack_Game
 
         public UIManager UIManager;
         public GameObject WinButton;
-        void ShowWINButton() 
+        void ShowWINButton()
         {
             WinButton.SetActive(true);
             int currentLV = PlayerPrefs.GetInt("Story_Anto");
@@ -657,7 +708,7 @@ namespace Blackjack_Game
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A)&& _ui.dealButton.interactable==true) 
+            if (Input.GetKeyDown(KeyCode.A) && _ui.dealButton.interactable == true)
             {
                 OnClickDeal();//下注完成或者拿牌
             }
