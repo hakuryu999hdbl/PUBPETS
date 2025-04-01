@@ -34,45 +34,54 @@ public class UIManager : MonoBehaviour
 
             CheckTextSpeed();//检测文字加载速度，默认为0.05f
 
-            //if (PlayerPrefs.GetFloat("TextSpeed") == 0)
+            if (PlayerPrefs.GetFloat("TextSpeed") == 0)
+            {
+                PlayerPrefs.SetFloat("TextSpeed", 0.05f);
+            }//检测文字加载速度，默认为0.05f
+
+
+            //if (Application.platform == RuntimePlatform.Android)
             //{
-            //    PlayerPrefs.SetFloat("TextSpeed", 0.05f);
-            //}//检测文字加载速度，默认为0.05f
+            //    Debug.Log("当前是 Android");
+            //}
+            //else
+            //{
+            //    Debug.Log("当前是 PC");
+            //
+            //    if (PlayerPrefs.GetInt("Setting_Windows") == 0)
+            //    {
+            //        isDisplayMode = true; // 全屏
+            //    }//检测当前的画面设置
+            //    DisplayMode();
+            //    
+            //    
+            //    if (isDisplayMode)
+            //    {
+            //        if (PlayerPrefs.GetInt("Setting_ResolutionWindows") == 0)
+            //        {
+            //            isAllowedResizingGameWindow = true; // 全屏
+            //        }//检测当前是否基于当前分辨率全屏
+            //        ResizingGameWindow();
+            //    
+            //    }
+            //    else 
+            //    {
+            //        if (PlayerPrefs.GetInt("Setting_WindowedCurrentResolution") == 0)
+            //        {
+            //            isWindowedCurrentResolution = true; // 窗口
+            //        }//检测当前是否基于当前分辨率全屏
+            //        WindowedCurrentResolution();
+            //    }
+            //    
+            //    
+            //    
+            //    if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
+            //    {
+            //        isAllowedBackgroundRunning = true; // 允许
+            //    }//检测允许游戏在后台运行
+            //    AllowBackgroundRunning();
+            //}
 
-
-
-            if (PlayerPrefs.GetInt("Setting_Windows") == 0)
-            {
-                isDisplayMode = true; // 全屏
-            }//检测当前的画面设置
-            DisplayMode();
-
-
-            if (isDisplayMode)
-            {
-                if (PlayerPrefs.GetInt("Setting_ResolutionWindows") == 0)
-                {
-                    isAllowedResizingGameWindow = true; // 全屏
-                }//检测当前是否基于当前分辨率全屏
-                ResizingGameWindow();
-
-            }
-            else 
-            {
-                if (PlayerPrefs.GetInt("Setting_WindowedCurrentResolution") == 0)
-                {
-                    isWindowedCurrentResolution = true; // 窗口
-                }//检测当前是否基于当前分辨率全屏
-                WindowedCurrentResolution();
-            }
-          
-           
-
-            if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
-            {
-                isAllowedBackgroundRunning = true; // 允许
-            }//检测允许游戏在后台运行
-            AllowBackgroundRunning();
 
         }//主菜单的设置
 
@@ -95,6 +104,22 @@ public class UIManager : MonoBehaviour
         Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
         Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
     }
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
 
     public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;
     public Sprite Bar_Show, Bar_Hidden;
@@ -210,7 +235,8 @@ public class UIManager : MonoBehaviour
     public void LoadingGame() 
     {
         LoadingImage.SetActive(true);
-        SceneManager.LoadScene("BJ_Mobile");
+        //SceneManager.LoadScene("BJ_Mobile");
+        SceneManager.LoadScene("BarCounter");
     }//继续游戏
 
     public void SceneToCG() 
