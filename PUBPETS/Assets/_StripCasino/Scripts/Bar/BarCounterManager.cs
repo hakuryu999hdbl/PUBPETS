@@ -4,260 +4,385 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
-public class BarCounterManager : MonoBehaviour
+namespace Blackjack_Game
 {
-    [Header("摄像头/客人动画器")]
-    public Animator mainCamera;
-    public Animator Queues_Guest;
-
-
-
-    void Start()
+    public class BarCounterManager : MonoBehaviour
     {
-        //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
-
-        InitAllGuestSkin(); // 游戏一开始，初始化 5 个皮肤
-        StartCoroutine(StartCountdown());//开启营业
-    }
-
-    /// <summary>
-    /// 321倒计时
-    /// </summary>
-    #region
-    [Header("321倒计时")]
-    public TMP_Text startText;
-
-    IEnumerator StartCountdown()
-    {
-        startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
-        startText.text = "3"; yield return new WaitForSeconds(1.2f);
-        startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
-        startText.text = "2"; yield return new WaitForSeconds(1.2f);
-        startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
-        startText.text = "1"; yield return new WaitForSeconds(1.2f);
-        startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(0);//手动SE音频替换
-        startText.text = "Go!"; yield return new WaitForSeconds(1.2f);
-        startText.text = "";
-
-        StartGame();
-    }
-
-    void StartGame()
-    {
-        Items_Button.SetActive(true);
-        Items_Work.SetActive(true);
-
-        GenerateNewCustomer();//顾客提要求（生成配方）
-
-        
-        StartDialog();//随机抽取对话
-    }
-
-    #endregion
-
-    /// <summary>
-    /// 客人逐步上前
-    /// </summary>
-    #region
-    int LeaveGuestNumber = 1;
-    public void Guest_Move()
-    {
-        OverDialog();//目前要求消失
-        
-
-        Queues_Guest.SetTrigger("Move");
-        Debug.Log("Move");
+        [Header("摄像头/客人动画器")]
+        public Animator mainCamera;
+        public Animator Queues_Guest;
 
 
-    }
 
-    [Header("客人逐步上前")]
-    public List<Sprite> GuestSkin;
-    public SpriteRenderer Guest_1, Guest_2, Guest_3, Guest_4, Guest_5;
-    public void ChangeLeaveGuestSkin()
-    {
-        List<Sprite> tempList = new List<Sprite>(GuestSkin);
-        Sprite newSprite = GetRandomSprite(tempList);
-
-        switch (LeaveGuestNumber)
+        void Start()
         {
-            case 1:
-                Guest_1.sprite = newSprite;
-                break;
-            case 2:
-                Guest_2.sprite = newSprite;
-                break;
-            case 3:
-                Guest_3.sprite = newSprite;
-                break;
-            case 4:
-                Guest_4.sprite = newSprite;
-                break;
-            case 5:
-                Guest_5.sprite = newSprite;
-                break;
+            //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
+
+            InitAllGuestSkin(); // 游戏一开始，初始化 5 个皮肤
+            StartCoroutine(StartCountdown());//开启营业
+
+            currentTime = totalTime;//计时充能
         }
 
-        // 下一位客人将离开
-        LeaveGuestNumber++;
+        /// <summary>
+        /// 321倒计时
+        /// </summary>
+        #region
+        [Header("321倒计时")]
+        public TMP_Text startText;
 
-        // 超出就从1重新开始（循环）
-        if (LeaveGuestNumber > 5)
-            LeaveGuestNumber = 1;
-
-        StartDialog();//随机抽取对话
-    }
-
-    private Sprite GetRandomSprite(List<Sprite> pool)
-    {
-        if (pool.Count == 0) return null;
-
-        int index = Random.Range(0, pool.Count);
-        Sprite chosen = pool[index];
-        pool.RemoveAt(index); // 避免重复
-        return chosen;
-    }
-
-
-    public void InitAllGuestSkin()
-    {
-        List<Sprite> tempList = new List<Sprite>(GuestSkin); // 克隆可用皮肤列表
-
-       
-        Guest_1.sprite = GetRandomSprite(tempList);
-        Guest_2.sprite = GetRandomSprite(tempList);
-        Guest_3.sprite = GetRandomSprite(tempList);
-        Guest_4.sprite = GetRandomSprite(tempList);
-        Guest_5.sprite = GetRandomSprite(tempList);
-    } // 给 5 位客人各分配一个不重复皮肤
-
-
-    #endregion
-
-    /// <summary>
-    /// 随机显示顾客要求
-    /// </summary>
-    #region
-
-    [Header("顾客要求列表")]
-    public List<GameObject> Diagol = new List<GameObject>();
-    private GameObject currentDisplayedDialogue; // 当前显示的对话框
-
-
-
-    void StartDialog()
-    {
-
-        
-        int randomIndex = Random.Range(0, Diagol.Count);
-        currentDisplayedDialogue = Diagol[randomIndex];
-        currentDisplayedDialogue.SetActive(true);
-
-
-
-    }// 随机选择一个对话框并显示
-
-    void OverDialog()
-    {
-        foreach (var diagol in Diagol)
+        IEnumerator StartCountdown()
         {
-            diagol.SetActive(false);
+            startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
+            startText.text = "3"; yield return new WaitForSeconds(1.2f);
+            startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
+            startText.text = "2"; yield return new WaitForSeconds(1.2f);
+            startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(1);//手动SE音频替换
+            startText.text = "1"; yield return new WaitForSeconds(1.2f);
+            startText.gameObject.SetActive(true); AudioManager_2.SoundPlay(0);//手动SE音频替换
+            startText.text = "Go!"; yield return new WaitForSeconds(1.2f);
+            startText.text = "";
+
+            StartGame();
         }
-    }// 关闭所有对话框
 
-    #endregion
-
-
-
-
-    /// <summary>
-    /// 按顺序点击物品
-    /// </summary>
-    #region
-    [Header("按顺序点击物品")]
-    public GameObject Items_Button;
-    public GameObject Items_Work;
-
-
-
-   
-
-    [System.Serializable]
-    public class DrinkIngredient
-    {
-        public string id;
-        public Sprite icon;
-        public GameObject button;
-    }
-
-    public List<DrinkIngredient> allIngredients;
-    public Transform hintPanel; // 显示提示栏图标的父物体
-    public GameObject hintIconPrefab;
-
-    private List<string> currentRecipe = new List<string>();
-    private int currentIndex = 0;
-    public void GenerateNewCustomer()
-    {
-        // 从 allIngredients 中随机抽取 2~5 个不重复的配料 ID
-        int count = Random.Range(2, 6); // 随机数量 2~5
-        currentRecipe = allIngredients
-            .OrderBy(x => Random.value)         // 洗牌
-            .Take(count)                        // 取前 count 个
-            .Select(i => i.id)                  // 只取 id
-            .ToList();
-
-        currentIndex = 0;
-
-        // 清空提示栏 UI
-        foreach (Transform child in hintPanel)
-            Destroy(child.gameObject);
-
-        // 生成新提示栏
-        foreach (string id in currentRecipe)
+        void StartGame()
         {
-            var ingredient = allIngredients.Find(i => i.id == id);
-            if (ingredient == null || ingredient.icon == null)
+            Items_Button.SetActive(true);
+            Items_Work.SetActive(true);
+
+            GenerateNewCustomer();//顾客提要求（生成配方）
+
+            timeRunning = true;//计时开始
+        }
+
+        #endregion
+
+        /// <summary>
+        /// 客人逐步上前
+        /// </summary>
+        #region
+        int LeaveGuestNumber = 1;
+        public void Guest_Move()
+        {
+         
+
+            Queues_Guest.SetTrigger("Move");
+            Debug.Log("Move");
+
+
+        }
+
+        [Header("客人逐步上前")]
+        public List<Sprite> GuestSkin;
+        public SpriteRenderer Guest_1, Guest_2, Guest_3, Guest_4, Guest_5;
+        public void ChangeLeaveGuestSkin()
+        {
+            List<Sprite> tempList = new List<Sprite>(GuestSkin);
+            Sprite newSprite = GetRandomSprite(tempList);
+
+            switch (LeaveGuestNumber)
             {
-                Debug.LogWarning($"未找到或未设置 icon：{id}");
-                continue;
+                case 1:
+                    Guest_1.sprite = newSprite;
+                    break;
+                case 2:
+                    Guest_2.sprite = newSprite;
+                    break;
+                case 3:
+                    Guest_3.sprite = newSprite;
+                    break;
+                case 4:
+                    Guest_4.sprite = newSprite;
+                    break;
+                case 5:
+                    Guest_5.sprite = newSprite;
+                    break;
             }
 
-            var icon = Instantiate(hintIconPrefab, hintPanel);
-            icon.GetComponent<Image>().sprite = ingredient.icon;
+            // 下一位客人将离开
+            LeaveGuestNumber++;
+
+            // 超出就从1重新开始（循环）
+            if (LeaveGuestNumber > 5)
+                LeaveGuestNumber = 1;
+
+            //StartDialog();//随机抽取对话
         }
-    }
 
-
-    // 这个函数绑定到每个物品按钮上
-    public void OnClickIngredient(string id)
-    {
-        if (id == currentRecipe[currentIndex])
+        private Sprite GetRandomSprite(List<Sprite> pool)
         {
-            // 正确 → 隐藏当前提示图标
-            hintPanel.GetChild(currentIndex).gameObject.SetActive(false);
-            currentIndex++;
+            if (pool.Count == 0) return null;
 
-            if (currentIndex >= currentRecipe.Count)
+            int index = Random.Range(0, pool.Count);
+            Sprite chosen = pool[index];
+            pool.RemoveAt(index); // 避免重复
+            return chosen;
+        }
+
+
+        public void InitAllGuestSkin()
+        {
+            List<Sprite> tempList = new List<Sprite>(GuestSkin); // 克隆可用皮肤列表
+
+
+            Guest_1.sprite = GetRandomSprite(tempList);
+            Guest_2.sprite = GetRandomSprite(tempList);
+            Guest_3.sprite = GetRandomSprite(tempList);
+            Guest_4.sprite = GetRandomSprite(tempList);
+            Guest_5.sprite = GetRandomSprite(tempList);
+        } // 给 5 位客人各分配一个不重复皮肤
+
+
+        #endregion
+
+        /// <summary>
+        /// 随机显示顾客要求
+        /// </summary>
+        #region
+
+        [Header("顾客要求列表")]
+        public List<GameObject> Diagol = new List<GameObject>();
+        private GameObject currentDisplayedDialogue; // 当前显示的对话框
+
+        void OverDialog()
+        {
+            foreach (var diagol in Diagol)
             {
-                Debug.Log("调酒成功！");
-                GenerateNewCustomer();
-                Guest_Move();//下一位客人
+                diagol.SetActive(false);
+            }
+        }// 关闭所有对话框
 
-                AudioManager_2.SoundPlay(2);//手动SE音频替换
+        #endregion
+
+
+
+
+        /// <summary>
+        /// 按顺序点击物品
+        /// </summary>
+        #region
+        [Header("按顺序点击物品")]
+        public GameObject Items_Button;
+        public GameObject Items_Work;
+
+        [System.Serializable]
+        public class SpecialDrink
+        {
+            public string name;           // 显示名，例如“魔女之吻”
+            public List<string> recipe;   // 固定顺序配料ID，例如 { "Wine_2", "Lemon", "Honey" }
+            public int price;             // 完成这杯酒后的奖励金
+        }
+        [Header("特调酒")]
+        public List<SpecialDrink> specialDrinks;
+        private SpecialDrink currentSpecial = null;//是否是随机酒
+
+        [System.Serializable]
+        public class DrinkIngredient
+        {
+            public string id;
+            public Sprite icon;
+            public GameObject button;
+        }
+
+        public List<DrinkIngredient> allIngredients;
+        public Transform hintPanel; // 显示提示栏图标的父物体
+        public GameObject hintIconPrefab;
+
+        private List<string> currentRecipe = new List<string>();
+        private int currentIndex = 0;
+        public void GenerateNewCustomer()
+        {
+            currentIndex = 0;
+            currentSpecial = null;
+
+            // 50% 概率是随机饮品，50% 概率是特调饮品
+            bool isSpecial = Random.Range(0f, 1f) < 0.5f;
+
+            if (isSpecial && specialDrinks.Count > 0)
+            {
+                currentSpecial = specialDrinks[Random.Range(0, specialDrinks.Count)];
+                currentRecipe = new List<string>(currentSpecial.recipe);
+                Debug.Log("顾客点了：" + currentSpecial.name);
+
+                switch (currentSpecial.name)
+                {
+                    case "龙炎酒":
+                        currentDisplayedDialogue = Diagol[1];
+                        break;
+                    case "魔女之吻":
+                        currentDisplayedDialogue = Diagol[2];
+                        break;
+                    case "精灵树蜂蜜":
+                        currentDisplayedDialogue = Diagol[3];
+                        break;
+                    case "冰结之息":
+                        currentDisplayedDialogue = Diagol[4];
+                        break;
+                    case "秘法红石酒":
+                        currentDisplayedDialogue = Diagol[5];
+                        break;
+                    case "雾花酒":
+                        currentDisplayedDialogue = Diagol[6];
+                        break;
+                    case "狼毒酒":
+                        currentDisplayedDialogue = Diagol[7];
+                        break;
+                }
+                currentDisplayedDialogue.SetActive(true);
+
+            }
+            else
+            {
+                int count = Random.Range(2, 6);
+                currentRecipe = allIngredients
+                    .OrderBy(x => Random.value)
+                    .Take(count)
+                    .Select(i => i.id)
+                    .ToList();
+                Debug.Log("顾客：随便来点啥");
+
+                currentDisplayedDialogue = Diagol[0];
+                currentDisplayedDialogue.SetActive(true);
             }
 
-            AudioManager_2.SoundPlay(4);//手动SE音频替换
+            //currentIndex = 0;
 
+            // 清空提示栏 UI
+            foreach (Transform child in hintPanel)
+                Destroy(child.gameObject);
+
+            // 生成新提示栏
+            foreach (string id in currentRecipe)
+            {
+                var ingredient = allIngredients.Find(i => i.id == id);
+                if (ingredient == null || ingredient.icon == null)
+                {
+                    Debug.LogWarning($"未找到或未设置 icon：{id}");
+                    continue;
+                }
+
+                var icon = Instantiate(hintIconPrefab, hintPanel);
+                icon.GetComponent<Image>().sprite = ingredient.icon;
+            }
         }
-        else
+
+
+        // 这个函数绑定到每个物品按钮上
+        public void OnClickIngredient(string id)
         {
-            Debug.Log("按错了，重头来！");
-            //GenerateNewCustomer(); // 重置
+            if (id == currentRecipe[currentIndex])
+            {
+                // 正确 → 隐藏当前提示图标
+                hintPanel.GetChild(currentIndex).gameObject.SetActive(false);
+                currentIndex++;
 
-            AudioManager_2.SoundPlay(5);//手动SE音频替换
+                if (currentIndex >= currentRecipe.Count)
+                {
+                    OverDialog();//目前要求消失
+
+                    Debug.Log("调酒成功！");
+                    int reward = currentSpecial != null ? currentSpecial.price : 100;
+                    BalanceManager.ChangeBalance(reward);
+                    AddGuest(reward);//营收记录
+
+                    GenerateNewCustomer();
+                    Guest_Move();//下一位客人
+
+                    AudioManager_2.SoundPlay(2);//手动SE音频替换
+
+
+                }
+
+                AudioManager_2.SoundPlay(4);//手动SE音频替换
+
+            }
+            else
+            {
+                Debug.Log("按错了，重头来！");
+                //GenerateNewCustomer(); // 重置
+
+                AudioManager_2.SoundPlay(5);//手动SE音频替换
+            }
         }
-    }
 
-    #endregion
+        #endregion
+
+
+        /// <summary>
+        /// 倒计时
+        /// </summary>
+        #region
+        [Header("倒计时设定")]
+        float totalTime = 30f; // 一天营业时长（秒）
+        private float currentTime;
+
+        [Header("UI元素")]
+        public Text countdownText;
+        public Image countdownBar;
+
+        [Header("营业结果面板")]
+        public GameObject timeUpPanel;
+        public Text guestCountText;
+        public Text revenueText;
+
+        [Header("数据统计")]
+        public int guestCount = 0;
+        public int revenue = 0;
+
+        private bool timeRunning = false;
+        void Update()
+        {
+            if (!timeRunning) return;
+
+            currentTime -= Time.deltaTime;
+            currentTime = Mathf.Clamp(currentTime, 0, totalTime);
+
+            // 更新UI
+            countdownText.text = Mathf.CeilToInt(currentTime).ToString();
+            countdownBar.fillAmount = currentTime / totalTime;
+
+            if (currentTime <= 0)
+            {
+                TimeUp();
+            }
+        }
+
+        void TimeUp()
+        {
+            timeRunning = false;
+
+            // 显示结束面板
+            timeUpPanel.SetActive(true);
+            guestCountText.text = guestCount.ToString();
+            revenueText.text = revenue.ToString();
+
+            // 可选：暂停游戏等
+            //Time.timeScale = 0;
+        }
+
+        // 调用这个方法当顾客完成调酒后记录
+        public void AddGuest(int reward)
+        {
+            guestCount++;
+            revenue += reward;
+        }
+        #endregion
+
+        /// <summary>
+        /// 加载场景
+        /// </summary>
+        #region
+        [Header("加载场景")]
+        public GameObject LoadingImage;
+        public void LoadingGame()
+        {
+            LoadingImage.SetActive(true);
+            SceneManager.LoadScene("BJ_Mobile");
+           
+        }//继续游戏
+        #endregion
+    }
 }

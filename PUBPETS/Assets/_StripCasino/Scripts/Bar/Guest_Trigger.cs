@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guest_Trigger : MonoBehaviour
+namespace Blackjack_Game
 {
-    public BarCounterManager barCounterManager;
-    public void ChangeSkin() 
+    public class Guest_Trigger : MonoBehaviour
     {
-        barCounterManager.ChangeLeaveGuestSkin();
+        public BarCounterManager barCounterManager;
+        public void ChangeSkin()
+        {
+            barCounterManager.ChangeLeaveGuestSkin();
+        }
     }
 }
