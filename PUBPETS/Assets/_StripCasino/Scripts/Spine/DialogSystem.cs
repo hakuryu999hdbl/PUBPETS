@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DialogSystem : MonoBehaviour
 {
     [Header("UI组件")]
     public Text textLabel;
+ 
+    public List<GameObject> NameObject = new List<GameObject>();
+
 
     private Dictionary<int, TextAsset> textAssets = new Dictionary<int, TextAsset>();
 
@@ -59,22 +63,32 @@ public class DialogSystem : MonoBehaviour
         switch (PlayerPrefs.GetInt("language"))
         {
             case 0:
+                textAssets.Add(101, Resources.Load<TextAsset>("TXT_Japanese/J_Chat_Anto_01"));
+
                 textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Japanese/J_CG_01"));
                 textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Japanese/J_CG_02"));
                 break;
             case 1:
+                textAssets.Add(101, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_Chat_Anto_01"));
+
                 textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_CG_01"));
                 textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_CG_02"));
                 break;
             case 2:
+                textAssets.Add(101, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_Chat_Anto_01"));
+
                 textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_CG_01"));
                 textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_CG_02"));
                 break;
             case 3:
+                textAssets.Add(101, Resources.Load<TextAsset>("TXT_English/E_Chat_Anto_01"));
+
                 textAssets.Add(1001, Resources.Load<TextAsset>("TXT_English/E_CG_01"));
                 textAssets.Add(1002, Resources.Load<TextAsset>("TXT_English/E_CG_02"));
                 break;
             case 4:
+                textAssets.Add(101, Resources.Load<TextAsset>("TXT_Korean/K_Chat_Anto_01"));
+
                 textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Korean/K_CG_01"));
                 textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Korean/K_CG_02"));
                 break;
@@ -155,9 +169,34 @@ public class DialogSystem : MonoBehaviour
             //字的颜色
             case "BG":
                 text.color = Color.white;
+                CleanNameText();
                 index++;
                 break;
 
+            case "Me":
+                text.color = Color.white;
+                CleanNameText();
+                NameObject[0].SetActive(true);
+                index++;
+                break;
+            case "Anto":
+                text.color = Color.white;
+                CleanNameText();
+                NameObject[1].SetActive(true);
+                index++;
+                break;
+            case "Hetty":
+                text.color = Color.white;
+                CleanNameText();
+                NameObject[2].SetActive(true);
+                index++;
+                break;
+            case "Alice":
+                text.color = Color.white;
+                CleanNameText();
+                NameObject[3].SetActive(true);
+                index++;
+                break;
 
 
 
@@ -172,7 +211,7 @@ public class DialogSystem : MonoBehaviour
                 index++;
                 break;
             case "DarkRed":
-                text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色(梦魔)（女特工）
+                text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色（女特工）
                 index++;
                 break;
             case "LightRed":
@@ -188,7 +227,7 @@ public class DialogSystem : MonoBehaviour
                 index++;
                 break;
             case "Gold":
-                text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色（叛变战姬大队长）
+                text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色（战姬大队长）
                 index++;
                 break;
             case "Yellow":
@@ -196,7 +235,7 @@ public class DialogSystem : MonoBehaviour
                 index++;
                 break;
             case "Orange":
-                text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色(播种母体)
+                text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色(母体)
                 index++;
                 break;
             case "Purple":
@@ -204,7 +243,7 @@ public class DialogSystem : MonoBehaviour
                 index++;
                 break;
             case "Gray":
-                text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色(牧者)（政府特工）(研究员)
+                text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色(牧者)
                 index++;
                 break;
 
@@ -242,13 +281,19 @@ public class DialogSystem : MonoBehaviour
         index++;
     }
 
+    public void CleanNameText() 
+    {
+        foreach (var nameObject in NameObject) 
+        {
+            nameObject.SetActive(false);
+        }
+    }
 
+    public UIManager uiManager;
     //快进按钮触发在这里
     public void ChangeStory()
     {
-       
-
-
+        uiManager.LoadingScene_BJ_Mobile();
 
     }
 }

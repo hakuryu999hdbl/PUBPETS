@@ -4680,7 +4680,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &553747273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5822,6 +5822,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5f0ae91a0bb888e42b85e66e45c1b220, type: 3}
   - {fileID: 8300000, guid: f9aa6e52fa20e904fa61a9307ce80ece, type: 3}
   - {fileID: 8300000, guid: ee2156c751aaaa74aaa1a05c78e354a9, type: 3}
+  isAbuseMusic: 0
   WhichMusic: 0
 --- !u!82 &688844783
 AudioSource:
@@ -8864,7 +8865,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1731992595}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: LoadingGame
+        m_MethodName: LoadingScene_BarCounter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16409,6 +16410,7 @@ MonoBehaviour:
   MakeSureStartNewGameMenu: {fileID: 1067382156}
   LoadGame: {fileID: 1011411887}
   LoadingImage: {fileID: 165984441}
+  PauseMenu: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
   audioMixer_2: {fileID: 24100000, guid: 317d300cd24a1974191b52009ce18deb, type: 2}
   keybindText_Hit: {fileID: 1231082255}
@@ -19204,6 +19206,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1785094582}
   - {fileID: 725462805}
-  - {fileID: 156922432}
   - {fileID: 1022403894}
   - {fileID: 1697046167}
+  - {fileID: 156922432}

@@ -26,7 +26,7 @@ public class UIManager : MonoBehaviour
             LoadKeyBindings(); // 在游戏开始时加载键位设置
 
 
-            if (PlayerPrefs.GetInt("Story") == 0) 
+            if (PlayerPrefs.GetInt("Story") == 0)
             {
                 LoadGame.interactable = false; // 将按钮设为不可交互
             }//检测当前是否有存档
@@ -107,7 +107,7 @@ public class UIManager : MonoBehaviour
 
 
 
-   
+
 
 
 
@@ -203,15 +203,15 @@ public class UIManager : MonoBehaviour
 
 
     /// <summary>
-    /// 检测和删除存档/跳转场景
+    /// 检测和删除存档/开始游戏选项
     /// </summary>
     #region
     public GameObject MakeSureStartNewGameMenu;//确定是否删除存档
     public Button LoadGame;
-    public GameObject LoadingImage;
-    public void StartCheckSave() 
+
+    public void StartCheckSave()
     {
-        if (PlayerPrefs.GetInt("Story")==0) 
+        if (PlayerPrefs.GetInt("Story") == 0)
         {
             NewGame();
         }
@@ -222,28 +222,17 @@ public class UIManager : MonoBehaviour
 
     }//点击新游戏按钮时
 
-    public void NewGame() 
+    public void NewGame()
     {
         //初始化项目
         PlayerPrefs.SetFloat("BalanceKey", 1000);
         PlayerPrefs.SetInt("Story", 1);//记录
 
-        LoadingGame();
+        LoadingScene_BarCounter();
 
     }//在已有存档的情况下开始新游戏
 
-    public void LoadingGame() 
-    {
-        LoadingImage.SetActive(true);
-        //SceneManager.LoadScene("BJ_Mobile");
-        SceneManager.LoadScene("BarCounter");
-    }//继续游戏
 
-    public void SceneToCG() 
-    {
-        LoadingImage.SetActive(true);
-        SceneManager.LoadScene("Spine"); 
-    }//去CG场景
 
     public void ReStart_DeleteAll()
     {
@@ -258,6 +247,62 @@ public class UIManager : MonoBehaviour
 
 
 
+
+    /// <summary>
+    /// 跳转场景
+    /// </summary>
+    #region
+    [Header("加载场景")]
+    public GameObject LoadingImage;
+    public void LoadingScene_BJ_Mobile()
+    {
+        Time.timeScale = 1f;
+        LoadingImage.SetActive(true);
+        SceneManager.LoadScene("BJ_Mobile");
+
+    }
+    public void LoadingScene_Lobby()
+    {
+        Time.timeScale = 1f;
+        LoadingImage.SetActive(true);
+        SceneManager.LoadScene("Lobby");
+
+    }
+    public void LoadingScene_BarCounter()
+    {
+        Time.timeScale = 1f;
+        LoadingImage.SetActive(true);
+        SceneManager.LoadScene("BarCounter");
+
+    }
+    public void LoadingScene_Spine()
+    {
+        Time.timeScale = 1f;
+        LoadingImage.SetActive(true);
+        SceneManager.LoadScene("Spine");
+
+    }
+
+    #endregion
+
+
+    /// <summary>
+    /// 暂停菜单
+    /// </summary>
+    #region
+    [Header("暂停菜单")]
+    public GameObject PauseMenu;
+    public void OpenPauseMenu()
+    {
+        Time.timeScale = 0f;
+        PauseMenu.SetActive(true);
+    }
+    public void ClosePauseMenu()
+    {
+        Time.timeScale = 1f;
+        PauseMenu.SetActive(false);
+    }
+    #endregion
 
     /// <summary>
     /// 声音控制
@@ -429,7 +474,7 @@ public class UIManager : MonoBehaviour
             }
 
         }
-        else 
+        else
         {
             AudioManager_2.SoundPlay(5);//手动SE音频替换
         }
@@ -679,7 +724,7 @@ public class UIManager : MonoBehaviour
 
     void AllowBackgroundRunning()
     {
-       
+
         if (isAllowedBackgroundRunning)
         {
 
@@ -702,8 +747,11 @@ public class UIManager : MonoBehaviour
 
     }
 
-  
+
 
 
     #endregion
+
+
+
 }

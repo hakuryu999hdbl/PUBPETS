@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
-using UnityEngine.SceneManagement;
 
 namespace Blackjack_Game
 {
@@ -20,10 +19,31 @@ namespace Blackjack_Game
         {
             //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
+           
+        }
+
+        public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
+
+        public void StartWork() 
+        {
+            Work.SetActive(true);//展示需要沙威玛界面的全部要素
+            Guests.SetActive(true);//展示所有客人
+
             InitAllGuestSkin(); // 游戏一开始，初始化 5 个皮肤
             StartCoroutine(StartCountdown());//开启营业
 
             currentTime = totalTime;//计时充能
+
+
+            BGM.instance.Stop();
+            BGM.instance.AudioPlayBackgroundMusic(1);//暂时通过这个改变音乐
+
+
+            //非桌子上的按钮什么的全部去掉
+            foreach (var NoAVG in NoAVG_Object)
+            {
+                NoAVG.SetActive(false);
+            }
         }
 
         /// <summary>
@@ -50,8 +70,7 @@ namespace Blackjack_Game
 
         void StartGame()
         {
-            Items_Button.SetActive(true);
-            Items_Work.SetActive(true);
+
 
             GenerateNewCustomer();//顾客提要求（生成配方）
 
@@ -165,8 +184,8 @@ namespace Blackjack_Game
         /// </summary>
         #region
         [Header("按顺序点击物品")]
-        public GameObject Items_Button;
-        public GameObject Items_Work;
+        public GameObject Work;
+        public GameObject Guests;
 
         [System.Serializable]
         public class SpecialDrink
@@ -273,6 +292,8 @@ namespace Blackjack_Game
         // 这个函数绑定到每个物品按钮上
         public void OnClickIngredient(string id)
         {
+            if (!timeRunning) { return; }//计时开始钱戳物品
+
             if (id == currentRecipe[currentIndex])
             {
                 // 正确 → 隐藏当前提示图标
@@ -287,6 +308,8 @@ namespace Blackjack_Game
                     int reward = currentSpecial != null ? currentSpecial.price : 100;
                     BalanceManager.ChangeBalance(reward);
                     AddGuest(reward);//营收记录
+                    startText.gameObject.SetActive(true);
+                    startText.text = reward.ToString();//营收数字显示
 
                     GenerateNewCustomer();
                     Guest_Move();//下一位客人
@@ -309,7 +332,6 @@ namespace Blackjack_Game
         }
 
         #endregion
-
 
         /// <summary>
         /// 倒计时
@@ -341,7 +363,11 @@ namespace Blackjack_Game
             currentTime = Mathf.Clamp(currentTime, 0, totalTime);
 
             // 更新UI
-            countdownText.text = Mathf.CeilToInt(currentTime).ToString();
+            int minutes = Mathf.FloorToInt(currentTime / 60f);
+            int seconds = Mathf.FloorToInt(currentTime % 60f);
+            int milliseconds = Mathf.FloorToInt((currentTime % 1f) * 100f);
+            countdownText.text = string.Format("{0:00}:{1:00}:{2:00}", minutes, seconds, milliseconds);
+
             countdownBar.fillAmount = currentTime / totalTime;
 
             if (currentTime <= 0)
@@ -372,17 +398,22 @@ namespace Blackjack_Game
         #endregion
 
         /// <summary>
-        /// 加载场景
+        /// AVG画面
         /// </summary>
         #region
-        [Header("加载场景")]
-        public GameObject LoadingImage;
-        public void LoadingGame()
+        [Header("AVG画面")]
+        public DialogSystem dialog;
+        public GameObject AVG;
+
+        public void Load_AVG() 
         {
-            LoadingImage.SetActive(true);
-            SceneManager.LoadScene("BJ_Mobile");
-           
-        }//继续游戏
+            dialog.animation_number = 101;
+            dialog.gameObject.SetActive(true);
+            AVG.SetActive(true);
+        }
+
         #endregion
+
+
     }
 }

@@ -695,7 +695,7 @@ namespace Blackjack_Game
         }
         public void ReLoadScene()
         {
-            UIManager.LoadingGame();
+            UIManager.LoadingScene_BJ_Mobile();
         }
 
         #endregion

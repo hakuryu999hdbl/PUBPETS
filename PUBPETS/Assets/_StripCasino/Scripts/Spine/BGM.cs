@@ -14,7 +14,8 @@ public class BGM : MonoBehaviour
     [Header("背景音乐")]
     public List<AudioClip> BackgroundMusicList;// 使用List来存储多个音乐
 
-    public int WhichMusic;//0 赌场背景音乐  1 凌辱背景音乐
+    public bool isAbuseMusic;
+    public int WhichMusic;//0无指定，随机
 
     // Start is called before the first frame update
     void Start()
@@ -23,13 +24,21 @@ public class BGM : MonoBehaviour
         //audioS = GetComponent<AudioSource>();
 
 
-        if (WhichMusic==0) 
+        if (isAbuseMusic) 
         {
-            AudioPlayBackgroundMusic(-1);//随机播放一首
+            AudioPlayAbuseMusic(-1);//随机播放一首
         }
         else
         {
-            AudioPlayAbuseMusic(-1);//随机播放一首
+            if (WhichMusic == -1)
+            {
+                AudioPlayBackgroundMusic(-1);//随机播放一首
+            }
+            else
+            {
+                AudioPlayBackgroundMusic(WhichMusic);
+            }
+            
         }
        
     }
