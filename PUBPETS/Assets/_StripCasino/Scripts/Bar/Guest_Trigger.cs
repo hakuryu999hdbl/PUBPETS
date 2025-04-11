@@ -11,5 +11,10 @@ namespace Blackjack_Game
         {
             barCounterManager.ChangeLeaveGuestSkin();
         }
+        public void FinishWine() 
+        {
+            barCounterManager.MakeWineSuccess();
+        }
+
     }
 }

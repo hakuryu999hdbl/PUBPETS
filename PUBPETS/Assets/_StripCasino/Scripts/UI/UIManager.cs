@@ -128,7 +128,7 @@ public class UIManager : MonoBehaviour
     // Method to call when a tab is clicked
     public void OnTabClick(string tabName)
     {
-        AudioManager_2.SoundPlay(4);//手动SE音频替换
+        AudioManager_2.SoundPlay(5);//手动SE音频替换
 
         Title_Setting_System.sprite = Bar_Hidden;
         Title_Setting_Audio.sprite = Bar_Hidden;

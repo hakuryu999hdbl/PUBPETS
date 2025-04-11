@@ -212,13 +212,14 @@ namespace Blackjack_Game
 
         private List<string> currentRecipe = new List<string>();
         private int currentIndex = 0;
+        bool isSpecial;//是否是特制酒
         public void GenerateNewCustomer()
         {
             currentIndex = 0;
             currentSpecial = null;
 
             // 50% 概率是随机饮品，50% 概率是特调饮品
-            bool isSpecial = Random.Range(0f, 1f) < 0.5f;
+            isSpecial = Random.Range(0f, 1f) < 0.7f;
 
             if (isSpecial && specialDrinks.Count > 0)
             {
@@ -302,24 +303,44 @@ namespace Blackjack_Game
 
                 if (currentIndex >= currentRecipe.Count)
                 {
-                    OverDialog();//目前要求消失
+                    if (isSpecial)
+                    {
+                        //播放酒好了动画
+                        switch (currentSpecial.name)
+                        {
+                            case "龙炎酒":
+                                ShakerPlane.SetTrigger("Wine_1");
+                                break;
+                            case "魔女之吻":
+                                ShakerPlane.SetTrigger("Wine_2");
+                                break;
+                            case "精灵树蜂蜜":
+                                ShakerPlane.SetTrigger("Wine_3");
+                                break;
+                            case "冰结之息":
+                                ShakerPlane.SetTrigger("Wine_4");
+                                break;
+                            case "秘法红石酒":
+                                ShakerPlane.SetTrigger("Wine_5");
+                                break;
+                            case "雾花酒":
+                                ShakerPlane.SetTrigger("Wine_6");
+                                break;
+                            case "狼毒酒":
+                                ShakerPlane.SetTrigger("Wine_7");
+                                break;
 
-                    Debug.Log("调酒成功！");
-                    int reward = currentSpecial != null ? currentSpecial.price : 100;
-                    BalanceManager.ChangeBalance(reward);
-                    AddGuest(reward);//营收记录
-                    startText.gameObject.SetActive(true);
-                    startText.text = reward.ToString();//营收数字显示
+                        }
+                    }
+                    else 
+                    {
+                        ShakerPlane.SetTrigger("Wine_7");
+                    }
 
-                    GenerateNewCustomer();
-                    Guest_Move();//下一位客人
-
-                    AudioManager_2.SoundPlay(2);//手动SE音频替换
-
-
+                    timeRunning = false;//暂时暂停计时
                 }
 
-                AudioManager_2.SoundPlay(4);//手动SE音频替换
+                AudioManager_2.SoundPlay(5);//手动SE音频替换
 
             }
             else
@@ -327,9 +348,35 @@ namespace Blackjack_Game
                 Debug.Log("按错了，重头来！");
                 //GenerateNewCustomer(); // 重置
 
-                AudioManager_2.SoundPlay(5);//手动SE音频替换
+                AudioManager_2.SoundPlay(4);//手动SE音频替换
             }
         }
+
+
+
+
+        public Animator ShakerPlane;
+
+        //酒完成动画调用
+        public void MakeWineSuccess() 
+        {
+            OverDialog();//目前要求消失
+
+            Debug.Log("调酒成功！");
+            int reward = currentSpecial != null ? currentSpecial.price : 100;
+            BalanceManager.ChangeBalance(reward);
+            AddGuest(reward);//营收记录
+            startText.gameObject.SetActive(true);
+            startText.text = reward.ToString();//营收数字显示
+
+            GenerateNewCustomer();
+            Guest_Move();//下一位客人
+
+            AudioManager_2.SoundPlay(3);//手动SE音频替换
+
+            timeRunning = true;//继续计时
+        }
+
 
         #endregion
 

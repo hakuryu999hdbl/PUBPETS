@@ -27,16 +27,33 @@ public class Anim_Trigger : MonoBehaviour
 
     public void ChipVoice()
     {
-        AudioManager_2.SoundPlay(0);//手动SE音频替换
+        AudioManager_2.SoundPlay(0);//手动SE音频替换,筹码放置
     }
     public void ButtonVoice()
     {
-        AudioManager_2.SoundPlay(1);//手动SE音频替换
+        AudioManager_2.SoundPlay(1);//手动SE音频替换，卡片声音
     }
     public void ClickVoice()
     {
-        AudioManager_2.SoundPlay(4);//手动SE音频替换
+        AudioManager_2.SoundPlay(5);//手动SE音频替换，按钮点击
     }
+
+
+    public void Water_1_Voice()
+    {
+        AudioManager_2.SoundPlay(6);//手动SE音频替换，倒水
+    }
+
+    public void Water_2_Voice()
+    {
+        AudioManager_2.SoundPlay(7);//手动SE音频替换，摇晃水
+    }
+
+    public void Cup_Voice()
+    {
+        AudioManager_2.SoundPlay(8);//手动SE音频替换，杯子
+    }
+
     public void SetActiveFalse()
     {
         gameObject.SetActive(false);
