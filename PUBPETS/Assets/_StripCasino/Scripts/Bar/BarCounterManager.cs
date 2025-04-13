@@ -19,7 +19,7 @@ namespace Blackjack_Game
         {
             //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
-           
+            StartWork();//设定为先开始
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -44,6 +44,20 @@ namespace Blackjack_Game
             {
                 NoAVG.SetActive(false);
             }
+        }
+
+        public void StopWork() 
+        {
+            Work.SetActive(false);//展示需要沙威玛界面的全部要素
+            Guests.SetActive(false);//展示所有客人
+
+            //非桌子上的按钮什么的全部去掉
+            foreach (var NoAVG in NoAVG_Object)
+            {
+                NoAVG.SetActive(true);
+            }
+
+            timeRunning = false;
         }
 
         /// <summary>
@@ -219,7 +233,7 @@ namespace Blackjack_Game
             currentSpecial = null;
 
             // 50% 概率是随机饮品，50% 概率是特调饮品
-            isSpecial = Random.Range(0f, 1f) < 0.7f;
+            isSpecial = Random.Range(0f, 1f) < 0.5f;
 
             if (isSpecial && specialDrinks.Count > 0)
             {
@@ -334,7 +348,28 @@ namespace Blackjack_Game
                     }
                     else 
                     {
-                        ShakerPlane.SetTrigger("Wine_7");
+                        switch (Random.Range(8,14))
+                        {
+                            case 8:
+                                ShakerPlane.SetTrigger("Wine_8");
+                                break;
+                            case 9:
+                                ShakerPlane.SetTrigger("Wine_9");
+                                break;
+                            case 10:
+                                ShakerPlane.SetTrigger("Wine_10");
+                                break;
+                            case 11:
+                                ShakerPlane.SetTrigger("Wine_11");
+                                break;
+                            case 12:
+                                ShakerPlane.SetTrigger("Wine_12");
+                                break;
+                            case 13:
+                                ShakerPlane.SetTrigger("Wine_13");
+                                break;
+
+                        }
                     }
 
                     timeRunning = false;//暂时暂停计时

@@ -27,6 +27,7 @@ public class DialogSystem : MonoBehaviour
     [Header("对话，背景，角色")]
     public GameObject TextButton;
 
+    public Image Anto;
 
     private void OnEnable()
     {
@@ -170,6 +171,9 @@ public class DialogSystem : MonoBehaviour
             case "BG":
                 text.color = Color.white;
                 CleanNameText();
+
+                Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+
                 index++;
                 break;
 
@@ -177,12 +181,19 @@ public class DialogSystem : MonoBehaviour
                 text.color = Color.white;
                 CleanNameText();
                 NameObject[0].SetActive(true);
+
+                Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+
                 index++;
                 break;
             case "Anto":
                 text.color = Color.white;
                 CleanNameText();
                 NameObject[1].SetActive(true);
+
+                Anto.gameObject.SetActive(true);
+                Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
+
                 index++;
                 break;
             case "Hetty":
