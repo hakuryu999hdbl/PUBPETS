@@ -413,6 +413,19 @@ namespace Blackjack_Game
         }
 
 
+        //在点击暂停营业的时候，外部调用
+
+        public void timeRunningFalse() 
+        {
+            timeRunning = false;//计时暂停
+        }
+
+        public void timeRunningTrue()
+        {
+            timeRunning = true;//继续计时
+        }
+
+
         #endregion
 
         /// <summary>
@@ -479,22 +492,9 @@ namespace Blackjack_Game
         }
         #endregion
 
-        /// <summary>
-        /// AVG画面
-        /// </summary>
-        #region
-        [Header("AVG画面")]
-        public DialogSystem dialog;
-        public GameObject AVG;
+        
 
-        public void Load_AVG() 
-        {
-            dialog.animation_number = 101;
-            dialog.gameObject.SetActive(true);
-            AVG.SetActive(true);
-        }
-
-        #endregion
+  
 
 
     }

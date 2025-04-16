@@ -752,6 +752,19 @@ public class UIManager : MonoBehaviour
 
     #endregion
 
+    /// <summary>
+    /// AVG画面
+    /// </summary>
+    #region
+    [Header("AVG画面")]
+    public DialogSystem dialog;
+    public GameObject AVG;
 
-
+    public void Load_AVG()
+    {
+        dialog.animation_number = 101;
+        dialog.gameObject.SetActive(true);
+        AVG.SetActive(true);
+    }
+    #endregion
 }

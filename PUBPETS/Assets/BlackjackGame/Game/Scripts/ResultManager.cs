@@ -46,7 +46,7 @@ namespace Blackjack_Game
 
 
                 //AudioManager.SoundPlay(2);
-                AudioManager_2.SoundPlay(2);//手动SE音频替换
+                AudioManager_2.SoundPlay(3);//手动SE音频替换
 
             }
             else 
@@ -56,7 +56,7 @@ namespace Blackjack_Game
 
 
                 //AudioManager.SoundPlay(5);
-                AudioManager_2.SoundPlay(5);//手动SE音频替换
+                AudioManager_2.SoundPlay(4);//手动SE音频替换
 
             }
                

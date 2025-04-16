@@ -362,7 +362,7 @@ namespace Blackjack_Game
             StartCoroutine(ShowRandomGuestsSequentially());//展示客人骚话
 
             mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
-            ChangeViewButon.SetActive(true);
+            //ChangeViewButon.SetActive(true);
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
 
 
@@ -380,7 +380,7 @@ namespace Blackjack_Game
         {
             HideAllGuests();//隐藏客人骚话
 
-            ChangeViewButon.SetActive(false);
+            //ChangeViewButon.SetActive(false);
             mainCamera.SetInteger("ChangeView", 0);//摄像头转回
 
             TableAnim.SetInteger("ChangeColor", 0);//桌子强制变回颜色
@@ -467,6 +467,10 @@ namespace Blackjack_Game
             int randomIndex = Random.Range(0, Diagol.Count);
             currentDisplayedDialogue = Diagol[randomIndex];
             currentDisplayedDialogue.SetActive(true);
+
+
+
+            Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
         }
 
         void OverDialog()
@@ -662,6 +666,9 @@ namespace Blackjack_Game
             currentHealth = maxHealth;
             UpdateFill();
 
+
+
+            Invoke("StartDialog", 1f);//游戏开始时显示女荷官垃圾话
         }
 
         public static void ChangeHealth(float amount)
