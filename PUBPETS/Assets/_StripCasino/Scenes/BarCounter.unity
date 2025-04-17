@@ -2321,6 +2321,7 @@ GameObject:
   - component: {fileID: 415560849}
   - component: {fileID: 415560848}
   - component: {fileID: 415560847}
+  - component: {fileID: 415560852}
   m_Layer: 5
   m_Name: YesButton
   m_TagString: Untagged
@@ -2429,7 +2430,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1601372944}
         m_TargetAssemblyTypeName: Blackjack_Game.BarCounterManager, Assembly-CSharp
-        m_MethodName: StopWork
+        m_MethodName: TimeUp
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2501,6 +2502,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415560845}
   m_CullTransparentMesh: 0
+--- !u!114 &415560852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 415560845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0b85975dd1f34e9d79bc08f0dd170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &426796302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4065,6 +4078,7 @@ GameObject:
   - component: {fileID: 688268972}
   - component: {fileID: 688268971}
   - component: {fileID: 688268970}
+  - component: {fileID: 688268975}
   m_Layer: 5
   m_Name: NoButton
   m_TagString: Untagged
@@ -4233,6 +4247,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 688268968}
   m_CullTransparentMesh: 0
+--- !u!114 &688268975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688268968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0b85975dd1f34e9d79bc08f0dd170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &726653792
 GameObject:
   m_ObjectHideFlags: 0
@@ -4556,7 +4582,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &742029850
 RectTransform:
   m_ObjectHideFlags: 0
@@ -6892,7 +6918,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1065490801
 Transform:
   m_ObjectHideFlags: 0
@@ -8949,6 +8975,7 @@ GameObject:
   - component: {fileID: 1318585769}
   - component: {fileID: 1318585768}
   - component: {fileID: 1318585767}
+  - component: {fileID: 1318585772}
   m_Layer: 5
   m_Name: Title_Button
   m_TagString: Untagged
@@ -9105,6 +9132,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1318585765}
   m_CullTransparentMesh: 1
+--- !u!114 &1318585772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1318585765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5e0b85975dd1f34e9d79bc08f0dd170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1319192555
 GameObject:
   m_ObjectHideFlags: 0
@@ -10006,7 +10045,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1520106577
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10547,6 +10586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 740185810}
   Queues_Guest: {fileID: 1065490802}
+  uiManager: {fileID: 1709941770}
+  StopWorkButton: {fileID: 1520106576}
   NoAVG_Object:
   - {fileID: 1527612615}
   startText: {fileID: 1875942940}
@@ -11450,6 +11491,7 @@ MonoBehaviour:
   isAllowedBackgroundRunning: 0
   dialog: {fileID: 949254939}
   AVG: {fileID: 1451733532}
+  barCounterManager: {fileID: 1601372944}
 --- !u!1 &1719818611
 GameObject:
   m_ObjectHideFlags: 0
@@ -14279,8 +14321,8 @@ RectTransform:
   m_Children:
   - {fileID: 1099124465}
   - {fileID: 520749112}
-  - {fileID: 1451733533}
   - {fileID: 1520106577}
+  - {fileID: 1451733533}
   - {fileID: 2030546264}
   - {fileID: 833219557}
   - {fileID: 30299871}

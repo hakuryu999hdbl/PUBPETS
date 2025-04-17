@@ -13,13 +13,17 @@ namespace Blackjack_Game
         public Animator mainCamera;
         public Animator Queues_Guest;
 
+        public UIManager uiManager;
 
+        public GameObject StopWorkButton;//打烊按钮
 
         void Start()
         {
             //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
-            StartWork();//设定为先开始
+            uiManager.Load_AVG(100);//开启新的一天
+
+            //StartWork();//设定为先开始
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -34,7 +38,7 @@ namespace Blackjack_Game
 
             currentTime = totalTime;//计时充能
 
-
+            //酒保工作BGM
             BGM.instance.Stop();
             BGM.instance.AudioPlayBackgroundMusic(1);//暂时通过这个改变音乐
 
@@ -44,6 +48,8 @@ namespace Blackjack_Game
             {
                 NoAVG.SetActive(false);
             }
+
+            StopWorkButton.SetActive(true);
         }
 
         public void StopWork() 
@@ -58,6 +64,16 @@ namespace Blackjack_Game
             }
 
             timeRunning = false;
+
+            //继续
+            Time.timeScale = 1;
+
+
+            //选择女荷官界面BGM
+            BGM.instance.Stop();
+            BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
+
+            StopWorkButton.SetActive(false);
         }
 
         /// <summary>
@@ -417,12 +433,15 @@ namespace Blackjack_Game
 
         public void timeRunningFalse() 
         {
-            timeRunning = false;//计时暂停
+            //timeRunning = false;//计时暂停
+
+            Time.timeScale = 0f;
         }
 
         public void timeRunningTrue()
         {
-            timeRunning = true;//继续计时
+            //timeRunning = true;//继续计时
+            Time.timeScale = 1f;
         }
 
 
@@ -471,7 +490,7 @@ namespace Blackjack_Game
             }
         }
 
-        void TimeUp()
+        public void TimeUp()
         {
             timeRunning = false;
 
