@@ -28,7 +28,11 @@ namespace Blackjack_Game
         [Header("对话，背景，角色")]
         public GameObject TextButton;
 
-        public Image Anto;
+        public Image Anto_1,Anto_2;
+        public Image ShopManager;
+
+        public Image Background;
+        public Sprite BarCounter, History_01, History_02, History_03, Shop_Background;
 
         private void OnEnable()
         {
@@ -65,6 +69,11 @@ namespace Blackjack_Game
             switch (PlayerPrefs.GetInt("language"))
             {
                 case 0:
+                    textAssets.Add(1, Resources.Load<TextAsset>("TXT_Japanese/J_StartStory_01"));
+
+                    textAssets.Add(10, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_01"));
+                    textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
+
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Japanese/J_StartWork_01"));
 
                     textAssets.Add(101, Resources.Load<TextAsset>("TXT_Japanese/J_Chat_Anto_01"));
@@ -74,6 +83,11 @@ namespace Blackjack_Game
                     textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Japanese/J_CG_02"));
                     break;
                 case 1:
+                    textAssets.Add(1, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartStory_01"));
+
+                    textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
+                    textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
+
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartWork_01"));
 
                     textAssets.Add(101, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_Chat_Anto_01"));
@@ -83,6 +97,11 @@ namespace Blackjack_Game
                     textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_CG_02"));
                     break;
                 case 2:
+                    textAssets.Add(1, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartStory_01"));
+
+                    textAssets.Add(10, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_01"));
+                    textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
+
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartWork_01"));
 
                     textAssets.Add(101, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_Chat_Anto_01"));
@@ -92,6 +111,11 @@ namespace Blackjack_Game
                     textAssets.Add(1002, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_CG_02"));
                     break;
                 case 3:
+                    textAssets.Add(1, Resources.Load<TextAsset>("TXT_English/E_StartStory_01"));
+
+                    textAssets.Add(10, Resources.Load<TextAsset>("TXT_English/E_StartShop_01"));
+                    textAssets.Add(11, Resources.Load<TextAsset>("TXT_English/E_StartShop_02"));
+
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_English/E_StartWork_01"));
 
                     textAssets.Add(101, Resources.Load<TextAsset>("TXT_English/E_Chat_Anto_01"));
@@ -101,6 +125,11 @@ namespace Blackjack_Game
                     textAssets.Add(1002, Resources.Load<TextAsset>("TXT_English/E_CG_02"));
                     break;
                 case 4:
+                    textAssets.Add(1, Resources.Load<TextAsset>("TXT_Korean/K_StartStory_01"));
+
+                    textAssets.Add(10, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_01"));
+                    textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
+
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Korean/K_StartWork_01"));
 
                     textAssets.Add(101, Resources.Load<TextAsset>("TXT_Korean/K_Chat_Anto_01"));
@@ -188,30 +217,80 @@ namespace Blackjack_Game
                     text.color = Color.white;
                     CleanNameText();
 
-                    Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+                    Anto_1.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+                    Anto_2.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+
+                    Background.sprite = BarCounter;// 默认是酒馆背景
 
                     index++;
                     break;
 
-                case "Me":
+
+                case "Shop":
                     text.color = Color.white;
+                    CleanNameText();
+
+                    Anto_2.gameObject.SetActive(false);
+
+                    Background.sprite = Shop_Background;// 默认是酒馆背景
+
+                    index++;
+                    break;
+
+
+
+                case "Me":
+                    text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
                     CleanNameText();
                     NameObject[0].SetActive(true);
 
-                    Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+                    Anto_1.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+                    Anto_2.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
+                    ShopManager.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
 
                     index++;
                     break;
-                case "Anto":
-                    text.color = Color.white;
+
+
+
+
+
+
+                case "ShopManager":
+                    text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
+                    CleanNameText();
+                    NameObject[4].SetActive(true);
+
+                    ShopManager.gameObject.SetActive(true);
+                    ShopManager.color = new Color(1f, 1f, 1f, 1f); //说话变亮
+                    index++;
+                    break;
+
+                case "Anto_1":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
+                    Anto_1.gameObject.SetActive(true);
+                    Anto_1.color = new Color(1f, 1f, 1f, 1f); //说话变亮
 
                     index++;
                     break;
+
+
+                case "Anto_2":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    Anto_2.gameObject.SetActive(true);
+                    Anto_2.color = new Color(1f, 1f, 1f, 1f); //说话变亮
+
+                    index++;
+                    break;
+
+
+
                 case "Hetty":
                     text.color = Color.white;
                     CleanNameText();
@@ -228,51 +307,70 @@ namespace Blackjack_Game
 
 
 
-                //case "Girl":
-                //    text.color = new Color(1.0f, 0.0f, 1.0f, 1.0f);//粉色
-                //    index++;
-                //    break;
+                case "History_01":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.sprite = History_01;
+                    index++;
+                    break;
+                case "History_02":
+                    text.color = Color.white;
+                    Background.sprite = History_02;
+                    index++;
+                    break;
+                case "History_03":
+                    text.color = Color.white;
+                    Background.sprite = History_03;
+                    index++;
+                    break;
 
-                case "MAN":
-                    text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色(市民群众)
-                    index++;
-                    break;
-                case "DarkRed":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色（女特工）
-                    index++;
-                    break;
-                case "LightRed":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色(菲西莉亚)
-                    index++;
-                    break;
-                case "Green":
-                    text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // 绿色（魔族女干部）
-                    index++;
-                    break;
-                case "LightBlue":
-                    text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色（艾莉丝）
-                    index++;
-                    break;
-                case "Gold":
-                    text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色（战姬大队长）
-                    index++;
-                    break;
-                case "Yellow":
-                    text.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // 黄色（莱拉）
-                    index++;
-                    break;
-                case "Orange":
-                    text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色(母体)
-                    index++;
-                    break;
-                case "Purple":
-                    text.color = new Color(0.7f, 0.3f, 0.7f, 1.0f); // 紫色 (女记者)
-                    index++;
-                    break;
-                case "Gray":
-                    text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色(牧者)
-                    index++;
-                    break;
+
+
+                    //case "Girl":
+                    //    text.color = new Color(1.0f, 0.0f, 1.0f, 1.0f);//粉色
+                    //    index++;
+                    //    break;
+
+                    // case "MAN":
+                    //     text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色(市民群众)
+                    //     index++;
+                    //     break;
+                    // case "DarkRed":
+                    //     text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色（女特工）
+                    //     index++;
+                    //     break;
+                    // case "LightRed":
+                    //     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色(菲西莉亚)
+                    //     index++;
+                    //     break;
+                    // case "Green":
+                    //     text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // 绿色（魔族女干部）
+                    //     index++;
+                    //     break;
+                    // case "LightBlue":
+                    //     text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色（艾莉丝）
+                    //     index++;
+                    //     break;
+                    // case "Gold":
+                    //     text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色（战姬大队长）
+                    //     index++;
+                    //     break;
+                    // case "Yellow":
+                    //     text.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // 黄色（莱拉）
+                    //     index++;
+                    //     break;
+                    // case "Orange":
+                    //     text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色(母体)
+                    //     index++;
+                    //     break;
+                    // case "Purple":
+                    //     text.color = new Color(0.7f, 0.3f, 0.7f, 1.0f); // 紫色 (女记者)
+                    //     index++;
+                    //     break;
+                    // case "Gray":
+                    //     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色(牧者)
+                    //     index++;
+                    //     break;
 
 
 
@@ -316,13 +414,25 @@ namespace Blackjack_Game
             }
         }
 
+        [Header("当对话结束时需要触发的一些地方")]
         public UIManager uiManager;
+        public GameObject ShopPlane;//商店本体
         //快进按钮触发在这里
         public void ChangeStory()
         {
 
             switch (animation_number) 
             {
+                case 1:
+                    uiManager.Load_AVG(100);//开启新的一天
+                    break;
+                case 10:              
+                    uiManager.LoadingScene_BarCounter();//开启第二天经营
+                    break;
+                case 11:
+                    ShopPlane.SetActive(true);//显示商店
+                    uiManager.Close_AVG();
+                    break;
                 case 100:
                     uiManager.barCounterManager.StartWork();//开始经营
                     uiManager.Close_AVG();
@@ -331,12 +441,21 @@ namespace Blackjack_Game
                     uiManager.LoadingScene_BJ_Mobile();//开始对战
                     break;
                 case 111:
-                    uiManager.LoadingScene_BarCounter();//开启第二天经营
+                    if (Random.Range(0, 3) == 2)
+                    {
+                        uiManager.Load_AVG(10);//没有遇到商人
+                    }
+                    else 
+                    {
+                        uiManager.Load_AVG(11);//遇到商人                       
+                    }
                     break;
             }
 
            
 
         }
+
+
     }
 }

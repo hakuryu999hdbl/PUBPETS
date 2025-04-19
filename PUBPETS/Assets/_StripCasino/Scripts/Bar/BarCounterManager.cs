@@ -21,7 +21,16 @@ namespace Blackjack_Game
         {
             //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
-            uiManager.Load_AVG(100);//开启新的一天
+            if (PlayerPrefs.GetInt("Story") == 0)
+            {
+                uiManager.Load_AVG(1);//介绍男主背景
+                PlayerPrefs.SetInt("Story", 1);//记录（下次进来不会出现这个介绍背景剧情）
+            }
+            else 
+            {
+                uiManager.Load_AVG(100);//开启新的一天
+            }
+            
 
             //StartWork();//设定为先开始
         }

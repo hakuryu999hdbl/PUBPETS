@@ -104,6 +104,16 @@ namespace Blackjack_Game
             Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
             Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
             Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
+
+
+            Debug.Log("目前储存的物品1" + PlayerPrefs.GetInt("Item_1"));
+            Debug.Log("目前储存的物品2" + PlayerPrefs.GetInt("Item_2"));
+            Debug.Log("目前储存的物品3" + PlayerPrefs.GetInt("Item_3"));
+            Debug.Log("目前储存的物品4" + PlayerPrefs.GetInt("Item_4"));
+            Debug.Log("目前储存的物品5" + PlayerPrefs.GetInt("Item_5"));
+            Debug.Log("目前储存的物品6" + PlayerPrefs.GetInt("Item_6"));
+            Debug.Log("目前储存的物品7" + PlayerPrefs.GetInt("Item_7"));
+
         }
 
 
@@ -227,8 +237,8 @@ namespace Blackjack_Game
         {
             //初始化项目
             PlayerPrefs.SetFloat("BalanceKey", 1000);
-            PlayerPrefs.SetInt("Story", 1);//记录
 
+            PlayerPrefs.SetInt("Story", 0);
             LoadingScene_BarCounter();
 
         }//在已有存档的情况下开始新游戏
@@ -766,6 +776,7 @@ namespace Blackjack_Game
 
         public void Load_AVG(int Number)
         {
+
             dialog.animation_number = Number;
             dialog.gameObject.SetActive(true);
             AVG.SetActive(true);
@@ -776,6 +787,23 @@ namespace Blackjack_Game
             AVG.SetActive(false);
         }
 
+        public bool GameOver = false;//赌局没有结束
+        //退出赌局退出商店
+        public void Leave()
+        {
+            Debug.Log("点击离开");
+            if (!GameOver)
+            {
+                Load_AVG(111);//输给安托，离开赌局
+                GameOver = true;//再次遇到就是开启商店
+            }
+            else 
+            {
+                //离开商店，回家等第二天
+                LoadingScene_BarCounter();//开启第二天经营
+             
+            }
+        }
         #endregion
     }
 }

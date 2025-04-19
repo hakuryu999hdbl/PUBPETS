@@ -519,6 +519,9 @@ namespace Blackjack_Game
         int CurrentItem;
         public List<GameObject> List_Item_Light; // 使用List来存储多个物品选中
         public List<GameObject> List_Item_Introduce; // 使用List来存储多个物品介绍
+
+        public ShopManager shopManager;
+
         public void Item_Setting(int Item_Number) 
         {
             CurrentItem = Item_Number;
@@ -570,6 +573,14 @@ namespace Blackjack_Game
             }
 
             Item_Panel.SetActive(false);
+
+            //削减物品数量
+            string key = shopManager.allItems[CurrentItem].itemKey;
+            int currentCount = PlayerPrefs.GetInt(key, 0);
+            currentCount--;
+            PlayerPrefs.SetInt(key, currentCount);
+            
+            shopManager.UpdateInventoryUI();
         }
 
 
