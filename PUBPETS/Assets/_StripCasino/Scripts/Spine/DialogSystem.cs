@@ -430,8 +430,8 @@ namespace Blackjack_Game
                     uiManager.LoadingScene_BarCounter();//开启第二天经营
                     break;
                 case 11:
-                    ShopPlane.SetActive(true);//显示商店
-                    uiManager.Close_AVG();
+                    ShopManager.GetComponent<Animator>().SetTrigger("Next");
+                    Invoke("CloseDialog",0.5f);
                     break;
                 case 100:
                     uiManager.barCounterManager.StartWork();//开始经营
@@ -441,7 +441,7 @@ namespace Blackjack_Game
                     uiManager.LoadingScene_BJ_Mobile();//开始对战
                     break;
                 case 111:
-                    if (Random.Range(0, 3) == 2)
+                    if (Random.Range(0, 1) == 2)
                     {
                         uiManager.Load_AVG(10);//没有遇到商人
                     }
@@ -449,6 +449,9 @@ namespace Blackjack_Game
                     {
                         uiManager.Load_AVG(11);//遇到商人                       
                     }
+                    //酒保工作BGM
+                    BGM.instance.Stop();
+                    BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
                     break;
             }
 
@@ -456,6 +459,11 @@ namespace Blackjack_Game
 
         }
 
-
+        void CloseDialog() 
+        {
+            AudioManager_2.SoundPlay(8);
+            ShopPlane.SetActive(true);//显示商店
+            uiManager.Close_AVG();
+        }
     }
 }

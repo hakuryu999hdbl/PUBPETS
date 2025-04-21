@@ -470,7 +470,9 @@ namespace Blackjack_Game
 
 
 
-            Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
+            //Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
+
+            ChipBox.SetInteger("Situation", 0);//筹码出现
         }
 
         void OverDialog()
@@ -539,8 +541,11 @@ namespace Blackjack_Game
             List_Item_Introduce[Item_Number].SetActive(true);
 
             AudioManager.SoundPlay(0);
-
-            USE_Button.SetActive(true);
+            if(UIManager.GameOver == false)
+            {
+                USE_Button.SetActive(true);
+            }//如果赌局结束，物品栏不会跳出使用键
+            
         }
 
 

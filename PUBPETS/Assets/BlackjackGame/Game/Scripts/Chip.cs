@@ -40,6 +40,13 @@ namespace Blackjack_Game
                 transform.DOComplete();
                 transform.DOShakePosition(.2f, 4f, 20, 0);
             }
+
+
+            //手动修改
+            if(GameManager._Instance.mainCamera.GetInteger("ChangeView")==2)
+            {
+                GameManager._Instance.ChangeViewBack();
+            }
         }
 
         public void PlaySelectAnimation()
