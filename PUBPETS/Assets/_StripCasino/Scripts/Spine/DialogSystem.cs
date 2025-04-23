@@ -453,6 +453,11 @@ namespace Blackjack_Game
                     BGM.instance.Stop();
                     BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
                     break;
+
+                    //CG暂时这么做
+                case 1001:
+                    uiManager.LoadingScene_Lobby();//回主菜单
+                    break;
             }
 
            

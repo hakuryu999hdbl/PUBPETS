@@ -1397,7 +1397,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.00012207031, y: -0.000061035156}
-  m_SizeDelta: {x: 1495.733, y: 753.7358}
+  m_SizeDelta: {x: 2105.2485, y: 837.1431}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &666976501
 MonoBehaviour:
@@ -4151,7 +4151,17 @@ MonoBehaviour:
   textSpeed: 0.05
   animation_number: 1001
   TextButton: {fileID: 1712872247}
+  Anto_1: {fileID: 1496783092}
+  Anto_2: {fileID: 1496783092}
+  ShopManager: {fileID: 1496783092}
+  Background: {fileID: 1496783092}
+  BarCounter: {fileID: 21300000, guid: 82ac6301e74b5ca43857a4ab6a66a1a2, type: 3}
+  History_01: {fileID: 21300000, guid: 3f75a4327830b284bbc727fe8aecf376, type: 3}
+  History_02: {fileID: 21300000, guid: 9e074da15e0dbac4ba214e38b7408630, type: 3}
+  History_03: {fileID: 21300000, guid: d0eaa586c9858af48b55085ecf9b6a13, type: 3}
+  Shop_Background: {fileID: 21300000, guid: c38c82207508af74da542666aeb44e3c, type: 3}
   uiManager: {fileID: 1983342863}
+  ShopPlane: {fileID: 0}
 --- !u!1 &1482221016
 GameObject:
   m_ObjectHideFlags: 0
@@ -6218,6 +6228,10 @@ MonoBehaviour:
   AllowedBackgroundRunning_1: {fileID: 0}
   AllowedBackgroundRunning_2: {fileID: 0}
   isAllowedBackgroundRunning: 0
+  dialog: {fileID: 0}
+  AVG: {fileID: 0}
+  barCounterManager: {fileID: 0}
+  GameOver: 0
 --- !u!1 &1998471752
 GameObject:
   m_ObjectHideFlags: 0

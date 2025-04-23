@@ -12390,8 +12390,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1731992595}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SceneToCG
+        m_TargetAssemblyTypeName: Blackjack_Game.UIManager, Assembly-CSharp
+        m_MethodName: LoadingScene_Spine
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16433,6 +16433,10 @@ MonoBehaviour:
   AllowedBackgroundRunning_1: {fileID: 1712372151}
   AllowedBackgroundRunning_2: {fileID: 205068232}
   isAllowedBackgroundRunning: 0
+  dialog: {fileID: 0}
+  AVG: {fileID: 0}
+  barCounterManager: {fileID: 0}
+  GameOver: 0
 --- !u!1 &1750176719
 GameObject:
   m_ObjectHideFlags: 0
