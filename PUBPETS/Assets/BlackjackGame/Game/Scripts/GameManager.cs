@@ -284,7 +284,7 @@ namespace Blackjack_Game
                     if (won)
                         player.splitHand.ShowOutCome(Outcome.Win);
                     else if (!player.splitHand.IsPush(dealer.Score, dealerBlackjack))
-                        player.splitHand.ShowOutCome(Outcome.NoWin);
+                        player.splitHand.ShowOutCome(Outcome.NoWin); 
                 }
             }
 
@@ -659,7 +659,7 @@ namespace Blackjack_Game
 
 
         /// <summary>
-        /// 关卡与女荷官生命值
+        /// 关卡与女荷官生命值/女荷官动画
         /// </summary>
         #region
         [Header("女荷官生命值")]
@@ -685,6 +685,7 @@ namespace Blackjack_Game
 
 
             Invoke("StartDialog", 1f);//游戏开始时显示女荷官垃圾话
+            TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
         }
 
         public static void ChangeHealth(float amount)
@@ -694,6 +695,17 @@ namespace Blackjack_Game
             _Instance.currentHealth = Mathf.Clamp(_Instance.currentHealth, 0, _Instance.maxHealth);
             _Instance.UpdateFill();
 
+
+            // —— 新增：根据 currentHealth 计算脱衣阶段 ——
+            float segment = _Instance.maxHealth / 8f;
+            // 计算已脱几段：当 currentHealth 掉到小于 (maxHealth - segment * n) 时，就脱到第 n+1 段
+            int newSituation = Mathf.FloorToInt((_Instance.maxHealth - _Instance.currentHealth) / segment) + 1;
+            newSituation = Mathf.Clamp(newSituation, 1, 8);
+
+            // 延迟调用处理逻辑
+            _Instance.StartCoroutine(_Instance.HandleSituationTransition(newSituation));
+
+            // —— 结束 新增 ——
 
             if (_Instance.currentHealth <= 0)
             {
@@ -720,6 +732,75 @@ namespace Blackjack_Game
         {
             UIManager.LoadingScene_BJ_Mobile();
         }
+
+        [Header("安托动画")]
+        [SerializeField] Animator antorAnimator;
+
+
+        private int currentSituation = 1; // 当前状态阶段（1~8）
+        private int maxSituation = 8;
+
+        private bool isTransitioning = false;
+
+        public void ApplyDamage(int newSituation)
+        {
+            if (newSituation <= currentSituation || isTransitioning || newSituation > maxSituation)
+                return;
+
+            StartCoroutine(PlayUndressSequence(currentSituation, newSituation));
+            currentSituation = newSituation;
+        }
+        private IEnumerator HandleSituationTransition(int newSituation)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (newSituation > _Instance.currentSituation)
+            {
+                _Instance.ApplyDamage(newSituation);
+            }
+            else
+            {
+                _Instance.PlayLose();
+            }
+        }
+        private IEnumerator PlayUndressSequence(int from, int to)
+        {
+            isTransitioning = true;
+
+            for (int i = from; i < to; i++)
+            {
+                antorAnimator.SetInteger("Undress", i);
+
+                // 等待状态机进入 Undress_i，再播放完
+                yield return new WaitUntil(() => IsPlayingState($"Situation_{i}_Undress"));
+                yield return new WaitUntil(() => !IsPlayingState($"Situation_{i}_Undress"));
+            }
+
+            antorAnimator.SetInteger("Undress", 0); // 重置参数防止连播
+            isTransitioning = false;
+        }
+
+        private bool IsPlayingState(string stateName)
+        {
+            AnimatorStateInfo info = antorAnimator.GetCurrentAnimatorStateInfo(0);
+            return info.IsName(stateName);
+        }
+
+        public void InvokeWin() 
+        {
+            Invoke("PlayWin", 1f);//女荷官获胜后嘲讽
+        }
+
+        public void PlayWin()
+        {
+            antorAnimator.SetTrigger("Win");
+        }
+
+        public void PlayLose()
+        {
+            antorAnimator.SetTrigger("Lose");
+        }
+
 
         #endregion
 

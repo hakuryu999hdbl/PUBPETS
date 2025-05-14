@@ -136,7 +136,7 @@ namespace Blackjack_Game
                     break;
                 case Outcome.NoWin:
                     outcomeText.text = "No Win";
-                    outcomeText.color = Color.white;
+                    outcomeText.color = Color.white;GameManager._Instance.InvokeWin();//手动修改延时胜利
                     break;
                 case Outcome.Push:
                     outcomeText.text = "Push";
