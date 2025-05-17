@@ -109,9 +109,9 @@ namespace Blackjack_Game
 
 
 
-        public GameObject Item_1, Item_2, Item_3, Item_4, Item_5, Item_6, Item_7;
+        public GameObject Item_1, Item_2, Item_3, Item_4, Item_5, Item_6, Item_7, Item_8;
 
-        public Text Item_1_Number, Item_2_Number, Item_3_Number, Item_4_Number, Item_5_Number, Item_6_Number, Item_7_Number;
+        public Text Item_1_Number, Item_2_Number, Item_3_Number, Item_4_Number, Item_5_Number, Item_6_Number, Item_7_Number, Item_8_Number;
 
         public void UpdateInventoryUI()
         {
@@ -121,7 +121,8 @@ namespace Blackjack_Game
             Item_4_Number.text = PlayerPrefs.GetInt("Item_4", 0).ToString(); Item_4.SetActive(PlayerPrefs.GetInt("Item_4", 0) > 0); 
             Item_5_Number.text = PlayerPrefs.GetInt("Item_5", 0).ToString(); Item_5.SetActive(PlayerPrefs.GetInt("Item_5", 0) > 0); 
             Item_6_Number.text = PlayerPrefs.GetInt("Item_6", 0).ToString(); Item_6.SetActive(PlayerPrefs.GetInt("Item_6", 0) > 0); 
-            Item_7_Number.text = PlayerPrefs.GetInt("Item_7", 0).ToString(); Item_7.SetActive(PlayerPrefs.GetInt("Item_7", 0) > 0); 
+            Item_7_Number.text = PlayerPrefs.GetInt("Item_7", 0).ToString(); Item_7.SetActive(PlayerPrefs.GetInt("Item_7", 0) > 0);
+            Item_8_Number.text = PlayerPrefs.GetInt("Item_8", 0).ToString(); Item_8.SetActive(PlayerPrefs.GetInt("Item_8", 0) > 0);
         }
 
     }

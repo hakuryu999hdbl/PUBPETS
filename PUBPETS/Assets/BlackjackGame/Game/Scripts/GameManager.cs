@@ -375,7 +375,7 @@ namespace Blackjack_Game
             TreasureBox.SetActive(false);//宝箱消失
 
             PeekNextCard.gameObject.SetActive(false);//下一张卡消失
-            PeekNextSecondCard.gameObject.SetActive(false);//下一张卡消失
+            //PeekNextSecondCard.gameObject.SetActive(false);//下一张卡消失
         }
 
 
@@ -562,7 +562,7 @@ namespace Blackjack_Game
                     break;
                 case 1:
                     StartCoroutine(Item_ViewNextCard());
-                    //Item_ViewNextCard();//看你的下一张卡
+                    //Item_ViewNextCard();//看牌堆下一张卡
                     break;
                 case 2:
                     Item_ChangePlayerScore();//修改你的点数
@@ -578,6 +578,9 @@ namespace Blackjack_Game
                     break;
                 case 6:
                     Item_SaveScore();//点数超过21，强制削减随机3~5
+                    break;
+                case 7:
+                    StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
                     break;
             }
 
@@ -602,11 +605,11 @@ namespace Blackjack_Game
         public MeshFilter ShowCard;
 
         public MeshFilter PeekNextCard;
-        public MeshFilter PeekNextSecondCard;
+        public MeshFilter PeekSecondNextCard;
 
         public IEnumerator Item_ViewNextCard()
         {
-            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌  PeekSecondNextCard
+            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
             ShowCard.gameObject.SetActive(true);
             ShowCard.mesh = nextCard.GetMesh();
 
@@ -622,7 +625,22 @@ namespace Blackjack_Game
         }//看你的下一张卡
 
 
+        public IEnumerator Item_ViewSecondNextCard()
+        {
+            CardData nextCard = Deck.PeekSecondNextCard();  // 检视但不抽取下下张牌  
+            ShowCard.gameObject.SetActive(true);
+            ShowCard.mesh = nextCard.GetMesh();
 
+
+            //等待再结算
+            yield return new WaitForSeconds(2.5f);
+
+
+            PeekSecondNextCard.gameObject.SetActive(true);
+            PeekSecondNextCard.mesh = nextCard.GetMesh();
+
+
+        }//看你的下一张卡
 
 
 
@@ -743,14 +761,21 @@ namespace Blackjack_Game
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
 
+
+        [Header("胜利图标")]
         public UIManager UIManager;
         public GameObject WinButton;
+
+        public GameObject Icon_Win;
+        public GameObject Icon_NoWin;
+        public GameObject Icon_Push;
+        public GameObject Icon_Bust;
         void ShowWINButton()
         {
             WinButton.SetActive(true);
             int currentLV = PlayerPrefs.GetInt("Story_Anto");
             PlayerPrefs.SetInt("Story_Anto", currentLV += 1);
-        }
+        }//显示胜利画面
         public void ReLoadScene()
         {
             UIManager.LoadingScene_BJ_Mobile();

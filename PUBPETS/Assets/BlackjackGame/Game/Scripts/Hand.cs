@@ -133,18 +133,30 @@ namespace Blackjack_Game
                 case Outcome.Win:
                     outcomeText.text = "Win";
                     outcomeText.color = Color.yellow;
+
+                    GameManager._Instance.Icon_Win.SetActive(true);
+
                     break;
                 case Outcome.NoWin:
                     outcomeText.text = "No Win";
                     outcomeText.color = Color.white;GameManager._Instance.InvokeWin();//手动修改延时胜利
+
+                    GameManager._Instance.Icon_NoWin.SetActive(true);
+
                     break;
                 case Outcome.Push:
                     outcomeText.text = "Push";
                     outcomeText.color = new Color(.2f, .8f, 1f);
+
+                    GameManager._Instance.Icon_Push.SetActive(true);
+
                     break;
                 case Outcome.Bust:
                     outcomeText.text = "Bust";
                     outcomeText.color = Color.red;
+
+                    GameManager._Instance.Icon_Bust.SetActive(true);
+
                     break;
                 case Outcome.Blackjack:
                     outcomeText.text = "Blackjack";
@@ -154,7 +166,19 @@ namespace Blackjack_Game
                     outcomePanel.SetActive(false);
                     break;
             }
+
+            Invoke("HideIcon", 1f);
         }
+
+
+        void HideIcon() 
+        {
+            GameManager._Instance.Icon_Win.SetActive(false);
+            GameManager._Instance.Icon_NoWin.SetActive(false);
+            GameManager._Instance.Icon_Push.SetActive(false);
+            GameManager._Instance.Icon_Bust.SetActive(false);
+        }
+
 
         protected void AddCardToHand(GameObject card)
         {
