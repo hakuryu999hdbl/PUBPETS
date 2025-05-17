@@ -373,6 +373,9 @@ namespace Blackjack_Game
             player.hand.CheatNumber = 0;//作弊點數清零
 
             TreasureBox.SetActive(false);//宝箱消失
+
+            PeekNextCard.gameObject.SetActive(false);//下一张卡消失
+            PeekNextSecondCard.gameObject.SetActive(false);//下一张卡消失
         }
 
 
@@ -558,7 +561,8 @@ namespace Blackjack_Game
                     Item_ViewCard();//看女荷官的盖牌
                     break;
                 case 1:
-                    Item_ViewNextCard();//看你的下一张卡
+                    StartCoroutine(Item_ViewNextCard());
+                    //Item_ViewNextCard();//看你的下一张卡
                     break;
                 case 2:
                     Item_ChangePlayerScore();//修改你的点数
@@ -594,14 +598,33 @@ namespace Blackjack_Game
         {
             dealer.ConcealCard();
         }//看女荷官的盖牌
+        [Header("展示牌")]
         public MeshFilter ShowCard;
-        public void Item_ViewNextCard()
+
+        public MeshFilter PeekNextCard;
+        public MeshFilter PeekNextSecondCard;
+
+        public IEnumerator Item_ViewNextCard()
         {
-            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌
+            CardData nextCard = Deck.PeekCard();  // 检视但不抽取下一张牌  PeekSecondNextCard
             ShowCard.gameObject.SetActive(true);
             ShowCard.mesh = nextCard.GetMesh();
 
+
+            //等待再结算
+            yield return new WaitForSeconds(2.5f);
+
+
+            PeekNextCard.gameObject.SetActive(true);
+            PeekNextCard.mesh = nextCard.GetMesh();
+
+           
         }//看你的下一张卡
+
+
+
+
+
 
         public void Item_ChangePlayerScore()
         {

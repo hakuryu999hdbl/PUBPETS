@@ -113,6 +113,9 @@ namespace Blackjack_Game
             Debug.Log("目前储存的物品5" + PlayerPrefs.GetInt("Item_5"));
             Debug.Log("目前储存的物品6" + PlayerPrefs.GetInt("Item_6"));
             Debug.Log("目前储存的物品7" + PlayerPrefs.GetInt("Item_7"));
+            Debug.Log("目前储存的物品8" + PlayerPrefs.GetInt("Item_8"));
+
+            //PlayerPrefs.SetInt("Item_2", 999);
 
         }
 

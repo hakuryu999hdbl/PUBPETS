@@ -49,6 +49,20 @@ namespace Blackjack_Game
             return cards[0];  // 返回顶部的卡片但不移除它
         }//手动修改，看下一张牌
 
+
+        public CardData PeekSecondNextCard()
+        {
+            if (cards.Count == 0)
+            {
+                Shuffle(_deckCount);
+            }
+            return cards[1];  // 返回顶部第二张卡片但不移除它
+        }//手动修改，看下下张牌
+
+
+
+
+
         private void AddDeck()
         {
             var suits = (CardData.Suit[])System.Enum.GetValues(typeof(CardData.Suit));
