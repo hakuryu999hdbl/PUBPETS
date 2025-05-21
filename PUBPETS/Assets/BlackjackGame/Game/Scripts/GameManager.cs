@@ -374,8 +374,9 @@ namespace Blackjack_Game
 
             TreasureBox.SetActive(false);//宝箱消失
 
+            PeekCard.gameObject.SetActive(false);//盖牌消失
             PeekNextCard.gameObject.SetActive(false);//下一张卡消失
-            //PeekNextSecondCard.gameObject.SetActive(false);//下一张卡消失
+            PeekSecondNextCard.gameObject.SetActive(false);//下一张卡消失
         }
 
 
@@ -558,7 +559,8 @@ namespace Blackjack_Game
             switch (CurrentItem) 
             {
                 case 0:
-                    Item_ViewCard();//看女荷官的盖牌
+                    StartCoroutine(Item_ViewCard());
+                    //Item_ViewCard();//看女荷官的盖牌
                     break;
                 case 1:
                     StartCoroutine(Item_ViewNextCard());
@@ -597,13 +599,25 @@ namespace Blackjack_Game
 
 
 
-        public void Item_ViewCard()
+        public IEnumerator Item_ViewCard()
         {
             dealer.ConcealCard();
+
+            CardData nextCard = dealer.hand.GetSecondCard().cardData;
+
+            //等待再结算
+            yield return new WaitForSeconds(1.5f);
+
+
+            PeekCard.gameObject.SetActive(true);
+            PeekCard.mesh = nextCard.GetMesh();
+
         }//看女荷官的盖牌
+
         [Header("展示牌")]
         public MeshFilter ShowCard;
 
+        public MeshFilter PeekCard;
         public MeshFilter PeekNextCard;
         public MeshFilter PeekSecondNextCard;
 
