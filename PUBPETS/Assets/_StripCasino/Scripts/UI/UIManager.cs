@@ -797,7 +797,7 @@ namespace Blackjack_Game
             Debug.Log("点击离开");
             if (!GameOver)
             {
-                Load_AVG(111);//输给安托，离开赌局
+                Load_AVG(1001);//输给安托，离开赌局
                 GameOver = true;//再次遇到就是开启商店
             }
             else 
