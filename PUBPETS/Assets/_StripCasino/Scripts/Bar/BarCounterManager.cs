@@ -520,10 +520,50 @@ namespace Blackjack_Game
         }
         #endregion
 
-        
-
-  
 
 
+        /// <summary>
+        /// 女荷官AVG随机入口
+        /// </summary>
+        #region
+        public void Load_Vs_Anto_AVG()
+        {
+
+            switch (Random.Range(1, 11))
+            {
+                case 1:
+                    uiManager.Load_AVG(1011);
+                    break;
+                case 2:
+                    uiManager.Load_AVG(1021);
+                    break;
+                case 3:
+                    uiManager.Load_AVG(1031);
+                    break;
+                case 4:
+                    uiManager.Load_AVG(1041);
+                    break;
+                case 5:
+                    uiManager.Load_AVG(1051);
+                    break;
+                case 6:
+                    uiManager.Load_AVG(1061);
+                    break;
+                case 7:
+                    uiManager.Load_AVG(1071);
+                    break;
+                case 8:
+                    uiManager.Load_AVG(1081);
+                    break;
+                case 9:
+                    uiManager.Load_AVG(1091);
+                    break;
+                case 10:
+                    uiManager.Load_AVG(1101);
+                    break;
+            }
+
+        }
+        #endregion
     }
 }

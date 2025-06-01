@@ -650,9 +650,7 @@ namespace Blackjack_Game
                     uiManager.barCounterManager.StartWork();//开始经营
                     uiManager.Close_AVG();
                     break;
-                case 1011:
-                    uiManager.LoadingScene_BJ_Mobile();//开始对战
-                    break;
+            
                 case 1001:
                     if (Random.Range(0, 1) == 2)
                     {
@@ -667,10 +665,14 @@ namespace Blackjack_Game
                     BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
                     break;
 
+                default:
+                    uiManager.LoadingScene_BJ_Mobile();//开始对战
+                    break;
+
                     //CG暂时这么做
-                //case 1001:
-                //    uiManager.LoadingScene_Lobby();//回主菜单
-                //    break;
+                    //case 1001:
+                    //    uiManager.LoadingScene_Lobby();//回主菜单
+                    //    break;
             }
 
            

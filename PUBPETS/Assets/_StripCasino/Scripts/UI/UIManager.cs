@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 using System;
+using Unity.VisualScripting;
 namespace Blackjack_Game
 {
     public class UIManager : MonoBehaviour
@@ -775,6 +776,9 @@ namespace Blackjack_Game
         public GameObject AVG;
 
         public BarCounterManager barCounterManager;
+
+
+      
 
 
         public void Load_AVG(int Number)
