@@ -21,18 +21,18 @@ namespace Blackjack_Game
         {
             //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
-            if (PlayerPrefs.GetInt("Story") == 0)
-            {
-                uiManager.Load_AVG(1);//介绍男主背景
-                PlayerPrefs.SetInt("Story", 1);//记录（下次进来不会出现这个介绍背景剧情）
-            }
-            else 
-            {
-                uiManager.Load_AVG(100);//开启新的一天
-            }
+            //if (PlayerPrefs.GetInt("Story") == 0)
+            //{
+            //    uiManager.Load_AVG(1);//介绍男主背景
+            //    PlayerPrefs.SetInt("Story", 1);//记录（下次进来不会出现这个介绍背景剧情）
+            //}
+            //else 
+            //{
+            //    uiManager.Load_AVG(100);//开启新的一天
+            //}
             
 
-            //StartWork();//设定为先开始
+            StartWork();//设定为先开始
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -529,39 +529,46 @@ namespace Blackjack_Game
         public void Load_Vs_Anto_AVG()
         {
 
-            switch (Random.Range(1, 11))
-            {
-                case 1:
-                    uiManager.Load_AVG(1011);
-                    break;
-                case 2:
-                    uiManager.Load_AVG(1021);
-                    break;
-                case 3:
-                    uiManager.Load_AVG(1031);
-                    break;
-                case 4:
-                    uiManager.Load_AVG(1041);
-                    break;
-                case 5:
-                    uiManager.Load_AVG(1051);
-                    break;
-                case 6:
-                    uiManager.Load_AVG(1061);
-                    break;
-                case 7:
-                    uiManager.Load_AVG(1071);
-                    break;
-                case 8:
-                    uiManager.Load_AVG(1081);
-                    break;
-                case 9:
-                    uiManager.Load_AVG(1091);
-                    break;
-                case 10:
-                    uiManager.Load_AVG(1101);
-                    break;
-            }
+
+
+            GameFlowData.nextAVGId = "VSAnto";//开启开头剧情介绍
+            uiManager.LoadingScene_Spine();
+
+
+
+            // switch (Random.Range(1, 11))
+            // {
+            //     case 1:
+            //         uiManager.Load_AVG(1011);
+            //         break;
+            //     case 2:
+            //         uiManager.Load_AVG(1021);
+            //         break;
+            //     case 3:
+            //         uiManager.Load_AVG(1031);
+            //         break;
+            //     case 4:
+            //         uiManager.Load_AVG(1041);
+            //         break;
+            //     case 5:
+            //         uiManager.Load_AVG(1051);
+            //         break;
+            //     case 6:
+            //         uiManager.Load_AVG(1061);
+            //         break;
+            //     case 7:
+            //         uiManager.Load_AVG(1071);
+            //         break;
+            //     case 8:
+            //         uiManager.Load_AVG(1081);
+            //         break;
+            //     case 9:
+            //         uiManager.Load_AVG(1091);
+            //         break;
+            //     case 10:
+            //         uiManager.Load_AVG(1101);
+            //         break;
+            // }
 
         }
         #endregion

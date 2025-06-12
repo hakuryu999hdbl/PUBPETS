@@ -101,22 +101,55 @@ namespace Blackjack_Game
 
             //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
-            Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
-            Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
-            Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
-            Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
-
-
-            Debug.Log("目前储存的物品1" + PlayerPrefs.GetInt("Item_1"));
-            Debug.Log("目前储存的物品2" + PlayerPrefs.GetInt("Item_2"));
-            Debug.Log("目前储存的物品3" + PlayerPrefs.GetInt("Item_3"));
-            Debug.Log("目前储存的物品4" + PlayerPrefs.GetInt("Item_4"));
-            Debug.Log("目前储存的物品5" + PlayerPrefs.GetInt("Item_5"));
-            Debug.Log("目前储存的物品6" + PlayerPrefs.GetInt("Item_6"));
-            Debug.Log("目前储存的物品7" + PlayerPrefs.GetInt("Item_7"));
-            Debug.Log("目前储存的物品8" + PlayerPrefs.GetInt("Item_8"));
+            // Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
+            // Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
+            // Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
+            // Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
+            //
+            //
+            // Debug.Log("目前储存的物品1" + PlayerPrefs.GetInt("Item_1"));
+            // Debug.Log("目前储存的物品2" + PlayerPrefs.GetInt("Item_2"));
+            // Debug.Log("目前储存的物品3" + PlayerPrefs.GetInt("Item_3"));
+            // Debug.Log("目前储存的物品4" + PlayerPrefs.GetInt("Item_4"));
+            // Debug.Log("目前储存的物品5" + PlayerPrefs.GetInt("Item_5"));
+            // Debug.Log("目前储存的物品6" + PlayerPrefs.GetInt("Item_6"));
+            // Debug.Log("目前储存的物品7" + PlayerPrefs.GetInt("Item_7"));
+            // Debug.Log("目前储存的物品8" + PlayerPrefs.GetInt("Item_8"));
 
             //PlayerPrefs.SetInt("Item_2", 999);
+
+            Debug.Log("UIManager.要播放的AVG是：" + GameFlowData.nextAVGId);
+
+
+            if (currentScene.name == "Spine") 
+            {
+
+                //播放AV媒介
+                switch (GameFlowData.nextAVGId)
+                {
+                    case "StartStory_01":
+                        Load_AVG(1);//开始剧情
+
+                        PlayerPrefs.SetInt("Story", 1);//记录（下次进来不会出现这个介绍背景剧情）
+                        break;
+
+                    case "StartWork_01":
+                        Load_AVG(100);//开始工作
+                        break;
+
+                    case "VSAnto":
+                        Load_Vs_Anto_AVG();//对决安托
+                        break;
+                    case "Anto_Failure":
+                        Load_AVG(1001);//输给安托
+                        break;
+
+                }
+
+            }
+
+
+
 
         }
 
@@ -243,10 +276,19 @@ namespace Blackjack_Game
             PlayerPrefs.SetFloat("BalanceKey", 1000);
 
             PlayerPrefs.SetInt("Story", 0);
-            LoadingScene_BarCounter();
+
+            GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
+            LoadingScene_Spine();
 
         }//在已有存档的情况下开始新游戏
 
+
+        public void ContinueGame()
+        {
+            GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+            LoadingScene_Spine();
+
+        }//继续游戏
 
 
         public void ReStart_DeleteAll()
@@ -775,8 +817,6 @@ namespace Blackjack_Game
         public DialogSystem dialog;
         public GameObject AVG;
 
-        public BarCounterManager barCounterManager;
-
 
       
 
@@ -794,23 +834,73 @@ namespace Blackjack_Game
             AVG.SetActive(false);
         }
 
+
+
         public bool GameOver = false;//赌局没有结束
         //退出赌局退出商店
         public void Leave()
         {
             Debug.Log("点击离开");
-            if (!GameOver)
-            {
-                Load_AVG(1001);//输给安托，离开赌局
-                GameOver = true;//再次遇到就是开启商店
-            }
-            else 
-            {
-                //离开商店，回家等第二天
-                LoadingScene_BarCounter();//开启第二天经营
-             
-            }
+
+            GameFlowData.nextAVGId = "Anto_Failure";//输给安托，离开赌局
+            LoadingScene_Spine();
+
+
+            // if (!GameOver)
+            // {
+            //     Load_AVG(1001);//输给安托，离开赌局
+            //     GameOver = true;//再次遇到就是开启商店
+            // }
+            // else 
+            // {
+            //     //离开商店，回家等第二天
+            //     LoadingScene_BarCounter();//开启第二天经营
+            //  
+            // }
         }
+
+
+        public void Load_Vs_Anto_AVG()
+        {
+            Load_AVG(1011);
+
+            //switch (1)
+            //{
+            //    case 1:
+            //        Load_AVG(1011);
+            //        break;
+            //    case 2:
+            //        Load_AVG(1021);
+            //        break;
+            //    case 3:
+            //        Load_AVG(1031);
+            //        break;
+            //    case 4:
+            //        Load_AVG(1041);
+            //        break;
+            //    case 5:
+            //        Load_AVG(1051);
+            //        break;
+            //    case 6:
+            //        Load_AVG(1061);
+            //        break;
+            //    case 7:
+            //        Load_AVG(1071);
+            //        break;
+            //    case 8:
+            //        Load_AVG(1081);
+            //        break;
+            //    case 9:
+            //        Load_AVG(1091);
+            //        break;
+            //    case 10:
+            //        Load_AVG(1101);
+            //        break;
+            //}
+
+        }
+
+
         #endregion
     }
 }
