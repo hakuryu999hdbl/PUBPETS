@@ -144,6 +144,20 @@ namespace Blackjack_Game
                         Load_AVG(1001);//输给安托
                         break;
 
+                    case "Anto_CG_01_2":
+                        Load_AVG(1012);//开启安托第一个CG前端AVG
+                        break;
+                    case "Anto_CG_01_3":
+                        Load_AVG(1013);//开启安托第一个CG
+                        break;
+
+                    case "Anto_CG_02_2":
+                        Load_AVG(1022);//开启安托第二个CG前端AVG
+                        break;
+                    case "Anto_CG_02_3":
+                        Load_AVG(1023);//开启安托第二个CG
+                        break;
+
                 }
 
             }
@@ -837,32 +851,29 @@ namespace Blackjack_Game
 
 
         public bool GameOver = false;//赌局没有结束
-        //退出赌局退出商店
+        //退出赌局
         public void Leave()
         {
             Debug.Log("点击离开");
 
             GameFlowData.nextAVGId = "Anto_Failure";//输给安托，离开赌局
             LoadingScene_Spine();
-
-
-            // if (!GameOver)
-            // {
-            //     Load_AVG(1001);//输给安托，离开赌局
-            //     GameOver = true;//再次遇到就是开启商店
-            // }
-            // else 
-            // {
-            //     //离开商店，回家等第二天
-            //     LoadingScene_BarCounter();//开启第二天经营
-            //  
-            // }
         }
+
+        //获得胜利开启CG
+        public void Load_Win_Anto_AVG() 
+        {
+
+            //GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+            GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+            LoadingScene_Spine();
+        }
+
 
 
         public void Load_Vs_Anto_AVG()
         {
-            Load_AVG(1011);
+            Load_AVG(1021);
 
             //switch (1)
             //{

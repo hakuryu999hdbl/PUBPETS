@@ -28,14 +28,17 @@ namespace Blackjack_Game
         [Header("对话，背景，角色")]
         public GameObject TextButton;
 
-        public Image Anto;
-        public Sprite Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06;
-
-
-        public Image ShopManager;
+        public Image People;
+        public Sprite ShopManager,
+                      NPC_1, NPC_2,
+                      Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06;
 
         public Image Background;
-        public Sprite BarCounter, History_01, History_02, History_03, Shop_Background;
+        public Sprite Black,
+                      History_01, History_02, History_03,
+                      BarCounter,
+                      Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
+                      Background_Shop;
 
         private void OnEnable()
         {
@@ -220,7 +223,7 @@ namespace Blackjack_Game
 
 
                     //安托失败
-                    textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Failure_Anto_01"));
+                    textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Anto_Failure_01"));
 
                     //安托第一幕
                     textAssets.Add(1011, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Anto_CG_01_1"));
@@ -458,164 +461,72 @@ namespace Blackjack_Game
             Text text = textLabel;
             switch (textList[index].Trim().ToString())
             {
-                //字的颜色
+
+
+                #region 背景
+
+                //场景
+
+                case "CG":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+                    break;
+
+
+
+                case "Black":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.sprite = Black;// 过场
+                    People.gameObject.SetActive(false);
+                    index++;
+                    break;
+
+
                 case "BG":
                     text.color = Color.white;
                     CleanNameText();
-
-                    Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
-
-
                     Background.sprite = BarCounter;// 默认是酒馆背景
-
+                    People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
                     break;
+                case "DungeonEntrance":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.sprite = Background_DungeonEntrance;// 地下城入口
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    index++;
+                    break;
+                case "DungeonCorridor":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.sprite = Background_DungeonCorridor;// 地下城走廊
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    index++;
+                    break;
+                case "Town":
+                    text.color = Color.white;
+                    CleanNameText();
+                    Background.sprite = Background_Town;//乡镇
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    index++;
+                    break;
+
+
 
 
                 case "Shop":
                     text.color = Color.white;
                     CleanNameText();
-
-
-
-                    Background.sprite = Shop_Background;// 默认是酒馆背景
-
+                    Background.sprite = Background_Shop;
                     index++;
                     break;
 
 
 
-                case "Me":
-                    text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
-                    CleanNameText();
-                    NameObject[0].SetActive(true);
-
-                    Anto.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
-                    ShopManager.color = new Color(0.5f, 0.5f, 0.5f, 1f); //变暗
-
-                    index++;
-                    break;
-
-
-
-
-
-
-                case "ShopManager":
-                    text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
-                    CleanNameText();
-                    NameObject[4].SetActive(true);
-
-                    ShopManager.gameObject.SetActive(true);
-                    ShopManager.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    index++;
-                    break;
-
-
-
-
-
-                case "Anto_01":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_01;
-
-                    index++;
-                    break;
-
-
-                case "Anto_02":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_02;
-
-                    index++;
-                    break;
-
-                case "Anto_03":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_03;
-
-                    index++;
-                    break;
-
-
-                case "Anto_04":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_04;
-
-                    index++;
-                    break;
-
-
-                case "Anto_05":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_05;
-
-                    index++;
-                    break;
-
-
-                case "Anto_06":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    Anto.gameObject.SetActive(true);
-                    Anto.color = new Color(1f, 1f, 1f, 1f); //说话变亮
-                    Anto.sprite = Anto_06;
-
-                    index++;
-                    break;
-
-
-
-
-
-
-
-
-
-
-                case "Hetty":
-                    text.color = Color.white;
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-                    index++;
-                    break;
-                case "Alice":
-                    text.color = Color.white;
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-                    index++;
-                    break;
-
-
-
-
+                //基本不太可能出现人物的插图
                 case "History_01":
                     text.color = Color.white;
                     CleanNameText();
@@ -632,6 +543,170 @@ namespace Blackjack_Game
                     Background.sprite = History_03;
                     index++;
                     break;
+
+                #endregion
+
+
+
+
+                #region 角色
+
+
+                case "Me":
+                    text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
+                    CleanNameText();
+                    NameObject[0].SetActive(true);
+
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+
+                    index++;
+                    break;
+
+
+
+                case "NPC_1":
+                    text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
+                    CleanNameText();
+                    NameObject[5].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = NPC_1;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "NPC_2":
+                    text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色
+                    CleanNameText();
+                    NameObject[6].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = NPC_2;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "ShopManager":
+                    text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
+                    CleanNameText();
+                    NameObject[4].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = ShopManager;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                #endregion
+
+                #region 角色_安托
+
+                case "Anto":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+                    index++;
+                    break;
+
+                case "Anto_01":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_01;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_02":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_02;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_03":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_03;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_04":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_04;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_05":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_05;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_06":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_06;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+
+                #endregion
+
+                #region 角色_赫蒂
+
+                case "Hetty":
+                    text.color = Color.white;
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+                    index++;
+                    break;
+
+
+                #endregion
+
+                #region 角色_爱丽丝
+                case "Alice":
+                    text.color = Color.white;
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+                    index++;
+                    break;
+
+                #endregion
+
+
+            
 
 
 
@@ -734,6 +809,8 @@ namespace Blackjack_Game
             {
                 case 1:
                 case 1001:
+                case 1013:
+                case 1023:
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
 
@@ -758,11 +835,10 @@ namespace Blackjack_Game
                     uiManager.LoadingScene_BarCounter();//开启第二天经营
                     break;
                 case 11:
-                    ShopManager.GetComponent<Animator>().SetTrigger("Next");
                     Invoke("CloseDialog",0.5f);
                     break;
-              
-            
+
+
                 //case 1001:
                 //    if (Random.Range(0, 1) == 2)
                 //    {
@@ -776,6 +852,21 @@ namespace Blackjack_Game
                 //    BGM.instance.Stop();
                 //    BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
                 //    break;
+
+
+
+                case 1012:
+                    GameFlowData.nextAVGId = "Anto_CG_01_3";//开启安托第一个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1022:
+                    GameFlowData.nextAVGId = "Anto_CG_02_3";//开启安托第二个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+
+
+
 
                 default:
                     uiManager.LoadingScene_BJ_Mobile();//开始对战

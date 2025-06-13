@@ -17504,9 +17504,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 588359051}
-        m_TargetAssemblyTypeName: Blackjack_Game.GameManager, Assembly-CSharp
-        m_MethodName: ReLoadScene
+      - m_Target: {fileID: 1361604369}
+        m_TargetAssemblyTypeName: Blackjack_Game.UIManager, Assembly-CSharp
+        m_MethodName: Load_Win_Anto_AVG
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -24327,7 +24327,6 @@ MonoBehaviour:
   isAllowedBackgroundRunning: 0
   dialog: {fileID: 9526653}
   AVG: {fileID: 336826689}
-  barCounterManager: {fileID: 0}
   GameOver: 0
 --- !u!4 &1361604370
 Transform:
