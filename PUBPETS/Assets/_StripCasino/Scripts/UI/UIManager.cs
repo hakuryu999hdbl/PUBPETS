@@ -149,6 +149,7 @@ namespace Blackjack_Game
                         break;
                     case "Anto_CG_01_3":
                         Load_AVG(1013);//开启安托第一个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(1);
                         break;
 
                     case "Anto_CG_02_2":
@@ -156,6 +157,7 @@ namespace Blackjack_Game
                         break;
                     case "Anto_CG_02_3":
                         Load_AVG(1023);//开启安托第二个CG
+                        dialog.spine_FrameEvents.Anto_CG_02.gameObject.SetActive(true);
                         break;
 
                 }
@@ -182,7 +184,7 @@ namespace Blackjack_Game
 
 
 
-
+     
         public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;
         public Sprite Bar_Show, Bar_Hidden;
         public GameObject System, Audio, Display, Operation;
@@ -268,6 +270,8 @@ namespace Blackjack_Game
         /// 检测和删除存档/开始游戏选项
         /// </summary>
         #region
+
+        [Header("检测和删除存档")]
         public GameObject MakeSureStartNewGameMenu;//确定是否删除存档
         public Button LoadGame;
 
@@ -842,6 +846,9 @@ namespace Blackjack_Game
             dialog.gameObject.SetActive(true);
             AVG.SetActive(true);
         }
+
+
+
         public void Close_AVG() 
         {
             dialog.gameObject.SetActive(false);
@@ -864,8 +871,8 @@ namespace Blackjack_Game
         public void Load_Win_Anto_AVG() 
         {
 
-            //GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-            GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+            GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+            //GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
             LoadingScene_Spine();
         }
 
@@ -873,7 +880,7 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
-            Load_AVG(1021);
+            Load_AVG(1011);
 
             //switch (1)
             //{

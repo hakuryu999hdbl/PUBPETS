@@ -9,6 +9,7 @@ namespace Blackjack_Game
     {
         [Header("UI组件")]
         public Text textLabel;
+        public Text textLabel_2;
 
         public List<GameObject> NameObject = new List<GameObject>();
 
@@ -21,6 +22,13 @@ namespace Blackjack_Game
         bool textFinished;//是否完成打字
         bool cancelTyping;//取消打字
         List<string> textList = new List<string>();
+
+        [Header("Spine动画器总控制")]
+        public Spine_FrameEvents spine_FrameEvents;
+        public GameObject Black_Half_AVG;//通常对话框
+        public GameObject Black_Half_CG;//CG对话框
+
+
 
         [Header("这是哪个动画需要的对话")]
         public int animation_number;
@@ -40,6 +48,9 @@ namespace Blackjack_Game
                       Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
                       Background_Shop;
 
+
+
+
         private void OnEnable()
         {
 
@@ -56,6 +67,28 @@ namespace Blackjack_Game
             textSpeed = PlayerPrefs.GetFloat("TextSpeed");
 
             Invoke("Read", 0.1f);
+
+
+
+
+            switch (animation_number) 
+            {
+
+                case 1013:
+                case 1023:
+                    Black_Half_CG.SetActive(true);
+                    break;
+
+                default:
+                    Black_Half_AVG.SetActive(true);
+                    break;
+            }
+
+
+
+
+
+
 
         }//一开始不会产生空白，OnEnable会在Start之前，Awake之后被调用
 
@@ -456,24 +489,61 @@ namespace Blackjack_Game
 
             textFinished = false;
             textLabel.text = "";
+            textLabel_2.text = "";/////////////////////////////////////////
 
             //判断一整行的字符是
             Text text = textLabel;
+            Text text_2 = textLabel_2;///////////////////////////////////////////
             switch (textList[index].Trim().ToString())
             {
+                #region CG用
 
 
-                #region 背景
-
-                //场景
+                //透明背景功能
 
                 case "CG":
-                    text.color = Color.white;
-                    CleanNameText();
+                    text_2.color = Color.white;
                     Background.gameObject.SetActive(false);// 透明背景播放CG
                     index++;
                     break;
+                case "--------------------NEXT--------------------":
+                    text_2.color = Color.white;
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+                    //当前显示的Spine动画器里触发Next
+                    spine_FrameEvents.TriggerNext();
+                    break;
 
+                //角色
+                case "me":
+                    text_2.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
+                    index++;
+                    break;
+                case "npc_1":
+                    text_2.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
+                    index++;
+                    break;
+
+                case "anto":
+                    text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    index++;
+                    break;
+                case "hetty":
+                    text.color = Color.white;
+                    index++;
+                    break;
+                case "alice":
+                    text.color = Color.white;
+                    index++;
+                    break;
+                #endregion
+
+                #region AVG背景
+
+
+
+
+                //场景
 
 
                 case "Black":
@@ -546,12 +616,7 @@ namespace Blackjack_Game
 
                 #endregion
 
-
-
-
-                #region 角色
-
-
+                #region AVG角色
                 case "Me":
                     text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
                     CleanNameText();
@@ -561,8 +626,6 @@ namespace Blackjack_Game
 
                     index++;
                     break;
-
-
 
                 case "NPC_1":
                     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
@@ -600,14 +663,8 @@ namespace Blackjack_Game
 
                 #endregion
 
-                #region 角色_安托
+                #region AVG角色_安托
 
-                case "Anto":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-                    index++;
-                    break;
 
                 case "Anto_01":
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
@@ -683,7 +740,7 @@ namespace Blackjack_Game
 
                 #endregion
 
-                #region 角色_赫蒂
+                #region AVG角色_赫蒂
 
                 case "Hetty":
                     text.color = Color.white;
@@ -695,7 +752,7 @@ namespace Blackjack_Game
 
                 #endregion
 
-                #region 角色_爱丽丝
+                #region AVG角色_爱丽丝
                 case "Alice":
                     text.color = Color.white;
                     CleanNameText();
@@ -780,11 +837,13 @@ namespace Blackjack_Game
             while (!cancelTyping && letter < textList[index].Length - 1)
             {
                 textLabel.text += textList[index][letter];
+                textLabel_2.text += textList[index][letter];////////////////////////////////////////
                 letter++;
                 yield return new WaitForSeconds(textSpeed);
             }
 
             textLabel.text = textList[index];
+            textLabel_2.text = textList[index];////////////////////////////////////////////////
             cancelTyping = false;
             textFinished = true;
             index++;

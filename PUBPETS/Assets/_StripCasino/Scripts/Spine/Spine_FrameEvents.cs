@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,18 +7,35 @@ public class Spine_FrameEvents : MonoBehaviour
 
     public AudioManager audioManager;
 
-    public Animator CG_01;
-    public Animator CG_02;
+    public Animator Anto_CG_01;
+    public Animator Anto_CG_02;
+
+    //当前播放的动画器
+    private Animator currentAnimator;
+    public GameObject AVG_CG;
+
+    public void SetCurrentAnimator(int Number) 
+    {
+        switch (Number) 
+        {
+            case 1:
+                currentAnimator = Anto_CG_01;
+                break;
+
+            case 2:
+                break;
+        }
+
+        currentAnimator.gameObject.SetActive(true);
+        AVG_CG.SetActive(true);
+    }
 
 
-    public void TriggerNext_1() 
+
+    public void TriggerNext() 
     {
         audioManager.Stop();
-        CG_01.SetTrigger("Next");
+        currentAnimator.SetTrigger("Next");
     }
-    public void TriggerNext_2()
-    {
-        audioManager.Stop();
-        CG_02.SetTrigger("Next");
-    }
+
 }
