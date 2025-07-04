@@ -157,7 +157,15 @@ namespace Blackjack_Game
                         break;
                     case "Anto_CG_02_3":
                         Load_AVG(1023);//开启安托第二个CG
-                        dialog.spine_FrameEvents.Anto_CG_02.gameObject.SetActive(true);
+                        dialog.spine_FrameEvents.SetCurrentAnimator(2);
+                        break;
+
+                    case "Anto_CG_03_2":
+                        Load_AVG(1032);//开启安托第三个CG前端AVG
+                        break;
+                    case "Anto_CG_03_3":
+                        Load_AVG(1033);//开启安托第三个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
                         break;
 
                 }
@@ -871,8 +879,8 @@ namespace Blackjack_Game
         public void Load_Win_Anto_AVG() 
         {
 
-            GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-            //GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+            //GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+            GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
             LoadingScene_Spine();
         }
 
@@ -880,7 +888,7 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
-            Load_AVG(1011);
+            Load_AVG(1021);
 
             //switch (1)
             //{
