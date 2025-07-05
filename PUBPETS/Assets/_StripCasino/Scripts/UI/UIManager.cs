@@ -880,7 +880,8 @@ namespace Blackjack_Game
         {
 
             //GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-            GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+            //GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+            GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
             LoadingScene_Spine();
         }
 
@@ -888,7 +889,7 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
-            Load_AVG(1021);
+            Load_AVG(1031);
 
             //switch (1)
             //{

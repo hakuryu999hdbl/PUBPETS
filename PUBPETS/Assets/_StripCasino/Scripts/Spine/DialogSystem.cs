@@ -76,6 +76,7 @@ namespace Blackjack_Game
 
                 case 1013:
                 case 1023:
+                case 1033:
                     Black_Half_CG.SetActive(true);
                     break;
 
@@ -523,6 +524,10 @@ namespace Blackjack_Game
                     text_2.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
                     index++;
                     break;
+                case "npc_2":
+                    text_2.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色
+                    index++;
+                    break;
 
                 case "anto":
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
@@ -870,6 +875,7 @@ namespace Blackjack_Game
                 case 1001:
                 case 1013:
                 case 1023:
+                case 1033:
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
 
@@ -922,7 +928,10 @@ namespace Blackjack_Game
                     GameFlowData.nextAVGId = "Anto_CG_02_3";//开启安托第二个CG
                     uiManager.LoadingScene_Spine();
                     break;
-
+                case 1032:
+                    GameFlowData.nextAVGId = "Anto_CG_03_3";//开启安托第三个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
 
 
 
