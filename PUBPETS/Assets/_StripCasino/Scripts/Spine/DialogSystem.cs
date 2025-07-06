@@ -39,7 +39,8 @@ namespace Blackjack_Game
         public Image People;
         public Sprite ShopManager,
                       NPC_1, NPC_2,
-                      Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06;
+                      Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
+                      Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12;
 
         public Image Background;
         public Sprite Black,
@@ -741,7 +742,71 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+                case "Anto_07":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
 
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_07;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_08":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_08;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_09":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_09;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_10":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_10;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_11":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_11;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Anto_12":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_12;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
 
                 #endregion
 
