@@ -961,7 +961,25 @@ namespace Blackjack_Game
         }//女荷官指名界面选择
 
 
-        public void CG_Thumbnail_RePlay() { }
+        public void CG_Thumbnail_RePlay(int CG_Number) 
+        {
+            switch (CG_Number)
+            {
+                case 1:
+                    GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+                    break;
+                case 2:
+                    GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+                    break;
+                case 3:
+                    GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+                    break;
+            }
+
+
+
+            LoadingScene_Spine();
+        }
 
 
         public void DeveloperMode(int Story) 
