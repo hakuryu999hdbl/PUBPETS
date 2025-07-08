@@ -91,13 +91,15 @@ namespace Blackjack_Game
 
             //Debug.Log("目前储存的余额数量" + PlayerPrefs.GetFloat("BalanceKey"));
             //Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
+
             //Debug.Log("目前储存的Hit按键设置" + PlayerPrefs.GetString("KeyBindings_Hit"));
             //Debug.Log("目前储存的Stand按键设置: " + PlayerPrefs.GetString("KeyBindings_Stand"));
             //Debug.Log("目前储存的DoubleDown按键设置: " + PlayerPrefs.GetString("KeyBindings_DoubleDown"));
             //Debug.Log("目前储存的Skip按键设置: " + PlayerPrefs.GetString("KeyBindings_Skip"));
             //Debug.Log("目前储存的Confirm按键设置: " + PlayerPrefs.GetString("KeyBindings_Confirm"));
             //Debug.Log("目前储存的Back按键设置: " + PlayerPrefs.GetString("KeyBindings_Back"));
-            //Debug.Log("目前是否有存档" + PlayerPrefs.GetInt("Story"));//0没有  1有
+
+            Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));//0没有  1安托一 2安托二 3安托三
 
             //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
@@ -128,9 +130,7 @@ namespace Blackjack_Game
                 switch (GameFlowData.nextAVGId)
                 {
                     case "StartStory_01":
-                        Load_AVG(1);//开始剧情
-
-                        PlayerPrefs.SetInt("Story", 1);//记录（下次进来不会出现这个介绍背景剧情）
+                        Load_AVG(1);//开始剧情                   
                         break;
 
                     case "StartWork_01":
@@ -879,9 +879,42 @@ namespace Blackjack_Game
         public void Load_Win_Anto_AVG() 
         {
 
-            //GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-            //GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
-            GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+            switch (PlayerPrefs.GetInt("Story"))
+            {
+                case 1:
+                    GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+                    break;
+                case 2:
+                    GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+                    break;
+                case 3:
+                    GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+                    break;
+                    //case 4:
+                    //    Load_AVG(1041);
+                    //    break;
+                    //case 5:
+                    //    Load_AVG(1051);
+                    //    break;
+                    //case 6:
+                    //    Load_AVG(1061);
+                    //    break;
+                    //case 7:
+                    //    Load_AVG(1071);
+                    //    break;
+                    //case 8:
+                    //    Load_AVG(1081);
+                    //    break;
+                    //case 9:
+                    //    Load_AVG(1091);
+                    //    break;
+                    //case 10:
+                    //    Load_AVG(1101);
+                    //    break;
+            }
+
+
+
             LoadingScene_Spine();
         }
 
@@ -889,43 +922,58 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
-            Load_AVG(1031);
+            //Load_AVG(1031);
 
-            //switch (1)
-            //{
-            //    case 1:
-            //        Load_AVG(1011);
-            //        break;
-            //    case 2:
-            //        Load_AVG(1021);
-            //        break;
-            //    case 3:
-            //        Load_AVG(1031);
-            //        break;
-            //    case 4:
-            //        Load_AVG(1041);
-            //        break;
-            //    case 5:
-            //        Load_AVG(1051);
-            //        break;
-            //    case 6:
-            //        Load_AVG(1061);
-            //        break;
-            //    case 7:
-            //        Load_AVG(1071);
-            //        break;
-            //    case 8:
-            //        Load_AVG(1081);
-            //        break;
-            //    case 9:
-            //        Load_AVG(1091);
-            //        break;
-            //    case 10:
-            //        Load_AVG(1101);
-            //        break;
-            //}
+            switch (PlayerPrefs.GetInt("Story"))
+            {
+                case 1:
+                    Load_AVG(1011);//安托一
+                    break;
+                case 2:
+                    Load_AVG(1021);//安托二
+                    break;
+                case 3:
+                    Load_AVG(1031);//安托三
+                    break;
+                //case 4:
+                //    Load_AVG(1041);
+                //    break;
+                //case 5:
+                //    Load_AVG(1051);
+                //    break;
+                //case 6:
+                //    Load_AVG(1061);
+                //    break;
+                //case 7:
+                //    Load_AVG(1071);
+                //    break;
+                //case 8:
+                //    Load_AVG(1081);
+                //    break;
+                //case 9:
+                //    Load_AVG(1091);
+                //    break;
+                //case 10:
+                //    Load_AVG(1101);
+                //    break;
+            }
 
-        }
+        }//女荷官指名界面选择
+
+
+        public void CG_Thumbnail_RePlay() { }
+
+
+        public void DeveloperMode(int Story) 
+        {
+
+
+            PlayerPrefs.SetInt("Story", Story);
+            Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));
+
+
+        }//作者模式切换进度
+
 
 
         #endregion

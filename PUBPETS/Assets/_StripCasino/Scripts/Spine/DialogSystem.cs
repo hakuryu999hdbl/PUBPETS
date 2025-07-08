@@ -937,14 +937,32 @@ namespace Blackjack_Game
             switch (animation_number) 
             {
                 case 1:
+                    PlayerPrefs.SetInt("Story", 1);//记录进度（下次进来不会出现这个介绍背景剧情）
+                    GameFlowData.nextAVGId = "StartWork_01";//故事背景结束，开启经营AVG
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+
                 case 1001:
-                case 1013:
-                case 1023:
-                case 1033:
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
+                    break;
 
 
+                case 1013:
+                    PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
+                    GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1023:
+                    PlayerPrefs.SetInt("Story", 3);//记录进度（安托的第二个CG结束）
+                    GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1033:
+                    //PlayerPrefs.SetInt("Story", 4);//记录进度（安托的第三个CG结束）
+                    GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
+                    uiManager.LoadingScene_Spine();
                     break;
 
 
