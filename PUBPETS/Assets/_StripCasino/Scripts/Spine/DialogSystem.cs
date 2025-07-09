@@ -950,19 +950,40 @@ namespace Blackjack_Game
 
 
                 case 1013:
-                    PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
-                    GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
-                    uiManager.LoadingScene_Spine();
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else 
+                    {
+                        PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
+                        GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
+                        uiManager.LoadingScene_Spine();
+                    }
                     break;
                 case 1023:
-                    PlayerPrefs.SetInt("Story", 3);//记录进度（安托的第二个CG结束）
-                    GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
-                    uiManager.LoadingScene_Spine();
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+                        PlayerPrefs.SetInt("Story", 3);//记录进度（安托的第二个CG结束）
+                        GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
+                        uiManager.LoadingScene_Spine();
+                    }
                     break;
                 case 1033:
-                    //PlayerPrefs.SetInt("Story", 4);//记录进度（安托的第三个CG结束）
-                    GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
-                    uiManager.LoadingScene_Spine();
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+                        //PlayerPrefs.SetInt("Story", 4);//记录进度（安托的第三个CG结束）
+                        GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
+                        uiManager.LoadingScene_Spine();
+                    }
                     break;
 
 

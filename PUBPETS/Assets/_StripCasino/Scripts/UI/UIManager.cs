@@ -15,7 +15,7 @@ namespace Blackjack_Game
         /// 主菜单使用UI
         /// </summary>
         #region
-
+        public GameObject CG_Thumbnail_Menu;
         private void Start()
         {
             Scene currentScene = SceneManager.GetActiveScene(); // 获取当前场景
@@ -40,6 +40,13 @@ namespace Blackjack_Game
                 {
                     PlayerPrefs.SetFloat("TextSpeed", 0.05f);
                 }//检测文字加载速度，默认为0.05f
+
+                if (GameFlowData.returnPath == "cg") 
+                {
+                    CG_Thumbnail_Menu.SetActive(true);
+                    GameFlowData.returnPath = null;
+                }
+
 
 
                 //if (Application.platform == RuntimePlatform.Android)
@@ -976,7 +983,7 @@ namespace Blackjack_Game
                     break;
             }
 
-
+            GameFlowData.returnPath = "cg";//这个是CG鉴赏路径
 
             LoadingScene_Spine();
         }
