@@ -15,6 +15,7 @@ namespace Blackjack_Game
         /// 主菜单使用UI
         /// </summary>
         #region
+        [Header("主菜单使用UI")]
         public GameObject CG_Thumbnail_Menu;
         private void Start()
         {
@@ -27,6 +28,8 @@ namespace Blackjack_Game
 
                 LoadKeyBindings(); // 在游戏开始时加载键位设置
 
+
+                SetClothes();//随机衣服
 
                 if (PlayerPrefs.GetInt("Story") == 0)
                 {
@@ -242,6 +245,19 @@ namespace Blackjack_Game
             }
 
         }
+
+        public Image Menu_Anto, Menu_Hetty, Menu_Alice;
+        public Sprite[] AntoSprites;
+        public Sprite[] HettySprites;
+        public Sprite[] AliceSprites;
+
+        public void SetClothes() 
+        {
+            Menu_Anto.sprite = AntoSprites[UnityEngine.Random.Range(0, AntoSprites.Length)];
+            Menu_Hetty.sprite = HettySprites[UnityEngine.Random.Range(0, HettySprites.Length)];
+            Menu_Alice.sprite = AliceSprites[UnityEngine.Random.Range(0, AliceSprites.Length)];
+        }
+
         #endregion
 
 
@@ -658,6 +674,12 @@ namespace Blackjack_Game
         public void OpenURL_Steam()
         {
             Application.OpenURL("https://store.steampowered.com/");
+        }
+
+
+        public void OpenURL_YYY()
+        {
+            Application.OpenURL("https://x.com/Detective_ye");
         }
 
         public void ExitGame()
