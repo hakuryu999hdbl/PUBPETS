@@ -10,6 +10,13 @@ namespace Blackjack_Game
 {
     public class UIManager : MonoBehaviour
     {
+        public static UIManager instance { get; private set; }
+        void Awake()
+        {
+            instance = this;
+        }
+
+
 
         /// <summary>
         /// 主菜单使用UI
@@ -48,7 +55,35 @@ namespace Blackjack_Game
                 {
                     CG_Thumbnail_Menu.SetActive(true);
                     GameFlowData.returnPath = null;
-                }
+                }//观赏完CG回主菜单
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -109,7 +144,7 @@ namespace Blackjack_Game
             //Debug.Log("目前储存的Confirm按键设置: " + PlayerPrefs.GetString("KeyBindings_Confirm"));
             //Debug.Log("目前储存的Back按键设置: " + PlayerPrefs.GetString("KeyBindings_Back"));
 
-            Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));//0没有  1安托一 2安托二 3安托三
+            //Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));//0没有  1安托一 2安托二 3安托三
 
             //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
@@ -262,6 +297,7 @@ namespace Blackjack_Game
 
 
 
+
         /// <summary>
         /// 语言设置/文字加载速度
         /// </summary>
@@ -310,7 +346,7 @@ namespace Blackjack_Game
         {
             if (PlayerPrefs.GetInt("Story") == 0)
             {
-                NewGame();
+                //NewGame();
             }
             else
             {
@@ -319,25 +355,25 @@ namespace Blackjack_Game
 
         }//点击新游戏按钮时
 
-        public void NewGame()
-        {
-            //初始化项目
-            PlayerPrefs.SetFloat("BalanceKey", 1000);
-
-            PlayerPrefs.SetInt("Story", 0);
-
-            GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
-            LoadingScene_Spine();
-
-        }//在已有存档的情况下开始新游戏
-
-
-        public void ContinueGame()
-        {
-            GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
-            LoadingScene_Spine();
-
-        }//继续游戏
+        //public void NewGame()
+        //{
+        //    //初始化项目
+        //    PlayerPrefs.SetFloat("BalanceKey", 1000);
+        //
+        //    PlayerPrefs.SetInt("Story", 0);
+        //
+        //    GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
+        //    LoadingScene_Spine();
+        //
+        //}//在已有存档的情况下开始新游戏
+        //
+        //
+        //public void ContinueGame()
+        //{
+        //    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+        //    LoadingScene_Spine();
+        //
+        //}//继续游戏
 
 
         public void ReStart_DeleteAll()

@@ -20,28 +20,41 @@ namespace Blackjack_Game
 
         void Start()
         {
-            float storedBalance = PlayerPrefs.GetFloat("BalanceKey", initialBalance);
-            Debug.Log("黑杰克【最开始读取】，目前储存的余额数量" + storedBalance);
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            float storedBalance = data.balance;
+
+            //float storedBalance = PlayerPrefs.GetFloat("BalanceKey", initialBalance);【Json存档修改】
+
+
+
+            //Debug.Log("黑杰克【最开始读取】，目前储存的余额数量: " + storedBalance);
             SetBalance(storedBalance);
-            Debug.Log("黑杰克【最开始设置】完成，目前储存的余额数量" + balance);
+            //Debug.Log("黑杰克【最开始设置】完成，目前储存的余额数量: " + balance);
+
+
         }
 
         public static void ChangeBalance(float value)
         {
 
-            if (value>0&& GameManager.GameActive)//只有游戲中活得籌碼才可以改變生命值
+            if (value > 0 && GameManager.GameActive)//只有游戲中活得籌碼才可以改變生命值
             {
                 GameManager.ChangeHealth(-value);
             }
-           
+
 
             _Instance.balance += value;
             //_Instance.balanceText.text = "<color=yellow>Balance</color> " + _Instance.balance.ToString();
             _Instance.balanceText.text = _Instance.balance.ToString();
 
 
-            PlayerPrefs.SetFloat("BalanceKey", _Instance.balance);
-            Debug.Log("黑杰克【赌博/押注】完成，目前储存的余额数量" + _Instance.balance);
+            // ✅ 写入 SaveSystem 的存档中
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            data.balance = _Instance.balance;
+            SaveManager.SaveGame(data);
+            //PlayerPrefs.SetFloat("BalanceKey", _Instance.balance);【Json存档修改】
+
+            //Debug.Log("黑杰克【赌博/押注】完成，目前储存的余额数量" + _Instance.balance);
 
 
         }
@@ -61,8 +74,13 @@ namespace Blackjack_Game
             //_Instance.balanceText.text = "<color=yellow>Balance</color> " + _Instance.balance.ToString();
             _Instance.balanceText.text = _Instance.balance.ToString();
 
-            PlayerPrefs.SetFloat("BalanceKey", _Instance.balance);
-            Debug.Log("黑杰克【重置】完成，目前储存的余额数量" + _Instance.balance);
+            // ✅ 写入存档中
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            data.balance = _Instance.balance;
+            SaveManager.SaveGame(data);
+            //PlayerPrefs.SetFloat("BalanceKey", _Instance.balance);【Json存档修改】
+
+            //Debug.Log("黑杰克【重置】完成，目前储存的余额数量" + _Instance.balance);
         }
 
 
