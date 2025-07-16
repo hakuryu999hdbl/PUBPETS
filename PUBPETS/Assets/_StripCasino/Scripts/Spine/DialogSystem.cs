@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 namespace Blackjack_Game
 {
     public class DialogSystem : MonoBehaviour
@@ -44,7 +45,6 @@ namespace Blackjack_Game
 
         public Image Background;
         public Sprite Black,
-                      History_01, History_02, History_03,
                       BarCounter,
                       Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
                       Background_Shop;
@@ -601,25 +601,6 @@ namespace Blackjack_Game
                     break;
 
 
-
-                //基本不太可能出现人物的插图
-                case "History_01":
-                    text.color = Color.white;
-                    CleanNameText();
-                    Background.sprite = History_01;
-                    index++;
-                    break;
-                case "History_02":
-                    text.color = Color.white;
-                    Background.sprite = History_02;
-                    index++;
-                    break;
-                case "History_03":
-                    text.color = Color.white;
-                    Background.sprite = History_03;
-                    index++;
-                    break;
-
                 #endregion
 
                 #region AVG角色
@@ -933,11 +914,17 @@ namespace Blackjack_Game
         //快进按钮触发在这里
         public void ChangeStory()
         {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
             switch (animation_number) 
             {
                 case 1:
-                    PlayerPrefs.SetInt("Story", 1);//记录进度（下次进来不会出现这个介绍背景剧情）
+                    //PlayerPrefs.SetInt("Story", 1);//记录进度（下次进来不会出现这个介绍背景剧情）
+
+                    
+                    data.antoProgress = 1;
+                    SaveManager.SaveGame(data);
+
                     GameFlowData.nextAVGId = "StartWork_01";//故事背景结束，开启经营AVG
                     uiManager.LoadingScene_Spine();
                     break;
@@ -956,7 +943,11 @@ namespace Blackjack_Game
                     }
                     else 
                     {
-                        PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
+                        //PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
+
+                        data.antoProgress = 2;
+                        SaveManager.SaveGame(data);
+
                         GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
                         uiManager.LoadingScene_Spine();
                     }
@@ -968,7 +959,11 @@ namespace Blackjack_Game
                     }
                     else
                     {
-                        PlayerPrefs.SetInt("Story", 3);//记录进度（安托的第二个CG结束）
+                        //PlayerPrefs.SetInt("Story", 3);//记录进度（安托的第二个CG结束）
+
+                        data.antoProgress = 3;
+                        SaveManager.SaveGame(data);
+
                         GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
                         uiManager.LoadingScene_Spine();
                     }
@@ -981,6 +976,9 @@ namespace Blackjack_Game
                     else
                     {
                         //PlayerPrefs.SetInt("Story", 4);//记录进度（安托的第三个CG结束）
+
+
+
                         GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
                         uiManager.LoadingScene_Spine();
                     }

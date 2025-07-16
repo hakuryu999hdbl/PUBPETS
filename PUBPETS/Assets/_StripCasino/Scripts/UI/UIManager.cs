@@ -38,10 +38,6 @@ namespace Blackjack_Game
 
                 SetClothes();//随机衣服
 
-                if (PlayerPrefs.GetInt("Story") == 0)
-                {
-                    LoadGame.interactable = false; // 将按钮设为不可交互
-                }//检测当前是否有存档
 
 
                 CheckTextSpeed();//检测文字加载速度，默认为0.05f
@@ -135,7 +131,7 @@ namespace Blackjack_Game
 
 
             //Debug.Log("目前储存的余额数量" + PlayerPrefs.GetFloat("BalanceKey"));
-            //Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
+            Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
 
             //Debug.Log("目前储存的Hit按键设置" + PlayerPrefs.GetString("KeyBindings_Hit"));
             //Debug.Log("目前储存的Stand按键设置: " + PlayerPrefs.GetString("KeyBindings_Stand"));
@@ -146,7 +142,7 @@ namespace Blackjack_Game
 
             //Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));//0没有  1安托一 2安托二 3安托三
 
-            //Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
+            Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
             // Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
             // Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
@@ -334,52 +330,14 @@ namespace Blackjack_Game
 
 
         /// <summary>
-        /// 检测和删除存档/开始游戏选项
+        /// 恢复默认设置
         /// </summary>
         #region
-
-        [Header("检测和删除存档")]
-        public GameObject MakeSureStartNewGameMenu;//确定是否删除存档
-        public Button LoadGame;
-
-        public void StartCheckSave()
-        {
-            if (PlayerPrefs.GetInt("Story") == 0)
-            {
-                //NewGame();
-            }
-            else
-            {
-                MakeSureStartNewGameMenu.SetActive(true);
-            }
-
-        }//点击新游戏按钮时
-
-        //public void NewGame()
-        //{
-        //    //初始化项目
-        //    PlayerPrefs.SetFloat("BalanceKey", 1000);
-        //
-        //    PlayerPrefs.SetInt("Story", 0);
-        //
-        //    GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
-        //    LoadingScene_Spine();
-        //
-        //}//在已有存档的情况下开始新游戏
-        //
-        //
-        //public void ContinueGame()
-        //{
-        //    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
-        //    LoadingScene_Spine();
-        //
-        //}//继续游戏
-
 
         public void ReStart_DeleteAll()
         {
             PlayerPrefs.DeleteAll();
-            Debug.Log("删除存档");
+            Debug.Log("恢复默认设置");
 
             LoadingImage.SetActive(true);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -424,6 +382,11 @@ namespace Blackjack_Game
             SceneManager.LoadScene("Spine");
 
         }
+
+        public void OpenSaveURL()
+        {
+            Application.OpenURL(Application.persistentDataPath);
+        }//打开存档位置文件夹
 
         #endregion
 
@@ -943,8 +906,9 @@ namespace Blackjack_Game
         //获得胜利开启CG
         public void Load_Win_Anto_AVG() 
         {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
-            switch (PlayerPrefs.GetInt("Story"))
+            switch (data.antoProgress)
             {
                 case 1:
                     GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
@@ -988,8 +952,9 @@ namespace Blackjack_Game
         public void Load_Vs_Anto_AVG()
         {
             //Load_AVG(1031);
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
-            switch (PlayerPrefs.GetInt("Story"))
+            switch (data.antoProgress)
             {
                 case 1:
                     Load_AVG(1011);//安托一
@@ -1049,10 +1014,12 @@ namespace Blackjack_Game
 
         public void DeveloperMode(int Story) 
         {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            data.antoProgress= Story;
+            SaveManager.SaveGame(data);
 
-
-            PlayerPrefs.SetInt("Story", Story);
-            Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));
+            //PlayerPrefs.SetInt("Story", Story);
+            //Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));
 
 
         }//作者模式切换进度
