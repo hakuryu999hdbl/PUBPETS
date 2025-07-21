@@ -36,9 +36,9 @@ namespace Blackjack_Game
                 LoadKeyBindings(); // 在游戏开始时加载键位设置
 
 
-                SetClothes();//随机衣服
+                //SetClothes();//随机衣服（我估计前三章不会有变化）
 
-
+                CheckAndShowAntoCG();//根据当前存档来解锁CG进度
 
                 CheckTextSpeed();//检测文字加载速度，默认为0.05f
 
@@ -293,6 +293,99 @@ namespace Blackjack_Game
 
 
 
+        /// <summary>
+        /// 存档统合
+        /// </summary>
+        #region
+
+        [Header("存档界面UI")]
+        public InputField nameInputField; // 绑定在 Inspector 里
+
+        public SaveSlotUI saveSlotUI_1, saveSlotUI_2, saveSlotUI_3;
+        SaveSlotUI CurrentSaveSlotUI;
+        public void CurrentSaveSlotUI_Is(int Number) 
+        {
+            switch (Number) 
+            {
+
+                case 1:
+                    CurrentSaveSlotUI = saveSlotUI_1;
+                    break;
+                case 2:
+                    CurrentSaveSlotUI = saveSlotUI_2;
+                    break;
+                case 3:
+                    CurrentSaveSlotUI = saveSlotUI_3;
+                    break;
+            }
+        }//确定当前选中脚本
+        public void MakeSureDeleteDateMenu_Delete() 
+        {
+            if (CurrentSaveSlotUI != null)
+            {
+                CurrentSaveSlotUI.OnDeleteClicked();
+            }
+        }//删除当前选中存档
+
+
+        public GameObject SaveNameMenu;//输入酒保名称菜单
+
+        public void OnConfirmNameInput() 
+        {
+            if (CurrentSaveSlotUI != null)
+            {
+                CurrentSaveSlotUI.saveName = nameInputField.text.Trim();
+
+                // 新建存档
+                SaveData newData = new SaveData(CurrentSaveSlotUI.slotName);
+
+                newData.slotName = CurrentSaveSlotUI.slotName;//记住档的名字
+                newData.saveName = CurrentSaveSlotUI.saveName;//记主人公的名字
+                newData.balance = 1000;//初始给与1000
+
+
+                SaveManager.SaveGame(newData);
+
+                CurrentSaveSlotUI.Refresh();//更新当前存档内容
+            }         
+
+        }//玩家确定这个存档名称
+
+
+        #endregion
+
+        /// <summary>
+        /// CG解锁进度
+        /// </summary>
+        #region
+        public GameObject Thumbnail_Anto_01;
+        public GameObject Thumbnail_Anto_02;
+        public GameObject Thumbnail_Anto_03;
+
+        public void CheckAndShowAntoCG()
+        {
+            int maxAntoProgress = 0;
+
+            // 检查三个存档中antoProgress最大值
+            for (int i = 1; i <= 3; i++)
+            {
+                string slotName = "CurrentPlayer" + i;
+                if (!string.IsNullOrEmpty(slotName) && SaveManager.Exists(slotName))
+                {
+                    SaveData data = SaveManager.LoadGame(slotName);
+                    if (data.antoProgress > maxAntoProgress)
+                        maxAntoProgress = data.antoProgress;
+                }
+            }
+
+            // 控制显示
+            Thumbnail_Anto_01.SetActive(maxAntoProgress >= 2);
+            Thumbnail_Anto_02.SetActive(maxAntoProgress >= 3);
+            Thumbnail_Anto_03.SetActive(maxAntoProgress >= 4); // 你可以设定解锁规则
+
+        }//读取当前最大CG解锁进度
+
+        #endregion
 
         /// <summary>
         /// 语言设置/文字加载速度

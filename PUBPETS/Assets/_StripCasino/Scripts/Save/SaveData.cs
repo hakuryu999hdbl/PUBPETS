@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class SaveData
 {
-    public string saveName = "CurrentPlayer"; // 存档名
+    public string slotName;// 存档名
+    public string saveName = "CurrentPlayer"; // 主人公名字
     public string saveTime;                  // 存档时间（字符串）
 
     public float balance;

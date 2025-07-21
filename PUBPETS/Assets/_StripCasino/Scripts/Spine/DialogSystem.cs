@@ -29,7 +29,17 @@ namespace Blackjack_Game
         public GameObject Black_Half_AVG;//通常对话框
         public GameObject Black_Half_CG;//CG对话框
 
+        [Header("男主自定义名称带入")]
+        public Text Me;
 
+        void SetMyName() 
+        {
+            // 先加载存档数据
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+
+            Me.text = data.saveName;
+        }
 
         [Header("这是哪个动画需要的对话")]
         public int animation_number;
@@ -88,7 +98,7 @@ namespace Blackjack_Game
 
 
 
-
+            SetMyName();//读取玩家名称
 
 
 

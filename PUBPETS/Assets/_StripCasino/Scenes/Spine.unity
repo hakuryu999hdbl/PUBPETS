@@ -6876,9 +6876,12 @@ MonoBehaviour:
   AntoSprites: []
   HettySprites: []
   AliceSprites: []
+  nameInputField: {fileID: 0}
+  saveSlotUI_1: {fileID: 0}
+  saveSlotUI_2: {fileID: 0}
+  saveSlotUI_3: {fileID: 0}
+  SaveNameMenu: {fileID: 0}
   textSpeedSlider: {fileID: 0}
-  MakeSureStartNewGameMenu: {fileID: 0}
-  LoadGame: {fileID: 0}
   LoadingImage: {fileID: 1508792315}
   PauseMenu: {fileID: 40440188}
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
@@ -9047,6 +9050,7 @@ MonoBehaviour:
   spine_FrameEvents: {fileID: 131163032}
   Black_Half_AVG: {fileID: 2203702167203101207}
   Black_Half_CG: {fileID: 293128061}
+  Me: {fileID: 4391374809839486535}
   animation_number: 0
   TextButton: {fileID: 7426418186620853652}
   People: {fileID: 4599691317216262253}
@@ -9067,9 +9071,6 @@ MonoBehaviour:
   Anto_12: {fileID: 21300000, guid: f985e462a1fc0f24283b15c13d9ab049, type: 3}
   Background: {fileID: 6098212545855602677}
   Black: {fileID: 21300000, guid: 74acefcc7ee955d439fc8995888c6745, type: 3}
-  History_01: {fileID: 21300000, guid: 3f75a4327830b284bbc727fe8aecf376, type: 3}
-  History_02: {fileID: 21300000, guid: 9e074da15e0dbac4ba214e38b7408630, type: 3}
-  History_03: {fileID: 21300000, guid: d0eaa586c9858af48b55085ecf9b6a13, type: 3}
   BarCounter: {fileID: 21300000, guid: 82ac6301e74b5ca43857a4ab6a66a1a2, type: 3}
   Background_DungeonEntrance: {fileID: 21300000, guid: 994d30e5779c5de4ea25cc620dd24c1d,
     type: 3}
@@ -9368,7 +9369,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3463248298651461292}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
   m_Name: 

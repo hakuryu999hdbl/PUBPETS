@@ -7,6 +7,7 @@ namespace Blackjack_Game
     public class SaveSlotUI : MonoBehaviour
     {
         public string slotName; // "CurrentPlayer1", "CurrentPlayer2", "CurrentPlayer3"
+        public string saveName;//玩家当前储存的这个存档名称
 
         public Text nameText, timeText, moneyText, antoLvText, hettyLvText, aliceLvText;
         public Image thumbnail;
@@ -64,27 +65,34 @@ namespace Blackjack_Game
             {
                 //点击读取存档
 
+                // 先加载存档数据
+                SaveData data = SaveManager.LoadGame(slotName);
 
-                GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                if (data.antoProgress == 0)
+                {
+                    GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
+                }
+                else 
+                {
+                    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+
+                
+                }
+                GameFlowData.CurrentPlayer = slotName;//临时储存当前是哪个档
+
+                // 跳转游戏主场景AVG
+                UIManager.instance.LoadingScene_Spine();
+
             }
             else
             {
-                // 新建存档
-                SaveData newData = new SaveData(slotName);
+                //新建存档
+                UIManager.instance.SaveNameMenu.SetActive(true);
 
-                newData.saveName = slotName;//记住档的名字
-                newData.balance = 1000;//初始给与1000
-
-
-                SaveManager.SaveGame(newData);
-
-                GameFlowData.nextAVGId = "StartStory_01";//开启开头剧情介绍
+                
             }
 
-            GameFlowData.CurrentPlayer = slotName;//临时储存当前是哪个档
-
-            // 跳转游戏主场景AVG
-            UIManager.instance.LoadingScene_Spine();
+         
         }//点击按钮
 
         public void OnDeleteClicked()
@@ -94,7 +102,7 @@ namespace Blackjack_Game
                 SaveManager.DeleteGame(slotName);
                 Refresh(); // UI刷新
             }
-        }
+        }//被删除
     }
 
    
