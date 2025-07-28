@@ -59,8 +59,34 @@ namespace Blackjack_Game
                       Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
                       Background_Shop;
 
+        [Header("自动播放")]
+        public bool autoMode = false; // 是否自动播放
+        public float autoDelay = 1.5f; // 每句之间的间隔秒数
+        public GameObject Auto_On, Auto_Off, Auto_on, Auto_off;
 
+        public void ToggleAutoMode()
+        {
+            autoMode = !autoMode;
+            Debug.Log("自动模式已" + (autoMode ? "开启" : "关闭"));
 
+            if (!autoMode)
+            {
+                Auto_On.SetActive(false);
+                Auto_on.SetActive(false);
+
+                Auto_Off.SetActive(true);
+                Auto_off.SetActive(true);
+            }
+            else 
+            {
+                Auto_On.SetActive(true);
+                Auto_on.SetActive(true);
+
+                Auto_Off.SetActive(false);
+                Auto_off.SetActive(false);
+            }
+
+        }//自动播放
 
         private void OnEnable()
         {
@@ -477,7 +503,7 @@ namespace Blackjack_Game
                 cancelTyping = !cancelTyping;
             }
 
-        }
+        }//点击下一句
 
         void GetTextFormFile(TextAsset file)
         {
@@ -908,6 +934,14 @@ namespace Blackjack_Game
             cancelTyping = false;
             textFinished = true;
             index++;
+
+
+            // ✅ 如果开启自动播放并且还有后续文本，就自动播放下一句
+            if (autoMode && index < textList.Count)
+            {
+                yield return new WaitForSeconds(autoDelay); // 自动延迟
+                ShowText(); // 自动下一句
+            }
         }
 
         public void CleanNameText()
