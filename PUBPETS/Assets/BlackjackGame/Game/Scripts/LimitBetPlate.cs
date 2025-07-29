@@ -16,6 +16,13 @@ namespace Blackjack_Game
 
         private void Start()
         {
+
+            //手动修改
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            int Story_Anto = data.antoProgress;
+            max = Story_Anto * 200;
+
+
             _Instance = this;
             SetLimit(min, max);
         }

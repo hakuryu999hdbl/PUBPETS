@@ -1021,7 +1021,8 @@ namespace Blackjack_Game
                     {
                         //PlayerPrefs.SetInt("Story", 4);//记录进度（安托的第三个CG结束）
 
-
+                        data.antoProgress = 4;
+                        SaveManager.SaveGame(data);
 
                         GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
                         uiManager.LoadingScene_Spine();

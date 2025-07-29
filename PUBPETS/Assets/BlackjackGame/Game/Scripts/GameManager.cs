@@ -227,8 +227,38 @@ namespace Blackjack_Game
 
         public void EndGame()
         {
+            #region
+            // ======= 结果判定部分 =======
+            bool playerWon = false;
+            bool playerPush = false;
 
-            ChangeView();//游戏结束时触发哪些
+            // 主手判定
+            if (!EvenMoneyAccepted)
+            {
+                bool dealerBlackjack = dealer.HasBlackjack();
+                bool playerBlackjack = player.HasBlackjack();
+                playerWon = player.Score > dealer.Score || dealer.IsBusted() || (playerBlackjack && !dealerBlackjack);
+                playerPush = player.Score == dealer.Score || (dealerBlackjack && playerBlackjack);
+                playerWon &= !player.hand.IsBust();
+            }
+
+            // Split 游戏中也赢算赢
+            if (player.IsSplitGame)
+            {
+                bool splitWin = player.SplitScore > dealer.Score || dealer.IsBusted();
+                splitWin &= !player.splitHand.IsBust();
+                playerWon |= splitWin;
+            }
+
+            // 平局也算赢
+            if (playerPush) playerWon = true;
+
+            // ✅ 设置最终结果
+            lastResult = playerWon ? PlayerResult.Win : PlayerResult.Lose;
+            #endregion
+
+
+            ChangeView();//一局游戏结束时触发哪些
 
             print("Game Ended");
             ChangeGameState(GameState.OnRewards);
@@ -289,6 +319,7 @@ namespace Blackjack_Game
             }
 
             StartCoroutine(ResetTable());
+
         }
 
         public void AcceptInsurance()
@@ -349,6 +380,15 @@ namespace Blackjack_Game
 
         public GameObject TreasureBox;//宝箱
 
+        //玩家输/赢判断
+        public enum PlayerResult
+        {
+            None,
+            Win,
+            Lose
+        }
+        private PlayerResult lastResult = PlayerResult.None;
+
         public void ChangeView()
         {
             if (SameScore) { dealer.hand.SetScore(player.Score); SameScore = false; }//女荷官强制变成玩家点数
@@ -366,8 +406,23 @@ namespace Blackjack_Game
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
 
 
+            #region 显示女荷官垃圾话
+            //Invoke("StartDialog", 2f);//显示女荷官垃圾话
 
-            Invoke("StartDialog", 2f);//显示女荷官垃圾话
+            switch (lastResult)
+            {
+                case PlayerResult.Win:
+                    Invoke("OnPlayerWin", 2f); // 显示赢的垃圾话
+                    break;
+                case PlayerResult.Lose:
+                    Invoke("OnPlayerLose", 2f); // 显示输的垃圾话
+                    break;
+                default:
+                    break;
+            }
+            lastResult = PlayerResult.None; // 重置状态
+
+            #endregion
 
 
             player.hand.CheatNumber = 0;//作弊點數清零
@@ -391,8 +446,8 @@ namespace Blackjack_Game
 
 
             // 停止显示女荷官垃圾话对话框
-            OverDialog();
-
+            //OverDialog();
+            HideDialogue();
 
 
             ChipBox.SetInteger("Situation", 0);//筹码出现
@@ -459,33 +514,88 @@ namespace Blackjack_Game
         /// </summary>
         #region
 
-        [Header("女荷官垃圾话列表")]
-        public List<GameObject> Diagol = new List<GameObject>();
-        private GameObject currentDisplayedDialogue; // 当前显示的对话框
+        // [Header("女荷官垃圾话列表")]
+        // public List<GameObject> Diagol = new List<GameObject>();
+        // private GameObject currentDisplayedDialogue; // 当前显示的对话框
+        //
+        //
+        //
+        // void StartDialog()
+        // {
+        //     // 随机选择一个对话框并显示
+        //     int randomIndex = Random.Range(0, Diagol.Count);
+        //     currentDisplayedDialogue = Diagol[randomIndex];
+        //     currentDisplayedDialogue.SetActive(true);
+        //
+        //
+        //
+        //     //Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
+        //
+        //     ChipBox.SetInteger("Situation", 0);//筹码出现
+        // }
+        //
+        // void OverDialog()
+        // {
+        //     foreach (var diagol in Diagol)
+        //     {
+        //         diagol.SetActive(false);
+        //     }
+        // }// 停止显示女荷官垃圾话对话框
+
+        [Header("对局开始垃圾话")]
+        public List<GameObject> StartDialogues = new List<GameObject>();
+
+        [Header("玩家赢一局垃圾话")]
+        public List<GameObject> PlayerWinDialogues = new List<GameObject>();
+
+        [Header("玩家输一局垃圾话")]
+        public List<GameObject> PlayerLoseDialogues = new List<GameObject>();
+
+        private GameObject currentDisplayedDialogue;
 
 
-
-        void StartDialog()
+        void ShowDialogue(List<GameObject> dialogueList)
         {
-            // 随机选择一个对话框并显示
-            int randomIndex = Random.Range(0, Diagol.Count);
-            currentDisplayedDialogue = Diagol[randomIndex];
+            if (currentDisplayedDialogue != null)
+                currentDisplayedDialogue.SetActive(false);
+
+            if (dialogueList == null || dialogueList.Count == 0)
+                return;
+
+            int randomIndex = Random.Range(0, dialogueList.Count);
+            currentDisplayedDialogue = dialogueList[randomIndex];
             currentDisplayedDialogue.SetActive(true);
 
+            //Invoke("HideDialogue", 3f); // 3秒后隐藏
 
+            ChipBox.SetInteger("Situation", 0);//弹出
+        }//显示女荷官垃圾话
 
-            //Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
-
-            ChipBox.SetInteger("Situation", 0);//筹码出现
-        }
-
-        void OverDialog()
+        void HideDialogue()
         {
-            foreach (var diagol in Diagol)
+            if (currentDisplayedDialogue != null)
             {
-                diagol.SetActive(false);
+                currentDisplayedDialogue.SetActive(false);
+                currentDisplayedDialogue = null;
             }
+        }//隐藏女荷官垃圾话
+
+        void StartMatch()
+        {
+            ShowDialogue(StartDialogues); // 开局时
         }
+
+        void OnPlayerWin()
+        {
+            ShowDialogue(PlayerWinDialogues); // 玩家赢
+        }
+
+        void OnPlayerLose()
+        {
+            ShowDialogue(PlayerLoseDialogues); // 玩家输
+        }
+
+
 
         #endregion
 
@@ -723,23 +833,34 @@ namespace Blackjack_Game
         public float maxHealth = 1000f;
         private float currentHealth;
 
-        public Text Lv_Anto;
+        public Text Limit;//本局赌注上限
 
         void Start()
         {
-            Debug.Log("目前储存的关卡进度_安托" + PlayerPrefs.GetInt("Story_Anto"));
-            if (PlayerPrefs.GetInt("Story_Anto") <= 0) { PlayerPrefs.SetInt("Story_Anto", 1); }
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            int Story_Anto = data.antoProgress;
+
+            Debug.Log("目前储存的关卡进度_安托" + Story_Anto);
+            if (Story_Anto <= 0)
+            {
+                data.antoProgress = 1;
+                SaveManager.SaveGame(data);
+            }
 
             //检测安托等级
-            Lv_Anto.text = PlayerPrefs.GetInt("Story_Anto").ToString();
-            maxHealth = PlayerPrefs.GetInt("Story_Anto") * 1000;
+            int LimitPlace = data.antoProgress * 200;
+            Limit.text = LimitPlace.ToString();//本局赌注上限
+
+            maxHealth = data.antoProgress * 1000;
 
             currentHealth = maxHealth;
             UpdateFill();
 
 
+            Invoke("StartMatch", 1f); // 开局时显示女荷官垃圾话
+            //Invoke("StartDialog", 1f);//游戏开始时显示女荷官垃圾话
 
-            Invoke("StartDialog", 1f);//游戏开始时显示女荷官垃圾话
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
         }
 
