@@ -477,7 +477,7 @@ namespace Blackjack_Game
             HideAllGuests();  // 首先隐藏所有游戏对象
 
             // 随机决定显示的数量
-            int numberToShow = Random.Range(1, Guests.Count + 1);
+            int numberToShow = Random.Range(1,4);
 
             // 随机排序列表
             List<GameObject> shuffledGuests = new List<GameObject>(Guests);
@@ -513,35 +513,6 @@ namespace Blackjack_Game
         /// 随机显示女荷官垃圾话
         /// </summary>
         #region
-
-        // [Header("女荷官垃圾话列表")]
-        // public List<GameObject> Diagol = new List<GameObject>();
-        // private GameObject currentDisplayedDialogue; // 当前显示的对话框
-        //
-        //
-        //
-        // void StartDialog()
-        // {
-        //     // 随机选择一个对话框并显示
-        //     int randomIndex = Random.Range(0, Diagol.Count);
-        //     currentDisplayedDialogue = Diagol[randomIndex];
-        //     currentDisplayedDialogue.SetActive(true);
-        //
-        //
-        //
-        //     //Invoke("ChangeViewBack", 3f);//显示女荷官垃圾话之后自动转回去
-        //
-        //     ChipBox.SetInteger("Situation", 0);//筹码出现
-        // }
-        //
-        // void OverDialog()
-        // {
-        //     foreach (var diagol in Diagol)
-        //     {
-        //         diagol.SetActive(false);
-        //     }
-        // }// 停止显示女荷官垃圾话对话框
-
         [Header("对局开始垃圾话")]
         public List<GameObject> StartDialogues = new List<GameObject>();
 
