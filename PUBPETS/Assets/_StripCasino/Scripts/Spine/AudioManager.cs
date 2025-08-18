@@ -39,6 +39,10 @@ public class AudioManager : MonoBehaviour
     /// 声音
     /// </summary>
     #region
+    //public AudioClip Anto_Start_01, Anto_Start_02, Anto_Start_03, Anto_Start_04, Anto_Start_05, 
+    //                 Anto_Win_01, Anto_Win_02, Anto_Win_03, Anto_Win_04, Anto_Win_05,
+    //                 Anto_Lose_01, Anto_Lose_02, Anto_Lose_03, Anto_Lose_04, Anto_Lose_05;
+
     [Header("效果音")]
 
     public AudioClip Attack_hit2;
