@@ -760,7 +760,7 @@ namespace Blackjack_Game
 
         public void OpenURL_Discord()
         {
-            Application.OpenURL("https://discord.com/channels/1342112706274267249/1342112706274267252");
+            Application.OpenURL("https://discord.gg/uCsSTPmMjV");
         }
 
         public void OpenURL_Steam()

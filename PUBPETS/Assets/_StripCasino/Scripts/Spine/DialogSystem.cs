@@ -541,11 +541,17 @@ namespace Blackjack_Game
 
                 case "CG":
                     text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
                     Background.gameObject.SetActive(false);// 透明背景播放CG
                     index++;
                     break;
                 case "--------------------NEXT--------------------":
                     text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
                     Background.gameObject.SetActive(false);// 透明背景播放CG
                     index++;
                     //当前显示的Spine动画器里触发Next
@@ -555,27 +561,43 @@ namespace Blackjack_Game
                 //角色
                 case "me":
                     text_2.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色
+
+                    voiceSource.Stop();
+
                     index++;
                     break;
                 case "npc_1":
                     text_2.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
+
+                    voiceSource.Stop();
+
                     index++;
                     break;
                 case "npc_2":
                     text_2.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色
+
+                    voiceSource.Stop();
+
                     index++;
                     break;
 
                 case "anto":
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+
+                    AntoVoice();
+
                     index++;
                     break;
                 case "hetty":
                     text.color = Color.white;
+
+
                     index++;
                     break;
                 case "alice":
                     text.color = Color.white;
+
+
                     index++;
                     break;
                 #endregion
@@ -591,6 +613,9 @@ namespace Blackjack_Game
                 case "Black":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Black;// 过场
                     People.gameObject.SetActive(false);
                     index++;
@@ -600,6 +625,9 @@ namespace Blackjack_Game
                 case "BG":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = BarCounter;// 默认是酒馆背景
                     People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
@@ -607,6 +635,9 @@ namespace Blackjack_Game
                 case "DungeonEntrance":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Background_DungeonEntrance;// 地下城入口
                     People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
@@ -614,6 +645,9 @@ namespace Blackjack_Game
                 case "DungeonCorridor":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Background_DungeonCorridor;// 地下城走廊
                     People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
@@ -621,6 +655,9 @@ namespace Blackjack_Game
                 case "Town":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Background_Town;//乡镇
                     People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
@@ -632,6 +669,9 @@ namespace Blackjack_Game
                 case "Shop":
                     text.color = Color.white;
                     CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Background_Shop;
                     index++;
                     break;
@@ -645,6 +685,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[0].SetActive(true);
 
+                    voiceSource.Stop();
+
                     People.GetComponent<Animator>().SetBool("Dark", true);
 
                     index++;
@@ -654,6 +696,8 @@ namespace Blackjack_Game
                     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
                     CleanNameText();
                     NameObject[5].SetActive(true);
+
+                    voiceSource.Stop();
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_1;
@@ -666,6 +710,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[6].SetActive(true);
 
+                    voiceSource.Stop();
+
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_2;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -677,6 +723,8 @@ namespace Blackjack_Game
                     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
                     CleanNameText();
                     NameObject[4].SetActive(true);
+
+                    voiceSource.Stop();
 
                     People.gameObject.SetActive(true);
                     People.sprite = ShopManager;
@@ -694,6 +742,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_01;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -706,6 +756,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_02;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -716,6 +768,8 @@ namespace Blackjack_Game
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
+
+                    AntoVoice();
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_03;
@@ -729,6 +783,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_04;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -740,6 +796,8 @@ namespace Blackjack_Game
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
+
+                    AntoVoice();
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_05;
@@ -753,6 +811,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_06;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -763,6 +823,8 @@ namespace Blackjack_Game
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
+
+                    AntoVoice();
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_07;
@@ -775,6 +837,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_08;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -785,6 +849,8 @@ namespace Blackjack_Game
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
+
+                    AntoVoice();
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_09;
@@ -797,6 +863,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_10;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -808,6 +876,8 @@ namespace Blackjack_Game
                     CleanNameText();
                     NameObject[1].SetActive(true);
 
+                    AntoVoice();
+
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_11;
                     People.GetComponent<Animator>().SetBool("Dark", false);
@@ -818,6 +888,8 @@ namespace Blackjack_Game
                     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
                     CleanNameText();
                     NameObject[1].SetActive(true);
+
+                    AntoVoice();
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_12;
@@ -951,6 +1023,116 @@ namespace Blackjack_Game
                 nameObject.SetActive(false);
             }
         }
+
+
+
+
+
+
+
+        [Header("插入声音")]
+        [SerializeField] AudioSource voiceSource;        
+        [SerializeField] List<AudioClip> antoPlaylist;//当前播放的列表
+
+        [SerializeField] List<AudioClip> antoPlaylist_StartStory;
+
+        [SerializeField] List<AudioClip> antoPlaylist_Lose;
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_01_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_01_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_01_3;
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_02_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_02_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_02_3;
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_03_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_03_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_03_3;
+
+        int VoiceIndex = 0;
+
+
+        public void AntoVoice()
+        {
+
+            switch (animation_number) 
+            {
+                case 1:
+                    antoPlaylist= antoPlaylist_StartStory;
+                    break;
+
+                case 1001:
+                    antoPlaylist = antoPlaylist_Lose;
+                    break;
+
+
+                case 1011:
+                    antoPlaylist = antoPlaylist_CG_01_1;
+                    break;
+                case 1012:
+                    antoPlaylist = antoPlaylist_CG_01_2;
+                    break;
+                case 1013:
+                    antoPlaylist = antoPlaylist_CG_01_3;
+                    break;
+
+                case 1021:
+                    antoPlaylist = antoPlaylist_CG_02_1;
+                    break;
+                case 1022:
+                    antoPlaylist = antoPlaylist_CG_02_2;
+                    break;
+                case 1023:
+                    antoPlaylist = antoPlaylist_CG_02_3;
+                    break;
+
+                case 1031:
+                    antoPlaylist = antoPlaylist_CG_03_1;
+                    break;
+                case 1032:
+                    antoPlaylist = antoPlaylist_CG_03_2;
+                    break;
+                case 1033:
+                    antoPlaylist = antoPlaylist_CG_03_3;
+                    break;
+            }
+
+
+            if (antoPlaylist == null || antoPlaylist.Count == 0)
+            {
+                Debug.LogWarning("Anto playlist is empty.");
+                return;
+            }
+            
+            
+            if (VoiceIndex >= antoPlaylist.Count)
+            {
+                Debug.Log("Anto playlist finished.");
+                return;
+            }
+
+            var clip = antoPlaylist[VoiceIndex++];
+            voiceSource.Stop();
+            voiceSource.clip = clip;
+            voiceSource.Play();
+
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         [Header("当对话结束时需要触发的一些地方")]
         public UIManager uiManager;
