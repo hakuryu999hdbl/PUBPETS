@@ -1058,9 +1058,9 @@ namespace Blackjack_Game
                 case 3:
                     Load_AVG(1031);//安托三
                     break;
-                //case 4:
-                //    Load_AVG(1041);
-                //    break;
+                case 4:
+                    Load_AVG(1041);//感谢试玩
+                    break;
                 //case 5:
                 //    Load_AVG(1051);
                 //    break;
