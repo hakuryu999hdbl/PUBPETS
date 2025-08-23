@@ -166,47 +166,58 @@ namespace Blackjack_Game
 
             if (currentScene.name == "Spine") 
             {
+                BGM.instance.Stop();
 
                 //播放AV媒介
                 switch (GameFlowData.nextAVGId)
                 {
                     case "StartStory_01":
-                        Load_AVG(1);//开始剧情                   
+                        Load_AVG(1);//开始剧情
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "StartWork_01":
                         Load_AVG(100);//开始工作
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "VSAnto":
                         Load_Vs_Anto_AVG();//对决安托
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_Failure":
                         Load_AVG(1001);//输给安托
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "Anto_CG_01_2":
                         Load_AVG(1012);//开启安托第一个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_CG_01_3":
                         Load_AVG(1013);//开启安托第一个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(1);
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
                         break;
 
                     case "Anto_CG_02_2":
                         Load_AVG(1022);//开启安托第二个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_CG_02_3":
                         Load_AVG(1023);//开启安托第二个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(2);
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Anto_CG_03_2":
                         Load_AVG(1032);//开启安托第三个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_CG_03_3":
                         Load_AVG(1033);//开启安托第三个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                 }
@@ -214,6 +225,29 @@ namespace Blackjack_Game
             }
 
 
+            // 读取本地保存的音量数值并应用
+            if (PlayerPrefs.HasKey("SE_Volume"))
+            {
+                float v = PlayerPrefs.GetFloat("SE_Volume");
+                audioMixer.SetFloat("MainVolume", v);
+                Debug.Log("读取到SE音量: " + v);
+            }
+            if (PlayerPrefs.HasKey("BGM_Volume"))
+            {
+                float v = PlayerPrefs.GetFloat("BGM_Volume");
+                audioMixer_2.SetFloat("MainVolume_2", v);
+                Debug.Log("读取到BGM音量: " + v);
+            }
+            if (PlayerPrefs.HasKey("Voice_Volume"))
+            {
+                float v = PlayerPrefs.GetFloat("Voice_Volume");
+                audioMixer_3.SetFloat("MainVolume_3", v);
+                Debug.Log("读取到Voice音量: " + v);
+            }
+
+            slider_SE.value = PlayerPrefs.GetFloat("SE_Volume"); // 让滑杆跳到保存的位置
+            slider_BGM.value = PlayerPrefs.GetFloat("BGM_Volume"); // 让滑杆跳到保存的位置
+            slider_Voice.value = PlayerPrefs.GetFloat("Voice_Volume"); // 让滑杆跳到保存的位置
 
 
         }
@@ -507,23 +541,43 @@ namespace Blackjack_Game
         /// </summary>
         #region
         [Header("声音利用")]
-        public AudioMixer audioMixer;//效果音
+        public AudioMixer audioMixer;//SE 效果音
         public AudioMixer audioMixer_2;//BGM
+        public AudioMixer audioMixer_3;//Voice
+
+        //public Slider slider_Main;
+        public Slider slider_SE;
+        public Slider slider_BGM;
+        public Slider slider_Voice;
 
         public void SetVolume(float value)
         {
             audioMixer.SetFloat("MainVolume", value);
+            PlayerPrefs.SetFloat("SE_Volume", value);
         }
 
         public void SetVolume_2(float value)
         {
             audioMixer_2.SetFloat("MainVolume_2", value);
+            PlayerPrefs.SetFloat("BGM_Volume", value);
+        }
+
+        public void SetVolume_3(float value)
+        {
+            audioMixer_3.SetFloat("MainVolume_3", value);
+            PlayerPrefs.SetFloat("Voice_Volume", value);
         }
 
         public void SetMasterVolume(float value)
         {
             audioMixer.SetFloat("MainVolume", value); // 确保在效果音混音器中存在名为MasterVolume的参数
             audioMixer_2.SetFloat("MainVolume_2", value); // 确保在BGM混音器中存在名为MasterVolume的参数
+            audioMixer_3.SetFloat("MainVolume_3", value); // 确保在Voice混音器中存在名为MasterVolume的参数
+
+            PlayerPrefs.SetFloat("SE_Volume", value);
+            PlayerPrefs.SetFloat("BGM_Volume", value);
+            PlayerPrefs.SetFloat("Voice_Volume", value);
+
         }//主音频
 
         #endregion

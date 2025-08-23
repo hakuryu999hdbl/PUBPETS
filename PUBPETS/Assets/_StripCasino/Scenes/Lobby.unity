@@ -6795,7 +6795,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &553747273
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8673,7 +8673,7 @@ GameObject:
   - component: {fileID: 714396232}
   - component: {fileID: 714396231}
   m_Layer: 0
-  m_Name: Audio_Manager
+  m_Name: SE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8811,6 +8811,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1c686b98ae34eab41840d727cd932eda, type: 3}
   - {fileID: 8300000, guid: f817c2eddf57e794f98c382323843294, type: 3}
   - {fileID: 8300000, guid: 693a01086fff2e34b91733e8298ac48e, type: 3}
+  - {fileID: 8300000, guid: 28f76186b8538534783ffc089b7a2430, type: 3}
+  - {fileID: 8300000, guid: 2ea858a3cbaa1ad4b92f5e04fd00de83, type: 3}
+  - {fileID: 8300000, guid: 86238818ad60d2949a243eabd14d0786, type: 3}
   AudioSource: {fileID: 714396231}
 --- !u!1 &716557903
 GameObject:
@@ -13216,7 +13219,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 861869592}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 0
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: -0
   m_OnValueChanged:
@@ -14483,15 +14486,15 @@ MonoBehaviour:
   m_HandleRect: {fileID: 509816029}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 0
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: -0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
-        m_MethodName: SetVolume_2
+      - m_Target: {fileID: 1731992595}
+        m_TargetAssemblyTypeName: Blackjack_Game.UIManager, Assembly-CSharp
+        m_MethodName: SetVolume_3
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -22416,6 +22419,10 @@ MonoBehaviour:
   PauseMenu: {fileID: 0}
   audioMixer: {fileID: 24100000, guid: 73f5b5e835859d34783eb48a193d3f00, type: 2}
   audioMixer_2: {fileID: 24100000, guid: 317d300cd24a1974191b52009ce18deb, type: 2}
+  audioMixer_3: {fileID: 24100000, guid: c3604bc158375f34f9a0a0cf671c7a70, type: 2}
+  slider_SE: {fileID: 1934066297}
+  slider_BGM: {fileID: 1095089543}
+  slider_Voice: {fileID: 1189581161}
   keybindText_Hit: {fileID: 1231082255}
   keybindText_Stand: {fileID: 475751577}
   keybindText_DoubleDown: {fileID: 1420082014}
@@ -24925,7 +24932,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 17546828}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 0
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: -0
   m_OnValueChanged:
@@ -25765,7 +25772,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1934053523}
   m_Direction: 0
   m_MinValue: -80
-  m_MaxValue: 0
+  m_MaxValue: 20
   m_WholeNumbers: 0
   m_Value: -0
   m_OnValueChanged:

@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "avv8zkszO+Y",
+	"hash": "d0SrLVnMfNk",
 	"spine": "4.2.42",
 	"x": -104.23,
 	"y": -1235.77,
 	"width": 2586.3,
 	"height": 1523.02,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root" },
@@ -1501,6 +1501,18 @@
 		}
 	}
 ],
+"events": {
+	"_Anto_Game_034": { "audio": "AVG/Anto/GAME/034.wav" },
+	"_Anto_Game_035": { "audio": "AVG/Anto/GAME/035.wav" },
+	"_Attack_pai2": { "audio": "YYY/Attack_pai2.wav" },
+	"_Jinv_xitian_fast1": { "audio": "YYY/Jinv_xitian_fast1.wav" },
+	"_Jinye_tentacle_short": { "audio": "YYY/Jinye_tentacle_short.mp3" },
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Semen_1": { "audio": "SE/SE_Semen_1.wav" },
+	"_SE_Semen_2": { "audio": "SE/SE_Semen_2.wav" },
+	"_SE_Semen_fuck_in": { "audio": "SE/SE_Semen_fuck_in.wav" },
+	"_SE_Semen_fuck_out": { "audio": "SE/SE_Semen_fuck_out.wav" }
+},
 "animations": {
 	"animation0": {
 		"slots": {
@@ -3347,7 +3359,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation0-1": {
 		"slots": {
@@ -5201,7 +5216,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Clothes" }
+		]
 	},
 	"animation1": {
 		"slots": {
@@ -7047,7 +7066,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation2": {
 		"slots": {
@@ -8892,7 +8914,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation2-3": {
 		"slots": {
@@ -11361,7 +11386,12 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "time": 0.2667, "name": "_Attack_pai2" },
+			{ "time": 0.3667, "name": "_Anto_Game_034" }
+		]
 	},
 	"animation3": {
 		"slots": {
@@ -13216,7 +13246,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation3-4": {
 		"slots": {
@@ -15668,6 +15701,11 @@
 				]
 			},
 			{ "time": 0.6 }
+		],
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "time": 0.2667, "name": "_Attack_pai2" },
+			{ "time": 0.5, "name": "_Anto_Game_035" }
 		]
 	},
 	"animation4": {
@@ -17531,7 +17569,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation4-5": {
 		"slots": {
@@ -19525,6 +19566,10 @@
 				]
 			},
 			{ "time": 0.7333 }
+		],
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Clothes" }
 		]
 	},
 	"animation5": {
@@ -21457,7 +21502,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
+		]
 	},
 	"animation5-6": {
 		"slots": {
@@ -23604,6 +23652,10 @@
 				]
 			},
 			{ "time": 0.7333 }
+		],
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "time": 0.8333, "name": "_SE_Semen_fuck_in" }
 		]
 	},
 	"animation6": {
@@ -25568,7 +25620,13 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinv_xitian_fast1" },
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation7": {
 		"slots": {
@@ -28042,7 +28100,15 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinv_xitian_fast1" },
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.6667, "name": "_SE_Semen_1" },
+			{ "time": 1.1667, "name": "_SE_Semen_2" },
+			{ "time": 1.6667, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation8": {
 		"slots": {
@@ -31220,7 +31286,15 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinv_xitian_fast1" },
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.5, "name": "_SE_Semen_1" },
+			{ "time": 0.8333, "name": "_SE_Semen_2" },
+			{ "time": 1.1667, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation8-9": {
 		"slots": {
@@ -34300,6 +34374,11 @@
 					{ "slot": "Mouth_On_1", "offset": -2 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_Jinye_tentacle_short" },
+			{ "name": "_SE_Semen_fuck_out" },
+			{ "time": 1, "name": "_SE_Clothes" }
 		]
 	},
 	"animation9": {
@@ -37134,6 +37213,9 @@
 					{ "slot": "Tentacle_2", "offset": 1 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_Jinye_tentacle_short" }
 		]
 	},
 	"animationloop": {
