@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3335834003453136629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9110622395194142766}
+  - component: {fileID: 2947106157199147872}
+  - component: {fileID: 8801400662155171503}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9110622395194142766
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335834003453136629}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.385077, y: 7.0973945, z: 6.454202}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &2947106157199147872
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335834003453136629}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 73f5b5e835859d34783eb48a193d3f00,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &8801400662155171503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3335834003453136629}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36c32344c037f204ab3105c89308ee01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioS: {fileID: 2947106157199147872}
+  SE_Clothes: {fileID: 8300000, guid: e48547529a2e24f4fbabb8ea21ccf628, type: 3}
+  Effect_tear1: {fileID: 8300000, guid: 213e1e2644e025143813b25463c17a32, type: 3}
+  Effect_tuo: {fileID: 8300000, guid: 6e1856849026cfe44a247c9e1febabfb, type: 3}
+  Effect_zipper: {fileID: 8300000, guid: d8707bdb7030aff4d9af1fd5fe663dff, type: 3}
+  Jinye_tentacle_short: {fileID: 8300000, guid: 67956ac76d567f04db04e0eb7d009302,
+    type: 3}
+  Jinye_tentacle_slow_one: {fileID: 8300000, guid: 7c63152d0f7f1274591ad0b5dbbcba0a,
+    type: 3}
+  Jinye_tentacle_middle_one: {fileID: 8300000, guid: b0b7c505ad7af2845bd5c31a771453e6,
+    type: 3}
+  Jinye_tentacle_quick_one: {fileID: 8300000, guid: 311a95d45dde76247bc6958a23c550bc,
+    type: 3}
+  Attack_pai2: {fileID: 8300000, guid: 2591a56103f70ae48b45f54e70f2fea3, type: 3}
+  Jinv_xitian_fast1: {fileID: 8300000, guid: 6689d949dc9805f4f84598d1ba69e5e7, type: 3}
+  SE_Semen_1: {fileID: 8300000, guid: 0007fa4778e3b26499fe8f8dcab8323b, type: 3}
+  SE_Semen_2: {fileID: 8300000, guid: ecf0ea61fe1dd884aa8eeb0994cac0e5, type: 3}
+  SE_Semen_3: {fileID: 8300000, guid: 02048944c7aa5824a9f5a2d005881007, type: 3}
+  SE_Semen_fuck_in: {fileID: 8300000, guid: e77e2262d666fb8479d3cdb6d3a80901, type: 3}
+  SE_Semen_fuck_out: {fileID: 8300000, guid: 81514b94bd1cb834d843cebd3f5679f8, type: 3}
+  SE_Water: {fileID: 8300000, guid: 96d30cf19decba446bb86add72dd6e94, type: 3}
+  chip: {fileID: 8300000, guid: 329c40367190c1a4c9c07061835effad, type: 3}
+  Anto_Game_034: {fileID: 8300000, guid: 37e70d2b791abb144b8baa0072fac032, type: 3}
+  Anto_Game_035: {fileID: 8300000, guid: 01e887fdd7670bf4382ee8e01e9e08a0, type: 3}
+  Anto_Game_036: {fileID: 8300000, guid: 1490bbc6a792bdc45a158789d1f7a8c0, type: 3}

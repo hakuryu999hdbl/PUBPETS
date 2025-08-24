@@ -22,6 +22,12 @@ public class FrameEvents : MonoBehaviour
     //------------效果音
 
     public void _SE_Clothes() { audioS.PlayOneShot(AudioManager.SE_Clothes); }
+
+    public void _Effect_tuo() { audioS.PlayOneShot(AudioManager.Effect_tuo); }
+    public void _Effect_zipper() { audioS.PlayOneShot(AudioManager.Effect_zipper); }
+    public void _Effect_tear1() { audioS.PlayOneShot(AudioManager.Effect_tear1); }
+
+
     public void _Jinye_tentacle_short() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_short); }
 
     public void _Jinye_tentacle_slow_one() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_slow_one); }
@@ -40,6 +46,10 @@ public class FrameEvents : MonoBehaviour
     public void _SE_Semen_fuck_out() { audioS.PlayOneShot(AudioManager.SE_Semen_fuck_out); }
 
     public void _SE_Water() { audioS.PlayOneShot(AudioManager.SE_Water); }
+
+
+
+    public void _chip() { audioS.PlayOneShot(AudioManager.chip); }
 
 
 

@@ -42,6 +42,8 @@ public class AudioManager : MonoBehaviour
 
     [Header("效果音")]
     public AudioClip SE_Clothes;
+    public AudioClip Effect_tear1, Effect_tuo, Effect_zipper;
+
     public AudioClip Jinye_tentacle_short;
     public AudioClip Jinye_tentacle_slow_one;
     public AudioClip Jinye_tentacle_middle_one;
@@ -52,6 +54,12 @@ public class AudioManager : MonoBehaviour
     public AudioClip SE_Semen_1, SE_Semen_2, SE_Semen_3, SE_Semen_fuck_in, SE_Semen_fuck_out;
     public AudioClip SE_Water;
 
+
+    public AudioClip chip;
+
+
+
     public AudioClip Anto_Game_034, Anto_Game_035, Anto_Game_036;
+
     #endregion
 }

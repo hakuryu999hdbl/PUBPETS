@@ -57,7 +57,19 @@ public class Anim_Trigger : MonoBehaviour
     public void SetActiveFalse()
     {
         gameObject.SetActive(false);
+
+        if (isLoopMusicStart)
+        {
+            VoiceManager.instance.StartMoanLoop();//启动娇喘
+            //VoiceManager.instance.ResumeMoanLoop();
+            Debug.Log("SoundPlay");
+        }
+
     }
+
+    [Header("循环声启动")]
+    public bool isLoopMusicStart = false;
+
 
     [Header("便捷切换")]
     public List<GameObject> List; // 使用List来存储多个音乐

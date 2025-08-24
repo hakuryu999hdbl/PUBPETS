@@ -53,6 +53,7 @@ namespace Blackjack_Game
         private void OnEnable()
         {
             DealQueue.OnFinishedDealing += CheckStatus;
+
         }
 
         private void OnDisable()
@@ -405,7 +406,7 @@ namespace Blackjack_Game
             //ChangeViewButon.SetActive(true);
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
 
-
+            VoiceManager.instance.PauseMoanLoop();//暂停娇喘
             #region 显示女荷官垃圾话
             //Invoke("StartDialog", 2f);//显示女荷官垃圾话
 
@@ -446,11 +447,13 @@ namespace Blackjack_Game
 
 
             // 停止显示女荷官垃圾话对话框
-            //OverDialog();
             HideDialogue();
 
 
             ChipBox.SetInteger("Situation", 0);//筹码出现
+
+            //重启娇喘
+            VoiceManager.instance.StartMoanLoop();//启动娇喘
         }
         #endregion
 
@@ -806,6 +809,10 @@ namespace Blackjack_Game
 
         public Text Limit;//本局赌注上限
 
+
+        public VoiceManager voiceManager;//一旦超过这个阈值就能触发安托的呻吟
+
+
         void Start()
         {
 
@@ -858,6 +865,9 @@ namespace Blackjack_Game
             {
                 _Instance.Invoke("ShowWINButton", 1f);
             }
+
+            //当女荷官生命值低于过半开始呻吟
+            if (_Instance.currentHealth <= _Instance.maxHealth){ _Instance.voiceManager.CanScream = true; }
 
         }
 
