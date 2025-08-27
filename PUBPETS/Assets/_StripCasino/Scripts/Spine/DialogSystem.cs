@@ -538,7 +538,6 @@ namespace Blackjack_Game
 
 
                 //透明背景功能
-
                 case "CG":
                     text_2.color = Color.white;
 
@@ -547,6 +546,100 @@ namespace Blackjack_Game
                     Background.gameObject.SetActive(false);// 透明背景播放CG
                     index++;
                     break;
+
+                case "CG_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(moan_Clips);
+                    break;
+
+                case "CG_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(moanLoud_Clips);
+                    break;
+
+
+
+
+                case "CG_Loop_moanTentacle":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(moanTentacle_Clips);
+                    break;
+
+                case "CG_Loop_FeraTentacle":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(FeraTentacle_Clips);
+
+                    Debug.Log("CG_Loop_FeraTentacle");
+                    break;
+
+                case "CG_Loop_FeraTentacleLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(FeraTentacleLoud_Clips);
+                    break;
+
+
+
+
+                case "CG_Loop_moanPoleDance":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(moanPoleDance_Clips);
+                    break;
+
+                case "CG_Loop_FaintingGasp":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(FaintingGasp_Clips);
+                    break;
+
+
                 case "--------------------NEXT--------------------":
                     text_2.color = Color.white;
 
@@ -584,6 +677,7 @@ namespace Blackjack_Game
                 case "anto":
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
 
+                    // 播放一句对白（娇喘暂停，播完再恢复）
                     AntoVoice();
 
                     index++;
@@ -1038,7 +1132,10 @@ namespace Blackjack_Game
 
 
 
-
+        /// <summary>
+        /// 插入声音
+        /// </summary>
+        #region
 
         [Header("插入声音")]
         [SerializeField] AudioSource voiceSource;        
@@ -1065,6 +1162,9 @@ namespace Blackjack_Game
 
         public void AntoVoice()
         {
+
+            // 1) 选择「当前台词列表」
+            //List<AudioClip> newList = null;
 
             switch (animation_number) 
             {
@@ -1108,6 +1208,22 @@ namespace Blackjack_Game
                     break;
             }
 
+            // 如果列表切换了，重置索引
+            //if (newList != lastPlaylist)
+            //{
+            //    antoPlaylist = newList;
+            //    VoiceIndex = 0;
+            //    lastPlaylist = newList;
+            //}
+            //else
+            //{
+            //    antoPlaylist = newList;
+            //}
+
+
+
+
+
 
             if (antoPlaylist == null || antoPlaylist.Count == 0)
             {
@@ -1122,26 +1238,95 @@ namespace Blackjack_Game
                 return;
             }
 
+
+            // 2) 播放台词前：暂停呻吟循环
+            PauseMoanLoop();
+            if (resumeCo != null) StopCoroutine(resumeCo);
+
+
+
+            // 3) 播台词
             var clip = antoPlaylist[VoiceIndex++];
             voiceSource.Stop();
             voiceSource.clip = clip;
             voiceSource.Play();
 
+
+            // 4) 台词结束后：自动恢复呻吟循环
+            if (resumeMoanAfterVoice)
+                resumeCo = StartCoroutine(ResumeMoanAfterVoiceCo());
+
         }
 
+        // 等 voiceSource 播完，再恢复 moanLoop
+        private IEnumerator ResumeMoanAfterVoiceCo()
+        {
+            // 避免 pitch / 重新触发导致误判，改用 isPlaying 轮询最稳
+            yield return new WaitWhile(() => voiceSource != null && voiceSource.isPlaying);
+            ResumeMoanLoop();
+        }
+
+        #endregion
 
 
 
 
+        /// <summary>
+        /// 循环呻吟声效
+        /// </summary>
+        #region
+
+        [Header("娇喘音频列表")]
+        public List<AudioClip> moan_Clips = new List<AudioClip>();
+        [Header("剧烈娇喘音频列表")]
+        public List<AudioClip> moanLoud_Clips = new List<AudioClip>();
+        [Header("触手娇喘音频列表")]
+        public List<AudioClip> moanTentacle_Clips = new List<AudioClip>();
+        [Header("触手口交音频列表")]
+        public List<AudioClip> FeraTentacle_Clips = new List<AudioClip>();
+        [Header("剧烈触手口交音频列表")]
+        public List<AudioClip> FeraTentacleLoud_Clips = new List<AudioClip>();
+        [Header("钢管舞喘息音频列表")]
+        public List<AudioClip> moanPoleDance_Clips = new List<AudioClip>();
+        [Header("昏厥喘息音频列表")]
+        public List<AudioClip> FaintingGasp_Clips = new List<AudioClip>();
+
+        // —— 新增字段 —— //
+        [Header("Loop(呻吟)播放器")]
+        [SerializeField] private AudioSource moanLoop;   // 用来循环的那个
+        [SerializeField] private bool resumeMoanAfterVoice = true;
+
+        private Coroutine resumeCo;
+        private List<AudioClip> lastPlaylist;            // 记录上一次的播放列表，便于换段时重置索引
+
+        // 随机从列表里挑一个作为循环
+        private void PlayMoanLoop(List<AudioClip> pool)
+        {
+            if (pool == null || pool.Count == 0) return;
+
+            var clip = pool[Random.Range(0, pool.Count)];
+            moanLoop.clip = clip;
+            moanLoop.loop = true;
+            moanLoop.Play();
+        }
+
+        private void PauseMoanLoop()
+        {
+            if (moanLoop != null && moanLoop.isPlaying) moanLoop.Pause();
+        }
+
+        private void ResumeMoanLoop()
+        {
+            if (moanLoop != null && moanLoop.clip != null) moanLoop.UnPause();
+        }
+
+        #endregion
 
 
-
-
-
-
-
-
-
+        /// <summary>
+        /// 结束对话触发
+        /// </summary>
+        #region
 
 
         [Header("当对话结束时需要触发的一些地方")]
@@ -1298,5 +1483,7 @@ namespace Blackjack_Game
             ShopPlane.SetActive(true);//显示商店
             uiManager.Close_AVG();
         }
+
+        #endregion
     }
 }

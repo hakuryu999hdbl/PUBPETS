@@ -245,6 +245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &44078443
 MonoBehaviour:
@@ -692,6 +693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &55315815
 MonoBehaviour:
@@ -1758,6 +1760,7 @@ Transform:
   - {fileID: 709082097}
   - {fileID: 822730492}
   - {fileID: 449782036}
+  - {fileID: 1183872095}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &552357272
@@ -3214,6 +3217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &898848482
 MonoBehaviour:
@@ -3614,6 +3618,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List:
   - {fileID: 1477670057}
 --- !u!1 &1107407699
@@ -3860,6 +3865,136 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1183872094
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1183872095}
+  - component: {fileID: 1183872096}
+  m_Layer: 0
+  m_Name: Voice_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1183872095
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183872094}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 532594812}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1183872096
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1183872094}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c3604bc158375f34f9a0a0cf671c7a70,
+    type: 2}
+  m_audioClip: {fileID: 0}
+  m_Resource: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1197593306
 GameObject:
   m_ObjectHideFlags: 0
@@ -4160,6 +4295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List:
   - {fileID: 53774179}
 --- !u!1 &1239034821
@@ -4593,6 +4729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1340689914
 MonoBehaviour:
@@ -5787,6 +5924,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1580862804
 MonoBehaviour:
@@ -6058,6 +6196,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1626294274
 MonoBehaviour:
@@ -6731,6 +6870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1812474646
 MonoBehaviour:
@@ -6966,6 +7106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1869415544
 Animator:
@@ -7349,6 +7490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1907607754
 Animator:
@@ -7992,6 +8134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1998471755
 Animator:
@@ -9239,6 +9382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &3382878790478602783
 MonoBehaviour:
@@ -10695,6 +10839,47 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 3dc8f692f9644c54ca59a98531d2b1db, type: 3}
   - {fileID: 8300000, guid: 86e93a9cd9da0c0408d1d0dc33cb4b68, type: 3}
   - {fileID: 8300000, guid: c9e39d823c12e9e4da59262cedb59872, type: 3}
+  moan_Clips:
+  - {fileID: 8300000, guid: 78012aafe6a733f438778af85d1fb570, type: 3}
+  - {fileID: 8300000, guid: b4184e2374a161040a3ebef1c1d08e39, type: 3}
+  - {fileID: 8300000, guid: 088e508ba9844b6469a2a77864d786ce, type: 3}
+  - {fileID: 8300000, guid: f9ea66fa22426c040a83926caef1dddf, type: 3}
+  moanLoud_Clips:
+  - {fileID: 8300000, guid: 358436596b67d8b4c890218809263be4, type: 3}
+  - {fileID: 8300000, guid: 19ad0949a7d8332498f052a3b967a039, type: 3}
+  - {fileID: 8300000, guid: 8498b763f1f3f9948b0709f1e1f7e568, type: 3}
+  - {fileID: 8300000, guid: b403781d56250604db31f3b8982b40d2, type: 3}
+  - {fileID: 8300000, guid: a6c27ee8f048ad04b9e9cefbc9f706a9, type: 3}
+  - {fileID: 8300000, guid: c8a14d9132f1c1449aa346cdbe7701a1, type: 3}
+  moanTentacle_Clips:
+  - {fileID: 8300000, guid: cc9c0bfb56356ca459df74da0da80b4f, type: 3}
+  - {fileID: 8300000, guid: d33946c13a46efa4382f8a7ef2f14ffe, type: 3}
+  - {fileID: 8300000, guid: 90839d7d6a7698e4fbf6a29d984f3076, type: 3}
+  - {fileID: 8300000, guid: 08fb6aee0e672844f81beaae9419b317, type: 3}
+  - {fileID: 8300000, guid: ed3c2364483a6144fa8c2dc55d24eca7, type: 3}
+  FeraTentacle_Clips:
+  - {fileID: 8300000, guid: 9a5807af3fc296c4f87555a055791568, type: 3}
+  - {fileID: 8300000, guid: 44e84115251c1734b8e5960f4bb9c79e, type: 3}
+  - {fileID: 8300000, guid: 49482bcd0e8e6d94f9b3249c692fd640, type: 3}
+  FeraTentacleLoud_Clips:
+  - {fileID: 8300000, guid: 96208977da453134fafe24a51be7402a, type: 3}
+  - {fileID: 8300000, guid: 81fc27dd44f676e4ca40fec9176a452f, type: 3}
+  - {fileID: 8300000, guid: 674ecc6738352334f9bff8db423d43c9, type: 3}
+  moanPoleDance_Clips:
+  - {fileID: 8300000, guid: d130a435fb73ed3419e4e7faf5fe08e5, type: 3}
+  - {fileID: 8300000, guid: e5026a3d191425948b90322c99bd753b, type: 3}
+  - {fileID: 8300000, guid: 1c937507784410b488aa5e47105f50a7, type: 3}
+  - {fileID: 8300000, guid: e3aea0a6b06925c42ae96cb9631dd9c0, type: 3}
+  - {fileID: 8300000, guid: a36cfb0deedb50d47bfc050b48e818f4, type: 3}
+  - {fileID: 8300000, guid: 4b62f91df13556646b698cae22dad0ee, type: 3}
+  - {fileID: 8300000, guid: 3de4c7ff6df507f4892b2d4c5a1c5c4d, type: 3}
+  - {fileID: 8300000, guid: 3f74a417ebcce46439a438509d9c6143, type: 3}
+  FaintingGasp_Clips:
+  - {fileID: 8300000, guid: 83cbde4628297c84ebeff2c5a94c4fc7, type: 3}
+  - {fileID: 8300000, guid: fdc7ae38017eb5c45b14a4a66fc3fbad, type: 3}
+  - {fileID: 8300000, guid: f58d210a30b27754eac5a8a1dabe2fa1, type: 3}
+  moanLoop: {fileID: 1183872096}
+  resumeMoanAfterVoice: 1
   uiManager: {fileID: 1983342863}
   ShopPlane: {fileID: 0}
 --- !u!1 &6914393538759110749

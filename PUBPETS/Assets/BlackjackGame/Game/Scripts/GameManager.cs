@@ -931,14 +931,38 @@ namespace Blackjack_Game
         {
             isTransitioning = true;
 
-            for (int i = from; i < to; i++)
-            {
-                antorAnimator.SetInteger("Undress", i);
+            #region 连续播放脱衣动画
 
-                // 等待状态机进入 Undress_i，再播放完
-                yield return new WaitUntil(() => IsPlayingState($"Situation_{i}_Undress"));
-                yield return new WaitUntil(() => !IsPlayingState($"Situation_{i}_Undress"));
-            }
+            //for (int i = from; i < to; i++)
+            //{
+            //    antorAnimator.SetInteger("Undress", i);
+            //
+            //    // 等待状态机进入 Undress_i，再播放完
+            //    yield return new WaitUntil(() => IsPlayingState($"Situation_{i}_Undress"));
+            //    yield return new WaitUntil(() => !IsPlayingState($"Situation_{i}_Undress"));
+            //}
+
+            #endregion
+
+
+            #region 直接跳到当前生命值阶段脱衣动画
+            // 目标前一档，例如 to=4，则 prev=3；保证在 [1, maxSituation] 内
+            int prev = Mathf.Clamp(to - 1, 1, maxSituation);
+
+            // 1) 瞬间切到 "Situation_prev_Idle"
+            //    用 CrossFade 或 Play 都行；CrossFade 0 秒可避免受 Exit Time 干扰
+            antorAnimator.CrossFade($"Situation_{prev}_Idle", 0f, 0, 0f);
+            yield return null; // 等一帧让 Animator 应用
+
+            // 2) 只播放这一档的脱衣动画："prev -> to"
+            antorAnimator.SetInteger("Undress", prev);
+
+            // 等状态机真正进入 Undress_prev 并播放完
+            yield return new WaitUntil(() => IsPlayingState($"Situation_{prev}_Undress"));
+            yield return new WaitUntil(() => !IsPlayingState($"Situation_{prev}_Undress"));
+            #endregion
+
+
 
             antorAnimator.SetInteger("Undress", 0); // 重置参数防止连播
             isTransitioning = false;
