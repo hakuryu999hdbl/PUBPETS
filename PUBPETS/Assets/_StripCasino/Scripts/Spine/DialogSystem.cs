@@ -627,6 +627,18 @@ namespace Blackjack_Game
                     PlayMoanLoop(moanPoleDance_Clips);
                     break;
 
+                case "CG_Loop_moanLoudPoleDance":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(moanLoudPoleDance_Clips);
+                    break;
+
                 case "CG_Loop_FaintingGasp":
                     text_2.color = Color.white;
 
@@ -1288,6 +1300,8 @@ namespace Blackjack_Game
         public List<AudioClip> FeraTentacleLoud_Clips = new List<AudioClip>();
         [Header("钢管舞喘息音频列表")]
         public List<AudioClip> moanPoleDance_Clips = new List<AudioClip>();
+        [Header("钢管舞剧烈喘息音频列表")]
+        public List<AudioClip> moanLoudPoleDance_Clips = new List<AudioClip>();
         [Header("昏厥喘息音频列表")]
         public List<AudioClip> FaintingGasp_Clips = new List<AudioClip>();
 
