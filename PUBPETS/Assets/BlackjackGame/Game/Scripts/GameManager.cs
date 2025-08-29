@@ -610,7 +610,8 @@ namespace Blackjack_Game
         public List<GameObject> List_Item_Light; // 使用List来存储多个物品选中
         public List<GameObject> List_Item_Introduce; // 使用List来存储多个物品介绍
 
-        public ShopManager shopManager;
+        public ItemManager itemManager;//刷新物品
+       
 
         public void Item_Setting(int Item_Number) 
         {
@@ -639,46 +640,81 @@ namespace Blackjack_Game
 
         public void _UseItem() 
         {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            int currentCount;  //削减物品数量
+
 
             switch (CurrentItem) 
             {
                 case 0:
-                    StartCoroutine(Item_ViewCard());
-                    //Item_ViewCard();//看女荷官的盖牌
+                    //紫色心情
+                    Item_ChangeFemaleDealerScore();//修改女荷官点数
+                    currentCount = data.Item_1;
+                    currentCount--;
+                    data.Item_1 = currentCount;
                     break;
                 case 1:
+                    //占卜水晶
                     StartCoroutine(Item_ViewNextCard());
                     //Item_ViewNextCard();//看牌堆下一张卡
+                    currentCount = data.Item_2;
+                    currentCount--;
+                    data.Item_2 = currentCount;
                     break;
                 case 2:
-                    Item_ChangePlayerScore();//修改你的点数
+                    //均衡法杖
+                    Item_SameScore();//强制平局
+                    currentCount = data.Item_3;
+                    currentCount--;
+                    data.Item_3 = currentCount;
                     break;
                 case 3:
-                    Item_ChangeFemaleDealerScore();//修改女荷官点数
+                    //魔眼石
+                    StartCoroutine(Item_ViewCard());
+                    //Item_ViewCard();//看女荷官的盖牌
+                    currentCount = data.Item_4;
+                    currentCount--;
+                    data.Item_4 = currentCount;
                     break;
                 case 4:
+                    //酒瓶
                     Item_RandomDoubleScore();//双方随机一方双倍
+                    currentCount = data.Item_5;
+                    currentCount--;
+                    data.Item_5 = currentCount;
                     break;
                 case 5:
-                    Item_SameScore();//强制平局
+                    //藏宝图残片
+                    Item_SaveScore();//点数超过21，强制削减随机3~5
+                    currentCount = data.Item_6;
+                    currentCount--;
+                    data.Item_6 = currentCount;
                     break;
                 case 6:
-                    Item_SaveScore();//点数超过21，强制削减随机3~5
+                    //幸运币
+                    Item_ChangePlayerScore();//修改你的点数
+                    currentCount = data.Item_7;
+                    currentCount--;
+                    data.Item_7 = currentCount;
                     break;
                 case 7:
+                    //透视药水
                     StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+                    currentCount = data.Item_8;
+                    currentCount--;
+                    data.Item_8 = currentCount;
                     break;
             }
 
             Item_Panel.SetActive(false);
 
-            //削减物品数量
-            string key = shopManager.allItems[CurrentItem].itemKey;
-            int currentCount = PlayerPrefs.GetInt(key, 0);
-            currentCount--;
-            PlayerPrefs.SetInt(key, currentCount);
-            
-            shopManager.UpdateInventoryUI();
+
+            // 写回存档
+
+            SaveManager.SaveGame(data);         
+
+            itemManager.UpdateInventoryUI();
+
         }
 
 
@@ -1030,5 +1066,6 @@ namespace Blackjack_Game
             }
         }
         #endregion
+
     }
 }

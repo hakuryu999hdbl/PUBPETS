@@ -71,10 +71,10 @@ namespace Blackjack_Game
         public static void SoundPlay(int iType)
         {
             if (SoundVolume == 0) return;
-
-            AudioSource aS = _Instance.AudioSourcePop();
-            aS.volume = SoundVolume;
-            aS.PlayOneShot(_Instance.audioClip[iType]);
+            //手动修改
+           // AudioSource aS = _Instance.AudioSourcePop();
+           // aS.volume = SoundVolume;
+           // aS.PlayOneShot(_Instance.audioClip[iType]);
         }
 
         public static void SoundPlay(AudioClip clip)

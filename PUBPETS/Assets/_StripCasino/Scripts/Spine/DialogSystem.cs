@@ -1366,8 +1366,9 @@ namespace Blackjack_Game
 
 
                 case 1001:
-                    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
-                    uiManager.LoadingScene_Spine();
+                    //GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                    //uiManager.LoadingScene_Spine();
+                    RandomToShop();
                     break;
 
 
@@ -1383,8 +1384,10 @@ namespace Blackjack_Game
                         data.antoProgress = 2;
                         SaveManager.SaveGame(data);
 
-                        GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
-                        uiManager.LoadingScene_Spine();
+                        //GameFlowData.nextAVGId = "StartWork_01";//安托第一个CG结束，开启经营AVG
+                        //uiManager.LoadingScene_Spine();
+
+                        RandomToShop();
                     }
                     break;
                 case 1023:
@@ -1399,8 +1402,10 @@ namespace Blackjack_Game
                         data.antoProgress = 3;
                         SaveManager.SaveGame(data);
 
-                        GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
-                        uiManager.LoadingScene_Spine();
+                        //GameFlowData.nextAVGId = "StartWork_01";//安托第二个CG结束，开启经营AVG
+                        //uiManager.LoadingScene_Spine();
+
+                        RandomToShop();
                     }
                     break;
                 case 1033:
@@ -1415,8 +1420,10 @@ namespace Blackjack_Game
                         data.antoProgress = 4;
                         SaveManager.SaveGame(data);
 
-                        GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
-                        uiManager.LoadingScene_Spine();
+                        //GameFlowData.nextAVGId = "StartWork_01";//安托第三个CG结束，开启经营AVG
+                        //uiManager.LoadingScene_Spine();
+
+                        RandomToShop();
                     }
                     break;
 
@@ -1434,11 +1441,14 @@ namespace Blackjack_Game
 
 
 
-                case 10:              
-                    uiManager.LoadingScene_BarCounter();//开启第二天经营
+                case 10:
+                    //商人不出现
+                    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                    uiManager.LoadingScene_Spine();
                     break;
                 case 11:
-                    Invoke("CloseDialog",0.5f);
+                    //商人出现
+                    uiManager.LoadingScene_Shop();
                     break;
 
 
@@ -1491,11 +1501,18 @@ namespace Blackjack_Game
 
         }
 
-        void CloseDialog() 
+        void RandomToShop() 
         {
-            AudioManager_2.SoundPlay(8);
-            ShopPlane.SetActive(true);//显示商店
-            uiManager.Close_AVG();
+            if (Random.Range(0, 3) == 0)
+            {
+                GameFlowData.nextAVGId = "StartShop_01";//商人不出现
+                uiManager.LoadingScene_Spine();
+            }
+            else
+            {
+                GameFlowData.nextAVGId = "StartShop_02";//商人出现
+                uiManager.LoadingScene_Spine();
+            }
         }
 
         #endregion

@@ -181,6 +181,17 @@ namespace Blackjack_Game
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
+                    case "StartShop_01":
+                        Load_AVG(10);//开始商家界面1（商人不出现）
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        break;
+                    case "StartShop_02":
+                        Load_AVG(11);//开始商家界面2（商人出现）
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        break;
+
+
+
                     case "VSAnto":
                         Load_Vs_Anto_AVG();//对决安托
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -507,6 +518,14 @@ namespace Blackjack_Game
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
             SceneManager.LoadScene("Spine");
+
+        }
+
+        public void LoadingScene_Shop()
+        {
+            Time.timeScale = 1f;
+            LoadingImage.SetActive(true);
+            SceneManager.LoadScene("Shop");
 
         }
 
@@ -1032,14 +1051,6 @@ namespace Blackjack_Game
 
 
 
-        public void Close_AVG() 
-        {
-            dialog.gameObject.SetActive(false);
-            AVG.SetActive(false);
-        }
-
-
-
         public bool GameOver = false;//赌局没有结束
         //退出赌局
         public void Leave()
@@ -1171,6 +1182,12 @@ namespace Blackjack_Game
 
         }//作者模式切换进度
 
+
+        public void ShopToBar() 
+        {
+            GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+            LoadingScene_Spine();
+        }//商店界面回到经营界面
 
 
         #endregion
