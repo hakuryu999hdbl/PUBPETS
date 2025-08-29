@@ -15,7 +15,17 @@ public class SaveData
     public int hettyProgress;
     public int aliceProgress;
 
-    public int[] items = new int[8]; // Item_1 ~ Item_8
+   
+
+
+    public int Item_1;
+    public int Item_2;
+    public int Item_3;
+    public int Item_4;
+    public int Item_5;
+    public int Item_6;
+    public int Item_7;
+    public int Item_8;
 
 
     // ✅ 加上这个构造函数 ↓↓↓↓↓↓↓↓↓
