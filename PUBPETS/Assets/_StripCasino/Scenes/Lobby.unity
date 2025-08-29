@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &17546827
 GameObject:
@@ -401,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &17546833
 MonoBehaviour:
@@ -862,6 +864,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &54543990
 MonoBehaviour:
@@ -1005,6 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &74719857
 Animator:
@@ -1697,6 +1701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &124277871
 MonoBehaviour:
@@ -1966,6 +1971,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &136093909
 Animator:
@@ -2520,6 +2526,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &173461648
 Animator:
@@ -3217,6 +3224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &216925674
 MonoBehaviour:
@@ -3503,6 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &273584156
 MonoBehaviour:
@@ -4192,6 +4201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &338599017
 MonoBehaviour:
@@ -4627,6 +4637,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &373912196
 GameObject:
@@ -4726,6 +4737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &373912201
 Animator:
@@ -5597,6 +5609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &451408098
 Animator:
@@ -6149,6 +6162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &509816034
 MonoBehaviour:
@@ -6499,6 +6513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &529359988
 Animator:
@@ -7403,6 +7418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &584283626
 GameObject:
@@ -7533,6 +7549,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &588933745
 Animator:
@@ -8066,6 +8083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &655235076
 Animator:
@@ -8427,6 +8445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List:
   - {fileID: 799216442}
 --- !u!1 &688844780
@@ -8475,17 +8494,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioS: {fileID: 688844783}
-  AbuseMusicList:
-  - {fileID: 8300000, guid: 8ddd834b7a58c74489839f12b5473870, type: 3}
-  - {fileID: 8300000, guid: 65d5dfb24e43b034a90a0522a47cc6d1, type: 3}
-  - {fileID: 8300000, guid: a6a1af1bc051eac4baa3e25fb07e945a, type: 3}
-  isPlaying: 0
   BackgroundMusicList:
   - {fileID: 8300000, guid: 29c86eeade8722a4fa9f3a9cf2898d30, type: 3}
   - {fileID: 8300000, guid: d4ca78fa1a61d1c4981a76b50b4fd3f6, type: 3}
   - {fileID: 8300000, guid: ecea97a472b388a47a79adfd16f93a06, type: 3}
   - {fileID: 8300000, guid: f60941b24bd2efa43af587acdbec1152, type: 3}
-  isAbuseMusic: 0
+  isPlaying: 0
   WhichMusic: 0
 --- !u!82 &688844783
 AudioSource:
@@ -9438,6 +9452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &789411896
 Animator:
@@ -10100,6 +10115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &854887664
 GameObject:
@@ -10365,6 +10381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &859668822
 MonoBehaviour:
@@ -10534,6 +10551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &861869597
 MonoBehaviour:
@@ -10871,6 +10889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &912400185
 MonoBehaviour:
@@ -11155,6 +11174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &930805297
 MonoBehaviour:
@@ -11541,6 +11561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &954695446
 Animator:
@@ -12213,6 +12234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1012277671
 GameObject:
@@ -12577,6 +12599,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1082704405
 Animator:
@@ -12864,6 +12887,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1090098143
 GameObject:
@@ -12930,6 +12954,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1090098147
 Animator:
@@ -13290,6 +13315,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1099712579
 Animator:
@@ -13704,6 +13730,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1123551416
 MonoBehaviour:
@@ -13954,6 +13981,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1144757532
 MonoBehaviour:
@@ -14114,6 +14142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1155066312
 Animator:
@@ -15369,6 +15398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1242163389
 Animator:
@@ -16214,6 +16244,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1298393427
 GameObject:
@@ -17023,6 +17054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1340383392
 GameObject:
@@ -17137,6 +17169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1340383398
 MonoBehaviour:
@@ -18487,6 +18520,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1468538866
 Animator:
@@ -18790,6 +18824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1478797669
 MonoBehaviour:
@@ -19147,6 +19182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1491431176
 Animator:
@@ -19378,6 +19414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1500006416
 MonoBehaviour:
@@ -19945,6 +19982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1558123994
 GameObject:
@@ -20074,6 +20112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1558187037
 Animator:
@@ -20413,6 +20452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1588171845
 Animator:
@@ -20830,6 +20870,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1649225639
 Animator:
@@ -21580,6 +21621,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1688705674
 Animator:
@@ -22132,6 +22174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1719893038
 Animator:
@@ -22615,6 +22658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1757177407
 GameObject:
@@ -22772,6 +22816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1778800155
 MonoBehaviour:
@@ -23035,6 +23080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1784029993
 GameObject:
@@ -23730,6 +23776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1817223778
 Animator:
@@ -24803,6 +24850,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1934053528
 MonoBehaviour:
@@ -26059,6 +26107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &2061431835
 MonoBehaviour:
