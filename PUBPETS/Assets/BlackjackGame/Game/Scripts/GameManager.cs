@@ -427,6 +427,7 @@ namespace Blackjack_Game
 
 
             player.hand.CheatNumber = 0;//作弊點數清零
+            dealer.hand.CheatNumber = 0;//作弊點數清零
 
             TreasureBox.SetActive(false);//宝箱消失
 
@@ -715,6 +716,9 @@ namespace Blackjack_Game
 
             itemManager.UpdateInventoryUI();
 
+            //隐藏使用按钮
+            USE_Button.SetActive(false);
+
         }
 
 
@@ -815,6 +819,7 @@ namespace Blackjack_Game
             {
                 dealer.hand.ChangeScore(dealer.Score);
             }
+
         }//双方随机一方双倍
 
         bool SameScore = false;

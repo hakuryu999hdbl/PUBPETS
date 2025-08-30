@@ -30,6 +30,9 @@ public class VoiceManager : MonoBehaviour
 
     public void StartMoanLoop()
     {
+
+        CanScream = false;//TODO:我先暂时去掉娇喘，这个娇喘本身是用在CG里的，不是对局中，暂时去掉
+
         if (CanScream)
         {
 

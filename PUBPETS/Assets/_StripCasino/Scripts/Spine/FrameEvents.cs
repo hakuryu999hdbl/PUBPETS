@@ -30,10 +30,52 @@ public class FrameEvents : MonoBehaviour
 
     public void _Jinye_tentacle_short() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_short); }
 
-    public void _Jinye_tentacle_slow_one() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_slow_one); }
+    public void _Jinye_tentacle_slow_one() 
+    {
+        switch(Random.Range(0,3)) 
+        {
+            case 0:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_slow_one);
+                break;
+            case 1:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_slow_one_2);
+                break;
+            case 2:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_slow_one_3);
+                break;
+        }
 
-    public void _Jinye_tentacle_middle_one() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_middle_one); }
-    public void _Jinye_tentacle_quick_one() { audioS.PlayOneShot(AudioManager.Jinye_tentacle_quick_one); }
+    }
+    public void _Jinye_tentacle_middle_one()
+    {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_middle_one);
+                break;
+            case 1:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_middle_one_2);
+                break;
+            case 2:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_middle_one_3);
+                break;
+        }    
+    }
+    public void _Jinye_tentacle_quick_one() 
+    {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_quick_one);
+                break;
+            case 1:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_quick_one_2);
+                break;
+            case 2:
+                audioS.PlayOneShot(AudioManager.Jinye_tentacle_quick_one_3);
+                break;
+        }      
+    }
 
     public void _Attack_pai2() { audioS.PlayOneShot(AudioManager.Attack_pai2); }
 
@@ -45,7 +87,14 @@ public class FrameEvents : MonoBehaviour
     public void _SE_Semen_fuck_in() { audioS.PlayOneShot(AudioManager.SE_Semen_fuck_in); }
     public void _SE_Semen_fuck_out() { audioS.PlayOneShot(AudioManager.SE_Semen_fuck_out); }
 
-    public void _SE_Water() { audioS.PlayOneShot(AudioManager.SE_Water); }
+    public void _SE_Water() 
+    {
+        if (Random.Range(0,3)==2)
+        {
+            audioS.PlayOneShot(AudioManager.SE_Water);
+        }//找不到水声，暂时削减频率
+       
+    }
 
 
 

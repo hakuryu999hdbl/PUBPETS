@@ -1189,6 +1189,11 @@ namespace Blackjack_Game
             LoadingScene_Spine();
         }//商店界面回到经营界面
 
+        public void BarToShop() 
+        {
+            GameFlowData.nextAVGId = "StartShop_02";//商人出现
+            LoadingScene_Spine();
+        }
 
         #endregion
     }

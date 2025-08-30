@@ -305,6 +305,7 @@ namespace Blackjack_Game
             //最後結算增加作弊數字
             currentScore += CheatNumber;
 
+
         }
 
         public bool MightHave21()

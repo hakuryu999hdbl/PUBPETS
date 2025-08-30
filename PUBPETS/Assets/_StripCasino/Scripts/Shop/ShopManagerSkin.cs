@@ -141,7 +141,8 @@ namespace Blackjack_Game
         /// 购买
         /// </summary>
         #region
-
+        [Header("商品介绍配置")]
+        public ItemManager itemManager;//刷新物品
 
         // 槽位点击购买
         public bool TryBuySlot(int slotIndex)
@@ -177,7 +178,7 @@ namespace Blackjack_Game
             {
                 case 1: data.Item_1 += 1; break;  // 跳蛋
                 case 2: data.Item_2 += 1; break;  // 水晶
-                case 3: data.Item_3 += 1; break;  // 法杖
+                case 3: data.Item_3 += 1; break;  // 均衡
                 case 4: data.Item_4 += 1; break;  // 宝石
                 case 5: data.Item_5 += 1; break;  // 酒瓶
                 case 6: data.Item_6 += 1; break;  // 翡翠
@@ -192,6 +193,8 @@ namespace Blackjack_Game
 
             AudioManager_2.SoundPlay(3); // 播放打开音效
 
+            itemManager.UpdateInventoryUI();//存档物品刷新
+
             return true;
         }
 
@@ -202,7 +205,7 @@ namespace Blackjack_Game
             {
                 case 1: return 100; // 跳蛋
                 case 2: return 150; // 水晶
-                case 3: return 200; // 法杖
+                case 3: return 200; // 均衡
                 case 4: return 50; // 宝石
                 case 5: return 100; // 酒瓶
                 case 6: return 300; // 翡翠
@@ -211,6 +214,36 @@ namespace Blackjack_Game
                 default: return 0;
             }
         }
+        #endregion
+
+        /// <summary>
+        /// 物品栏的选中介绍
+        /// </summary>
+        #region
+        public List<GameObject> List_Item_Light; // 使用List来存储多个物品选中
+        public List<GameObject> List_Item_Introduce; // 使用List来存储多个物品介绍
+
+        public void Item_Setting(int Item_Number)
+        {
+
+
+            foreach (GameObject Light in List_Item_Light)
+            {
+                Light.SetActive(false);
+            }
+            foreach (GameObject Introduce in List_Item_Introduce)
+            {
+                Introduce.SetActive(false);
+            }
+
+            List_Item_Light[Item_Number].SetActive(true);
+            List_Item_Introduce[Item_Number].SetActive(true);
+
+            AudioManager.SoundPlay(0);
+          
+
+        }
+
         #endregion
     }
 }

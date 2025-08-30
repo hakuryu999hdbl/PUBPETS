@@ -45,9 +45,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip Effect_tear1, Effect_tuo, Effect_zipper;
 
     public AudioClip Jinye_tentacle_short;
-    public AudioClip Jinye_tentacle_slow_one;
-    public AudioClip Jinye_tentacle_middle_one;
-    public AudioClip Jinye_tentacle_quick_one;
+    public AudioClip Jinye_tentacle_slow_one, Jinye_tentacle_slow_one_2, Jinye_tentacle_slow_one_3;
+    public AudioClip Jinye_tentacle_middle_one, Jinye_tentacle_middle_one_2, Jinye_tentacle_middle_one_3;
+    public AudioClip Jinye_tentacle_quick_one, Jinye_tentacle_quick_one_2, Jinye_tentacle_quick_one_3;
 
     public AudioClip Attack_pai2;
     public AudioClip Jinv_xitian_fast1;

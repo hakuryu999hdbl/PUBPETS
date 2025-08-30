@@ -1988,7 +1988,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 91ec9b7ceba930a44afb0a4caaa531eb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e36040c162eca674bb66903ba98370be, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2185,6 +2185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &415560848
 Animator:
@@ -3554,6 +3555,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &657810993
 Animator:
@@ -3804,6 +3806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &688268971
 Animator:
@@ -4497,6 +4500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &781841093
 Animator:
@@ -4976,6 +4980,138 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 875007860}
+  m_CullTransparentMesh: 1
+--- !u!1 &888052383
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 888052384}
+  - component: {fileID: 888052387}
+  - component: {fileID: 888052386}
+  - component: {fileID: 888052385}
+  m_Layer: 5
+  m_Name: Shop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &888052384
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888052383}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1527612616}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 1030, y: 109}
+  m_SizeDelta: {x: 578.1635, y: 700.7593}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &888052385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888052383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 888052386}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1709941770}
+        m_TargetAssemblyTypeName: Blackjack_Game.UIManager, Assembly-CSharp
+        m_MethodName: BarToShop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1011
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &888052386
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888052383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: de0853295e40a6e4c9522c761d662b32, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &888052387
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888052383}
   m_CullTransparentMesh: 1
 --- !u!1 &963866616
 GameObject:
@@ -5827,6 +5963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1046349542
 Animator:
@@ -6936,6 +7073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1152191971
 MonoBehaviour:
@@ -8175,6 +8313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1304714258
 Animator:
@@ -8311,6 +8450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1318585768
 Animator:
@@ -8505,6 +8645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1319192559
 Animator:
@@ -8654,6 +8795,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1340093003
 Animator:
@@ -8782,17 +8924,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioS: {fileID: 1359045443}
-  AbuseMusicList:
-  - {fileID: 8300000, guid: 8ddd834b7a58c74489839f12b5473870, type: 3}
-  - {fileID: 8300000, guid: 65d5dfb24e43b034a90a0522a47cc6d1, type: 3}
-  - {fileID: 8300000, guid: a6a1af1bc051eac4baa3e25fb07e945a, type: 3}
-  isPlaying: 0
   BackgroundMusicList:
   - {fileID: 8300000, guid: 29c86eeade8722a4fa9f3a9cf2898d30, type: 3}
   - {fileID: 8300000, guid: d4ca78fa1a61d1c4981a76b50b4fd3f6, type: 3}
   - {fileID: 8300000, guid: ecea97a472b388a47a79adfd16f93a06, type: 3}
   - {fileID: 8300000, guid: f60941b24bd2efa43af587acdbec1152, type: 3}
-  isAbuseMusic: 0
+  isPlaying: 0
   WhichMusic: 3
 --- !u!82 &1359045443
 AudioSource:
@@ -9161,6 +9298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!1 &1517000000
 GameObject:
@@ -9292,6 +9430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1520106579
 Animator:
@@ -9577,7 +9716,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.63600856, y: 0.63600856, z: 0.63600856}
   m_ConstrainProportionsScale: 1
-  m_Children: []
+  m_Children:
+  - {fileID: 888052384}
   m_Father: {fileID: 520749112}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -10036,6 +10176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1604466512
 Animator:
@@ -10172,6 +10313,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1629784167
 Animator:
@@ -11561,6 +11703,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1795793868
 Animator:
@@ -11914,6 +12057,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1875942939
 Animator:
@@ -12708,6 +12852,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &1992257036
 MonoBehaviour:
@@ -12857,6 +13002,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &1997441036
 Animator:
@@ -13140,6 +13286,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!95 &2030546266
 Animator:
@@ -13445,6 +13592,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isLoopMusicStart: 0
   List: []
 --- !u!114 &2058672119
 MonoBehaviour:
