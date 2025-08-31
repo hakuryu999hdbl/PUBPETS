@@ -496,38 +496,67 @@ namespace Blackjack_Game
         {
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
-            SceneManager.LoadScene("BJ_Mobile");
 
+            Invoke("LoadBJ_Mobile", 1f);
         }
+        void LoadBJ_Mobile()
+        {
+            SceneManager.LoadScene("BJ_Mobile");
+        }
+
+
         public void LoadingScene_Lobby()
         {
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
-            SceneManager.LoadScene("Lobby");
 
+            Invoke("LoadLobby", 1f);
         }
+        void LoadLobby()
+        {
+            SceneManager.LoadScene("Lobby");
+        }
+
+
         public void LoadingScene_BarCounter()
         {
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
-            SceneManager.LoadScene("BarCounter");
 
+            Invoke("LoadBarCounter", 1f);
         }
+        void LoadBarCounter()
+        {
+            SceneManager.LoadScene("BarCounter");
+        }
+
+
         public void LoadingScene_Spine()
         {
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
-            SceneManager.LoadScene("Spine");
 
+            Invoke("LoadSpine", 1f);
         }
+        void LoadSpine()
+        {
+            SceneManager.LoadScene("Spine");
+        }
+
 
         public void LoadingScene_Shop()
         {
             Time.timeScale = 1f;
             LoadingImage.SetActive(true);
-            SceneManager.LoadScene("Shop");
 
+            Invoke("LoadShop", 1f);
         }
+        void LoadShop() 
+        {
+            SceneManager.LoadScene("Shop");
+        }
+
+
 
         public void OpenSaveURL()
         {
