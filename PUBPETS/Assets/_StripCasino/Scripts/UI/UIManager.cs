@@ -36,7 +36,6 @@ namespace Blackjack_Game
                 LoadKeyBindings(); // 在游戏开始时加载键位设置
 
 
-                //SetClothes();//随机衣服（我估计前三章不会有变化）
 
                 CheckAndShowAntoCG();//根据当前存档来解锁CG进度
 
@@ -128,9 +127,6 @@ namespace Blackjack_Game
 
             }//主菜单的设置
 
-
-
-            //Debug.Log("目前储存的余额数量" + PlayerPrefs.GetFloat("BalanceKey"));
             Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
 
             //Debug.Log("目前储存的Hit按键设置" + PlayerPrefs.GetString("KeyBindings_Hit"));
@@ -140,7 +136,6 @@ namespace Blackjack_Game
             //Debug.Log("目前储存的Confirm按键设置: " + PlayerPrefs.GetString("KeyBindings_Confirm"));
             //Debug.Log("目前储存的Back按键设置: " + PlayerPrefs.GetString("KeyBindings_Back"));
 
-            //Debug.Log("目前存档进度为" + PlayerPrefs.GetInt("Story"));//0没有  1安托一 2安托二 3安托三
 
             Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
@@ -148,18 +143,7 @@ namespace Blackjack_Game
             // Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
             // Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
             // Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
-            //
-            //
-            // Debug.Log("目前储存的物品1" + PlayerPrefs.GetInt("Item_1"));
-            // Debug.Log("目前储存的物品2" + PlayerPrefs.GetInt("Item_2"));
-            // Debug.Log("目前储存的物品3" + PlayerPrefs.GetInt("Item_3"));
-            // Debug.Log("目前储存的物品4" + PlayerPrefs.GetInt("Item_4"));
-            // Debug.Log("目前储存的物品5" + PlayerPrefs.GetInt("Item_5"));
-            // Debug.Log("目前储存的物品6" + PlayerPrefs.GetInt("Item_6"));
-            // Debug.Log("目前储存的物品7" + PlayerPrefs.GetInt("Item_7"));
-            // Debug.Log("目前储存的物品8" + PlayerPrefs.GetInt("Item_8"));
 
-            //PlayerPrefs.SetInt("Item_2", 999);
 
             Debug.Log("UIManager.要播放的AVG是：" + GameFlowData.nextAVGId);
 
@@ -322,17 +306,11 @@ namespace Blackjack_Game
 
         }
 
+        //衣服显示变化
         public Image Menu_Anto, Menu_Hetty, Menu_Alice;
         public Sprite[] AntoSprites;
         public Sprite[] HettySprites;
         public Sprite[] AliceSprites;
-
-        public void SetClothes() 
-        {
-            Menu_Anto.sprite = AntoSprites[UnityEngine.Random.Range(0, AntoSprites.Length)];
-            Menu_Hetty.sprite = HettySprites[UnityEngine.Random.Range(0, HettySprites.Length)];
-            Menu_Alice.sprite = AliceSprites[UnityEngine.Random.Range(0, AliceSprites.Length)];
-        }
 
         #endregion
 
@@ -410,6 +388,8 @@ namespace Blackjack_Game
         public void CheckAndShowAntoCG()
         {
             int maxAntoProgress = 0;
+            int maxHettyProgress = 0;
+            int maxAliceProgress = 0;
 
             // 检查三个存档中antoProgress最大值
             for (int i = 1; i <= 3; i++)
@@ -420,6 +400,10 @@ namespace Blackjack_Game
                     SaveData data = SaveManager.LoadGame(slotName);
                     if (data.antoProgress > maxAntoProgress)
                         maxAntoProgress = data.antoProgress;
+                    if (data.hettyProgress > maxHettyProgress)
+                        maxHettyProgress = data.hettyProgress;
+                    if (data.aliceProgress > maxAliceProgress)
+                        maxAliceProgress = data.aliceProgress;
                 }
             }
 
@@ -427,6 +411,19 @@ namespace Blackjack_Game
             Thumbnail_Anto_01.SetActive(maxAntoProgress >= 2);
             Thumbnail_Anto_02.SetActive(maxAntoProgress >= 3);
             Thumbnail_Anto_03.SetActive(maxAntoProgress >= 4); // 你可以设定解锁规则
+
+            //设置主菜单衣服显示
+            if (maxAntoProgress < 3) { Menu_Anto.sprite = AntoSprites[0]; }
+            else if (maxAntoProgress >= 3 && maxAntoProgress < 10) { Menu_Anto.sprite = AntoSprites[1]; }
+            else { Menu_Anto.sprite = AntoSprites[2]; }
+
+            if (maxHettyProgress < 3) { Menu_Hetty.sprite = HettySprites[0]; }
+            else if (maxHettyProgress >= 3 && maxHettyProgress < 10) { Menu_Hetty.sprite = HettySprites[1]; }
+            else { Menu_Hetty.sprite = HettySprites[2]; }
+
+            if (maxAliceProgress < 3) { Menu_Alice.sprite = AliceSprites[0]; }
+            else if (maxAliceProgress >= 3 && maxAliceProgress < 10) { Menu_Alice.sprite = AliceSprites[1]; }
+            else { Menu_Alice.sprite = AliceSprites[2]; }
 
         }//读取当前最大CG解锁进度
 

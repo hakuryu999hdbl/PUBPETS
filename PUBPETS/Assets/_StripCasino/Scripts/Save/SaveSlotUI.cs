@@ -13,7 +13,9 @@ namespace Blackjack_Game
         public Image thumbnail;
 
 
-        public Sprite defaultThumbnail, Thumbnail_1;
+        public Sprite defaultThumbnail, Thumbnail_City,
+            Thumbnail_Anto_01, Thumbnail_Anto_02, Thumbnail_Anto_03;
+
 
 
         public GameObject X_Button;
@@ -37,7 +39,24 @@ namespace Blackjack_Game
                 hettyLvText.text = $"Hetty Lv {data.hettyProgress}";
                 aliceLvText.text = $"Alice Lv {data.aliceProgress}";
 
-                thumbnail.sprite = Thumbnail_1; // 以后可以换成 data.thumbnail
+                //未来可以做当前进度最高
+                switch (data.antoProgress) 
+                {
+                    case 2:
+                        thumbnail.sprite = Thumbnail_Anto_01;
+                        break;
+                    case 3:
+                        thumbnail.sprite = Thumbnail_Anto_02;
+                        break;
+                    case 4:
+                        thumbnail.sprite = Thumbnail_Anto_03;
+                        break;
+                    default:
+                        thumbnail.sprite = Thumbnail_City;
+                        break;
+                }
+
+            
 
                 X_Button.SetActive(true);
             }
