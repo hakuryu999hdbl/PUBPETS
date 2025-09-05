@@ -9,14 +9,14 @@ namespace Blackjack_Game
         public string slotName; // "CurrentPlayer1", "CurrentPlayer2", "CurrentPlayer3"
         public string saveName;//玩家当前储存的这个存档名称
 
-        public Text nameText, timeText, moneyText, antoLvText, hettyLvText, aliceLvText;
+        public Text nameText, timeText, moneyText;
         public Image thumbnail;
 
 
         public Sprite defaultThumbnail, Thumbnail_City,
             Thumbnail_Anto_01, Thumbnail_Anto_02, Thumbnail_Anto_03;
 
-
+        public Image FillImage_Anto, FillImage_Hetty, FillImage_Alice;
 
         public GameObject X_Button;
         // Start is called before the first frame update
@@ -34,10 +34,8 @@ namespace Blackjack_Game
                 SaveData data = SaveManager.LoadGame(slotName);
                 nameText.text = data.saveName;
                 timeText.text = data.saveTime;
-                moneyText.text = $"Money: {data.balance}";
-                antoLvText.text = $"Anto Lv {data.antoProgress}";
-                hettyLvText.text = $"Hetty Lv {data.hettyProgress}";
-                aliceLvText.text = $"Alice Lv {data.aliceProgress}";
+                //moneyText.text = $"Money: {data.balance}";
+                moneyText.text = $"{data.balance}";
 
                 //未来可以做当前进度最高
                 switch (data.antoProgress) 
@@ -56,7 +54,9 @@ namespace Blackjack_Game
                         break;
                 }
 
-            
+                FillImage_Anto.fillAmount = data.antoProgress / 10f;
+                FillImage_Hetty.fillAmount = data.hettyProgress / 10f;
+                FillImage_Alice.fillAmount = data.aliceProgress / 10f;
 
                 X_Button.SetActive(true);
             }
@@ -67,9 +67,6 @@ namespace Blackjack_Game
                 nameText.text = "Unnamed";
                 timeText.text = "--------------------";
                 moneyText.text = "Money: 0";
-                antoLvText.text = "Anto Lv -";
-                hettyLvText.text = "Hetty Lv -";
-                aliceLvText.text = "Alice Lv -";
 
                 thumbnail.sprite = defaultThumbnail; // 以后可以换成 data.thumbnail
 
