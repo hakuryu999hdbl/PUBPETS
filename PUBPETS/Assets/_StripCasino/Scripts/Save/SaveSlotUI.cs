@@ -18,6 +18,8 @@ namespace Blackjack_Game
 
         public Image FillImage_Anto, FillImage_Hetty, FillImage_Alice;
 
+        public GameObject Icon_All;//三人柱状图，用于没有存档不显示
+
         public GameObject X_Button;
         // Start is called before the first frame update
         void Start()
@@ -66,12 +68,13 @@ namespace Blackjack_Game
 
                 nameText.text = "Unnamed";
                 timeText.text = "--------------------";
-                moneyText.text = "Money: 0";
+                moneyText.text = "0";
 
                 thumbnail.sprite = defaultThumbnail; // 以后可以换成 data.thumbnail
 
                 X_Button.SetActive(false);
 
+                Icon_All.SetActive(false);//三人柱状图，用于没有存档不显示
             }
         }
 

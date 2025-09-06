@@ -561,6 +561,24 @@ namespace Blackjack_Game
             // }
 
         }
+
+        public void Load_Vs_Hetty_AVG()
+        {
+            AudioManager_2.SoundPlay(4);
+
+            //GameFlowData.nextAVGId = "VSHetty";//开启开头剧情介绍
+            //uiManager.LoadingScene_Spine();
+
+        }
+        public void Load_Vs_Alice_AVG()
+        {
+            AudioManager_2.SoundPlay(4);
+
+            //GameFlowData.nextAVGId = "VSAlice";//开启开头剧情介绍
+            //uiManager.LoadingScene_Spine();
+
+        }
+
         #endregion
     }
 }
