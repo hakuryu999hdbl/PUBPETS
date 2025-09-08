@@ -10709,6 +10709,7 @@ MonoBehaviour:
   ShopManager: {fileID: 21300000, guid: 593a0561ab8581e4d9f08321e4d44ed2, type: 3}
   NPC_1: {fileID: 21300000, guid: bf57e10804b2ec44a93658a8cb0f0e14, type: 3}
   NPC_2: {fileID: 21300000, guid: 49f99283178d81c48950a6933e02c1fa, type: 3}
+  Anto_Lose: {fileID: 21300000, guid: 957440cff721a4946bb9863a926baad3, type: 3}
   Anto_01: {fileID: 21300000, guid: 8d91a951431d1e04780561fa0a2853fc, type: 3}
   Anto_02: {fileID: 21300000, guid: 7004ac20022aab54f9eb39118bebaa8f, type: 3}
   Anto_03: {fileID: 21300000, guid: c11881498acfc7447be441f0d35e24d5, type: 3}
@@ -10730,6 +10731,7 @@ MonoBehaviour:
     type: 3}
   Background_Town: {fileID: 21300000, guid: d3640986998924449b04cf89d7faa5a7, type: 3}
   Background_Shop: {fileID: 21300000, guid: c38c82207508af74da542666aeb44e3c, type: 3}
+  Lose_Black: {fileID: 8025395176185651496}
   autoMode: 0
   autoDelay: 1.5
   Auto_On: {fileID: 2097352434}
@@ -11022,7 +11024,6 @@ MonoBehaviour:
   moanLoop: {fileID: 1183872096}
   resumeMoanAfterVoice: 1
   uiManager: {fileID: 1983342863}
-  ShopPlane: {fileID: 0}
 --- !u!1 &6914393538759110749
 GameObject:
   m_ObjectHideFlags: 0
@@ -11302,8 +11303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -90.302, y: 31}
-  m_SizeDelta: {x: 545.7177, y: 306.9694}
+  m_AnchoredPosition: {x: -32.4315, y: 31}
+  m_SizeDelta: {x: 586.4901, y: 306.9694}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7793281310332475603
 MonoBehaviour:
@@ -11353,7 +11354,7 @@ GameObject:
   - component: {fileID: 729925879982023316}
   - component: {fileID: 7589017519882901054}
   m_Layer: 5
-  m_Name: Black
+  m_Name: Lose_Black
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

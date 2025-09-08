@@ -50,6 +50,7 @@ namespace Blackjack_Game
         public Image People;
         public Sprite ShopManager,
                       NPC_1, NPC_2,
+                      Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
                       Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12;
 
@@ -58,6 +59,8 @@ namespace Blackjack_Game
                       BarCounter,
                       Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
                       Background_Shop;
+
+        public GameObject Lose_Black;//失败后的黑色外圈
 
         [Header("自动播放")]
         public bool autoMode = false; // 是否自动播放
@@ -717,7 +720,7 @@ namespace Blackjack_Game
                 case "Black_2":
                     text.color = Color.white;
                     CleanNameText();
-                    NameObject[7].SetActive(true);
+                    NameObject[7].SetActive(true);//作者
 
                     voiceSource.Stop();
 
@@ -737,6 +740,19 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+                case "BG_Black":
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
+
+                    Background.sprite = BarCounter;// 默认是酒馆背景
+
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+
+                    Lose_Black.SetActive(true);//黑色外圈
+                    index++;
+                    break;
 
                 case "BG":
                     text.color = Color.white;
@@ -851,6 +867,19 @@ namespace Blackjack_Game
                 #endregion
 
                 #region AVG角色_安托
+
+                case "Anto_Lose":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_Lose;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
 
 
                 case "Anto_01":
@@ -1345,7 +1374,7 @@ namespace Blackjack_Game
 
         [Header("当对话结束时需要触发的一些地方")]
         public UIManager uiManager;
-        public GameObject ShopPlane;//商店本体
+
         //快进按钮触发在这里
         public void ChangeStory()
         {
