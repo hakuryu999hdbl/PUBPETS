@@ -867,10 +867,19 @@ namespace Blackjack_Game
             Application.OpenURL("https://store.steampowered.com/");
         }
 
+        public void OpenURL_Ci_en()
+        {
+            Application.OpenURL("https://ci-en.dlsite.com/creator/23364");
+        }
 
         public void OpenURL_YYY()
         {
             Application.OpenURL("https://x.com/Detective_ye");
+        }
+
+        public void OpenURL_NEKOUJI()
+        {
+            Application.OpenURL("https://x.com/nekoujistudio");
         }
 
         public void ExitGame()
@@ -1219,6 +1228,22 @@ namespace Blackjack_Game
         {
             GameFlowData.nextAVGId = "StartShop_02";//商人出现
             LoadingScene_Spine();
+        }
+
+        #endregion
+
+        /// <summary>
+        /// 作弊按钮
+        /// </summary>
+        #region
+        public void CheatButton() 
+        {
+
+            Thumbnail_Anto_01.SetActive(true);
+            Thumbnail_Anto_02.SetActive(true);
+            Thumbnail_Anto_03.SetActive(true);
+
+            CG_Thumbnail_Menu.SetActive(true);
         }
 
         #endregion

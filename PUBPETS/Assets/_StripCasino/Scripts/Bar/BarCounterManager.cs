@@ -126,39 +126,63 @@ namespace Blackjack_Game
         [Header("客人逐步上前")]
         public List<Sprite> GuestSkin;
         public SpriteRenderer Guest_1, Guest_2, Guest_3, Guest_4, Guest_5;
+
+
         public void ChangeLeaveGuestSkin()
         {
-            List<Sprite> tempList = new List<Sprite>(GuestSkin);
-            Sprite newSprite = GetRandomSprite(tempList);
+            if (availableSkins.Count == 0)
+                availableSkins = new List<Sprite>(GuestSkin); // 所有皮肤用完后重置池子
+
+            Sprite newSprite = GetRandomSprite(availableSkins);
 
             switch (LeaveGuestNumber)
             {
-                case 1:
-                    Guest_1.sprite = newSprite;
-                    break;
-                case 2:
-                    Guest_2.sprite = newSprite;
-                    break;
-                case 3:
-                    Guest_3.sprite = newSprite;
-                    break;
-                case 4:
-                    Guest_4.sprite = newSprite;
-                    break;
-                case 5:
-                    Guest_5.sprite = newSprite;
-                    break;
+                case 1: Guest_1.sprite = newSprite; break;
+                case 2: Guest_2.sprite = newSprite; break;
+                case 3: Guest_3.sprite = newSprite; break;
+                case 4: Guest_4.sprite = newSprite; break;
+                case 5: Guest_5.sprite = newSprite; break;
             }
 
-            // 下一位客人将离开
             LeaveGuestNumber++;
-
-            // 超出就从1重新开始（循环）
             if (LeaveGuestNumber > 5)
                 LeaveGuestNumber = 1;
-
-            //StartDialog();//随机抽取对话
         }
+
+
+        //public void ChangeLeaveGuestSkin()
+        //{
+        //    List<Sprite> tempList = new List<Sprite>(GuestSkin);
+        //    Sprite newSprite = GetRandomSprite(tempList);
+        //
+        //    switch (LeaveGuestNumber)
+        //    {
+        //        case 1:
+        //            Guest_1.sprite = newSprite;
+        //            break;
+        //        case 2:
+        //            Guest_2.sprite = newSprite;
+        //            break;
+        //        case 3:
+        //            Guest_3.sprite = newSprite;
+        //            break;
+        //        case 4:
+        //            Guest_4.sprite = newSprite;
+        //            break;
+        //        case 5:
+        //            Guest_5.sprite = newSprite;
+        //            break;
+        //    }
+        //
+        //    // 下一位客人将离开
+        //    LeaveGuestNumber++;
+        //
+        //    // 超出就从1重新开始（循环）
+        //    if (LeaveGuestNumber > 5)
+        //        LeaveGuestNumber = 1;
+        //
+        //    //StartDialog();//随机抽取对话
+        //}
 
         private Sprite GetRandomSprite(List<Sprite> pool)
         {
@@ -170,18 +194,28 @@ namespace Blackjack_Game
             return chosen;
         }
 
+        private List<Sprite> availableSkins;//31个皮肤的列表，从中随机抽取未抽取过的
 
         public void InitAllGuestSkin()
         {
-            List<Sprite> tempList = new List<Sprite>(GuestSkin); // 克隆可用皮肤列表
-
-
-            Guest_1.sprite = GetRandomSprite(tempList);
-            Guest_2.sprite = GetRandomSprite(tempList);
-            Guest_3.sprite = GetRandomSprite(tempList);
-            Guest_4.sprite = GetRandomSprite(tempList);
-            Guest_5.sprite = GetRandomSprite(tempList);
-        } // 给 5 位客人各分配一个不重复皮肤
+            availableSkins = new List<Sprite>(GuestSkin); // 只初始化一次
+            Guest_1.sprite = GetRandomSprite(availableSkins);
+            Guest_2.sprite = GetRandomSprite(availableSkins);
+            Guest_3.sprite = GetRandomSprite(availableSkins);
+            Guest_4.sprite = GetRandomSprite(availableSkins);
+            Guest_5.sprite = GetRandomSprite(availableSkins);
+        }
+        //public void InitAllGuestSkin()
+        //{
+        //    List<Sprite> tempList = new List<Sprite>(GuestSkin); // 克隆可用皮肤列表
+        //
+        //
+        //    Guest_1.sprite = GetRandomSprite(tempList);
+        //    Guest_2.sprite = GetRandomSprite(tempList);
+        //    Guest_3.sprite = GetRandomSprite(tempList);
+        //    Guest_4.sprite = GetRandomSprite(tempList);
+        //    Guest_5.sprite = GetRandomSprite(tempList);
+        //} // 给 5 位客人各分配一个不重复皮肤
 
 
         #endregion

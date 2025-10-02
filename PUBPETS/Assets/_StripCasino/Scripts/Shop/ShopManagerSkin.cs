@@ -195,6 +195,21 @@ namespace Blackjack_Game
 
             itemManager.UpdateInventoryUI();//存档物品刷新
 
+
+
+
+            // ===== 新增逻辑 =====
+            // 1. 移除槽位上的皮肤（设置为 Item_x/Item_0）
+            current[slotIndex] = 0;
+            ApplySkins(); // 重新应用皮肤，slotIndex 对应的槽位会被清空
+
+            // 2. 隐藏该槽位的购买按钮
+            var button = all_ItemsIntroduce[id];
+            if (button != null) button.SetActive(false);
+
+
+
+
             return true;
         }
 
