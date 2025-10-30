@@ -32,7 +32,7 @@ namespace Blackjack_Game
         [Header("男主自定义名称带入")]
         public Text Me;
 
-        void SetMyName() 
+        void SetMyName()
         {
             // 先加载存档数据
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
@@ -52,12 +52,14 @@ namespace Blackjack_Game
                       NPC_1, NPC_2,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
-                      Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12;
+                      Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12,
+        Alice_01, Alice_02, Alice_03, Alice_04, Alice_05, Alice_06, Alice_07, Alice_08,
+        Hetty_01, Hetty_02, Hetty_03, Hetty_04, Hetty_05, Hetty_06, Hetty_07, Hetty_08;
 
         public Image Background;
         public Sprite Black,
                       BarCounter,
-                      Background_DungeonEntrance,Background_DungeonCorridor, Background_Town,
+                      Background_DungeonEntrance, Background_DungeonCorridor, Background_Town,
                       Background_Shop;
 
         public GameObject Lose_Black;//失败后的黑色外圈
@@ -80,7 +82,7 @@ namespace Blackjack_Game
                 Auto_Off.SetActive(true);
                 Auto_off.SetActive(true);
             }
-            else 
+            else
             {
                 Auto_On.SetActive(true);
                 Auto_on.SetActive(true);
@@ -111,7 +113,7 @@ namespace Blackjack_Game
 
 
 
-            switch (animation_number) 
+            switch (animation_number)
             {
 
                 case 1013:
@@ -168,7 +170,7 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
 
-                  
+
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Japanese/Anto_J/J_Anto_Failure_01"));
@@ -225,7 +227,7 @@ namespace Blackjack_Game
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartWork_01"));
 
 
-                
+
                     //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
@@ -293,7 +295,7 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
 
-                 
+
 
 
                     //安托失败
@@ -354,7 +356,7 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_English/E_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_English/E_StartShop_02"));
 
-                   
+
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_English/Anto_E/E_Anto_Failure_01"));
@@ -413,7 +415,7 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
 
-                   
+
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Korean/Anto_K/K_Anto_Failure_01"));
@@ -1054,6 +1056,116 @@ namespace Blackjack_Game
                     break;
 
 
+                case "Hetty_01":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_01;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Hetty_02":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_02;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Hetty_03":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_03;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Hetty_04":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_04;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Hetty_05":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_05;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Hetty_06":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_06;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Hetty_07":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_07;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Hetty_08":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_08;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+
                 #endregion
 
                 #region AVG角色_爱丽丝
@@ -1064,10 +1176,10 @@ namespace Blackjack_Game
                     index++;
                     break;
 
-                #endregion
+                    #endregion
 
 
-            
+
 
 
 
@@ -1179,7 +1291,7 @@ namespace Blackjack_Game
         #region
 
         [Header("插入声音")]
-        [SerializeField] AudioSource voiceSource;        
+        [SerializeField] AudioSource voiceSource;
         [SerializeField] List<AudioClip> antoPlaylist;//当前播放的列表
 
         [SerializeField] List<AudioClip> antoPlaylist_StartStory;
@@ -1207,10 +1319,10 @@ namespace Blackjack_Game
             // 1) 选择「当前台词列表」
             //List<AudioClip> newList = null;
 
-            switch (animation_number) 
+            switch (animation_number)
             {
                 case 1:
-                    antoPlaylist= antoPlaylist_StartStory;
+                    antoPlaylist = antoPlaylist_StartStory;
                     break;
 
                 case 1001:
@@ -1271,8 +1383,8 @@ namespace Blackjack_Game
                 Debug.LogWarning("Anto playlist is empty.");
                 return;
             }
-            
-            
+
+
             if (VoiceIndex >= antoPlaylist.Count)
             {
                 Debug.Log("Anto playlist finished.");
@@ -1380,12 +1492,12 @@ namespace Blackjack_Game
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
-            switch (animation_number) 
+            switch (animation_number)
             {
                 case 1:
                     //PlayerPrefs.SetInt("Story", 1);//记录进度（下次进来不会出现这个介绍背景剧情）
 
-                    
+
                     data.antoProgress = 1;
                     SaveManager.SaveGame(data);
 
@@ -1406,7 +1518,7 @@ namespace Blackjack_Game
                     {
                         uiManager.LoadingScene_Lobby();
                     }
-                    else 
+                    else
                     {
                         //PlayerPrefs.SetInt("Story", 2);//记录进度（安托的第一个CG结束）
 
@@ -1526,11 +1638,11 @@ namespace Blackjack_Game
                     //    break;
             }
 
-           
+
 
         }
 
-        void RandomToShop() 
+        void RandomToShop()
         {
             if (Random.Range(0, 3) == 0)
             {
