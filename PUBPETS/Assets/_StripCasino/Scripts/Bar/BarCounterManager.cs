@@ -49,6 +49,9 @@ namespace Blackjack_Game
             }
 
             StopWorkButton.SetActive(true);
+
+            //展示挡板
+            Block_Panel.SetActive(true);
         }
 
         public void StopWork() 
@@ -79,6 +82,9 @@ namespace Blackjack_Game
         /// 321倒计时
         /// </summary>
         #region
+        [Header("透明挡板")]
+        public GameObject Block_Panel;//在调酒期间，开始记数的时候把透明挡板展开防止误触
+
         [Header("321倒计时")]
         public TMP_Text startText;
 
@@ -99,7 +105,8 @@ namespace Blackjack_Game
 
         void StartGame()
         {
-
+            //隐藏挡板
+            Block_Panel.SetActive(false);
 
             GenerateNewCustomer();//顾客提要求（生成配方）
 
@@ -422,6 +429,9 @@ namespace Blackjack_Game
                     }
 
                     timeRunning = false;//暂时暂停计时
+
+                    //展示挡板
+                    Block_Panel.SetActive(true);
                 }
 
                 AudioManager_2.SoundPlay(5);//手动SE音频替换
@@ -443,7 +453,7 @@ namespace Blackjack_Game
 
         //酒完成动画调用
         public void MakeWineSuccess() 
-        {
+        {      
             OverDialog();//目前要求消失
 
             Debug.Log("调酒成功！");
@@ -459,6 +469,9 @@ namespace Blackjack_Game
             AudioManager_2.SoundPlay(3);//手动SE音频替换
 
             timeRunning = true;//继续计时
+
+            //隐藏挡板
+            Block_Panel.SetActive(false);
         }
 
 
