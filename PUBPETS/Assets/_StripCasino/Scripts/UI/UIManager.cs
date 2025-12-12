@@ -175,9 +175,9 @@ namespace Blackjack_Game
                         break;
 
 
-
+                    #region  Anto
                     case "VSAnto":
-                        Load_Vs_Anto_AVG();//对决安托
+                        Load_Vs_Anto_AVG();//对决安托[所有Anto_CG_XX_1开端]
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_Failure":
@@ -214,6 +214,189 @@ namespace Blackjack_Game
                         dialog.spine_FrameEvents.SetCurrentAnimator(3);
                         BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
+
+                    case "Anto_CG_04_2":
+                        Load_AVG(1042);//开启安托第四个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_04_3":
+                        Load_AVG(1043);//开启安托第四个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_05_2":
+                        Load_AVG(1052);//开启安托第五个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_05_3":
+                        Load_AVG(1053);//开启安托第五个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_06_2":
+                        Load_AVG(1062);//开启安托第六个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_06_3":
+                        Load_AVG(1063);//开启安托第六个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_07_2":
+                        Load_AVG(1072);//开启安托第七个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_07_3":
+                        Load_AVG(1073);//开启安托第七个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_08_2":
+                        Load_AVG(1082);//开启安托第八个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_08_3":
+                        Load_AVG(1083);//开启安托第八个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_09_2":
+                        Load_AVG(1092);//开启安托第九个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_09_3":
+                        Load_AVG(1093);//开启安托第九个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Anto_CG_10_2":
+                        Load_AVG(1102);//开启安托第十个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Anto_CG_10_3":
+                        Load_AVG(1103);//开启安托第十个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+                    #endregion
+
+                    #region  Alice
+                    case "VSAlice":
+                        Load_Vs_Alice_AVG();//对决爱丽丝[所有Alice_CG_XX_1开端]
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_Failure":
+                        Load_AVG(3001);//输给爱丽丝
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+
+                    case "Alice_CG_01_2":
+                        Load_AVG(3012);//开启爱丽丝第一个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_01_3":
+                        Load_AVG(3013);//开启爱丽丝第一个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(1);
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
+                        break;
+
+                    case "Alice_CG_02_2":
+                        Load_AVG(3022);//开启爱丽丝第二个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_02_3":
+                        Load_AVG(3023);//开启爱丽丝第二个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(2);
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        break;
+
+                    case "Alice_CG_03_2":
+                        Load_AVG(3032);//开启爱丽丝第三个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_03_3":
+                        Load_AVG(3033);//开启爱丽丝第三个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_04_2":
+                        Load_AVG(3042);//开启爱丽丝第四个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_04_3":
+                        Load_AVG(3043);//开启爱丽丝第四个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_05_2":
+                        Load_AVG(3052);//开启爱丽丝第五个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_05_3":
+                        Load_AVG(3053);//开启爱丽丝第五个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_06_2":
+                        Load_AVG(3062);//开启爱丽丝第六个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_06_3":
+                        Load_AVG(3063);//开启爱丽丝第六个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_07_2":
+                        Load_AVG(3072);//开启爱丽丝第七个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_07_3":
+                        Load_AVG(3073);//开启爱丽丝第七个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_08_2":
+                        Load_AVG(3082);//开启爱丽丝第八个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_08_3":
+                        Load_AVG(3083);//开启爱丽丝第八个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_09_2":
+                        Load_AVG(3092);//开启爱丽丝第九个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_09_3":
+                        Load_AVG(3093);//开启爱丽丝第九个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+
+                    case "Alice_CG_10_2":
+                        Load_AVG(3102);//开启爱丽丝第十个CG前端AVG
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        break;
+                    case "Alice_CG_10_3":
+                        Load_AVG(3103);//开启爱丽丝第十个CG
+                        dialog.spine_FrameEvents.SetCurrentAnimator(3);
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        break;
+                        #endregion
+
 
                 }
 
@@ -1101,6 +1284,8 @@ namespace Blackjack_Game
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
+            
+
             switch (data.antoProgress)
             {
                 case 1:
@@ -1112,27 +1297,27 @@ namespace Blackjack_Game
                 case 3:
                     GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
                     break;
-                    //case 4:
-                    //    Load_AVG(1041);
-                    //    break;
-                    //case 5:
-                    //    Load_AVG(1051);
-                    //    break;
-                    //case 6:
-                    //    Load_AVG(1061);
-                    //    break;
-                    //case 7:
-                    //    Load_AVG(1071);
-                    //    break;
-                    //case 8:
-                    //    Load_AVG(1081);
-                    //    break;
-                    //case 9:
-                    //    Load_AVG(1091);
-                    //    break;
-                    //case 10:
-                    //    Load_AVG(1101);
-                    //    break;
+                case 4:
+                    GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
+                    break;
+                case 5:
+                    GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
+                    break;
+                case 6:
+                    GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
+                    break;
+                case 7:
+                    GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
+                    break;
+                case 8:
+                    GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
+                    break;
+                case 9:
+                    GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
+                    break;
+                case 10:
+                    GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
+                    break;
             }
 
 
@@ -1144,7 +1329,7 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
-            //Load_AVG(1031);
+ 
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
             switch (data.antoProgress)
@@ -1159,30 +1344,70 @@ namespace Blackjack_Game
                     Load_AVG(1031);//安托三
                     break;
                 case 4:
-                    Load_AVG(1041);//感谢试玩
+                    Load_AVG(1041);//安托四
                     break;
-                //case 5:
-                //    Load_AVG(1051);
-                //    break;
-                //case 6:
-                //    Load_AVG(1061);
-                //    break;
-                //case 7:
-                //    Load_AVG(1071);
-                //    break;
-                //case 8:
-                //    Load_AVG(1081);
-                //    break;
-                //case 9:
-                //    Load_AVG(1091);
-                //    break;
-                //case 10:
-                //    Load_AVG(1101);
-                //    break;
+                case 5:
+                    Load_AVG(1051);//安托五
+                    break;
+                case 6:
+                    Load_AVG(1061);//安托六
+                    break;
+                case 7:
+                    Load_AVG(1071);//安托七
+                    break;
+                case 8:
+                    Load_AVG(1081);//安托八
+                    break;
+                case 9:
+                    Load_AVG(1091);//安托九
+                    break;
+                case 10:
+                    Load_AVG(1101);//安托十
+                    break;
             }
 
-        }//女荷官指名界面选择
+        }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
 
+        public void Load_Vs_Alice_AVG()
+        {
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            switch (data.aliceProgress)
+            {
+                case 1:
+                    Load_AVG(3011);//爱丽丝一
+                    break;
+                case 2:
+                    Load_AVG(3021);//爱丽丝二
+                    break;
+                case 3:
+                    Load_AVG(3031);//爱丽丝三
+                    break;
+                case 4:
+                    Load_AVG(3041);//爱丽丝四
+                    break;
+                case 5:
+                    Load_AVG(3051);//爱丽丝五
+                    break;
+                case 6:
+                    Load_AVG(3061);//爱丽丝六
+                    break;
+                case 7:
+                    Load_AVG(3071);//爱丽丝七
+                    break;
+                case 8:
+                    Load_AVG(3081);//爱丽丝八
+                    break;
+                case 9:
+                    Load_AVG(3091);//爱丽丝九
+                    break;
+                case 10:
+                    Load_AVG(3101);//爱丽丝十
+                    break;
+            }
+
+        }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
 
         public void CG_Thumbnail_RePlay(int CG_Number) 
         {
@@ -1196,6 +1421,27 @@ namespace Blackjack_Game
                     break;
                 case 3:
                     GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+                    break;
+                case 4:
+                    GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
+                    break;
+                case 5:
+                    GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
+                    break;
+                case 6:
+                    GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
+                    break;
+                case 7:
+                    GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
+                    break;
+                case 8:
+                    GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
+                    break;
+                case 9:
+                    GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
+                    break;
+                case 10:
+                    GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
                     break;
             }
 

@@ -48,6 +48,8 @@ namespace Blackjack_Game
                 NoAVG.SetActive(false);
             }
 
+
+
             StopWorkButton.SetActive(true);
 
             //展示挡板
@@ -64,6 +66,9 @@ namespace Blackjack_Game
             {
                 NoAVG.SetActive(true);
             }
+
+            //根据存档显示爱丽丝和赫蒂
+            Set_Alice_Hetty();
 
             timeRunning = false;
 
@@ -493,6 +498,8 @@ namespace Blackjack_Game
 
         #endregion
 
+
+
         /// <summary>
         /// 倒计时
         /// </summary>
@@ -563,49 +570,23 @@ namespace Blackjack_Game
         /// 女荷官AVG随机入口
         /// </summary>
         #region
+        public GameObject Alice;
+        public void Set_Alice_Hetty() 
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.antoProgress>=3) 
+            {
+                Alice.SetActive(true);
+                NoAVG_Object[1].SetActive(false);
+            }
+        }
+
+
         public void Load_Vs_Anto_AVG()
         {
 
-
-
-            GameFlowData.nextAVGId = "VSAnto";//开启开头剧情介绍
+            GameFlowData.nextAVGId = "VSAnto";//确定女荷官
             uiManager.LoadingScene_Spine();
-
-
-
-            // switch (Random.Range(1, 11))
-            // {
-            //     case 1:
-            //         uiManager.Load_AVG(1011);
-            //         break;
-            //     case 2:
-            //         uiManager.Load_AVG(1021);
-            //         break;
-            //     case 3:
-            //         uiManager.Load_AVG(1031);
-            //         break;
-            //     case 4:
-            //         uiManager.Load_AVG(1041);
-            //         break;
-            //     case 5:
-            //         uiManager.Load_AVG(1051);
-            //         break;
-            //     case 6:
-            //         uiManager.Load_AVG(1061);
-            //         break;
-            //     case 7:
-            //         uiManager.Load_AVG(1071);
-            //         break;
-            //     case 8:
-            //         uiManager.Load_AVG(1081);
-            //         break;
-            //     case 9:
-            //         uiManager.Load_AVG(1091);
-            //         break;
-            //     case 10:
-            //         uiManager.Load_AVG(1101);
-            //         break;
-            // }
 
         }
 
@@ -617,12 +598,17 @@ namespace Blackjack_Game
             //uiManager.LoadingScene_Spine();
 
         }
+
+        public void Alice_Hide()
+        {
+            AudioManager_2.SoundPlay(4);
+        }
         public void Load_Vs_Alice_AVG()
         {
             AudioManager_2.SoundPlay(4);
 
-            //GameFlowData.nextAVGId = "VSAlice";//开启开头剧情介绍
-            //uiManager.LoadingScene_Spine();
+            GameFlowData.nextAVGId = "VSAlice";//确定女荷官
+            uiManager.LoadingScene_Spine();
 
         }
 

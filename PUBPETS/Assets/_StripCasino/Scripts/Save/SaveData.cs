@@ -15,7 +15,6 @@ public class SaveData
     public int hettyProgress;
     public int aliceProgress;
 
-   
 
 
     public int Item_1;
