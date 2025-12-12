@@ -200,7 +200,7 @@ namespace Blackjack_Game
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
 
 
-
+                    #region  安托日语
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Japanese/Anto_J/J_Anto_Failure_01"));
 
@@ -246,6 +246,61 @@ namespace Blackjack_Game
                     textAssets.Add(1102, Resources.Load<TextAsset>("TXT_Japanese/Anto_J/J_Anto_CG_10_2"));
                     textAssets.Add(1103, Resources.Load<TextAsset>("TXT_Japanese/Anto_J/J_Anto_CG_10_3"));
 
+                    #endregion
+
+                    #region  赫蒂日语
+                    //赫蒂失败
+                    textAssets.Add(2001, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_Failure_01"));
+
+
+                    //赫蒂第一幕
+                    textAssets.Add(2011, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_01_1"));
+                    textAssets.Add(2012, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_01_2"));
+                    textAssets.Add(2013, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_01_3"));
+                    //赫蒂第二幕
+                    textAssets.Add(2021, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_02_1"));
+                    textAssets.Add(2022, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_02_2"));
+                    textAssets.Add(2023, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_02_3"));
+                    //赫蒂第三幕
+                    textAssets.Add(2031, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_03_1"));
+                    textAssets.Add(2032, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_03_2"));
+                    textAssets.Add(2033, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_03_3"));
+                    //赫蒂第四幕
+                    textAssets.Add(2041, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_04_1"));
+                    textAssets.Add(2042, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_04_2"));
+                    textAssets.Add(2043, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_04_3"));
+                    //赫蒂第五幕
+                    textAssets.Add(2051, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_05_1"));
+                    textAssets.Add(2052, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_05_2"));
+                    textAssets.Add(2053, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_05_3"));
+                    //赫蒂第六幕
+                    textAssets.Add(2061, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_06_1"));
+                    textAssets.Add(2062, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_06_2"));
+                    textAssets.Add(2063, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_06_3"));
+                    //赫蒂第七幕
+                    textAssets.Add(2071, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_07_1"));
+                    textAssets.Add(2072, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_07_2"));
+                    textAssets.Add(2073, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_07_3"));
+                    //赫蒂第八幕
+                    textAssets.Add(2081, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_08_1"));
+                    textAssets.Add(2082, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_08_2"));
+                    textAssets.Add(2083, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_08_3"));
+                    //赫蒂第九幕
+                    textAssets.Add(2091, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_09_1"));
+                    textAssets.Add(2092, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_09_2"));
+                    textAssets.Add(2093, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_09_3"));
+                    //赫蒂第十幕
+                    textAssets.Add(2101, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_10_1"));
+                    textAssets.Add(2102, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_10_2"));
+                    textAssets.Add(2103, Resources.Load<TextAsset>("TXT_Japanese/Hetty_J/J_Hetty_CG_10_3"));
+
+                    #endregion
+
+                    #region   爱丽丝日语
+
+                    //爱丽丝失败
+                    textAssets.Add(3001, Resources.Load<TextAsset>("TXT_Japanese/Alice_J/J_Alice_Failure_01"));
+
                     //爱丽丝第一幕
                     textAssets.Add(3011, Resources.Load<TextAsset>("TXT_Japanese/Alice_J/J_Alice_CG_01_1"));
                     textAssets.Add(3012, Resources.Load<TextAsset>("TXT_Japanese/Alice_J/J_Alice_CG_01_2"));
@@ -287,7 +342,7 @@ namespace Blackjack_Game
                     textAssets.Add(3102, Resources.Load<TextAsset>("TXT_Japanese/Alice_J/J_Alice_CG_10_2"));
                     textAssets.Add(3103, Resources.Load<TextAsset>("TXT_Japanese/Alice_J/J_Alice_CG_10_3"));
 
-
+                    #endregion
 
                     break;
                 case 1:
@@ -303,11 +358,10 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
 
+                    #region  安托简中
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Anto_C1/C1_Anto_Failure_01"));
-
-
 
                     //安托第一幕
                     textAssets.Add(1011, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Anto_C1/C1_Anto_CG_01_1"));
@@ -350,6 +404,61 @@ namespace Blackjack_Game
                     textAssets.Add(1102, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Anto_C1/C1_Anto_CG_10_2"));
                     textAssets.Add(1103, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Anto_C1/C1_Anto_CG_10_3"));
 
+                    #endregion
+
+                    #region  赫蒂简中
+                    //赫蒂失败
+                    textAssets.Add(2001, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_Failure_01"));
+
+
+                    //赫蒂第一幕
+                    textAssets.Add(2011, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_01_1"));
+                    textAssets.Add(2012, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_01_2"));
+                    textAssets.Add(2013, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_01_3"));
+                    //赫蒂第二幕
+                    textAssets.Add(2021, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_02_1"));
+                    textAssets.Add(2022, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_02_2"));
+                    textAssets.Add(2023, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_02_3"));
+                    //赫蒂第三幕
+                    textAssets.Add(2031, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_03_1"));
+                    textAssets.Add(2032, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_03_2"));
+                    textAssets.Add(2033, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_03_3"));
+                    //赫蒂第四幕
+                    textAssets.Add(2041, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_04_1"));
+                    textAssets.Add(2042, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_04_2"));
+                    textAssets.Add(2043, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_04_3"));
+                    //赫蒂第五幕
+                    textAssets.Add(2051, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_05_1"));
+                    textAssets.Add(2052, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_05_2"));
+                    textAssets.Add(2053, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_05_3"));
+                    //赫蒂第六幕
+                    textAssets.Add(2061, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_06_1"));
+                    textAssets.Add(2062, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_06_2"));
+                    textAssets.Add(2063, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_06_3"));
+                    //赫蒂第七幕
+                    textAssets.Add(2071, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_07_1"));
+                    textAssets.Add(2072, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_07_2"));
+                    textAssets.Add(2073, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_07_3"));
+                    //赫蒂第八幕
+                    textAssets.Add(2081, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_08_1"));
+                    textAssets.Add(2082, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_08_2"));
+                    textAssets.Add(2083, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_08_3"));
+                    //赫蒂第九幕
+                    textAssets.Add(2091, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_09_1"));
+                    textAssets.Add(2092, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_09_2"));
+                    textAssets.Add(2093, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_09_3"));
+                    //赫蒂第十幕
+                    textAssets.Add(2101, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_10_1"));
+                    textAssets.Add(2102, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_10_2"));
+                    textAssets.Add(2103, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Hetty_C1/C1_Hetty_CG_10_3"));
+
+                    #endregion
+
+                    #region  爱丽丝简中
+
+                    //爱丽丝失败
+                    textAssets.Add(3001, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Alice_C1/C1_Alice_Failure_01"));
+
                     //爱丽丝第一幕
                     textAssets.Add(3011, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Alice_C1/C1_Alice_CG_01_1"));
                     textAssets.Add(3012, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Alice_C1/C1_Alice_CG_01_2"));
@@ -391,6 +500,7 @@ namespace Blackjack_Game
                     textAssets.Add(3102, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Alice_C1/C1_Alice_CG_10_2"));
                     textAssets.Add(3103, Resources.Load<TextAsset>("TXT_Simplified_Chinese/Alice_C1/C1_Alice_CG_10_3"));
 
+                    #endregion
 
 
                     break;
@@ -407,7 +517,7 @@ namespace Blackjack_Game
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
 
 
-
+                    #region  安托繁中
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Anto_Failure_01"));
@@ -453,8 +563,62 @@ namespace Blackjack_Game
                     textAssets.Add(1102, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Anto_CG_10_2"));
                     textAssets.Add(1103, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Anto_C2/C2_Anto_CG_10_3"));
 
+                    #endregion
 
-                     //爱丽丝第一幕
+
+                    #region  赫蒂繁中
+                    //赫蒂失败
+                    textAssets.Add(2001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_Failure_01"));
+
+                    //赫蒂第一幕
+                    textAssets.Add(2011, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_01_1"));
+                    textAssets.Add(2012, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_01_2"));
+                    textAssets.Add(2013, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_01_3"));
+                    //赫蒂第二幕
+                    textAssets.Add(2021, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_02_1"));
+                    textAssets.Add(2022, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_02_2"));
+                    textAssets.Add(2023, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_02_3"));
+                    //赫蒂第三幕
+                    textAssets.Add(2031, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_03_1"));
+                    textAssets.Add(2032, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_03_2"));
+                    textAssets.Add(2033, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_03_3"));
+                    //赫蒂第四幕
+                    textAssets.Add(2041, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_04_1"));
+                    textAssets.Add(2042, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_04_2"));
+                    textAssets.Add(2043, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_04_3"));
+                    //赫蒂第五幕
+                    textAssets.Add(2051, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_05_1"));
+                    textAssets.Add(2052, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_05_2"));
+                    textAssets.Add(2053, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_05_3"));
+                    //赫蒂第六幕
+                    textAssets.Add(2061, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_06_1"));
+                    textAssets.Add(2062, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_06_2"));
+                    textAssets.Add(2063, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_06_3"));
+                    //赫蒂第七幕
+                    textAssets.Add(2071, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_07_1"));
+                    textAssets.Add(2072, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_07_2"));
+                    textAssets.Add(2073, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_07_3"));
+                    //赫蒂第八幕
+                    textAssets.Add(2081, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_08_1"));
+                    textAssets.Add(2082, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_08_2"));
+                    textAssets.Add(2083, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_08_3"));
+                    //赫蒂第九幕
+                    textAssets.Add(2091, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_09_1"));
+                    textAssets.Add(2092, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_09_2"));
+                    textAssets.Add(2093, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_09_3"));
+                    //赫蒂第十幕
+                    textAssets.Add(2101, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_10_1"));
+                    textAssets.Add(2102, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_10_2"));
+                    textAssets.Add(2103, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Hetty_C2/C2_Hetty_CG_10_3"));
+
+                    #endregion
+
+                    #region 爱丽丝繁中
+
+                    //爱丽丝失败
+                    textAssets.Add(3001, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_Failure_01"));
+
+                    //爱丽丝第一幕
                     textAssets.Add(3011, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_01_1"));
                     textAssets.Add(3012, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_01_2"));
                     textAssets.Add(3013, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_01_3"));
@@ -495,7 +659,7 @@ namespace Blackjack_Game
                     textAssets.Add(3102, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_10_2"));
                     textAssets.Add(3103, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_10_3"));
 
-
+                    #endregion
 
                     break;
                 case 3:
@@ -512,9 +676,12 @@ namespace Blackjack_Game
 
 
 
+
+                    #region  安托英语
+
+
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_English/Anto_E/E_Anto_Failure_01"));
-
 
                     //安托第一幕
                     textAssets.Add(1011, Resources.Load<TextAsset>("TXT_English/Anto_E/E_Anto_CG_01_1"));
@@ -557,8 +724,61 @@ namespace Blackjack_Game
                     textAssets.Add(1102, Resources.Load<TextAsset>("TXT_English/Anto_E/E_Anto_CG_10_2"));
                     textAssets.Add(1103, Resources.Load<TextAsset>("TXT_English/Anto_E/E_Anto_CG_10_3"));
 
+                    #endregion
 
-                    
+
+                    #region  赫蒂英语
+                    //赫蒂失败
+                    textAssets.Add(2001, Resources.Load<TextAsset>("TXT_Japanese/Hetty_E/E_Hetty_Failure_01"));
+
+                    //赫蒂第一幕
+                    textAssets.Add(2011, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_01_1"));
+                    textAssets.Add(2012, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_01_2"));
+                    textAssets.Add(2013, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_01_3"));
+                    //赫蒂第二幕
+                    textAssets.Add(2021, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_02_1"));
+                    textAssets.Add(2022, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_02_2"));
+                    textAssets.Add(2023, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_02_3"));
+                    //赫蒂第三幕
+                    textAssets.Add(2031, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_03_1"));
+                    textAssets.Add(2032, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_03_2"));
+                    textAssets.Add(2033, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_03_3"));
+                    //赫蒂第四幕
+                    textAssets.Add(2041, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_04_1"));
+                    textAssets.Add(2042, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_04_2"));
+                    textAssets.Add(2043, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_04_3"));
+                    //赫蒂第五幕
+                    textAssets.Add(2051, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_05_1"));
+                    textAssets.Add(2052, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_05_2"));
+                    textAssets.Add(2053, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_05_3"));
+                    //赫蒂第六幕
+                    textAssets.Add(2061, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_06_1"));
+                    textAssets.Add(2062, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_06_2"));
+                    textAssets.Add(2063, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_06_3"));
+                    //赫蒂第七幕
+                    textAssets.Add(2071, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_07_1"));
+                    textAssets.Add(2072, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_07_2"));
+                    textAssets.Add(2073, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_07_3"));
+                    //赫蒂第八幕
+                    textAssets.Add(2081, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_08_1"));
+                    textAssets.Add(2082, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_08_2"));
+                    textAssets.Add(2083, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_08_3"));
+                    //赫蒂第九幕
+                    textAssets.Add(2091, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_09_1"));
+                    textAssets.Add(2092, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_09_2"));
+                    textAssets.Add(2093, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_09_3"));
+                    //赫蒂第十幕
+                    textAssets.Add(2101, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_10_1"));
+                    textAssets.Add(2102, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_10_2"));
+                    textAssets.Add(2103, Resources.Load<TextAsset>("TXT_English/Hetty_E/E_Hetty_CG_10_3"));
+
+                    #endregion
+
+                    #region    爱丽丝英语
+
+                    //爱丽丝失败
+                    textAssets.Add(3001, Resources.Load<TextAsset>("TXT_English/Alice_E/E_Alice_Failure_01"));
+
                     //爱丽丝第一幕
                     textAssets.Add(3011, Resources.Load<TextAsset>("TXT_English/Alice_E/E_Alice_CG_01_1"));
                     textAssets.Add(3012, Resources.Load<TextAsset>("TXT_English/Alice_E/E_Alice_CG_01_2"));
@@ -601,7 +821,7 @@ namespace Blackjack_Game
                     textAssets.Add(3103, Resources.Load<TextAsset>("TXT_English/Alice_E/E_Alice_CG_10_3"));
 
 
-
+                    #endregion
 
 
 
@@ -618,6 +838,7 @@ namespace Blackjack_Game
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
 
 
+                    #region  安托韩语
 
                     //安托失败
                     textAssets.Add(1001, Resources.Load<TextAsset>("TXT_Korean/Anto_K/K_Anto_Failure_01"));
@@ -664,8 +885,61 @@ namespace Blackjack_Game
                     textAssets.Add(1102, Resources.Load<TextAsset>("TXT_Korean/Anto_K/K_Anto_CG_10_2"));
                     textAssets.Add(1103, Resources.Load<TextAsset>("TXT_Korean/Anto_K/K_Anto_CG_10_3"));
 
+                    #endregion
 
-                     
+
+                    #region  赫蒂韩语
+                    //赫蒂失败
+                    textAssets.Add(2001, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_Failure_01"));
+
+                    //赫蒂第一幕
+                    textAssets.Add(2011, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_01_1"));
+                    textAssets.Add(2012, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_01_2"));
+                    textAssets.Add(2013, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_01_3"));
+                    //赫蒂第二幕
+                    textAssets.Add(2021, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_02_1"));
+                    textAssets.Add(2022, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_02_2"));
+                    textAssets.Add(2023, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_02_3"));
+                    //赫蒂第三幕
+                    textAssets.Add(2031, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_03_1"));
+                    textAssets.Add(2032, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_03_2"));
+                    textAssets.Add(2033, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_03_3"));
+                    //赫蒂第四幕
+                    textAssets.Add(2041, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_04_1"));
+                    textAssets.Add(2042, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_04_2"));
+                    textAssets.Add(2043, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_04_3"));
+                    //赫蒂第五幕
+                    textAssets.Add(2051, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_05_1"));
+                    textAssets.Add(2052, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_05_2"));
+                    textAssets.Add(2053, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_05_3"));
+                    //赫蒂第六幕
+                    textAssets.Add(2061, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_06_1"));
+                    textAssets.Add(2062, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_06_2"));
+                    textAssets.Add(2063, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_06_3"));
+                    //赫蒂第七幕
+                    textAssets.Add(2071, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_07_1"));
+                    textAssets.Add(2072, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_07_2"));
+                    textAssets.Add(2073, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_07_3"));
+                    //赫蒂第八幕
+                    textAssets.Add(2081, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_08_1"));
+                    textAssets.Add(2082, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_08_2"));
+                    textAssets.Add(2083, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_08_3"));
+                    //赫蒂第九幕
+                    textAssets.Add(2091, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_09_1"));
+                    textAssets.Add(2092, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_09_2"));
+                    textAssets.Add(2093, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_09_3"));
+                    //赫蒂第十幕
+                    textAssets.Add(2101, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_10_1"));
+                    textAssets.Add(2102, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_10_2"));
+                    textAssets.Add(2103, Resources.Load<TextAsset>("TXT_Korean/Hetty_K/K_Hetty_CG_10_3"));
+
+                    #endregion
+
+                    #region 爱丽丝韩语
+
+                    //爱丽丝失败
+                    textAssets.Add(3001, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_Failure_01"));
+
                     //爱丽丝第一幕
                     textAssets.Add(3011, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_CG_01_1"));
                     textAssets.Add(3012, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_CG_01_2"));
@@ -707,7 +981,7 @@ namespace Blackjack_Game
                     textAssets.Add(3102, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_CG_10_2"));
                     textAssets.Add(3103, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_CG_10_3"));
 
-
+                    #endregion
 
                     break;
             }
@@ -1972,6 +2246,200 @@ namespace Blackjack_Game
                 #endregion
 
 
+                #region  赫蒂
+
+                //被赫蒂击败
+                case 2001:
+                    RandomToShop();
+                    break;
+
+
+
+                //击败赫蒂
+                case 2012:
+                    GameFlowData.nextAVGId = "Hetty_CG_01_3";//开启赫蒂第一个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2022:
+                    GameFlowData.nextAVGId = "Hetty_CG_02_3";//开启赫蒂第二个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2032:
+                    GameFlowData.nextAVGId = "Hetty_CG_03_3";//开启赫蒂第三个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2042:
+                    GameFlowData.nextAVGId = "Hetty_CG_04_3";//开启赫蒂第四个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2052:
+                    GameFlowData.nextAVGId = "Hetty_CG_05_3";//开启赫蒂第五个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2062:
+                    GameFlowData.nextAVGId = "Hetty_CG_06_3";//开启赫蒂第六个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2072:
+                    GameFlowData.nextAVGId = "Hetty_CG_07_3";//开启赫蒂第七个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2082:
+                    GameFlowData.nextAVGId = "Hetty_CG_08_3";//开启赫蒂第八个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2092:
+                    GameFlowData.nextAVGId = "Hetty_CG_09_3";//开启赫蒂第九个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 2102:
+                    GameFlowData.nextAVGId = "Hetty_CG_10_3";//开启赫蒂第十个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+
+
+                //赫蒂CG结束
+                case 2013:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 2;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2023:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 3;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2033:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 4;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2043:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 5;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2053:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 6;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2063:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 7;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2073:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 8;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2083:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 9;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2093:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.hettyProgress = 10;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 2103:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+                        //赫蒂已经通关                                          
+
+                        RandomToShop();
+                    }
+                    break;
+
+                #endregion
 
                 #region  爱丽丝
 

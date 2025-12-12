@@ -1663,6 +1663,9 @@ namespace Blackjack_Game
                     break;
             }
 
+
+
+
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
 
         public void CG_Thumbnail_RePlay(int CG_Number) 
