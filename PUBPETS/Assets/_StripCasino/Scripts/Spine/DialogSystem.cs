@@ -95,14 +95,14 @@ namespace Blackjack_Game
 
         private void OnEnable()
         {
-
-            if (!string.IsNullOrEmpty(GameFlowData.nextAVGId))
-            {
-                Debug.Log("要播放的AVG是：" + GameFlowData.nextAVGId);
-
-                // 播放后清空
-                GameFlowData.nextAVGId = null;
-            }
+            //在女荷官指名界面开始，确定出现对应女荷官，胜利后跳出Victory，失败后跳出对应失败AVG都需要记录中【VS_XX】
+            //if (!string.IsNullOrEmpty(GameFlowData.nextAVGId))
+            //{
+            //    Debug.Log("要播放的AVG是：" + GameFlowData.nextAVGId);
+            //
+            //    // 播放后清空
+            //    GameFlowData.nextAVGId = null;
+            //}
 
 
             //读取textSpeed
@@ -1741,25 +1741,95 @@ namespace Blackjack_Game
 
             switch (animation_number)
             {
+                //开场白
                 case 1:
-                    //PlayerPrefs.SetInt("Story", 1);//记录进度（下次进来不会出现这个介绍背景剧情）
 
-
+                    //三人都得记录
                     data.antoProgress = 1;
+                    data.hettyProgress = 1;
+                    data.aliceProgress = 1;
+
+
                     SaveManager.SaveGame(data);
+
 
                     GameFlowData.nextAVGId = "StartWork_01";//故事背景结束，开启经营AVG
                     uiManager.LoadingScene_Spine();
                     break;
 
+                //开启一天工作
+                case 100:
+                    uiManager.LoadingScene_BarCounter();
 
-                case 1001:
-                    //GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
-                    //uiManager.LoadingScene_Spine();
+                    break;
+
+                //商人不出现
+                case 10:                  
+                    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+                //商人出现
+                case 11:                
+                    uiManager.LoadingScene_Shop();
+                    break;
+
+
+
+                #region  安托
+
+                //被安托击败
+                case 1001:                    
                     RandomToShop();
                     break;
 
 
+
+                //击败安托
+                case 1012:
+                    GameFlowData.nextAVGId = "Anto_CG_01_3";//开启安托第一个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1022:
+                    GameFlowData.nextAVGId = "Anto_CG_02_3";//开启安托第二个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1032:
+                    GameFlowData.nextAVGId = "Anto_CG_03_3";//开启安托第三个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1042:
+                    GameFlowData.nextAVGId = "Anto_CG_04_3";//开启安托第四个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1052:
+                    GameFlowData.nextAVGId = "Anto_CG_05_3";//开启安托第五个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1062:
+                    GameFlowData.nextAVGId = "Anto_CG_06_3";//开启安托第六个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1072:
+                    GameFlowData.nextAVGId = "Anto_CG_07_3";//开启安托第七个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1082:
+                    GameFlowData.nextAVGId = "Anto_CG_08_3";//开启安托第八个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1092:
+                    GameFlowData.nextAVGId = "Anto_CG_09_3";//开启安托第九个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 1102:
+                    GameFlowData.nextAVGId = "Anto_CG_10_3";//开启安托第十个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+
+
+                //安托CG结束
                 case 1013:
                     if (GameFlowData.returnPath == "cg")
                     {
@@ -1899,91 +1969,206 @@ namespace Blackjack_Game
                     }
                     break;
 
+                #endregion
 
-                case 100:
-                    uiManager.LoadingScene_BarCounter();
 
+
+                #region  爱丽丝
+
+                //被爱丽丝击败
+                case 3001:
+                    RandomToShop();
                     break;
 
 
 
-
-
-
-
-                case 10:
-                    //商人不出现
-                    GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                //击败爱丽丝
+                case 3012:
+                    GameFlowData.nextAVGId = "Alice_CG_01_3";//开启爱丽丝第一个CG
                     uiManager.LoadingScene_Spine();
                     break;
-                case 11:
-                    //商人出现
-                    uiManager.LoadingScene_Shop();
+                case 3022:
+                    GameFlowData.nextAVGId = "Alice_CG_02_3";//开启爱丽丝第二个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3032:
+                    GameFlowData.nextAVGId = "Alice_CG_03_3";//开启爱丽丝第三个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3042:
+                    GameFlowData.nextAVGId = "Alice_CG_04_3";//开启爱丽丝第四个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3052:
+                    GameFlowData.nextAVGId = "Alice_CG_05_3";//开启爱丽丝第五个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3062:
+                    GameFlowData.nextAVGId = "Alice_CG_06_3";//开启爱丽丝第六个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3072:
+                    GameFlowData.nextAVGId = "Alice_CG_07_3";//开启爱丽丝第七个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3082:
+                    GameFlowData.nextAVGId = "Alice_CG_08_3";//开启爱丽丝第八个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3092:
+                    GameFlowData.nextAVGId = "Alice_CG_09_3";//开启爱丽丝第九个CG
+                    uiManager.LoadingScene_Spine();
+                    break;
+                case 3102:
+                    GameFlowData.nextAVGId = "Alice_CG_10_3";//开启爱丽丝第十个CG
+                    uiManager.LoadingScene_Spine();
                     break;
 
 
-                //case 1001:
-                //    if (Random.Range(0, 1) == 2)
-                //    {
-                //        uiManager.Load_AVG(10);//没有遇到商人
-                //    }
-                //    else 
-                //    {
-                //        uiManager.Load_AVG(11);//遇到商人                       
-                //    }
-                //    //酒保工作BGM
-                //    BGM.instance.Stop();
-                //    BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
-                //    break;
+
+                //爱丽丝CG结束
+                case 3013:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 2;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3023:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 3;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3033:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 4;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3043:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 5;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3053:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 6;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3063:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 7;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3073:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 8;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3083:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 9;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3093:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+
+                        data.aliceProgress = 10;
+                        SaveManager.SaveGame(data);
+
+                        RandomToShop();
+                    }
+                    break;
+                case 3103:
+                    if (GameFlowData.returnPath == "cg")
+                    {
+                        uiManager.LoadingScene_Lobby();
+                    }
+                    else
+                    {
+                        //爱丽丝已经通关                                          
+
+                        RandomToShop();
+                    }
+                    break;
+
+                #endregion
 
 
-
-                case 1012:
-                    GameFlowData.nextAVGId = "Anto_CG_01_3";//开启安托第一个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1022:
-                    GameFlowData.nextAVGId = "Anto_CG_02_3";//开启安托第二个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1032:
-                    GameFlowData.nextAVGId = "Anto_CG_03_3";//开启安托第三个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-
-
-                //case 1041:
-                //    //感谢试玩
-                //    uiManager.LoadingScene_Lobby();
-                //    break;
-                case 1042:
-                    GameFlowData.nextAVGId = "Anto_CG_04_3";//开启安托第四个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1052:
-                    GameFlowData.nextAVGId = "Anto_CG_05_3";//开启安托第五个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1062:
-                    GameFlowData.nextAVGId = "Anto_CG_06_3";//开启安托第六个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1072:
-                    GameFlowData.nextAVGId = "Anto_CG_07_3";//开启安托第七个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1082:
-                    GameFlowData.nextAVGId = "Anto_CG_08_3";//开启安托第八个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1092:
-                    GameFlowData.nextAVGId = "Anto_CG_09_3";//开启安托第九个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
-                case 1102:
-                    GameFlowData.nextAVGId = "Anto_CG_10_3";//开启安托第十个CG
-                    uiManager.LoadingScene_Spine();
-                    break;
 
 
                 //所有的_1都在这里触发

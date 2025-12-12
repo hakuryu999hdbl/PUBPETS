@@ -12361,7 +12361,10 @@ MonoBehaviour:
   Icon_NoWin: {fileID: 51833613}
   Icon_Push: {fileID: 219188483}
   Icon_Bust: {fileID: 847208042}
-  antorAnimator: {fileID: 1714659277}
+  dealerAnimator: {fileID: 0}
+  antoAnimator: {fileID: 1149194452}
+  hettyAnimator: {fileID: 1714659277}
+  aliceAnimator: {fileID: 876076707}
 --- !u!1 &591046345
 GameObject:
   m_ObjectHideFlags: 0
@@ -21129,7 +21132,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1361604369}
         m_TargetAssemblyTypeName: Blackjack_Game.UIManager, Assembly-CSharp
-        m_MethodName: Load_Win_Anto_AVG
+        m_MethodName: Load_Win_AVG
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36316,7 +36319,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1714659275
 Transform:
   m_ObjectHideFlags: 0

@@ -853,25 +853,53 @@ namespace Blackjack_Game
 
         public VoiceManager voiceManager;//一旦超过这个阈值就能触发安托的呻吟
 
+        int Progress;//女荷官进度
 
         void Start()
         {
 
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            int Story_Anto = data.antoProgress;
+            //int Story_Anto = data.antoProgress;
+            //
+            //Debug.Log("目前储存的关卡进度_安托" + Story_Anto);
+            //if (Story_Anto <= 0)
+            //{
+            //    data.antoProgress = 1;
+            //    SaveManager.SaveGame(data);
+            //}
 
-            Debug.Log("目前储存的关卡进度_安托" + Story_Anto);
-            if (Story_Anto <= 0)
+
+            //根据存档来显示对应的动画器
+            switch (GameFlowData.nextAVGId)
             {
-                data.antoProgress = 1;
-                SaveManager.SaveGame(data);
+                default:
+                case "VSAnto":
+                    dealerAnimator = antoAnimator;
+                    Progress = data.antoProgress;
+                    break;
+
+                case "VSHetty":
+                    dealerAnimator = hettyAnimator;
+                    Progress = data.hettyProgress;
+                    break;
+
+                case "VSAlice":
+                    dealerAnimator = aliceAnimator;
+                    Progress = data.aliceProgress;
+                    break;
+
+
             }
 
+            dealerAnimator.gameObject.SetActive(true);
+            
+
+
             //检测安托等级
-            int LimitPlace = data.antoProgress * 200;
+            int LimitPlace = Progress * 200;
             Limit.text = LimitPlace.ToString();//本局赌注上限
 
-            maxHealth = data.antoProgress * 1000;
+            maxHealth = Progress * 1000;
 
             currentHealth = maxHealth;
             UpdateFill();
@@ -939,8 +967,8 @@ namespace Blackjack_Game
         }
 
         [Header("安托动画")]
-        [SerializeField] Animator antorAnimator;
-
+        [SerializeField] Animator dealerAnimator;
+        public Animator antoAnimator, hettyAnimator, aliceAnimator;
 
         private int currentSituation = 1; // 当前状态阶段（1~8）
         private int maxSituation = 8;
@@ -992,11 +1020,11 @@ namespace Blackjack_Game
 
             // 1) 瞬间切到 "Situation_prev_Idle"
             //    用 CrossFade 或 Play 都行；CrossFade 0 秒可避免受 Exit Time 干扰
-            antorAnimator.CrossFade($"Situation_{prev}_Idle", 0f, 0, 0f);
+            dealerAnimator.CrossFade($"Situation_{prev}_Idle", 0f, 0, 0f);
             yield return null; // 等一帧让 Animator 应用
 
             // 2) 只播放这一档的脱衣动画："prev -> to"
-            antorAnimator.SetInteger("Undress", prev);
+            dealerAnimator.SetInteger("Undress", prev);
 
             // 等状态机真正进入 Undress_prev 并播放完
             yield return new WaitUntil(() => IsPlayingState($"Situation_{prev}_Undress"));
@@ -1005,13 +1033,13 @@ namespace Blackjack_Game
 
 
 
-            antorAnimator.SetInteger("Undress", 0); // 重置参数防止连播
+            dealerAnimator.SetInteger("Undress", 0); // 重置参数防止连播
             isTransitioning = false;
         }
 
         private bool IsPlayingState(string stateName)
         {
-            AnimatorStateInfo info = antorAnimator.GetCurrentAnimatorStateInfo(0);
+            AnimatorStateInfo info = dealerAnimator.GetCurrentAnimatorStateInfo(0);
             return info.IsName(stateName);
         }
 
@@ -1022,12 +1050,12 @@ namespace Blackjack_Game
 
         public void PlayWin()
         {
-            antorAnimator.SetTrigger("Win");
+            dealerAnimator.SetTrigger("Win");
         }
 
         public void PlayLose()
         {
-            antorAnimator.SetTrigger("Lose");
+            dealerAnimator.SetTrigger("Lose");
         }
 
 

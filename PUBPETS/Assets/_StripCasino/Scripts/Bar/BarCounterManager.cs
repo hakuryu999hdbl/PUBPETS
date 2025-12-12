@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System.Linq;
+using static System.Net.WebRequestMethods;
 
 namespace Blackjack_Game
 {
@@ -571,12 +572,14 @@ namespace Blackjack_Game
         /// </summary>
         #region
         public GameObject Alice;
+        public GameObject Hetty;
         public void Set_Alice_Hetty() 
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
             if (data.antoProgress>=3) 
             {
                 Alice.SetActive(true);
+                Hetty.SetActive(true);
                 NoAVG_Object[1].SetActive(false);
             }
         }
@@ -592,26 +595,26 @@ namespace Blackjack_Game
 
         public void Load_Vs_Hetty_AVG()
         {
-            AudioManager_2.SoundPlay(4);
 
-            //GameFlowData.nextAVGId = "VSHetty";//开启开头剧情介绍
-            //uiManager.LoadingScene_Spine();
+            GameFlowData.nextAVGId = "VSHetty";//开启开头剧情介绍
+            uiManager.LoadingScene_Spine();
 
         }
 
-        public void Alice_Hide()
-        {
-            AudioManager_2.SoundPlay(4);
-        }
+     
         public void Load_Vs_Alice_AVG()
         {
-            AudioManager_2.SoundPlay(4);
 
             GameFlowData.nextAVGId = "VSAlice";//确定女荷官
             uiManager.LoadingScene_Spine();
 
         }
 
+
+        public void Hide()
+        {
+            AudioManager_2.SoundPlay(4);
+        }//未解锁的角色通用
         #endregion
     }
 }
