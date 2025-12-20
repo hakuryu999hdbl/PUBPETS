@@ -580,7 +580,8 @@ namespace Blackjack_Game
             {
                 Alice.SetActive(true);
                 Hetty.SetActive(true);
-                NoAVG_Object[1].SetActive(false);
+                NoAVG_Object[1].SetActive(false);//爱丽丝未解锁
+                NoAVG_Object[2].SetActive(false);//赫蒂未解锁
             }
         }
 
