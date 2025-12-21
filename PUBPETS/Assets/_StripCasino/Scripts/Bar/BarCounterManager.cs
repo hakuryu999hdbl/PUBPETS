@@ -55,6 +55,7 @@ namespace Blackjack_Game
 
             //展示挡板
             Block_Panel.SetActive(true);
+            UIManager.instance.SetWait();
         }
 
         public void StopWork() 
@@ -113,6 +114,7 @@ namespace Blackjack_Game
         {
             //隐藏挡板
             Block_Panel.SetActive(false);
+            UIManager.instance.SetNormal();
 
             GenerateNewCustomer();//顾客提要求（生成配方）
 
@@ -438,6 +440,7 @@ namespace Blackjack_Game
 
                     //展示挡板
                     Block_Panel.SetActive(true);
+                    UIManager.instance.SetWait();
                 }
 
                 AudioManager_2.SoundPlay(5);//手动SE音频替换
@@ -478,6 +481,7 @@ namespace Blackjack_Game
 
             //隐藏挡板
             Block_Panel.SetActive(false);
+            UIManager.instance.SetNormal();
         }
 
 

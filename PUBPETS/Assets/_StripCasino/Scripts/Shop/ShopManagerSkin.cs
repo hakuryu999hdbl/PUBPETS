@@ -218,14 +218,14 @@ namespace Blackjack_Game
         {
             switch (id)
             {
-                case 1: return 100; // 跳蛋
-                case 2: return 150; // 水晶
-                case 3: return 200; // 均衡
-                case 4: return 50; // 宝石
-                case 5: return 100; // 酒瓶
-                case 6: return 300; // 翡翠
-                case 7: return 150; // 硬币
-                case 8: return 250; // 旧酒
+                case 1: return 100; // 跳蛋//修改女荷官点数-1或+1
+                case 2: return 150; // 水晶//看牌堆下一张卡
+                case 3: return 200; // 均衡//强制平局
+                case 4: return 50; // 宝石//看女荷官的盖牌
+                case 5: return 100; // 酒瓶//双方随机一方双倍
+                case 6: return 300; // 翡翠//点数超过21，强制削减随机3~5
+                case 7: return 150; // 硬币//修改你的点数-1或+1
+                case 8: return 250; // 旧酒//看牌堆下下张卡
                 default: return 0;
             }
         }

@@ -76,18 +76,25 @@ namespace Blackjack_Game
             {
                 StartCoroutine(PlayerDeal());
 
-
             }
         }
 
         public void OnClickStand()
         {
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            PeekNextCard.gameObject.SetActive(false);
+            PeekSecondNextCard.gameObject.SetActive(false);
 
             StandPlayerHand();
         }
 
         public void OnClickDouble()
         {
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            PeekNextCard.gameObject.SetActive(false);
+            PeekSecondNextCard.gameObject.SetActive(false);
+
+
             Trigger_DoubleDownCheck = true;
             player.DoubleDown();
             StartCoroutine(PlayerDeal());
@@ -95,6 +102,11 @@ namespace Blackjack_Game
 
         public void OnClickSplit()
         {
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            PeekNextCard.gameObject.SetActive(false);
+            PeekSecondNextCard.gameObject.SetActive(false);
+
+
             if (Trigger_CheckDoubleAce && !player.IsAceSplitGame)
             {
                 StartCoroutine(SplitAcetStance());
@@ -173,6 +185,22 @@ namespace Blackjack_Game
 
         public void CheckStatus()
         {
+            // ===== Peek 卡隐藏逻辑 =====
+            if (DealQueue.CardCount >= 1 )//发第一张牌隐藏
+            {
+                PeekNextCard.gameObject.SetActive(false);
+            }
+
+            if (DealQueue.CardCount >= 2 )//发第二张牌隐藏
+            {
+                PeekSecondNextCard.gameObject.SetActive(false);
+            }
+
+            // =========================
+
+
+
+
 
             _ui.PlayingState(player, State == GameState.OnDealing);
 
