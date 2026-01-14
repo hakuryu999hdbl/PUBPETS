@@ -48,11 +48,12 @@ namespace Blackjack_Game
         public GameObject TextButton;
 
         public Image People;
-        public Sprite ShopManager,
+        public Sprite ShopManager, Andon,Enemy,XXX, Eirik,
                       NPC_1, NPC_2,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
                       Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12,
+                      Anto_13, Anto_14, Anto_15, Anto_16, Anto_17, Anto_18,
         Alice_01, Alice_02, Alice_03, Alice_04, Alice_05, Alice_06, Alice_07, Alice_08,
         Hetty_01, Hetty_02, Hetty_03, Hetty_04, Hetty_05, Hetty_06, Hetty_07, Hetty_08;
 
@@ -1212,6 +1213,30 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+                case "enemy":
+                    text_2.color = new Color(0.65f, 0.7f, 0.8f, 1.0f); // 灰蓝
+
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
+
+                case "eirik":
+                    text_2.color = new Color(0.75f, 0.65f, 0.55f, 1.0f); // 暖灰橙
+
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
+
+                case "thor":
+                    text_2.color = new Color(0.8f, 0.75f, 0.55f, 1.0f); // 冷金灰
+
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
+
                 case "anto":
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
 
@@ -1239,19 +1264,7 @@ namespace Blackjack_Game
 
 
 
-                //场景
-                case "Black_2":
-                    text.color = Color.white;
-                    CleanNameText();
-                    NameObject[7].SetActive(true);//作者
-
-                    voiceSource.Stop();
-
-                    Background.sprite = Black;// 过场
-                    People.gameObject.SetActive(false);
-                    index++;
-                    break;
-
+                //场景    
                 case "Black":
                     text.color = Color.white;
                     CleanNameText();
@@ -1383,6 +1396,55 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = ShopManager;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Andon":
+                    text.color = new Color(0.65f, 0.75f, 0.65f, 1.0f); // 灰绿
+                    CleanNameText();
+                    NameObject[7].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Andon;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+                case "Enemy":
+                    text.color = new Color(0.65f, 0.7f, 0.8f, 1.0f); // 灰蓝
+                    CleanNameText();
+                    NameObject[8].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Enemy;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+                case "XXX":
+                    text.color = new Color(0.55f, 0.5f, 0.7f, 1.0f); // 暗紫灰
+                    CleanNameText();
+                    NameObject[9].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = XXX;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+                case "Eirik":
+                    text.color = new Color(0.75f, 0.65f, 0.55f, 1.0f); // 暖灰橙
+                    CleanNameText();
+                    NameObject[10].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Eirik;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
@@ -1565,6 +1627,89 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+
+                case "Anto_13":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_13;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_14":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_14;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_15":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_15;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_16":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_16;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_17":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_17;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Anto_18":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Anto_18;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
                 #endregion
 
                 #region AVG角色_赫蒂
