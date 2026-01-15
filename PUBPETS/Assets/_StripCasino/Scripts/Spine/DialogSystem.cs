@@ -48,8 +48,8 @@ namespace Blackjack_Game
         public GameObject TextButton;
 
         public Image People;
-        public Sprite ShopManager, Andon,Enemy,XXX, Eirik,
-                      NPC_1, NPC_2,
+        public Sprite ShopManager, Andon,Enemy,XXX, Eirik, MimicHades, Doll3, Jeweler,
+                       NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
                       Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12,
@@ -1237,6 +1237,27 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+                case "doll3":
+                    text_2.color = new Color(0.55f, 0.7f, 0.7f, 1.0f); // 冷青灰
+
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
+
+
+                case "godfather":
+                    text_2.color = new Color(0.55f, 0.2f, 0.2f, 1.0f); // 深酒红（Godfather）
+
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
+
+
+
+
+
                 case "anto":
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
 
@@ -1386,6 +1407,32 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+                case "NPC_3":
+                    text.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // 黄色
+                    CleanNameText();
+                    NameObject[13].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = NPC_3;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "NPC_4":
+                    text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色
+                    CleanNameText();
+                    NameObject[14].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = NPC_4;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
 
                 case "ShopManager":
                     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色
@@ -1448,6 +1495,47 @@ namespace Blackjack_Game
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
+
+                case "MimicHades":
+                    text.color = new Color(0.45f, 0.55f, 0.45f, 1.0f); // 暗绿灰
+                    CleanNameText();
+                    NameObject[11].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Eirik;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+
+                case "Doll3":
+                    text.color = new Color(0.55f, 0.7f, 0.7f, 1.0f); // 冷青灰
+                    CleanNameText();
+                    NameObject[12].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Doll3;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Jeweler":
+                    text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色
+                    CleanNameText();
+                    NameObject[15].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Jeweler;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
 
                 #endregion
 
@@ -1854,16 +1942,9 @@ namespace Blackjack_Game
                     //    index++;
                     //    break;
 
-                    // case "MAN":
-                    //     text.color = new Color(0.0f, 0.68f, 0.93f, 1.0f);//蓝色(市民群众)
-                    //     index++;
-                    //     break;
+
                     // case "DarkRed":
                     //     text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色（女特工）
-                    //     index++;
-                    //     break;
-                    // case "LightRed":
-                    //     text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色(菲西莉亚)
                     //     index++;
                     //     break;
                     // case "Green":
@@ -1874,24 +1955,8 @@ namespace Blackjack_Game
                     //     text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色（艾莉丝）
                     //     index++;
                     //     break;
-                    // case "Gold":
-                    //     text.color = new Color(1.0f, 0.84f, 0.0f, 1.0f); // 金色（战姬大队长）
-                    //     index++;
-                    //     break;
-                    // case "Yellow":
-                    //     text.color = new Color(1.0f, 1.0f, 0.0f, 1.0f); // 黄色（莱拉）
-                    //     index++;
-                    //     break;
-                    // case "Orange":
-                    //     text.color = new Color(1.0f, 0.5f, 0.0f, 1.0f); // 橙色(母体)
-                    //     index++;
-                    //     break;
                     // case "Purple":
                     //     text.color = new Color(0.7f, 0.3f, 0.7f, 1.0f); // 紫色 (女记者)
-                    //     index++;
-                    //     break;
-                    // case "Gray":
-                    //     text.color = new Color(0.7f, 0.75f, 0.8f, 1.0f); // 亮灰色(牧者)
                     //     index++;
                     //     break;
 
