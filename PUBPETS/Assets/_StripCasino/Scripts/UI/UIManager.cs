@@ -149,7 +149,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Alice_CG_03_3";
+            GameFlowData.nextAVGId = "Alice_CG_04_3";
             //Load_AVG(3022);
             
 

@@ -14,6 +14,12 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Alice_CG_01;
     public Animator Alice_CG_02;
     public Animator Alice_CG_03;
+    public Animator Alice_CG_04;
+    public Animator Alice_CG_05;
+    public Animator Alice_CG_06;
+    public Animator Alice_CG_08;
+    public Animator Alice_CG_09;
+    public Animator Alice_CG_10;
 
     //当前播放的动画器
     private Animator currentAnimator;
@@ -44,6 +50,30 @@ public class Spine_FrameEvents : MonoBehaviour
 
             case 33:
                 currentAnimator = Alice_CG_03;
+                break;
+
+            case 34:
+                currentAnimator = Alice_CG_04;
+                break;
+
+            case 35:
+                currentAnimator = Alice_CG_05;
+                break;
+
+            case 36:
+                currentAnimator = Alice_CG_06;
+                break;
+
+            case 38:
+                currentAnimator = Alice_CG_08;
+                break;
+
+            case 39:
+                currentAnimator = Alice_CG_09;
+                break;
+
+            case 40:
+                currentAnimator = Alice_CG_10;
                 break;
         }
 
