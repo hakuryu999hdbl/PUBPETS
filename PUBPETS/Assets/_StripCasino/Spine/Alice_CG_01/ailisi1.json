@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "H9y25WivHbA",
+	"hash": "MtJHmLLysQo",
 	"spine": "4.2.42",
 	"x": -643,
 	"y": -1503,
 	"width": 2752.85,
 	"height": 2248,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root" },
@@ -835,6 +835,12 @@
 		}
 	}
 ],
+"events": {
+	"_Effect_tear1": { "audio": "YYY/Effect_tear1.wav" },
+	"_Effect_tuo": { "audio": "YYY/Effect_tuo.wav" },
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" }
+},
 "animations": {
 	"animation1": {
 		"slots": {
@@ -2393,7 +2399,11 @@
 					{ "time": 0.8333 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 0.4667, "name": "_SE_Clothes" },
+			{ "time": 0.6, "name": "_Effect_tuo" }
+		]
 	},
 	"animation2": {
 		"slots": {
@@ -3181,7 +3191,10 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation2-3": {
 		"slots": {
@@ -4188,6 +4201,10 @@
 				]
 			},
 			{ "time": 1.6667 }
+		],
+		"events": [
+			{ "name": "_Effect_tuo" },
+			{ "time": 0.9, "name": "_SE_Clothes" }
 		]
 	},
 	"animation3": {
@@ -4986,7 +5003,10 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation3-4": {
 		"slots": {
@@ -5980,6 +6000,10 @@
 				]
 			},
 			{ "time": 1.3667 }
+		],
+		"events": [
+			{ "name": "_Effect_tuo" },
+			{ "time": 1.1667, "name": "_Effect_tear1" }
 		]
 	},
 	"animation4": {
@@ -6798,7 +6822,10 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation4-5": {
 		"slots": {
@@ -7767,7 +7794,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Effect_tuo" },
+			{ "time": 1.0333, "name": "_SE_Clothes" }
+		]
 	},
 	"animation5": {
 		"slots": {
@@ -8598,7 +8629,10 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation5-6": {
 		"slots": {
@@ -9610,6 +9644,10 @@
 				]
 			},
 			{ "time": 1.6667 }
+		],
+		"events": [
+			{ "name": "_Effect_tuo" },
+			{ "time": 1.1667, "name": "_Effect_tear1" }
 		]
 	},
 	"animation6": {
@@ -10549,7 +10587,11 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation7": {
 		"slots": {
@@ -11470,7 +11512,11 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation8": {
 		"slots": {
@@ -12391,7 +12437,11 @@
 					{}
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation8-9": {
 		"slots": {
@@ -13297,7 +13347,10 @@
 					{ "time": 1, "x": 114.04, "y": 231.99 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" }
+		]
 	},
 	"animation9": {
 		"slots": {
@@ -14774,7 +14827,10 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" }
+		]
 	},
 	"animation10": {
 		"slots": {

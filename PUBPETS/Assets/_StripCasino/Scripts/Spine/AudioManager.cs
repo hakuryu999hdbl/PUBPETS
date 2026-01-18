@@ -41,7 +41,10 @@ public class AudioManager : MonoBehaviour
     #region
 
     [Header("效果音")]
-    public AudioClip SE_Clothes;
+
+    public AudioClip chip;
+
+    public AudioClip SE_Clothes, SE_Clothes_2;
     public AudioClip Effect_tear1, Effect_tuo, Effect_zipper;
 
     public AudioClip Jinye_tentacle_short;
@@ -55,7 +58,6 @@ public class AudioManager : MonoBehaviour
     public AudioClip SE_Water;
 
 
-    public AudioClip chip;
 
 
 

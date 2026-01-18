@@ -1267,13 +1267,13 @@ namespace Blackjack_Game
                     index++;
                     break;
                 case "hetty":
-                    text.color = Color.white;
+                    text_2.color = Color.white;
 
 
                     index++;
                     break;
                 case "alice":
-                    text.color = Color.white;
+                    text_2.color = Color.green;
 
 
                     index++;
@@ -1504,7 +1504,7 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Eirik;
+                    People.sprite = MimicHades;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
@@ -1923,10 +1923,108 @@ namespace Blackjack_Game
                 #endregion
 
                 #region AVG角色_爱丽丝
-                case "Alice":
-                    text.color = Color.white;
+
+                case "Alice_01":
+                    text.color = Color.green; //绿色
                     CleanNameText();
                     NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_01;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_02":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_02;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_03":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_03;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_04":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_04;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_05":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_05;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_06":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_06;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_07":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_07;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
+                    break;
+
+                case "Alice_08":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_08;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 

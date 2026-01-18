@@ -11,6 +11,10 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Anto_CG_02;
     public Animator Anto_CG_03;
 
+    public Animator Alice_CG_01;
+    public Animator Alice_CG_02;
+    public Animator Alice_CG_03;
+
     //当前播放的动画器
     private Animator currentAnimator;
     public GameObject AVG_CG;
@@ -19,15 +23,27 @@ public class Spine_FrameEvents : MonoBehaviour
     {
         switch (Number) 
         {
-            case 1:
+            case 11:
                 currentAnimator = Anto_CG_01;
                 break;
 
-            case 2:
+            case 12:
                 currentAnimator = Anto_CG_02;
                 break;
-            case 3:
+            case 13:
                 currentAnimator = Anto_CG_03;
+                break;
+
+            case 31:
+                currentAnimator = Alice_CG_01;
+                break;
+
+            case 32:
+                currentAnimator = Alice_CG_02;
+                break;
+
+            case 33:
+                currentAnimator = Alice_CG_03;
                 break;
         }
 

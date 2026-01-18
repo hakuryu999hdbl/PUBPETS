@@ -841,6 +841,9 @@ MonoBehaviour:
   Anto_CG_01: {fileID: 1449098160}
   Anto_CG_02: {fileID: 785070509}
   Anto_CG_03: {fileID: 865060701}
+  Alice_CG_01: {fileID: 1573608796}
+  Alice_CG_02: {fileID: 489925861}
+  Alice_CG_03: {fileID: 504679797}
   AVG_CG: {fileID: 6914393538759110749}
 --- !u!4 &131163033
 Transform:
@@ -1437,7 +1440,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.740566, g: 0.98952, b: 1, a: 1}
+  m_Color: {r: 0.68, g: 0.85, b: 0.9, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2473,7 +2476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9899408, g: 1, b: 0.75, a: 1}
+  m_Color: {r: 1, g: 0.84, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4447,7 +4450,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.34361964, g: 0.4433962, b: 0.30744925, a: 1}
+  m_Color: {r: 0.45, g: 0.55, b: 0.45, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5031,7 +5034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30193132, g: 0.5566038, b: 0.33524325, a: 1}
+  m_Color: {r: 0.65, g: 0.75, b: 0.65, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5553,7 +5556,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3019608, g: 0.4326798, b: 0.5568628, a: 1}
+  m_Color: {r: 0.65, g: 0.7, b: 0.8, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -6533,7 +6536,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6886792, g: 0.66003156, b: 0.58147913, a: 1}
+  m_Color: {r: 0.75, g: 0.65, b: 0.55, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7084,6 +7087,7 @@ GameObject:
   - component: {fileID: 1573608797}
   - component: {fileID: 1573608796}
   - component: {fileID: 1573608795}
+  - component: {fileID: 1573608799}
   m_Layer: 0
   m_Name: Spine(Alice_CG_01)
   m_TagString: Untagged
@@ -7226,6 +7230,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1573608793}
   m_Mesh: {fileID: 0}
+--- !u!114 &1573608799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573608793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7127f58a5447fc24bb21d5dbd9965ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1333524835}
+  audioS: {fileID: 1333524836}
 --- !u!1 &1580862800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8051,7 +8069,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.48843962, g: 0.3019608, b: 0.5568628, a: 1}
+  m_Color: {r: 0.55, g: 0.5, b: 0.7, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -9890,7 +9908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.21827163, g: 0.32954165, b: 0.4245283, a: 1}
+  m_Color: {r: 0.55, g: 0.7, b: 0.7, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -11262,6 +11280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8801400662155171503, guid: cecdfccf84d6e4a40b75590ff40def29,
+        type: 3}
+      propertyPath: SE_Clothes_2
+      value: 
+      objectReference: {fileID: 8300000, guid: 7fafecc8698287f45b8efb7ca0a0f91d, type: 3}
     - target: {fileID: 9110622395194142766, guid: cecdfccf84d6e4a40b75590ff40def29,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -13011,7 +13034,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

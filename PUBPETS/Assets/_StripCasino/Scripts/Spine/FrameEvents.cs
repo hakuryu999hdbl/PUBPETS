@@ -20,8 +20,11 @@ public class FrameEvents : MonoBehaviour
 
 
     //------------效果音
+    public void _chip() { audioS.PlayOneShot(AudioManager.chip); }
 
     public void _SE_Clothes() { audioS.PlayOneShot(AudioManager.SE_Clothes); }
+
+    public void _SE_Clothes_2() { audioS.PlayOneShot(AudioManager.SE_Clothes_2); }
 
     public void _Effect_tuo() { audioS.PlayOneShot(AudioManager.Effect_tuo); }
     public void _Effect_zipper() { audioS.PlayOneShot(AudioManager.Effect_zipper); }
@@ -98,7 +101,7 @@ public class FrameEvents : MonoBehaviour
 
 
 
-    public void _chip() { audioS.PlayOneShot(AudioManager.chip); }
+ 
 
 
 
