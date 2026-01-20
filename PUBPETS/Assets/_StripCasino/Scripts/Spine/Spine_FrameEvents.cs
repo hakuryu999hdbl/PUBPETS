@@ -11,6 +11,8 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Anto_CG_02;
     public Animator Anto_CG_03;
 
+    public Animator Hetty_CG_01;
+
     public Animator Alice_CG_01;
     public Animator Alice_CG_02;
     public Animator Alice_CG_03;
@@ -21,14 +23,19 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Alice_CG_09;
     public Animator Alice_CG_10;
 
+
+
+
     //当前播放的动画器
     private Animator currentAnimator;
     public GameObject AVG_CG;
 
-    public void SetCurrentAnimator(int Number) 
+    public void SetCurrentAnimator(int Number)
     {
-        switch (Number) 
+        switch (Number)
         {
+
+            #region 安托
             case 11:
                 currentAnimator = Anto_CG_01;
                 break;
@@ -39,6 +46,19 @@ public class Spine_FrameEvents : MonoBehaviour
             case 13:
                 currentAnimator = Anto_CG_03;
                 break;
+            #endregion
+
+
+            #region 赫蒂
+            case 21:
+                currentAnimator = Hetty_CG_01;
+                break;
+
+            #endregion
+
+
+
+            #region 爱丽丝
 
             case 31:
                 currentAnimator = Alice_CG_01;
@@ -75,6 +95,11 @@ public class Spine_FrameEvents : MonoBehaviour
             case 40:
                 currentAnimator = Alice_CG_10;
                 break;
+
+           #endregion
+
+
+
         }
 
         currentAnimator.gameObject.SetActive(true);
@@ -83,7 +108,7 @@ public class Spine_FrameEvents : MonoBehaviour
 
 
 
-    public void TriggerNext() 
+    public void TriggerNext()
     {
         audioManager.Stop();
         currentAnimator.SetTrigger("Next");

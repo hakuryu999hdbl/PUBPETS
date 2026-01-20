@@ -54,6 +54,9 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip Attack_pai2;
     public AudioClip Jinv_xitian_fast1;
+    public AudioClip Jinye_yanxia;
+
+
     public AudioClip SE_Semen_1, SE_Semen_2, SE_Semen_3, SE_Semen_fuck_in, SE_Semen_fuck_out;
     public AudioClip SE_Water;
 

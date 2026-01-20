@@ -1247,14 +1247,20 @@ namespace Blackjack_Game
 
 
                 case "godfather":
-                    text_2.color = new Color(0.55f, 0.2f, 0.2f, 1.0f); // 深酒红（Godfather）
+                    text_2.color = new Color(0.55f, 0.2f, 0.2f, 1.0f); // 深酒红
 
                     voiceSource.Stop();
 
                     index++;
                     break;
 
+                case "husband":
+                    text_2.color = new Color(0.45f, 0.55f, 0.7f, 1.0f); // 冷静蓝灰
 
+                    voiceSource.Stop();
+
+                    index++;
+                    break;
 
 
 
@@ -1267,7 +1273,7 @@ namespace Blackjack_Game
                     index++;
                     break;
                 case "hetty":
-                    text_2.color = Color.white;
+                    text_2.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
 
 
                     index++;
@@ -1803,7 +1809,7 @@ namespace Blackjack_Game
                 #region AVG角色_赫蒂
 
                 case "Hetty":
-                    text.color = Color.white;
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
                     NameObject[2].SetActive(true);
                     index++;
@@ -1811,109 +1817,109 @@ namespace Blackjack_Game
 
 
                 case "Hetty_01":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_01;
+                    People.sprite = Hetty_01;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_02":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_02;
+                    People.sprite = Hetty_02;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_03":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_03;
+                    People.sprite = Hetty_03;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_04":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_04;
+                    People.sprite = Hetty_04;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_05":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_05;
+                    People.sprite = Hetty_05;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_06":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_06;
+                    People.sprite = Hetty_06;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_07":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_07;
+                    People.sprite = Hetty_07;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_08":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
                     CleanNameText();
-                    NameObject[1].SetActive(true);
+                    NameObject[2].SetActive(true);
 
-                    AntoVoice();
+                    //AntoVoice();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Anto_08;
+                    People.sprite = Hetty_08;
                     People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
@@ -2041,10 +2047,7 @@ namespace Blackjack_Game
                     //    break;
 
 
-                    // case "DarkRed":
-                    //     text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色（女特工）
-                    //     index++;
-                    //     break;
+
                     // case "Green":
                     //     text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // 绿色（魔族女干部）
                     //     index++;

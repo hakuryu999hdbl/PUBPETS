@@ -84,6 +84,8 @@ public class FrameEvents : MonoBehaviour
 
     public void _Jinv_xitian_fast1() { audioS.PlayOneShot(AudioManager.Jinv_xitian_fast1); }
 
+    public void _Jinye_yanxia() { audioS.PlayOneShot(AudioManager.Jinye_yanxia); }
+
     public void _SE_Semen_1() { audioS.PlayOneShot(AudioManager.SE_Semen_1); }
     public void _SE_Semen_2() { audioS.PlayOneShot(AudioManager.SE_Semen_2); }
     public void _SE_Semen_3() { audioS.PlayOneShot(AudioManager.SE_Semen_3); }

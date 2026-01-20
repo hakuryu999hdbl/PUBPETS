@@ -149,8 +149,8 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Alice_CG_04_3";
-            //Load_AVG(3022);
+            GameFlowData.nextAVGId = "Hetty_CG_01_3";
+            //Load_AVG(2011);
             
 
             if (currentScene.name == "Spine") 
@@ -338,7 +338,7 @@ namespace Blackjack_Game
                     case "Alice_CG_04_3":
                         Load_AVG(3043);//开启爱丽丝第四个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(34);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_05_2":
@@ -419,7 +419,7 @@ namespace Blackjack_Game
                     case "Hetty_CG_01_3":
                         Load_AVG(2013);//开启赫蒂第一个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(21);
-                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_02_2":
@@ -429,7 +429,7 @@ namespace Blackjack_Game
                     case "Hetty_CG_02_3":
                         Load_AVG(2023);//开启赫蒂第二个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(22);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_03_2":
