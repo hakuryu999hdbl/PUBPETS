@@ -71,6 +71,9 @@ namespace Blackjack_Game
                 ChipBox.SetInteger("Situation", 1);//开赌后筹码消失
 
                 TreasureBox.SetActive(true);//宝箱出现
+
+
+                OnPlayerDeal();//玩家下注完毕显示女荷官骚话
             }
             else
             {
@@ -434,7 +437,7 @@ namespace Blackjack_Game
             //ChangeViewButon.SetActive(true);
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
 
-            VoiceManager.instance.PauseMoanLoop();//暂停娇喘
+            /////////////////////////////////////////////////////VoiceManager.instance.PauseMoanLoop();//暂停娇喘
             #region 显示女荷官垃圾话
             //Invoke("StartDialog", 2f);//显示女荷官垃圾话
 
@@ -476,7 +479,7 @@ namespace Blackjack_Game
 
 
             // 停止显示女荷官垃圾话对话框
-            HideDialogue();
+            HideDialogue();//为了不打断女荷官说话停止，所以暂时不隐藏
 
 
             ChipBox.SetInteger("Situation", 0);//筹码出现
@@ -554,10 +557,18 @@ namespace Blackjack_Game
         [Header("玩家输一局垃圾话")]
         public List<GameObject> PlayerLoseDialogues = new List<GameObject>();
 
+        [Header("玩家的筹码大")]
+        public List<GameObject> BigDealDialogues = new List<GameObject>();
+
+        [Header("玩家的筹码小")]
+        public List<GameObject> SmallDealDialogues = new List<GameObject>();
+
         private GameObject currentDisplayedDialogue;
 
 
-        void ShowDialogue(List<GameObject> dialogueList)
+
+
+        void ShowDialogue(List<GameObject> dialogueList, VoiceType voiceType)
         {
             if (currentDisplayedDialogue != null)
                 currentDisplayedDialogue.SetActive(false);
@@ -572,6 +583,12 @@ namespace Blackjack_Game
             //Invoke("HideDialogue", 3f); // 3秒后隐藏
 
             ChipBox.SetInteger("Situation", 0);//弹出
+
+
+            // ✅ 只通知 VoiceManager：发生了什么类型的语音
+            VoiceManager.instance.PlayVoice(voiceType);
+
+
         }//显示女荷官垃圾话
 
         void HideDialogue()
@@ -585,20 +602,33 @@ namespace Blackjack_Game
 
         void StartMatch()
         {
-            ShowDialogue(StartDialogues); // 开局时
+            ShowDialogue(StartDialogues,VoiceType.Start); // 开局时
         }
 
         void OnPlayerWin()
         {
-            ShowDialogue(PlayerWinDialogues); // 玩家赢
+            ShowDialogue(PlayerWinDialogues, VoiceType.PlayerWin); // 玩家赢
         }
 
         void OnPlayerLose()
         {
-            ShowDialogue(PlayerLoseDialogues); // 玩家输
+            ShowDialogue(PlayerLoseDialogues, VoiceType.PlayerLose); // 玩家输
         }
 
+        void OnPlayerDeal() 
+        {
+            HideDialogue();//防止上面的话还没说完
 
+            if (Random.Range(0, 2) == 0)
+            {
+                ShowDialogue(BigDealDialogues, VoiceType.BigDeal); //玩家下大注
+            }
+            else
+            {
+                ShowDialogue(SmallDealDialogues, VoiceType.SmallDeal); //玩家下小注
+            }
+            
+        }
 
         #endregion
 

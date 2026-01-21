@@ -1,10 +1,97 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class VoiceManager : MonoBehaviour
+namespace Blackjack_Game
+{
+    public class VoiceManager : MonoBehaviour
 {
     public static VoiceManager instance;
+
+
+
+    [Header("台词音源")]
+    public AudioSource dialogueSource;
+
+    [Header("开局垃圾话")]
+    public List<AudioClip> startClips;
+
+    [Header("赢局垃圾话")]
+    public List<AudioClip> playerWinClips;
+
+    [Header("输局垃圾话")]
+    public List<AudioClip> playerLoseClips;
+
+    [Header("大注垃圾话")]
+    public List<AudioClip> bigDealClips;
+
+    [Header("小注垃圾话")]
+    public List<AudioClip> smallDealClips;
+
+
+
+
+    public void PlayVoice(VoiceType type)
+    {
+        // 垃圾话一定会打断娇喘
+        PauseMoanLoop();
+
+        AudioClip clip = GetRandomClip(type);
+        if (clip == null || dialogueSource == null) return;
+
+        dialogueSource.Stop();
+        dialogueSource.clip = clip;
+        dialogueSource.loop = false;
+        dialogueSource.Play();
+
+        // 播完后恢复娇喘
+        //StartCoroutine(ResumeMoanAfterDialogue(clip.length));
+    }
+
+
+    AudioClip GetRandomClip(VoiceType type)
+    {
+        List<AudioClip> list = null;
+
+        switch (type)
+        {
+            case VoiceType.Start: list = startClips; break;
+            case VoiceType.PlayerWin: list = playerWinClips; break;
+            case VoiceType.PlayerLose: list = playerLoseClips; break;
+            case VoiceType.BigDeal: list = bigDealClips; break;
+            case VoiceType.SmallDeal: list = smallDealClips; break;
+        }
+
+        if (list == null || list.Count == 0) return null;
+        return list[Random.Range(0, list.Count)];
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     [Header("娇喘音源")]
     public AudioSource moanLoopSource;
@@ -76,4 +163,5 @@ public class VoiceManager : MonoBehaviour
                 moanLoopSource.UnPause();
         }
     }
+}
 }
