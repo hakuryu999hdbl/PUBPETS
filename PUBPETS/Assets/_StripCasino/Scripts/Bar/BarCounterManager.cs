@@ -24,6 +24,8 @@ namespace Blackjack_Game
 
 
             StartWork();//设定为先开始
+
+            Dealer_Progress();//读取女荷官进度
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -621,5 +623,26 @@ namespace Blackjack_Game
             AudioManager_2.SoundPlay(4);
         }//未解锁的角色通用
         #endregion
+
+
+        /// <summary>
+        /// 女荷官按钮上显示当前进度
+        /// </summary>
+        #region
+
+        public Image FillImage_Anto, FillImage_Hetty, FillImage_Alice;
+
+        public void Dealer_Progress() 
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            FillImage_Anto.fillAmount = data.antoProgress / 10f;
+            FillImage_Hetty.fillAmount = data.hettyProgress / 10f;
+            FillImage_Alice.fillAmount = data.aliceProgress / 10f;
+
+
+        }
+        #endregion
+
     }
 }

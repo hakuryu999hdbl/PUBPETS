@@ -149,7 +149,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Hetty_CG_01_3";
+            //GameFlowData.nextAVGId = "Hetty_CG_01_3";
             //Load_AVG(2011);
             
 
@@ -186,7 +186,7 @@ namespace Blackjack_Game
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_Failure":
-                        Load_AVG(1001);//输给安托
+                        Load_Anto_Lose_AVG();//输给安托
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
@@ -297,7 +297,7 @@ namespace Blackjack_Game
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_Failure":
-                        Load_AVG(3001);//输给爱丽丝
+                        Load_Alice_Lose_AVG();//输给爱丽丝
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
@@ -408,7 +408,7 @@ namespace Blackjack_Game
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_Failure":
-                        Load_AVG(2001);//输给赫蒂
+                        Load_Hetty_Lose_AVG();//输给赫蒂
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
@@ -1628,6 +1628,44 @@ namespace Blackjack_Game
             }
 
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
+        public void Load_Anto_Lose_AVG() 
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            switch (data.antoProgress)
+            {
+                case 1:
+                    Load_AVG(1014);//安托一
+                    break;
+                case 2:
+                    Load_AVG(1024);//安托二
+                    break;
+                case 3:
+                    Load_AVG(1034);//安托三
+                    break;
+                case 4:
+                    Load_AVG(1044);//安托四
+                    break;
+                case 5:
+                    Load_AVG(1054);//安托五
+                    break;
+                case 6:
+                    Load_AVG(1064);//安托六
+                    break;
+                case 7:
+                    Load_AVG(1074);//安托七
+                    break;
+                case 8:
+                    Load_AVG(1084);//安托八
+                    break;
+                case 9:
+                    Load_AVG(1094);//安托九
+                    break;
+                case 10:
+                    Load_AVG(1104);//安托十
+                    break;
+            }
+        }
+
 
         public void Load_Vs_Alice_AVG()
         {
@@ -1678,6 +1716,44 @@ namespace Blackjack_Game
             }
 
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
+        public void Load_Alice_Lose_AVG() 
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            switch (data.aliceProgress)
+            {
+                case 1:
+                    Load_AVG(3014);//爱丽丝一
+                    break;
+                case 2:
+                    Load_AVG(3024);//爱丽丝二
+                    break;
+                case 3:
+                    Load_AVG(3034);//爱丽丝三
+                    break;
+                case 4:
+                    Load_AVG(3044);//爱丽丝四
+                    break;
+                case 5:
+                    Load_AVG(3054);//爱丽丝五
+                    break;
+                case 6:
+                    Load_AVG(3064);//爱丽丝六
+                    break;
+                case 7:
+                    Load_AVG(3074);//爱丽丝七
+                    break;
+                case 8:
+                    Load_AVG(3084);//爱丽丝八
+                    break;
+                case 9:
+                    Load_AVG(3094);//爱丽丝九
+                    break;
+                case 10:
+                    Load_AVG(3104);//爱丽丝十
+                    break;
+            }
+        }
+
 
         public void Load_Vs_Hetty_AVG()
         {
@@ -1731,6 +1807,45 @@ namespace Blackjack_Game
 
 
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
+        public void Load_Hetty_Lose_AVG()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            switch (data.hettyProgress)
+            {
+                case 1:
+                    Load_AVG(2014);//赫蒂一
+                    break;
+                case 2:
+                    Load_AVG(2024);//赫蒂二
+                    break;
+                case 3:
+                    Load_AVG(2034);//赫蒂三
+                    break;
+                case 4:
+                    Load_AVG(2044);//赫蒂四
+                    break;
+                case 5:
+                    Load_AVG(2054);//赫蒂五
+                    break;
+                case 6:
+                    Load_AVG(2064);//赫蒂六
+                    break;
+                case 7:
+                    Load_AVG(2074);//赫蒂七
+                    break;
+                case 8:
+                    Load_AVG(2084);//赫蒂八
+                    break;
+                case 9:
+                    Load_AVG(2094);//赫蒂九
+                    break;
+                case 10:
+                    Load_AVG(2104);//赫蒂十
+                    break;
+            }
+        }
+
+
 
         public void CG_Thumbnail_RePlay(int CG_Number) 
         {
