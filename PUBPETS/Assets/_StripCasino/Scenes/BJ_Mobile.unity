@@ -2450,6 +2450,7 @@ GameObject:
   - component: {fileID: 82126548}
   - component: {fileID: 82126547}
   - component: {fileID: 82126546}
+  - component: {fileID: 82126552}
   m_Layer: 5
   m_Name: Diagol_PlayerLose_5
   m_TagString: Untagged
@@ -2649,6 +2650,19 @@ RectTransform:
   m_AnchoredPosition: {x: 297, y: 122}
   m_SizeDelta: {x: 471.7663, y: 200.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &82126552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82126545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 11
 --- !u!1 &88049670
 GameObject:
   m_ObjectHideFlags: 0
@@ -7944,6 +7958,7 @@ GameObject:
   - component: {fileID: 362203314}
   - component: {fileID: 362203313}
   - component: {fileID: 362203312}
+  - component: {fileID: 362203317}
   m_Layer: 5
   m_Name: Diagol_PlayerWin_4
   m_TagString: Untagged
@@ -8143,6 +8158,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 362203310}
   m_CullTransparentMesh: 1
+--- !u!114 &362203317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362203310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 6
 --- !u!1 &371460884
 GameObject:
   m_ObjectHideFlags: 0
@@ -8732,7 +8760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &390250823
 Transform:
   m_ObjectHideFlags: 0
@@ -9166,6 +9194,7 @@ GameObject:
   - component: {fileID: 398624867}
   - component: {fileID: 398624866}
   - component: {fileID: 398624865}
+  - component: {fileID: 398624870}
   m_Layer: 5
   m_Name: Diagol_Start_4
   m_TagString: Untagged
@@ -9365,6 +9394,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 398624863}
   m_CullTransparentMesh: 1
+--- !u!114 &398624870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398624863}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 10
 --- !u!1 &400715386
 GameObject:
   m_ObjectHideFlags: 0
@@ -10171,6 +10213,7 @@ GameObject:
   - component: {fileID: 431746918}
   - component: {fileID: 431746917}
   - component: {fileID: 431746916}
+  - component: {fileID: 431746921}
   m_Layer: 5
   m_Name: Diagol_Start_5
   m_TagString: Untagged
@@ -10370,6 +10413,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 431746914}
   m_CullTransparentMesh: 1
+--- !u!114 &431746921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431746914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 7
 --- !u!1 &436982358
 GameObject:
   m_ObjectHideFlags: 0
@@ -13604,23 +13660,23 @@ MonoBehaviour:
   - {fileID: 1472013827}
   - {fileID: 568058050}
   StartDialogues:
-  - {fileID: 1418068335}
-  - {fileID: 634643091}
-  - {fileID: 1117553092}
-  - {fileID: 1273817083}
-  - {fileID: 1074255711}
+  - {fileID: 1787298120}
+  - {fileID: 739130196}
+  - {fileID: 1253706693}
+  - {fileID: 398624863}
+  - {fileID: 431746914}
   PlayerWinDialogues:
-  - {fileID: 618657954}
-  - {fileID: 1003132348}
-  - {fileID: 255720916}
-  - {fileID: 49821214}
-  - {fileID: 224472405}
+  - {fileID: 986415917}
+  - {fileID: 1636271190}
+  - {fileID: 1949256457}
+  - {fileID: 362203310}
+  - {fileID: 1446098119}
   PlayerLoseDialogues:
-  - {fileID: 682291897}
-  - {fileID: 916898909}
-  - {fileID: 1324938217}
-  - {fileID: 1486003835}
-  - {fileID: 1193734313}
+  - {fileID: 1935461414}
+  - {fileID: 1880242508}
+  - {fileID: 1748335165}
+  - {fileID: 1237163700}
+  - {fileID: 82126545}
   BigDealDialogues:
   - {fileID: 946185678}
   - {fileID: 1303725748}
@@ -16993,7 +17049,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -338, y: -197}
+  m_AnchoredPosition: {x: -297.5, y: -232.9}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &689543756
@@ -18279,6 +18335,7 @@ GameObject:
   - component: {fileID: 739130200}
   - component: {fileID: 739130199}
   - component: {fileID: 739130198}
+  - component: {fileID: 739130203}
   m_Layer: 5
   m_Name: Diagol_Start_2
   m_TagString: Untagged
@@ -18478,6 +18535,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739130196}
   m_CullTransparentMesh: 1
+--- !u!114 &739130203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739130196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 9
 --- !u!1 &749060420
 GameObject:
   m_ObjectHideFlags: 0
@@ -22565,6 +22635,7 @@ GameObject:
   - component: {fileID: 946185681}
   - component: {fileID: 946185680}
   - component: {fileID: 946185679}
+  - component: {fileID: 946185685}
   m_Layer: 5
   m_Name: Diagol_BigDeal_1
   m_TagString: Untagged
@@ -22764,6 +22835,19 @@ RectTransform:
   m_AnchoredPosition: {x: -226, y: -100.42999}
   m_SizeDelta: {x: 471.7663, y: 200.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &946185685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 946185678}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 10
 --- !u!1 &951082146
 GameObject:
   m_ObjectHideFlags: 0
@@ -23909,6 +23993,7 @@ GameObject:
   - component: {fileID: 986415921}
   - component: {fileID: 986415920}
   - component: {fileID: 986415919}
+  - component: {fileID: 986415924}
   m_Layer: 5
   m_Name: Diagol_PlayerWin_1
   m_TagString: Untagged
@@ -24108,6 +24193,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 986415917}
   m_CullTransparentMesh: 1
+--- !u!114 &986415924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986415917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 8
 --- !u!1 &990788792
 GameObject:
   m_ObjectHideFlags: 0
@@ -30360,6 +30458,7 @@ GameObject:
   - component: {fileID: 1237163704}
   - component: {fileID: 1237163703}
   - component: {fileID: 1237163702}
+  - component: {fileID: 1237163707}
   m_Layer: 5
   m_Name: Diagol_PlayerLose_4
   m_TagString: Untagged
@@ -30559,6 +30658,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1237163700}
   m_CullTransparentMesh: 1
+--- !u!114 &1237163707
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1237163700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 8
 --- !u!1 &1248969582
 GameObject:
   m_ObjectHideFlags: 0
@@ -30690,6 +30802,7 @@ GameObject:
   - component: {fileID: 1253706697}
   - component: {fileID: 1253706696}
   - component: {fileID: 1253706695}
+  - component: {fileID: 1253706700}
   m_Layer: 5
   m_Name: Diagol_Start_3
   m_TagString: Untagged
@@ -30889,6 +31002,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1253706693}
   m_CullTransparentMesh: 1
+--- !u!114 &1253706700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1253706693}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 7
 --- !u!1 &1264058096
 GameObject:
   m_ObjectHideFlags: 0
@@ -32037,6 +32163,7 @@ GameObject:
   - component: {fileID: 1303725751}
   - component: {fileID: 1303725750}
   - component: {fileID: 1303725749}
+  - component: {fileID: 1303725755}
   m_Layer: 5
   m_Name: Diagol_BigDeal_2
   m_TagString: Untagged
@@ -32236,6 +32363,19 @@ RectTransform:
   m_AnchoredPosition: {x: -226, y: -100.42999}
   m_SizeDelta: {x: 471.7663, y: 200.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1303725755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303725748}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 10
 --- !u!1 &1309948583
 GameObject:
   m_ObjectHideFlags: 0
@@ -33752,7 +33892,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 68.36792, y: 136.73608}
+  m_AnchoredPosition: {x: 35, y: 43}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1376067742
@@ -35280,6 +35420,7 @@ GameObject:
   - component: {fileID: 1446098123}
   - component: {fileID: 1446098122}
   - component: {fileID: 1446098121}
+  - component: {fileID: 1446098126}
   m_Layer: 5
   m_Name: Diagol_PlayerWin_5
   m_TagString: Untagged
@@ -35479,6 +35620,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1446098119}
   m_CullTransparentMesh: 1
+--- !u!114 &1446098126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446098119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 3
 --- !u!1 &1447655633
 GameObject:
   m_ObjectHideFlags: 0
@@ -35835,6 +35989,7 @@ GameObject:
   - component: {fileID: 1452546114}
   - component: {fileID: 1452546113}
   - component: {fileID: 1452546112}
+  - component: {fileID: 1452546118}
   m_Layer: 5
   m_Name: Diagol_SmallDeal_1
   m_TagString: Untagged
@@ -36034,6 +36189,19 @@ RectTransform:
   m_AnchoredPosition: {x: -226, y: -100.42999}
   m_SizeDelta: {x: 471.7663, y: 200.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1452546118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452546111}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 10
 --- !u!1 &1469256438
 GameObject:
   m_ObjectHideFlags: 0
@@ -40166,6 +40334,7 @@ GameObject:
   - component: {fileID: 1636271194}
   - component: {fileID: 1636271193}
   - component: {fileID: 1636271192}
+  - component: {fileID: 1636271197}
   m_Layer: 5
   m_Name: Diagol_PlayerWin_2
   m_TagString: Untagged
@@ -40365,6 +40534,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1636271190}
   m_CullTransparentMesh: 1
+--- !u!114 &1636271197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636271190}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 8
 --- !u!1 &1639437322
 GameObject:
   m_ObjectHideFlags: 0
@@ -41632,6 +41814,7 @@ GameObject:
   - component: {fileID: 1685713046}
   - component: {fileID: 1685713045}
   - component: {fileID: 1685713044}
+  - component: {fileID: 1685713050}
   m_Layer: 5
   m_Name: Diagol_SmallDeal_2
   m_TagString: Untagged
@@ -41831,6 +42014,19 @@ RectTransform:
   m_AnchoredPosition: {x: -226, y: -100.42999}
   m_SizeDelta: {x: 471.7663, y: 200.86}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1685713050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685713043}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 10
 --- !u!1 &1698958831
 GameObject:
   m_ObjectHideFlags: 0
@@ -42755,6 +42951,7 @@ GameObject:
   - component: {fileID: 1748335169}
   - component: {fileID: 1748335168}
   - component: {fileID: 1748335167}
+  - component: {fileID: 1748335172}
   m_Layer: 5
   m_Name: Diagol_PlayerLose_3
   m_TagString: Untagged
@@ -42954,6 +43151,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1748335165}
   m_CullTransparentMesh: 1
+--- !u!114 &1748335172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1748335165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 6
 --- !u!1 &1749515575
 GameObject:
   m_ObjectHideFlags: 0
@@ -43608,6 +43818,7 @@ GameObject:
   - component: {fileID: 1787298124}
   - component: {fileID: 1787298123}
   - component: {fileID: 1787298122}
+  - component: {fileID: 1787298127}
   m_Layer: 5
   m_Name: Diagol_Start_1
   m_TagString: Untagged
@@ -43807,6 +44018,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1787298120}
   m_CullTransparentMesh: 1
+--- !u!114 &1787298127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787298120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 7
 --- !u!1 &1800223181
 GameObject:
   m_ObjectHideFlags: 0
@@ -44544,7 +44768,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1828619621
 RectTransform:
   m_ObjectHideFlags: 0
@@ -46256,6 +46480,7 @@ GameObject:
   - component: {fileID: 1880242512}
   - component: {fileID: 1880242511}
   - component: {fileID: 1880242510}
+  - component: {fileID: 1880242515}
   m_Layer: 5
   m_Name: Diagol_PlayerLose_2
   m_TagString: Untagged
@@ -46455,6 +46680,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1880242508}
   m_CullTransparentMesh: 1
+--- !u!114 &1880242515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880242508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 6
 --- !u!1 &1883304412
 GameObject:
   m_ObjectHideFlags: 0
@@ -47329,6 +47567,7 @@ GameObject:
   - component: {fileID: 1935461418}
   - component: {fileID: 1935461417}
   - component: {fileID: 1935461416}
+  - component: {fileID: 1935461421}
   m_Layer: 5
   m_Name: Diagol_PlayerLose_1
   m_TagString: Untagged
@@ -47528,6 +47767,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1935461414}
   m_CullTransparentMesh: 1
+--- !u!114 &1935461421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1935461414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 11
 --- !u!1 &1943010325
 GameObject:
   m_ObjectHideFlags: 0
@@ -47787,6 +48039,7 @@ GameObject:
   - component: {fileID: 1949256461}
   - component: {fileID: 1949256460}
   - component: {fileID: 1949256459}
+  - component: {fileID: 1949256464}
   m_Layer: 5
   m_Name: Diagol_PlayerWin_3
   m_TagString: Untagged
@@ -47986,6 +48239,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949256457}
   m_CullTransparentMesh: 1
+--- !u!114 &1949256464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949256457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddafb42679fd3ae45a69b207972a0db9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ExitTime: 3
 --- !u!1 &1953597037
 GameObject:
   m_ObjectHideFlags: 0

@@ -484,8 +484,7 @@ namespace Blackjack_Game
 
             ChipBox.SetInteger("Situation", 0);//筹码出现
 
-            //重启娇喘
-            VoiceManager.instance.StartMoanLoop();//启动娇喘
+
         }
         #endregion
 
@@ -586,7 +585,7 @@ namespace Blackjack_Game
 
 
             // ✅ 只通知 VoiceManager：发生了什么类型的语音
-            VoiceManager.instance.PlayVoice(voiceType);
+            //VoiceManager.instance.PlayVoice(voiceType);
 
 
         }//显示女荷官垃圾话
