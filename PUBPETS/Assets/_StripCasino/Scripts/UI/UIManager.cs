@@ -1575,7 +1575,7 @@ namespace Blackjack_Game
 
 
             LoadingScene_Spine();
-        }
+        }//这是剧情内部打开CG路径
 
 
 
@@ -1851,42 +1851,112 @@ namespace Blackjack_Game
         {
             switch (CG_Number)
             {
-                case 1:
+
+
+
+                case 11:
                     GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
                     break;
-                case 2:
+                case 12:
                     GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
                     break;
-                case 3:
+                case 13:
                     GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
                     break;
-                case 4:
+                case 14:
                     GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
                     break;
-                case 5:
+                case 15:
                     GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
                     break;
-                case 6:
+                case 16:
                     GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
                     break;
-                case 7:
+                case 17:
                     GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
                     break;
-                case 8:
+                case 18:
                     GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
                     break;
-                case 9:
+                case 19:
                     GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
                     break;
-                case 10:
+                case 20:
                     GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
+                    break;
+
+
+
+                case 21:
+                    GameFlowData.nextAVGId = "Hetty_CG_01_2";//开启赫蒂第一个CG前端AVG
+                    break;
+                case 22:
+                    GameFlowData.nextAVGId = "Hetty_CG_02_2";//开启赫蒂第二个CG前端AVG
+                    break;
+                case 23:
+                    GameFlowData.nextAVGId = "Hetty_CG_03_2";//开启赫蒂第三个CG前端AVG
+                    break;
+                case 24:
+                    GameFlowData.nextAVGId = "Hetty_CG_04_2";//开启赫蒂第四个CG前端AVG
+                    break;
+                case 25:
+                    GameFlowData.nextAVGId = "Hetty_CG_05_2";//开启赫蒂第五个CG前端AVG
+                    break;
+                case 26:
+                    GameFlowData.nextAVGId = "Hetty_CG_06_2";//开启赫蒂第六个CG前端AVG
+                    break;
+                case 27:
+                    GameFlowData.nextAVGId = "Hetty_CG_07_2";//开启赫蒂第七个CG前端AVG
+                    break;
+                case 28:
+                    GameFlowData.nextAVGId = "Hetty_CG_08_2";//开启赫蒂第八个CG前端AVG
+                    break;
+                case 29:
+                    GameFlowData.nextAVGId = "Hetty_CG_09_2";//开启赫蒂第九个CG前端AVG
+                    break;
+                case 30:
+                    GameFlowData.nextAVGId = "Hetty_CG_10_2";//开启赫蒂第十个CG前端AVG
+                    break;
+
+
+
+                case 31:
+                    GameFlowData.nextAVGId = "Alice_CG_01_2";//开启爱丽丝第一个CG前端AVG
+                    break;
+                case 32:
+                    GameFlowData.nextAVGId = "Alice_CG_02_2";//开启爱丽丝第二个CG前端AVG
+                    break;
+                case 33:
+                    GameFlowData.nextAVGId = "Alice_CG_03_2";//开启爱丽丝第三个CG前端AVG
+                    break;
+                case 34:
+                    GameFlowData.nextAVGId = "Alice_CG_04_2";//开启爱丽丝第四个CG前端AVG
+                    break;
+                case 35:
+                    GameFlowData.nextAVGId = "Alice_CG_05_2";//开启爱丽丝第五个CG前端AVG
+                    break;
+                case 36:
+                    GameFlowData.nextAVGId = "Alice_CG_06_2";//开启爱丽丝第六个CG前端AVG
+                    break;
+                case 37:
+                    GameFlowData.nextAVGId = "Alice_CG_07_2";//开启爱丽丝第七个CG前端AVG
+                    break;
+                case 38:
+                    GameFlowData.nextAVGId = "Alice_CG_08_2";//开启爱丽丝第八个CG前端AVG
+                    break;
+                case 39:
+                    GameFlowData.nextAVGId = "Alice_CG_09_2";//开启爱丽丝第九个CG前端AVG
+                    break;
+                case 40:
+                    GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
                     break;
             }
 
             GameFlowData.returnPath = "cg";//这个是CG鉴赏路径
 
             LoadingScene_Spine();
-        }
+
+        }//主界面菜单打开CG
 
 
         public void DeveloperMode(int Story) 

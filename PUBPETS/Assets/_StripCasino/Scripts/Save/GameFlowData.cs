@@ -8,11 +8,3 @@ public static class GameFlowData
     public static string returnPath = null;      // 回来的路径 ("cg" / null 等)
     public static string CurrentPlayer = null;   //目前使用的是哪个存档
 }
-public enum VoiceType
-{
-    Start,
-    PlayerWin,
-    PlayerLose,
-    BigDeal,
-    SmallDeal
-}

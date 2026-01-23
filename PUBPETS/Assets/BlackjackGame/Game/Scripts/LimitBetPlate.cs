@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 using TMPro;
+using static Blackjack_Game.GameManager;
 namespace Blackjack_Game
 {
     public class LimitBetPlate : MonoBehaviour
@@ -17,10 +18,32 @@ namespace Blackjack_Game
         private void Start()
         {
 
-            //手动修改
+            //手动修改(限制赌注上限的地方)
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            int Story_Anto = data.antoProgress;
-            max = Story_Anto * 200;
+
+            //根据存档来显示对应的动画器
+            switch (GameFlowData.nextAVGId)
+            {
+                default:
+                case "VSAnto":
+                    int Story_Anto = data.antoProgress;
+                    max = Story_Anto * 200;
+                    break;
+
+                case "VSHetty":
+                    int Story_Hetty = data.hettyProgress;
+                    max = Story_Hetty * 200;
+                    break;
+
+                case "VSAlice":
+
+                    int Story_Alice = data.aliceProgress;
+                    max = Story_Alice * 200;
+                    break;
+
+
+            }
+
 
 
             _Instance = this;

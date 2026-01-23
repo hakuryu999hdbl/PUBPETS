@@ -423,6 +423,10 @@ namespace Blackjack_Game
 
         public void ChangeView()
         {
+
+            HideDialogue();//这个阶段会隐藏之前下筹码的时候的话语
+    
+
             if (SameScore) { dealer.hand.SetScore(player.Score); SameScore = false; }//女荷官强制变成玩家点数
             if (SaveScore && player.Score > 21)
             {
@@ -479,7 +483,7 @@ namespace Blackjack_Game
 
 
             // 停止显示女荷官垃圾话对话框
-            HideDialogue();//为了不打断女荷官说话停止，所以暂时不隐藏
+            //HideDialogue();//为了不打断女荷官说话停止，所以暂时不隐藏
 
 
             ChipBox.SetInteger("Situation", 0);//筹码出现
@@ -547,27 +551,69 @@ namespace Blackjack_Game
         /// 随机显示女荷官垃圾话
         /// </summary>
         #region
-        [Header("对局开始垃圾话")]
-        public List<GameObject> StartDialogues = new List<GameObject>();
+        [Header("[安托]对局开始垃圾话")]
+        public List<GameObject> Anto_StartDialogues = new List<GameObject>();
 
-        [Header("玩家赢一局垃圾话")]
-        public List<GameObject> PlayerWinDialogues = new List<GameObject>();
+        [Header("[安托]玩家赢一局垃圾话")]
+        public List<GameObject> Anto_PlayerWinDialogues = new List<GameObject>();
 
-        [Header("玩家输一局垃圾话")]
-        public List<GameObject> PlayerLoseDialogues = new List<GameObject>();
+        [Header("[安托]玩家输一局垃圾话")]
+        public List<GameObject> Anto_PlayerLoseDialogues = new List<GameObject>();
 
-        [Header("玩家的筹码大")]
-        public List<GameObject> BigDealDialogues = new List<GameObject>();
+        [Header("[安托]玩家的筹码大")]
+        public List<GameObject> Anto_BigDealDialogues = new List<GameObject>();
 
-        [Header("玩家的筹码小")]
-        public List<GameObject> SmallDealDialogues = new List<GameObject>();
+        [Header("[安托]玩家的筹码小")]
+        public List<GameObject> Anto_SmallDealDialogues = new List<GameObject>();
+
+
+        [Header("[赫蒂]对局开始垃圾话")]
+        public List<GameObject> Hetty_StartDialogues = new List<GameObject>();
+
+        [Header("[赫蒂]玩家赢一局垃圾话")]
+        public List<GameObject> Hetty_PlayerWinDialogues = new List<GameObject>();
+
+        [Header("[赫蒂]玩家输一局垃圾话")]
+        public List<GameObject> Hetty_PlayerLoseDialogues = new List<GameObject>();
+
+        [Header("[赫蒂]玩家的筹码大")]
+        public List<GameObject> Hetty_BigDealDialogues = new List<GameObject>();
+
+        [Header("[赫蒂]玩家的筹码小")]
+        public List<GameObject> Hetty_SmallDealDialogues = new List<GameObject>();
+
+
+
+        [Header("[爱丽丝]对局开始垃圾话")]
+        public List<GameObject> Alice_StartDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝]玩家赢一局垃圾话")]
+        public List<GameObject> Alice_PlayerWinDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝]玩家输一局垃圾话")]
+        public List<GameObject> Alice_PlayerLoseDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝]玩家的筹码大")]
+        public List<GameObject> Alice_BigDealDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝]玩家的筹码小")]
+        public List<GameObject> Alice_SmallDealDialogues = new List<GameObject>();
+
 
         private GameObject currentDisplayedDialogue;
 
 
+        public enum DialogueEvent
+        {
+            Start,
+            PlayerWin,
+            PlayerLose,
+            BigDeal,
+            SmallDeal
+        }
 
 
-        void ShowDialogue(List<GameObject> dialogueList, VoiceType voiceType)
+        void ShowDialogue(List<GameObject> dialogueList)
         {
             if (currentDisplayedDialogue != null)
                 currentDisplayedDialogue.SetActive(false);
@@ -584,11 +630,55 @@ namespace Blackjack_Game
             ChipBox.SetInteger("Situation", 0);//弹出
 
 
-            // ✅ 只通知 VoiceManager：发生了什么类型的语音
-            //VoiceManager.instance.PlayVoice(voiceType);
-
-
         }//显示女荷官垃圾话
+
+
+        List<GameObject> GetDialogueList(DialogueEvent evt)
+        {
+            switch (currentDealer)
+            {
+                case DealerType.Anto:
+                    switch (evt)
+                    {
+                        case DialogueEvent.Start: return Anto_StartDialogues;
+                        case DialogueEvent.PlayerWin: return Anto_PlayerWinDialogues;
+                        case DialogueEvent.PlayerLose: return Anto_PlayerLoseDialogues;
+                        case DialogueEvent.BigDeal: return Anto_BigDealDialogues;
+                        case DialogueEvent.SmallDeal: return Anto_SmallDealDialogues;
+                    }
+                    break;
+
+                case DealerType.Hetty:
+                    switch (evt)
+                    {
+                        case DialogueEvent.Start: return Hetty_StartDialogues;
+                        case DialogueEvent.PlayerWin: return Hetty_PlayerWinDialogues;
+                        case DialogueEvent.PlayerLose: return Hetty_PlayerLoseDialogues;
+                        case DialogueEvent.BigDeal: return Hetty_BigDealDialogues;
+                        case DialogueEvent.SmallDeal: return Hetty_SmallDealDialogues;
+                    }
+                    break;
+
+                case DealerType.Alice:
+                    switch (evt)
+                    {
+                        case DialogueEvent.Start: return Alice_StartDialogues;
+                        case DialogueEvent.PlayerWin: return Alice_PlayerWinDialogues;
+                        case DialogueEvent.PlayerLose: return Alice_PlayerLoseDialogues;
+                        case DialogueEvent.BigDeal: return Alice_BigDealDialogues;
+                        case DialogueEvent.SmallDeal: return Alice_SmallDealDialogues;
+                    }
+                    break;
+            }
+
+            return null;
+        }
+
+
+
+
+
+
 
         void HideDialogue()
         {
@@ -601,30 +691,38 @@ namespace Blackjack_Game
 
         void StartMatch()
         {
-            ShowDialogue(StartDialogues,VoiceType.Start); // 开局时
+            // 开局时
+            ShowDialogue(GetDialogueList(DialogueEvent.Start));
         }
 
         void OnPlayerWin()
         {
-            ShowDialogue(PlayerWinDialogues, VoiceType.PlayerWin); // 玩家赢
+            // 玩家赢
+            ShowDialogue(GetDialogueList(DialogueEvent.PlayerWin));
         }
 
         void OnPlayerLose()
         {
-            ShowDialogue(PlayerLoseDialogues, VoiceType.PlayerLose); // 玩家输
+            // 玩家输
+            ShowDialogue(GetDialogueList(DialogueEvent.PlayerLose));
         }
 
         void OnPlayerDeal() 
         {
             HideDialogue();//防止上面的话还没说完
 
-            if (Random.Range(0, 2) == 0)
+            bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
+
+
+            if (isBigDeal)
             {
-                ShowDialogue(BigDealDialogues, VoiceType.BigDeal); //玩家下大注
+                //玩家下大注
+                ShowDialogue(GetDialogueList(DialogueEvent.BigDeal));
             }
             else
             {
-                ShowDialogue(SmallDealDialogues, VoiceType.SmallDeal); //玩家下小注
+                //玩家下小注
+                ShowDialogue(GetDialogueList(DialogueEvent.SmallDeal));
             }
             
         }
@@ -906,11 +1004,23 @@ namespace Blackjack_Game
         private float currentHealth;
 
         public Text Limit;//本局赌注上限
-
+        int LimitPlace;//本局赌注上限
 
         public VoiceManager voiceManager;//一旦超过这个阈值就能触发安托的呻吟
 
         int Progress;//女荷官进度
+
+
+        public enum DealerType
+        {
+            Anto,
+            Hetty,
+            Alice
+        }
+
+        private DealerType currentDealer;//女荷官类型
+
+
 
         void Start()
         {
@@ -933,16 +1043,19 @@ namespace Blackjack_Game
                 case "VSAnto":
                     dealerAnimator = antoAnimator;
                     Progress = data.antoProgress;
+                    currentDealer = DealerType.Anto;
                     break;
 
                 case "VSHetty":
                     dealerAnimator = hettyAnimator;
                     Progress = data.hettyProgress;
+                    currentDealer = DealerType.Hetty;
                     break;
 
                 case "VSAlice":
                     dealerAnimator = aliceAnimator;
                     Progress = data.aliceProgress;
+                    currentDealer = DealerType.Alice;
                     break;
 
 
@@ -952,8 +1065,8 @@ namespace Blackjack_Game
             
 
 
-            //检测安托等级
-            int LimitPlace = Progress * 200;
+            //检测对应女荷官等级
+            LimitPlace = Progress * 200;
             Limit.text = LimitPlace.ToString();//本局赌注上限
 
             maxHealth = Progress * 1000;
@@ -1107,11 +1220,15 @@ namespace Blackjack_Game
 
         public void PlayWin()
         {
+
+
             dealerAnimator.SetTrigger("Win");
         }
 
-        public void PlayLose()
+        public void PlayLose()//这个阶段会隐藏之前下筹码的时候的话语
         {
+ 
+
             dealerAnimator.SetTrigger("Lose");
         }
 
