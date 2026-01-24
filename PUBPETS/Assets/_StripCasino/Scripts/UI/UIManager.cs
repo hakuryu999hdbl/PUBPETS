@@ -46,7 +46,7 @@ namespace Blackjack_Game
                     PlayerPrefs.SetFloat("TextSpeed", 0.05f);
                 }//检测文字加载速度，默认为0.05f
 
-                if (GameFlowData.returnPath == "cg") 
+                if (GameFlowData.returnPath == "cg")
                 {
                     CG_Thumbnail_Menu.SetActive(true);
                     GameFlowData.returnPath = null;
@@ -151,9 +151,9 @@ namespace Blackjack_Game
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
             //GameFlowData.nextAVGId = "Hetty_CG_01_3";
             //Load_AVG(2011);
-            
 
-            if (currentScene.name == "Spine") 
+
+            if (currentScene.name == "Spine")
             {
                 BGM.instance.Stop();
 
@@ -543,11 +543,14 @@ namespace Blackjack_Game
 
 
 
-            if (SceneManager.GetActiveScene().name != "BarCounter") 
+            if (SceneManager.GetActiveScene().name != "BarCounter")
             {
                 WaitToNormal();//开头加载就鼠标变化
             }
-           
+
+
+
+
         }
 
 
@@ -565,7 +568,7 @@ namespace Blackjack_Game
 
 
 
-     
+
         public Image Title_Setting_System, Title_Setting_Audio, Title_Setting_Display, Title_Setting_Operation;
         public Sprite Bar_Show, Bar_Hidden;
         public GameObject System, Audio, Display, Operation;
@@ -629,9 +632,9 @@ namespace Blackjack_Game
 
         public SaveSlotUI saveSlotUI_1, saveSlotUI_2, saveSlotUI_3;
         SaveSlotUI CurrentSaveSlotUI;
-        public void CurrentSaveSlotUI_Is(int Number) 
+        public void CurrentSaveSlotUI_Is(int Number)
         {
-            switch (Number) 
+            switch (Number)
             {
 
                 case 1:
@@ -645,7 +648,7 @@ namespace Blackjack_Game
                     break;
             }
         }//确定当前选中脚本
-        public void MakeSureDeleteDateMenu_Delete() 
+        public void MakeSureDeleteDateMenu_Delete()
         {
             if (CurrentSaveSlotUI != null)
             {
@@ -656,7 +659,7 @@ namespace Blackjack_Game
 
         public GameObject SaveNameMenu;//输入酒保名称菜单
 
-        public void OnConfirmNameInput() 
+        public void OnConfirmNameInput()
         {
             if (CurrentSaveSlotUI != null)
             {
@@ -673,7 +676,7 @@ namespace Blackjack_Game
                 SaveManager.SaveGame(newData);
 
                 CurrentSaveSlotUI.Refresh();//更新当前存档内容
-            }         
+            }
 
         }//玩家确定这个存档名称
 
@@ -684,9 +687,43 @@ namespace Blackjack_Game
         /// CG解锁进度
         /// </summary>
         #region
+
+        [Header("当前已解锁CG数量")]
+        public int unlockedCount;
+        public int pageCount;
+
         public GameObject Thumbnail_Anto_01;
         public GameObject Thumbnail_Anto_02;
         public GameObject Thumbnail_Anto_03;
+        public GameObject Thumbnail_Anto_04;
+        public GameObject Thumbnail_Anto_05;
+        public GameObject Thumbnail_Anto_06;
+        public GameObject Thumbnail_Anto_07;
+        public GameObject Thumbnail_Anto_08;
+        public GameObject Thumbnail_Anto_09;
+        public GameObject Thumbnail_Anto_10;
+
+        public GameObject Thumbnail_Hetty_01;
+        public GameObject Thumbnail_Hetty_02;
+        public GameObject Thumbnail_Hetty_03;
+        public GameObject Thumbnail_Hetty_04;
+        public GameObject Thumbnail_Hetty_05;
+        public GameObject Thumbnail_Hetty_06;
+        public GameObject Thumbnail_Hetty_07;
+        public GameObject Thumbnail_Hetty_08;
+        public GameObject Thumbnail_Hetty_09;
+        public GameObject Thumbnail_Hetty_10;
+
+        public GameObject Thumbnail_Alice_01;
+        public GameObject Thumbnail_Alice_02;
+        public GameObject Thumbnail_Alice_03;
+        public GameObject Thumbnail_Alice_04;
+        public GameObject Thumbnail_Alice_05;
+        public GameObject Thumbnail_Alice_06;
+        public GameObject Thumbnail_Alice_07;
+        public GameObject Thumbnail_Alice_08;
+        public GameObject Thumbnail_Alice_09;
+        public GameObject Thumbnail_Alice_10;
 
         public void CheckAndShowAntoCG()
         {
@@ -713,7 +750,59 @@ namespace Blackjack_Game
             // 控制显示
             Thumbnail_Anto_01.SetActive(maxAntoProgress >= 2);
             Thumbnail_Anto_02.SetActive(maxAntoProgress >= 3);
-            Thumbnail_Anto_03.SetActive(maxAntoProgress >= 4); // 你可以设定解锁规则
+            Thumbnail_Anto_03.SetActive(maxAntoProgress >= 4);
+            Thumbnail_Anto_04.SetActive(maxAntoProgress >= 5);
+            Thumbnail_Anto_05.SetActive(maxAntoProgress >= 6);
+            Thumbnail_Anto_06.SetActive(maxAntoProgress >= 7);
+            Thumbnail_Anto_07.SetActive(maxAntoProgress >= 8);
+            Thumbnail_Anto_08.SetActive(maxAntoProgress >= 9);
+            Thumbnail_Anto_09.SetActive(maxAntoProgress >= 10);
+            Thumbnail_Anto_10.SetActive(maxAntoProgress >= 11);
+
+
+            Thumbnail_Hetty_01.SetActive(maxHettyProgress >= 2);
+            Thumbnail_Hetty_02.SetActive(maxHettyProgress >= 3);
+            Thumbnail_Hetty_03.SetActive(maxHettyProgress >= 4);
+            Thumbnail_Hetty_04.SetActive(maxHettyProgress >= 5);
+            Thumbnail_Hetty_05.SetActive(maxHettyProgress >= 6);
+            Thumbnail_Hetty_06.SetActive(maxHettyProgress >= 7);
+            Thumbnail_Hetty_07.SetActive(maxHettyProgress >= 8);
+            Thumbnail_Hetty_08.SetActive(maxHettyProgress >= 9);
+            Thumbnail_Hetty_09.SetActive(maxHettyProgress >= 10);
+            Thumbnail_Hetty_10.SetActive(maxHettyProgress >= 11);
+
+
+            Thumbnail_Alice_01.SetActive(maxAliceProgress >= 2);
+            Thumbnail_Alice_02.SetActive(maxAliceProgress >= 3);
+            Thumbnail_Alice_03.SetActive(maxAliceProgress >= 4);
+            Thumbnail_Alice_04.SetActive(maxAliceProgress >= 5);
+            Thumbnail_Alice_05.SetActive(maxAliceProgress >= 6);
+            Thumbnail_Alice_06.SetActive(maxAliceProgress >= 7);
+            Thumbnail_Alice_07.SetActive(maxAliceProgress >= 8);
+            Thumbnail_Alice_08.SetActive(maxAliceProgress >= 9);
+            Thumbnail_Alice_09.SetActive(maxAliceProgress >= 10);
+            Thumbnail_Alice_10.SetActive(maxAliceProgress >= 11);
+
+
+
+            //计算已经解锁CG数量,判断出现多少页
+            #region
+            unlockedCount =
+    CountUnlockedThumbnails(
+        Thumbnail_Anto_01, Thumbnail_Anto_02, Thumbnail_Anto_03, Thumbnail_Anto_04, Thumbnail_Anto_05,
+        Thumbnail_Anto_06, Thumbnail_Anto_07, Thumbnail_Anto_08, Thumbnail_Anto_09, Thumbnail_Anto_10,
+
+        Thumbnail_Hetty_01, Thumbnail_Hetty_02, Thumbnail_Hetty_03, Thumbnail_Hetty_04, Thumbnail_Hetty_05,
+        Thumbnail_Hetty_06, Thumbnail_Hetty_07, Thumbnail_Hetty_08, Thumbnail_Hetty_09, Thumbnail_Hetty_10,
+
+        Thumbnail_Alice_01, Thumbnail_Alice_02, Thumbnail_Alice_03, Thumbnail_Alice_04, Thumbnail_Alice_05,
+        Thumbnail_Alice_06, Thumbnail_Alice_07, Thumbnail_Alice_08, Thumbnail_Alice_09, Thumbnail_Alice_10
+    );
+
+           
+            #endregion
+
+
 
             //设置主菜单衣服显示
             if (maxAntoProgress < 3) { Menu_Anto.sprite = AntoSprites[0]; }
@@ -729,6 +818,108 @@ namespace Blackjack_Game
             else { Menu_Alice.sprite = AliceSprites[2]; }
 
         }//读取当前最大CG解锁进度
+
+
+
+
+
+        int CountUnlockedThumbnails(params GameObject[] thumbnails)
+        {
+            int count = 0;
+            foreach (var go in thumbnails)
+            {
+                if (go != null && go.activeSelf)
+                    count++;
+            }
+            return count;
+        }//计算解锁数量
+
+        #endregion
+
+
+        /// <summary>
+        /// CG鉴赏上下翻页
+        /// </summary>
+        #region
+
+        [Header("要移动的UI物体")]
+        public RectTransform target;
+
+        [Header("上下按钮（要隐藏/显示）")]
+        public GameObject upButton;
+        public GameObject downButton;
+
+        [Header("每次移动步长")]
+        public float step = 239f;
+
+        [Header("Y范围（到顶/到底就隐藏按钮）")]
+        public float topLimit = -23f;     // 最上不能超过这个值
+        public float bottomLimit = 1889f; // 最下不能超过这个值
+
+
+
+
+
+        public void MoveUp()
+        {
+            SetY(target.anchoredPosition.y - step);
+        }
+
+        public void MoveDown()
+        {
+
+            SetY(target.anchoredPosition.y + step);
+
+        }
+
+        private void SetY(float y)
+        {
+            y = Mathf.Clamp(y, topLimit, bottomLimit);
+            var p = target.anchoredPosition;
+            p.y = y;
+            target.anchoredPosition = p;
+
+            RefreshButtons();
+        }
+
+        private void RefreshButtons()
+        {
+            //float y = target.anchoredPosition.y;
+            //
+            //// 到顶：隐藏上键；否则显示
+            //if (downButton) downButton.SetActive(y < bottomLimit);
+            //
+            //// 到底：隐藏下键；否则显示
+            //if (upButton) upButton.SetActive(y > topLimit);
+
+            if (unlockedCount <= 6)
+            {
+                // 只有一页，两个按钮都不显示
+                if (upButton) upButton.SetActive(false);
+                if (downButton) downButton.SetActive(false);
+                return;
+            }
+
+            pageCount = Mathf.CeilToInt(unlockedCount / 6f);
+            pageCount++;
+
+            int currentPage = Mathf.RoundToInt(
+                (target.anchoredPosition.y - topLimit) / step
+            );
+
+            // 上一页是否存在
+            if (upButton)
+                upButton.SetActive(currentPage > 0);
+
+            // 下一页是否存在
+            if (downButton)
+                downButton.SetActive(currentPage < pageCount - 1);
+
+
+        }
+
+
+
 
         #endregion
 
@@ -856,7 +1047,7 @@ namespace Blackjack_Game
             Invoke("LoadShop", 1f);
             SetWait();
         }
-        void LoadShop() 
+        void LoadShop()
         {
             SceneManager.LoadScene("Shop");
         }
@@ -1415,7 +1606,7 @@ namespace Blackjack_Game
         public GameObject AVG;
 
 
-      
+
 
 
         public void Load_AVG(int Number)
@@ -1434,7 +1625,7 @@ namespace Blackjack_Game
         {
             Debug.Log("点击离开");
 
-            switch (GameFlowData.nextAVGId) 
+            switch (GameFlowData.nextAVGId)
             {
                 case "VSAnto":
                     GameFlowData.nextAVGId = "Anto_Failure";//输给安托，离开赌局
@@ -1453,11 +1644,11 @@ namespace Blackjack_Game
         }
 
         //获得胜利开启CG
-        public void Load_Win_AVG() 
+        public void Load_Win_AVG()
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
-            switch (GameFlowData.nextAVGId)  
+            switch (GameFlowData.nextAVGId)
             {
                 case "VSAnto":
                     switch (data.antoProgress)
@@ -1567,10 +1758,10 @@ namespace Blackjack_Game
                     }
                     break;
 
-            
+
             }
 
-          
+
 
 
 
@@ -1581,7 +1772,7 @@ namespace Blackjack_Game
 
         public void Load_Vs_Anto_AVG()
         {
- 
+
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
             int Story_Anto = data.antoProgress;
@@ -1628,7 +1819,7 @@ namespace Blackjack_Game
             }
 
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
-        public void Load_Anto_Lose_AVG() 
+        public void Load_Anto_Lose_AVG()
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
             switch (data.antoProgress)
@@ -1716,7 +1907,7 @@ namespace Blackjack_Game
             }
 
         }//女荷官指名界面选择（只留下VS_XXX，在下一个场景根据AVG解锁）
-        public void Load_Alice_Lose_AVG() 
+        public void Load_Alice_Lose_AVG()
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
             switch (data.aliceProgress)
@@ -1847,7 +2038,7 @@ namespace Blackjack_Game
 
 
 
-        public void CG_Thumbnail_RePlay(int CG_Number) 
+        public void CG_Thumbnail_RePlay(int CG_Number)
         {
             switch (CG_Number)
             {
@@ -1959,10 +2150,10 @@ namespace Blackjack_Game
         }//主界面菜单打开CG
 
 
-        public void DeveloperMode(int Story) 
+        public void DeveloperMode(int Story)
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            data.antoProgress= Story;
+            data.antoProgress = Story;
             SaveManager.SaveGame(data);
 
             //PlayerPrefs.SetInt("Story", Story);
@@ -1972,13 +2163,13 @@ namespace Blackjack_Game
         }//作者模式切换进度
 
 
-        public void ShopToBar() 
+        public void ShopToBar()
         {
             GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
             LoadingScene_Spine();
         }//商店界面回到经营界面
 
-        public void BarToShop() 
+        public void BarToShop()
         {
             GameFlowData.nextAVGId = "StartShop_02";//商人出现
             LoadingScene_Spine();
@@ -1990,7 +2181,7 @@ namespace Blackjack_Game
         /// 作弊按钮
         /// </summary>
         #region
-        public void CheatButton() 
+        public void CheatButton()
         {
 
             Thumbnail_Anto_01.SetActive(true);
@@ -2001,5 +2192,8 @@ namespace Blackjack_Game
         }
 
         #endregion
+
+
+
     }
 }
