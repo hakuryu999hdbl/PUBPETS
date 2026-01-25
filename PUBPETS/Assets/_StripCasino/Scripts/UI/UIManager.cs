@@ -149,7 +149,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Hetty_CG_01_3";
+            //GameFlowData.nextAVGId = "Anto_CG_01_3";
             //Load_AVG(2011);
 
 

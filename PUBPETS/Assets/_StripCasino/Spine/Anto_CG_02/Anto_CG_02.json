@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "d0SrLVnMfNk",
+	"hash": "Non5svjSbwI",
 	"spine": "4.2.42",
 	"x": -104.23,
 	"y": -1235.77,
@@ -1508,10 +1508,12 @@
 	"_Jinv_xitian_fast1": { "audio": "YYY/Jinv_xitian_fast1.wav" },
 	"_Jinye_tentacle_short": { "audio": "YYY/Jinye_tentacle_short.mp3" },
 	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Lick": { "audio": "SE/SE_Lick_1.mp3" },
 	"_SE_Semen_1": { "audio": "SE/SE_Semen_1.wav" },
 	"_SE_Semen_2": { "audio": "SE/SE_Semen_2.wav" },
 	"_SE_Semen_fuck_in": { "audio": "SE/SE_Semen_fuck_in.wav" },
-	"_SE_Semen_fuck_out": { "audio": "SE/SE_Semen_fuck_out.wav" }
+	"_SE_Semen_fuck_out": { "audio": "SE/SE_Semen_fuck_out.wav" },
+	"_SE_Whip": { "audio": "SE/SE_Whip_1.wav" }
 },
 "animations": {
 	"animation0": {
@@ -11389,7 +11391,7 @@
 		},
 		"events": [
 			{ "name": "_Jinye_tentacle_short" },
-			{ "time": 0.2667, "name": "_Attack_pai2" },
+			{ "time": 0.2667, "name": "_SE_Whip" },
 			{ "time": 0.3667, "name": "_Anto_Game_034" }
 		]
 	},
@@ -15704,7 +15706,7 @@
 		],
 		"events": [
 			{ "name": "_Jinye_tentacle_short" },
-			{ "time": 0.2667, "name": "_Attack_pai2" },
+			{ "time": 0.2667, "name": "_SE_Whip" },
 			{ "time": 0.5, "name": "_Anto_Game_035" }
 		]
 	},

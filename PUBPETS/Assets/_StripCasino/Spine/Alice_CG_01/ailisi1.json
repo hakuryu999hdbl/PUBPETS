@@ -1,6 +1,6 @@
 {
 "skeleton": {
-	"hash": "MtJHmLLysQo",
+	"hash": "h56tbxojYc0",
 	"spine": "4.2.42",
 	"x": -643,
 	"y": -1503,
@@ -839,7 +839,9 @@
 	"_Effect_tear1": { "audio": "YYY/Effect_tear1.wav" },
 	"_Effect_tuo": { "audio": "YYY/Effect_tuo.wav" },
 	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
-	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" }
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
+	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
+	"_SE_Water": { "audio": "SE/SE_Water.mp3" }
 },
 "animations": {
 	"animation1": {
@@ -10590,6 +10592,7 @@
 		},
 		"events": [
 			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
 			{ "time": 1, "name": "_SE_Clothes_2" }
 		]
 	},
@@ -11515,6 +11518,7 @@
 		},
 		"events": [
 			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
 			{ "time": 1, "name": "_SE_Clothes_2" }
 		]
 	},
@@ -12440,6 +12444,7 @@
 		},
 		"events": [
 			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
 			{ "time": 1, "name": "_SE_Clothes_2" }
 		]
 	},
@@ -14067,7 +14072,10 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 1.3333, "name": "_SE_Water" }
+		]
 	},
 	"animation9-10": {
 		"slots": {
@@ -14829,7 +14837,8 @@
 			}
 		},
 		"events": [
-			{ "name": "_SE_Clothes" }
+			{ "name": "_SE_Clothes" },
+			{ "time": 1.3333, "name": "_SE_Water" }
 		]
 	},
 	"animation10": {
@@ -15567,7 +15576,10 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "time": 1.3333, "name": "_SE_Water" }
+		]
 	}
 }
 }
