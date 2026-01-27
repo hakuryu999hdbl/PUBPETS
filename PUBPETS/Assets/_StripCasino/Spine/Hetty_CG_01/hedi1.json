@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "RIOERu7QlJU",
+	"hash": "mNj1K4iuyDg",
 	"spine": "4.2.42",
 	"x": -1,
 	"y": -1398.36,
 	"width": 2177.93,
 	"height": 1440.59,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root" },
@@ -861,6 +861,13 @@
 		}
 	}
 ],
+"events": {
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
+	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
+	"_SE_Semen_3": { "audio": "SE/SE_Semen_3.wav" },
+	"_SE_Squirting": { "audio": "SE/SE_Squirting_1.wav" }
+},
 "animations": {
 	"animation1": {
 		"slots": {
@@ -3658,7 +3665,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "time": 0.7667, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation3": {
 		"slots": {
@@ -4517,7 +4528,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation3-4": {
 		"slots": {
@@ -5624,7 +5639,12 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation4": {
 		"slots": {
@@ -6615,7 +6635,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation4-5": {
 		"slots": {
@@ -7695,7 +7719,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation5": {
 		"slots": {
@@ -8755,7 +8783,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation5-6": {
 		"slots": {
@@ -9943,7 +9975,12 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation6": {
 		"slots": {
@@ -11014,7 +11051,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation6-7": {
 		"slots": {
@@ -12312,6 +12353,12 @@
 					{ "slot": "koubishou", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
 		]
 	},
 	"animation7": {
@@ -13557,7 +13604,13 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation7-8": {
 		"slots": {
@@ -14981,7 +15034,16 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
+			{ "name": "_SE_Semen_3" },
+			{ "time": 0.3333, "name": "_SE_Semen_3" },
+			{ "time": 0.6667, "name": "_SE_Semen_3" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation8": {
 		"slots": {
@@ -16268,7 +16330,13 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation8-9": {
 		"slots": {
@@ -17597,7 +17665,14 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 0.6667, "name": "_SE_Squirting" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation9": {
 		"slots": {
@@ -18868,7 +18943,13 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	}
 }
 }

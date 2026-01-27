@@ -13,8 +13,16 @@ namespace Blackjack_Game
         public Image thumbnail;
 
 
-        public Sprite defaultThumbnail, Thumbnail_City,
-            Thumbnail_Anto_01, Thumbnail_Anto_02, Thumbnail_Anto_03;
+        [Header("存档显示略缩图")]
+        public Sprite defaultThumbnail;  // 空槽位/无存档用
+        public Sprite Thumbnail_City;
+
+        public Sprite[] AntoThumbs;  // Inspector size=10
+        public Sprite[] HettyThumbs; // size=10
+        public Sprite[] AliceThumbs; // size=10
+
+
+        [Header("存档显示各个女荷官进度")]
 
         public Image FillImage_Anto, FillImage_Hetty, FillImage_Alice;
 
@@ -40,25 +48,43 @@ namespace Blackjack_Game
                 moneyText.text = $"{data.balance}";
 
                 //未来可以做当前进度最高
-                switch (data.antoProgress) 
+                //switch (data.antoProgress) 
+                //{
+                //    case 2:
+                //        thumbnail.sprite = Thumbnail_Anto_01;
+                //        break;
+                //    case 3:
+                //        thumbnail.sprite = Thumbnail_Anto_02;
+                //        break;
+                //    case 4:
+                //        thumbnail.sprite = Thumbnail_Anto_03;
+                //        break;
+                //    default:
+                //        thumbnail.sprite = Thumbnail_City;
+                //        break;
+                //}
+
+
+                thumbnail.sprite = Thumbnail_City;
+
+                int idx = data.lastCGIndex - 1; // 1~10 -> 0~9
+                if (idx >= 0 && idx < 10)
                 {
-                    case 2:
-                        thumbnail.sprite = Thumbnail_Anto_01;
-                        break;
-                    case 3:
-                        thumbnail.sprite = Thumbnail_Anto_02;
-                        break;
-                    case 4:
-                        thumbnail.sprite = Thumbnail_Anto_03;
-                        break;
-                    default:
-                        thumbnail.sprite = Thumbnail_City;
-                        break;
+                    if (data.lastCGGirl == 1 && AntoThumbs[idx] != null) thumbnail.sprite = AntoThumbs[idx];
+                    if (data.lastCGGirl == 2 && HettyThumbs[idx] != null) thumbnail.sprite = HettyThumbs[idx];
+                    if (data.lastCGGirl == 3 && AliceThumbs[idx] != null) thumbnail.sprite = AliceThumbs[idx];
                 }
 
-                FillImage_Anto.fillAmount = data.antoProgress / 10f;
-                FillImage_Hetty.fillAmount = data.hettyProgress / 10f;
-                FillImage_Alice.fillAmount = data.aliceProgress / 10f;
+
+
+
+
+                FillImage_Anto.fillAmount = data.antoProgress / 11f;
+                FillImage_Hetty.fillAmount = data.hettyProgress / 11f;
+                FillImage_Alice.fillAmount = data.aliceProgress / 11f;
+
+
+
 
                 X_Button.SetActive(true);
             }
@@ -70,7 +96,11 @@ namespace Blackjack_Game
                 timeText.text = "--------------------";
                 moneyText.text = "0";
 
-                thumbnail.sprite = defaultThumbnail; // 以后可以换成 data.thumbnail
+
+
+                thumbnail.sprite = defaultThumbnail;
+
+
 
                 X_Button.SetActive(false);
 

@@ -2583,6 +2583,11 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托01）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 1; 
+
+
 
                         data.antoProgress = 2;
                         SaveManager.SaveGame(data);
@@ -2597,6 +2602,11 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托02）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 2; 
+
+
 
                         data.antoProgress = 3;
                         SaveManager.SaveGame(data);
@@ -2611,6 +2621,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托03）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 3;
+
 
                         data.antoProgress = 4;
                         SaveManager.SaveGame(data);
@@ -2625,6 +2639,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托04）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 4;
+
 
                         data.antoProgress = 5;
                         SaveManager.SaveGame(data);
@@ -2639,6 +2657,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托05）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 5;
+
 
                         data.antoProgress = 6;
                         SaveManager.SaveGame(data);
@@ -2653,6 +2675,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托06）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 6;
+
 
                         data.antoProgress = 7;
                         SaveManager.SaveGame(data);
@@ -2667,6 +2693,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托07）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 7;
 
                         data.antoProgress = 8;
                         SaveManager.SaveGame(data);
@@ -2681,6 +2710,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托08）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 8;
+
 
                         data.antoProgress = 9;
                         SaveManager.SaveGame(data);
@@ -2695,6 +2728,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（安托09）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 9;
+
 
                         data.antoProgress = 10;
                         SaveManager.SaveGame(data);
@@ -2709,7 +2746,14 @@ namespace Blackjack_Game
                     }
                     else
                     {
-                        //安托已经通关                                          
+                        // ✅ 记录上一局CG缩略图（安托10）
+                        data.lastCGGirl = 1;   // 1=安托
+                        data.lastCGIndex = 10;
+
+                        //安托已经通关   
+                        data.antoProgress = 11;
+                        SaveManager.SaveGame(data);
+
 
                         RandomToShop();
                     }
@@ -2788,6 +2832,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂01）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 1;
+
 
                         data.hettyProgress = 2;
                         SaveManager.SaveGame(data);
@@ -2802,6 +2850,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂02）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 2;
+
 
                         data.hettyProgress = 3;
                         SaveManager.SaveGame(data);
@@ -2816,6 +2868,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂03）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 3;
+
 
                         data.hettyProgress = 4;
                         SaveManager.SaveGame(data);
@@ -2830,6 +2886,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂04）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 4;
+
 
                         data.hettyProgress = 5;
                         SaveManager.SaveGame(data);
@@ -2844,6 +2904,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂05）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 5;
+
 
                         data.hettyProgress = 6;
                         SaveManager.SaveGame(data);
@@ -2858,6 +2922,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂06）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 6;
+
 
                         data.hettyProgress = 7;
                         SaveManager.SaveGame(data);
@@ -2872,6 +2940,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂07）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 7;
+
 
                         data.hettyProgress = 8;
                         SaveManager.SaveGame(data);
@@ -2886,6 +2958,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂08）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 8;
+
 
                         data.hettyProgress = 9;
                         SaveManager.SaveGame(data);
@@ -2900,6 +2976,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（赫蒂09）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 9;
+
 
                         data.hettyProgress = 10;
                         SaveManager.SaveGame(data);
@@ -2914,7 +2994,14 @@ namespace Blackjack_Game
                     }
                     else
                     {
-                        //赫蒂已经通关                                          
+                        // ✅ 记录上一局CG缩略图（赫蒂10）
+                        data.lastCGGirl = 2;   // 2=赫蒂
+                        data.lastCGIndex = 10;
+
+                        //赫蒂已经通关
+                        data.hettyProgress = 10;
+                        SaveManager.SaveGame(data);
+
 
                         RandomToShop();
                     }
@@ -2992,6 +3079,10 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝01）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 1;
+
 
                         data.aliceProgress = 2;
                         SaveManager.SaveGame(data);
@@ -3006,6 +3097,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝02）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 2;
 
                         data.aliceProgress = 3;
                         SaveManager.SaveGame(data);
@@ -3020,6 +3114,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝03）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 3;
 
                         data.aliceProgress = 4;
                         SaveManager.SaveGame(data);
@@ -3034,6 +3131,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝04）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 4;
 
                         data.aliceProgress = 5;
                         SaveManager.SaveGame(data);
@@ -3048,6 +3148,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝05）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 5;
 
                         data.aliceProgress = 6;
                         SaveManager.SaveGame(data);
@@ -3062,6 +3165,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝06）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 6;
 
                         data.aliceProgress = 7;
                         SaveManager.SaveGame(data);
@@ -3076,6 +3182,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝07）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 7;
 
                         data.aliceProgress = 8;
                         SaveManager.SaveGame(data);
@@ -3090,6 +3199,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝08）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 8;
 
                         data.aliceProgress = 9;
                         SaveManager.SaveGame(data);
@@ -3104,6 +3216,9 @@ namespace Blackjack_Game
                     }
                     else
                     {
+                        // ✅ 记录上一局CG缩略图（爱丽丝09）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 9;
 
                         data.aliceProgress = 10;
                         SaveManager.SaveGame(data);
@@ -3118,7 +3233,15 @@ namespace Blackjack_Game
                     }
                     else
                     {
-                        //爱丽丝已经通关                                          
+                        // ✅ 记录上一局CG缩略图（爱丽丝10）
+                        data.lastCGGirl = 3;   // 3=爱丽丝
+                        data.lastCGIndex = 10;
+
+                        //爱丽丝已经通关
+                        data.aliceProgress = 11;
+                        SaveManager.SaveGame(data);
+
+
 
                         RandomToShop();
                     }

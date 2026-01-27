@@ -636,9 +636,9 @@ namespace Blackjack_Game
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
-            FillImage_Anto.fillAmount = data.antoProgress / 10f;
-            FillImage_Hetty.fillAmount = data.hettyProgress / 10f;
-            FillImage_Alice.fillAmount = data.aliceProgress / 10f;
+            FillImage_Anto.fillAmount = data.antoProgress / 11f;
+            FillImage_Hetty.fillAmount = data.hettyProgress / 11f;
+            FillImage_Alice.fillAmount = data.aliceProgress / 11f;
 
 
         }

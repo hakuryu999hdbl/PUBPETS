@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "ANre+J7p7Bw",
+	"hash": "drRAwaSmisA",
 	"spine": "4.2.42",
 	"x": -299.27,
 	"y": -2682,
 	"width": 5014.37,
 	"height": 3762.88,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root" },
@@ -348,7 +348,16 @@
 	{ "name": "bone92", "parent": "bone91", "length": 130.46, "rotation": 13.44, "x": 54.72, "color": "abe323ff" },
 	{ "name": "fog", "parent": "root", "x": 1980, "y": -1022 },
 	{ "name": "fog2", "parent": "root", "x": 1980, "y": -1022, "scaleY": -1 },
-	{ "name": "fog3", "parent": "root", "x": 1980, "y": -1022, "scaleX": -1 }
+	{ "name": "fog3", "parent": "root", "x": 1980, "y": -1022, "scaleX": -1 },
+	{
+		"name": "bone93",
+		"parent": "bone8",
+		"length": 184.75,
+		"rotation": 163.73,
+		"x": 51.94,
+		"y": -170.69,
+		"color": "abe323ff"
+	}
 ],
 "slots": [
 	{ "name": "bj", "bone": "root", "attachment": "bj" },
@@ -385,7 +394,7 @@
 	{ "name": "youxiaotui", "bone": "root", "attachment": "youxiaotui" },
 	{ "name": "xiongbuyou", "bone": "bone34", "attachment": "xiongbuyou" },
 	{ "name": "youjiba", "bone": "bone75", "attachment": "youjiba" },
-	{ "name": "erhuan", "bone": "root", "attachment": "erhuan" },
+	{ "name": "erhuan", "bone": "bone93", "attachment": "erhuan" },
 	{ "name": "hanye", "bone": "bone4", "attachment": "hanye" },
 	{ "name": "youshouzhi", "bone": "root", "attachment": "youshouzhi" },
 	{ "name": "shangyichuanzhe", "bone": "bone3" },
@@ -566,7 +575,8 @@
 	{ "name": "bone89", "order": 58, "bone": "bone89", "rotate": 1, "inertia": 0.5, "damping": 0.85 },
 	{ "name": "bone90", "order": 59, "bone": "bone90", "rotate": 1, "inertia": 0.5, "damping": 0.85 },
 	{ "name": "bone91", "order": 60, "bone": "bone91", "rotate": 1, "inertia": 0.5, "damping": 0.85 },
-	{ "name": "bone92", "order": 61, "bone": "bone92", "rotate": 1, "inertia": 0.5, "damping": 0.85 }
+	{ "name": "bone92", "order": 61, "bone": "bone92", "rotate": 1, "inertia": 0.5, "damping": 0.85 },
+	{ "name": "bone93", "order": 62, "bone": "bone93", "rotate": 1, "inertia": 0.5, "damping": 0.85 }
 ],
 "skins": [
 	{
@@ -636,7 +646,7 @@
 				"dingguang": { "x": 1980, "y": -1080, "width": 3962, "height": 2162 }
 			},
 			"erhuan": {
-				"erhuan": { "x": 2306, "y": -411, "width": 30, "height": 208 }
+				"erhuan": { "x": 96.29, "y": -0.13, "rotation": 86.09, "width": 30, "height": 208 }
 			},
 			"fog": {
 				"fog": { "width": 3962, "height": 2488 }
@@ -1107,6 +1117,18 @@
 		}
 	}
 ],
+"events": {
+	"_Effect_tuo": { "audio": "YYY/Effect_tuo.wav" },
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
+	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
+	"_SE_Semen_1": { "audio": "SE/SE_Semen_1_1.wav" },
+	"_SE_Semen_2": { "audio": "SE/SE_Semen_2_1.mp3" },
+	"_SE_Semen_3": { "audio": "SE/SE_Semen_3_1.wav" },
+	"_SE_Semen_fuck_in": { "audio": "SE/SE_Semen_fuck_in.wav" },
+	"_SE_Squirting": { "audio": "SE/SE_Squirting_1.wav" },
+	"_SE_Water": { "audio": "SE/SE_Water.mp3" }
+},
 "animations": {
 	"animation1": {
 		"slots": {
@@ -3065,7 +3087,10 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "time": 0.3333, "name": "_SE_Clothes" }
+		]
 	},
 	"animation2": {
 		"slots": {
@@ -7097,6 +7122,9 @@
 				]
 			},
 			{ "time": 0.5 }
+		],
+		"events": [
+			{ "name": "_SE_Clothes" }
 		]
 	},
 	"animation4": {
@@ -9258,6 +9286,10 @@
 					{ "slot": "jb", "offset": -4 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "time": 1.0333, "name": "_SE_Semen_fuck_in" }
 		]
 	},
 	"animation5": {
@@ -10623,6 +10655,11 @@
 					{ "slot": "jb", "offset": -4 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
 		]
 	},
 	"animation5-6": {
@@ -12154,6 +12191,13 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Clothes" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
 		]
 	},
 	"animation6": {
@@ -13768,6 +13812,12 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
 		]
 	},
 	"animation6-7": {
@@ -15380,6 +15430,12 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
 		]
 	},
 	"animation7": {
@@ -16994,6 +17050,12 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" }
 		]
 	},
 	"animation7-8": {
@@ -18664,6 +18726,13 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Semen_1" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.3333, "name": "_SE_Semen_1" },
+			{ "time": 1.4, "name": "_SE_Semen_3" }
 		]
 	},
 	"animation8": {
@@ -20215,6 +20284,10 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
 		]
 	},
 	"animation8-9": {
@@ -21922,6 +21995,12 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 0.8667, "name": "_SE_Semen_3" },
+			{ "time": 1, "name": "_SE_LotionGauze" },
+			{ "time": 1.1667, "name": "_SE_Semen_3" }
 		]
 	},
 	"animation9": {
@@ -23287,6 +23366,10 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
 		]
 	},
 	"animation9-10": {
@@ -25678,6 +25761,11 @@
 					{ "slot": "jb", "offset": -6 }
 				]
 			}
+		],
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 2, "name": "_SE_Clothes" },
+			{ "time": 2.3333, "name": "_Effect_tuo" }
 		]
 	},
 	"animation10": {

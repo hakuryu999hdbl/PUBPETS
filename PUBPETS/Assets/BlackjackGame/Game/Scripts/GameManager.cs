@@ -469,7 +469,11 @@ namespace Blackjack_Game
             PeekCard.gameObject.SetActive(false);//盖牌消失
             PeekNextCard.gameObject.SetActive(false);//下一张卡消失
             PeekSecondNextCard.gameObject.SetActive(false);//下一张卡消失
-        }
+
+
+            turns++;
+
+        }//一局的结算阶段
 
 
         public void ChangeViewBack()
@@ -646,6 +650,7 @@ namespace Blackjack_Game
                         case DialogueEvent.BigDeal: return Anto_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Anto_SmallDealDialogues;
                     }
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;//结算画面女荷官
                     break;
 
                 case DealerType.Hetty:
@@ -657,6 +662,7 @@ namespace Blackjack_Game
                         case DialogueEvent.BigDeal: return Hetty_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Hetty_SmallDealDialogues;
                     }
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;//结算画面女荷官
                     break;
 
                 case DealerType.Alice:
@@ -668,6 +674,7 @@ namespace Blackjack_Game
                         case DialogueEvent.BigDeal: return Alice_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Alice_SmallDealDialogues;
                     }
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;//结算画面女荷官
                     break;
             }
 
@@ -865,14 +872,18 @@ namespace Blackjack_Game
             Item_Panel.SetActive(false);
 
 
-            // 写回存档
-
+            //写回存档
             SaveManager.SaveGame(data);         
 
             itemManager.UpdateInventoryUI();
 
             //隐藏使用按钮
             USE_Button.SetActive(false);
+
+
+            //增加使用物品次数
+            itemsUsed++;
+
 
         }
 
@@ -1044,18 +1055,21 @@ namespace Blackjack_Game
                     dealerAnimator = antoAnimator;
                     Progress = data.antoProgress;
                     currentDealer = DealerType.Anto;
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;
                     break;
 
                 case "VSHetty":
                     dealerAnimator = hettyAnimator;
                     Progress = data.hettyProgress;
                     currentDealer = DealerType.Hetty;
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;
                     break;
 
                 case "VSAlice":
                     dealerAnimator = aliceAnimator;
                     Progress = data.aliceProgress;
                     currentDealer = DealerType.Alice;
+                    CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;
                     break;
 
 
@@ -1106,7 +1120,11 @@ namespace Blackjack_Game
             }
 
             //当女荷官生命值低于过半开始呻吟
-            if (_Instance.currentHealth <= _Instance.maxHealth){ _Instance.voiceManager.CanScream = true; }
+            if (_Instance.currentHealth <= _Instance.maxHealth)
+            { 
+                _Instance.voiceManager.CanScream = true;
+                
+            }
 
         }
 
@@ -1128,8 +1146,10 @@ namespace Blackjack_Game
         void ShowWINButton()
         {
             WinButton.SetActive(true);
-            int currentLV = PlayerPrefs.GetInt("Story_Anto");
-            PlayerPrefs.SetInt("Story_Anto", currentLV += 1);
+
+
+            _Instance.ShowResult();//结算画面数据显示
+
         }//显示胜利画面
         public void ReLoadScene()
         {
@@ -1237,40 +1257,67 @@ namespace Blackjack_Game
 
 
         /// <summary>
+        /// 结算画面
+        /// </summary>
+        #region
+        [Header("结算画面")]
+        public Image CheckoutScreen_Dealer;
+        public Sprite CheckoutScreen_Anto, CheckoutScreen_Hetty, CheckoutScreen_Alice;
+
+        public void ShowResult() 
+        {
+            Turns.text = turns.ToString();
+            Revenue.text = revenue.ToString();
+            ItemsUsed.text = itemsUsed.ToString();
+        }
+
+        public int turns;//一共经过的回合数
+        public float revenue;//总共的收益
+        public int itemsUsed;//总共使用物品数量
+        public Text Turns;
+        public Text Revenue;
+        public Text ItemsUsed;
+
+        #endregion
+
+
+        /// <summary>
         /// 设置好的快捷键触发
         /// </summary>
         #region
 
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.A) && _ui.dealButton.interactable == true)
-            {
-                OnClickDeal();//下注完成或者拿牌
-            }
-            if (Input.GetKeyDown(KeyCode.S) && _ui.standButton.interactable == true)
-            {
-                OnClickStand();//站牌
-            }
-            if (Input.GetKeyDown(KeyCode.D) && _ui.doubleButton.interactable == true)
-            {
-                OnClickDouble();//双倍
-            }
-            if (Input.GetKeyDown(KeyCode.F) && _ui.splitButton.interactable == true)
-            {
-                OnClickSplit();//分牌
-            }
+            // if (Input.GetKeyDown(KeyCode.A) && _ui.dealButton.interactable == true)
+            // {
+            //     OnClickDeal();//下注完成或者拿牌
+            // }
+            // if (Input.GetKeyDown(KeyCode.S) && _ui.standButton.interactable == true)
+            // {
+            //     OnClickStand();//站牌
+            // }
+            // if (Input.GetKeyDown(KeyCode.D) && _ui.doubleButton.interactable == true)
+            // {
+            //     OnClickDouble();//双倍
+            // }
+            // if (Input.GetKeyDown(KeyCode.F) && _ui.splitButton.interactable == true)
+            // {
+            //     OnClickSplit();//分牌
+            // }
+            //
+            // if (Input.GetKeyDown(KeyCode.Z) && _ui.undoButton.interactable == true)
+            // {
+            //     BetHistoryManager._Instance.Undo();
+            //     //取消
+            // }
+            //
+            // if (Input.GetKeyDown(KeyCode.X) && _ui.clearButton.interactable == true)
+            // {
+            //     BetHistoryManager._Instance.ClearHistory();
+            //     //清除
+            // }
 
-            if (Input.GetKeyDown(KeyCode.Z) && _ui.undoButton.interactable == true)
-            {
-                BetHistoryManager._Instance.Undo();
-                //取消
-            }
-
-            if (Input.GetKeyDown(KeyCode.X) && _ui.clearButton.interactable == true)
-            {
-                BetHistoryManager._Instance.ClearHistory();
-                //清除
-            }
+           
         }
         #endregion
 

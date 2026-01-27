@@ -449,7 +449,7 @@ namespace Blackjack_Game
                     case "Hetty_CG_04_3":
                         Load_AVG(2043);//开启赫蒂第四个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(24);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_05_2":
@@ -459,7 +459,7 @@ namespace Blackjack_Game
                     case "Hetty_CG_05_3":
                         Load_AVG(2053);//开启赫蒂第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(25);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_06_2":
@@ -681,6 +681,12 @@ namespace Blackjack_Game
         }//玩家确定这个存档名称
 
 
+
+
+
+
+
+
         #endregion
 
         /// <summary>
@@ -757,7 +763,7 @@ namespace Blackjack_Game
             Thumbnail_Anto_07.SetActive(maxAntoProgress >= 8);
             Thumbnail_Anto_08.SetActive(maxAntoProgress >= 9);
             Thumbnail_Anto_09.SetActive(maxAntoProgress >= 10);
-            Thumbnail_Anto_10.SetActive(maxAntoProgress >= 11);
+            Thumbnail_Anto_10.SetActive(maxAntoProgress >= 11);//确实需要11这个状态来代表最后一个CG已近解锁
 
 
             Thumbnail_Hetty_01.SetActive(maxHettyProgress >= 2);
@@ -769,7 +775,7 @@ namespace Blackjack_Game
             Thumbnail_Hetty_07.SetActive(maxHettyProgress >= 8);
             Thumbnail_Hetty_08.SetActive(maxHettyProgress >= 9);
             Thumbnail_Hetty_09.SetActive(maxHettyProgress >= 10);
-            Thumbnail_Hetty_10.SetActive(maxHettyProgress >= 11);
+            Thumbnail_Hetty_10.SetActive(maxHettyProgress >= 11);//确实需要11这个状态来代表最后一个CG已近解锁
 
 
             Thumbnail_Alice_01.SetActive(maxAliceProgress >= 2);
@@ -781,7 +787,7 @@ namespace Blackjack_Game
             Thumbnail_Alice_07.SetActive(maxAliceProgress >= 8);
             Thumbnail_Alice_08.SetActive(maxAliceProgress >= 9);
             Thumbnail_Alice_09.SetActive(maxAliceProgress >= 10);
-            Thumbnail_Alice_10.SetActive(maxAliceProgress >= 11);
+            Thumbnail_Alice_10.SetActive(maxAliceProgress >= 11);//确实需要11这个状态来代表最后一个CG已近解锁
 
 
 
@@ -901,7 +907,7 @@ namespace Blackjack_Game
             }
 
             pageCount = Mathf.CeilToInt(unlockedCount / 6f);
-            pageCount++;
+            pageCount+=2;
 
             int currentPage = Mathf.RoundToInt(
                 (target.anchoredPosition.y - topLimit) / step
@@ -1814,6 +1820,7 @@ namespace Blackjack_Game
                     Load_AVG(1091);//安托九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(1101);//安托十
                     break;
             }
@@ -1852,6 +1859,7 @@ namespace Blackjack_Game
                     Load_AVG(1094);//安托九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(1104);//安托十
                     break;
             }
@@ -1902,6 +1910,7 @@ namespace Blackjack_Game
                     Load_AVG(3091);//爱丽丝九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(3101);//爱丽丝十
                     break;
             }
@@ -1940,6 +1949,7 @@ namespace Blackjack_Game
                     Load_AVG(3094);//爱丽丝九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(3104);//爱丽丝十
                     break;
             }
@@ -1990,6 +2000,7 @@ namespace Blackjack_Game
                     Load_AVG(2091);//赫蒂九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(2101);//赫蒂十
                     break;
             }
@@ -2031,6 +2042,7 @@ namespace Blackjack_Game
                     Load_AVG(2094);//赫蒂九
                     break;
                 case 10:
+                case 11://确实需要11这个状态来代表最后一个CG已近解锁
                     Load_AVG(2104);//赫蒂十
                     break;
             }

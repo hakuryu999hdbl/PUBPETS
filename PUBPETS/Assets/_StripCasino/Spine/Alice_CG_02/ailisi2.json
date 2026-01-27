@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "qCuBro1hZzw",
+	"hash": "ANnM2rIEjIk",
 	"spine": "4.2.42",
 	"x": -314,
 	"y": -1963,
 	"width": 4050,
 	"height": 1979.58,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root" },
@@ -704,6 +704,15 @@
 		}
 	}
 ],
+"events": {
+	"_Effect_tuo": { "audio": "YYY/Effect_tuo.wav" },
+	"_Jinye_tentacle_slow_one": { "audio": "YYY/Jinye_tentacle_slow_one.mp3" },
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
+	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
+	"_SE_Semen_fuck_in": { "audio": "SE/SE_Semen_fuck_in.wav" },
+	"_SE_Squirting": { "audio": "SE/SE_Squirting_1.mp3" }
+},
 "animations": {
 	"animation1": {
 		"bones": {
@@ -2792,6 +2801,9 @@
 				]
 			},
 			{ "time": 0.6 }
+		],
+		"events": [
+			{ "name": "_SE_Clothes" }
 		]
 	},
 	"animation3": {
@@ -3495,7 +3507,11 @@
 					{ "x": -39.29 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation3-4": {
 		"slots": {
@@ -6276,7 +6292,12 @@
 					{ "x": -39.29 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes_2" },
+			{ "name": "_SE_Squirting" },
+			{ "time": 1, "name": "_SE_Clothes_2" }
+		]
 	},
 	"animation4": {
 		"slots": {
@@ -9219,7 +9240,11 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation4-5": {
 		"slots": {
@@ -12276,7 +12301,13 @@
 					{ "time": 0.8 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 0.3333, "name": "_Effect_tuo" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation5": {
 		"slots": {
@@ -15325,7 +15356,11 @@
 					{ "time": 2, "value": 5.61 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation5-6": {
 		"slots": {
@@ -18382,7 +18417,13 @@
 					{ "time": 2, "value": 5.61 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 0.6667, "name": "_Effect_tuo" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation6": {
 		"slots": {
@@ -21436,7 +21477,11 @@
 					{ "time": 2, "value": 5.61 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation6-7": {
 		"slots": {
@@ -24491,7 +24536,11 @@
 					{ "time": 2, "value": 5.61 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation7": {
 		"slots": {
@@ -27545,7 +27594,11 @@
 					{ "time": 2, "value": 5.61 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation7-8": {
 		"slots": {
@@ -30745,7 +30798,13 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_LotionGauze" },
+			{ "time": 0.5, "name": "_SE_Semen_fuck_in" },
+			{ "time": 1, "name": "_SE_LotionGauze" }
+		]
 	},
 	"animation8": {
 		"slots": {
@@ -33887,7 +33946,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation8-9": {
 		"slots": {
@@ -37114,7 +37177,12 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Squirting" }
+		]
 	},
 	"animation9": {
 		"slots": {
@@ -40324,7 +40392,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation9-10": {
 		"slots": {
@@ -43556,7 +43628,12 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 0.3333, "name": "_SE_Squirting" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation10": {
 		"slots": {
@@ -46771,7 +46848,11 @@
 					}
 				}
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	}
 }
 }

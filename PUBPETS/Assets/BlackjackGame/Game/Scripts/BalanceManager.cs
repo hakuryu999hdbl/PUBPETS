@@ -57,7 +57,17 @@ namespace Blackjack_Game
             //Debug.Log("黑杰克【赌博/押注】完成，目前储存的余额数量" + _Instance.balance);
 
 
+            if (_Instance.gameManager != null) 
+            {
+                //结算画面的总收益
+                _Instance.gameManager.revenue += value;
+
+            }
+
+
         }
+
+        public GameManager gameManager;
 
 
         public void SetBalance(float value)

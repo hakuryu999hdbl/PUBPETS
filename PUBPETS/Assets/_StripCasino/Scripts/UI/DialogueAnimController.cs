@@ -11,7 +11,7 @@ public class DialogueAnimController : MonoBehaviour
 
     public float ExitTime;
 
-    private void Start()
+    private void OnEnable()
     {
         if (!animator)
             animator = GetComponent<Animator>();

@@ -67,9 +67,9 @@ public class AudioManager : MonoBehaviour
     public AudioClip Jinye_yanxia;
 
 
-    public AudioClip SE_Semen_1_1, SE_Semen_1_2, SE_Semen_1_3, SE_Semen_1_4, SE_Semen_1_5,
+    public AudioClip SE_Semen_1, SE_Semen_1_1, SE_Semen_1_2, SE_Semen_1_3, SE_Semen_1_4, SE_Semen_1_5,
                      SE_Semen_2_1, SE_Semen_2_2, SE_Semen_2_3,
-                     SE_Semen_3_1, SE_Semen_3_2, SE_Semen_3_3,
+                     SE_Semen_3, SE_Semen_3_1, SE_Semen_3_2, SE_Semen_3_3,
 
                      SE_Semen_fuck_in, SE_Semen_fuck_out;
 

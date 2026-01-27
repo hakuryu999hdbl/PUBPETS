@@ -189,7 +189,7 @@ public class FrameEvents : MonoBehaviour
     //抽插声
     public void _SE_Semen_1()
     {
-        switch (Random.Range(0, 5))
+        switch (Random.Range(0, 6))
         {
             case 0:
                 audioS.PlayOneShot(AudioManager.SE_Semen_1_1);
@@ -205,6 +205,10 @@ public class FrameEvents : MonoBehaviour
                 break;
             case 4:
                 audioS.PlayOneShot(AudioManager.SE_Semen_1_5);
+                break;
+
+            case 5:
+                audioS.PlayOneShot(AudioManager.SE_Semen_1);
                 break;
         }
     }
@@ -230,7 +234,7 @@ public class FrameEvents : MonoBehaviour
     //射精声
     public void _SE_Semen_3() 
     {
-        switch (Random.Range(0, 3))
+        switch (Random.Range(0, 4))
         {
             case 0:
                 audioS.PlayOneShot(AudioManager.SE_Semen_3_1);
@@ -240,6 +244,11 @@ public class FrameEvents : MonoBehaviour
                 break;
             case 2:
                 audioS.PlayOneShot(AudioManager.SE_Semen_3_3);
+                break;
+
+
+            case 3:
+                audioS.PlayOneShot(AudioManager.SE_Semen_3);
                 break;
         }
         

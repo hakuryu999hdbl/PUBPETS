@@ -1,13 +1,13 @@
 {
 "skeleton": {
-	"hash": "N8YbUDwNi0k",
+	"hash": "qrZTPnEeOf0",
 	"spine": "4.2.42",
 	"x": -348.8,
 	"y": -4452.92,
 	"width": 6260.38,
 	"height": 6698.6,
 	"images": "./images/",
-	"audio": "./audio"
+	"audio": "../../_StripCasino/Audio/"
 },
 "bones": [
 	{ "name": "root", "x": -27.59, "y": 13.79 },
@@ -886,6 +886,19 @@
 		}
 	}
 ],
+"events": {
+	"_Jinv_xitian_fast1": { "audio": "YYY/Jinv_xitian_fast1.wav" },
+	"_Jinye_tentacle_slow_one": { "audio": "YYY/Jinye_tentacle_slow_one.mp3" },
+	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
+	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
+	"_SE_Lick_1": { "audio": "SE/SE_Lick_1.mp3" },
+	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
+	"_SE_Semen_1": { "audio": "SE/SE_Semen_1_1.wav" },
+	"_SE_Semen_2": { "audio": "SE/SE_Semen_2_1.mp3" },
+	"_SE_Semen_3": { "audio": "SE/SE_Semen_3_1.wav" },
+	"_SE_Squirting": { "audio": "SE/SE_Squirting_1.wav" },
+	"_SE_Water": { "audio": "SE/SE_Water.mp3" }
+},
 "animations": {
 	"animation": {
 		"slots": {
@@ -1540,7 +1553,11 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation1-2": {
 		"slots": {
@@ -2564,7 +2581,12 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation2": {
 		"slots": {
@@ -3325,7 +3347,11 @@
 					{ "time": 2, "y": -4.81 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation2-3": {
 		"slots": {
@@ -4252,7 +4278,13 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1.3333, "name": "_SE_Clothes" }
+		]
 	},
 	"animation3": {
 		"slots": {
@@ -5267,7 +5299,14 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation3-4": {
 		"slots": {
@@ -6375,7 +6414,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation4": {
 		"slots": {
@@ -7505,7 +7552,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Lick_1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation4-5": {
 		"slots": {
@@ -8666,7 +8721,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Lick_1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation5": {
 		"slots": {
@@ -9801,7 +9864,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.3333, "name": "_SE_Lick_1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation5-6": {
 		"slots": {
@@ -11045,7 +11116,17 @@
 					{ "value": 0.1027 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation6": {
 		"slots": {
@@ -12338,7 +12419,17 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation6-7": {
 		"slots": {
@@ -13647,7 +13738,17 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation7": {
 		"slots": {
@@ -14940,7 +15041,17 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_1" },
+			{ "time": 2, "name": "_SE_Semen_1" }
+		]
 	},
 	"animation7-8": {
 		"slots": {
@@ -16345,7 +16456,18 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 1, "name": "_SE_Semen_3" },
+			{ "time": 1.6667, "name": "_SE_Water" },
+			{ "time": 1.9333, "name": "_SE_Water" }
+		]
 	},
 	"animation8": {
 		"slots": {
@@ -17700,7 +17822,16 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 0.6667, "name": "_SE_Water" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation8-9": {
 		"slots": {
@@ -19082,7 +19213,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation9": {
 		"slots": {
@@ -20437,7 +20576,15 @@
 					{ "time": 2 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" }
+		]
 	},
 	"animation9-10": {
 		"slots": {
@@ -22933,7 +23080,18 @@
 					{ "time": 4.0333 }
 				]
 			}
-		}
+		},
+		"events": [
+			{ "name": "_Jinye_tentacle_slow_one" },
+			{ "name": "_SE_Clothes" },
+			{ "name": "_SE_Lick_1" },
+			{ "name": "_SE_Semen_2" },
+			{ "time": 1, "name": "_Jinv_xitian_fast1" },
+			{ "time": 1, "name": "_Jinye_tentacle_slow_one" },
+			{ "time": 2, "name": "_SE_Clothes" },
+			{ "time": 3, "name": "_SE_Water" },
+			{ "time": 3.3333, "name": "_SE_Water" }
+		]
 	},
 	"animation10": {
 		"slots": {

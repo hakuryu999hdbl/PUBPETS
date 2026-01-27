@@ -39,4 +39,14 @@ public class SaveData
     {
         saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
     }
+
+
+
+
+    // ✅ 新增（最简单）
+    public int lastCGGirl = 0; // 0 none, 1 Anto, 2 Hetty, 3 Alice
+    public int lastCGIndex = 0; // 1~10
+
+
 }
+
