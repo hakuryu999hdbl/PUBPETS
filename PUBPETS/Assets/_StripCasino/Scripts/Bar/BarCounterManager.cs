@@ -82,7 +82,7 @@ namespace Blackjack_Game
 
             //选择女荷官界面BGM
             BGM.instance.Stop();
-            BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
+            BGM.instance.AudioPlayBackgroundMusic(11);//暂时通过这个改变音乐
 
             StopWorkButton.SetActive(false);
         }
@@ -468,7 +468,7 @@ namespace Blackjack_Game
             OverDialog();//目前要求消失
 
             Debug.Log("调酒成功！");
-            int reward = currentSpecial != null ? currentSpecial.price : 100;
+            int reward = currentSpecial != null ? currentSpecial.price : Random.Range(100,200);
             BalanceManager.ChangeBalance(reward);
             AddGuest(reward);//营收记录
             startText.gameObject.SetActive(true);
