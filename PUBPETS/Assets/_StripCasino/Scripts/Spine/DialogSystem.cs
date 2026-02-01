@@ -48,7 +48,7 @@ namespace Blackjack_Game
         public GameObject TextButton;
 
         public Image People;
-        public Sprite ShopManager, Andon,Enemy,XXX, Eirik, MimicHades, Doll3, Jeweler,
+        public Sprite ShopManager, Andon, Enemy, XXX, Eirik, MimicHades, Doll3, Jeweler,
                        NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
@@ -196,10 +196,13 @@ namespace Blackjack_Game
                     //开启一天工作
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Japanese/J_StartWork_01"));
 
-                    //离开酒馆前往商店
+                    //前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
 
+                    //离开酒馆获得配方
+                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_01"));
+                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_02"));
 
                     #region  安托日语
 
@@ -381,6 +384,10 @@ namespace Blackjack_Game
                     //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
+
+                    //离开酒馆获得配方
+                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_01"));
+                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_02"));
 
                     #region  安托简中
 
@@ -564,6 +571,10 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
 
+                    //离开酒馆获得配方
+                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_01"));
+                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_02"));
+
 
                     #region  安托繁中
 
@@ -746,7 +757,9 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_English/E_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_English/E_StartShop_02"));
 
-
+                    //离开酒馆获得配方
+                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_01"));
+                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_02"));
 
 
                     #region  安托英语
@@ -930,6 +943,10 @@ namespace Blackjack_Game
                     //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
+
+                    //离开酒馆获得配方
+                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_01"));
+                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_02"));
 
 
                     #region  安托韩语
@@ -2172,45 +2189,27 @@ namespace Blackjack_Game
                     index++;
                     break;
 
-                    #endregion
+                #endregion
+
+
+                #region AVG特殊功能
+                case "ShowRecipe":
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
 
 
 
 
 
-
-                    //case "Girl":
-                    //    text.color = new Color(1.0f, 0.0f, 1.0f, 1.0f);//粉色
-                    //    index++;
-                    //    break;
-
+                   //Background.sprite = Black;// 过场
+                   //People.gameObject.SetActive(false);
+                    index++;
+                    break;
 
 
-                    // case "Green":
-                    //     text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // 绿色（魔族女干部）
-                    //     index++;
-                    //     break;
-                    // case "LightBlue":
-                    //     text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色（艾莉丝）
-                    //     index++;
-                    //     break;
-                    // case "Purple":
-                    //     text.color = new Color(0.7f, 0.3f, 0.7f, 1.0f); // 紫色 (女记者)
-                    //     index++;
-                    //     break;
-
-
-
-                    //case "Over":
-                    //    ChangeStory();//通常对话结束
-                    //    index++;
-                    //    break;
-                    //
-                    //
-                    //case "ReStart":
-                    //    //Spine_FrameEvents.ReStart();//教程结束回主菜单
-                    //    index++;
-                    //    break;
+               #endregion
 
 
 
@@ -2500,14 +2499,16 @@ namespace Blackjack_Game
 
                     break;
 
-                //商人不出现
-                case 10:                  
+                //商人不出现，出现给玩家秘方神秘人
+                case 10:
+                case 12:
+                case 13:
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
                     break;
 
                 //商人出现
-                case 11:                
+                case 11:
                     uiManager.LoadingScene_Shop();
                     break;
 
@@ -2585,7 +2586,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托01）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 1; 
+                        data.lastCGIndex = 1;
 
 
 
@@ -2604,7 +2605,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托02）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 2; 
+                        data.lastCGIndex = 2;
 
 
 
@@ -3269,16 +3270,26 @@ namespace Blackjack_Game
 
         void RandomToShop()
         {
-            if (Random.Range(0, 3) == 0)
+
+
+            switch (Random.Range(0, 1))
             {
-                GameFlowData.nextAVGId = "StartShop_01";//商人不出现
-                uiManager.LoadingScene_Spine();
+                case 0:                  
+                    GameFlowData.nextAVGId = "StartRecipe";//是否购买配方
+                    break;
+
+                case 1:
+                case 2:
+                    GameFlowData.nextAVGId = "StartShop_02";//商人出现
+                    break;
+
+                case 3:
+                    GameFlowData.nextAVGId = "StartShop_01";//商人不出现
+                    break;
+
             }
-            else
-            {
-                GameFlowData.nextAVGId = "StartShop_02";//商人出现
-                uiManager.LoadingScene_Spine();
-            }
+
+            uiManager.LoadingScene_Spine();
         }
 
         #endregion

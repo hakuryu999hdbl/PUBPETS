@@ -26,6 +26,14 @@ namespace Blackjack_Game
             StartWork();//设定为先开始
 
             Dealer_Progress();//读取女荷官进度
+
+
+
+            UnlockRecipe("魔女之吻"); 
+            UnlockRecipe("秘法红石酒");
+
+            RefreshUnlockedRecipesFromSave(); // 读取你已经解锁酒类
+            RefreshUnlockedDrinkIcons();// 图标显示对应酒类
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -275,7 +283,10 @@ namespace Blackjack_Game
             public int price;             // 完成这杯酒后的奖励金
         }
         [Header("特调酒")]
-        public List<SpecialDrink> specialDrinks;
+        public List<SpecialDrink> specialDrinks;//目前全部的特调酒
+        public List<SpecialDrink> unlockedSpecialDrinks = new List<SpecialDrink>();//目前你这个存档已经解锁的酒品
+
+
         private SpecialDrink currentSpecial = null;//是否是随机酒
 
         [System.Serializable]
@@ -301,10 +312,21 @@ namespace Blackjack_Game
             // 50% 概率是随机饮品，50% 概率是特调饮品
             isSpecial = Random.Range(0f, 1f) < 0.5f;
 
-            if (isSpecial && specialDrinks.Count > 0)
+            //如果没有解锁任何特调饮品，那么不允许出现 isSpecial 
+            if (unlockedSpecialDrinks.Count <= 0)
             {
-                currentSpecial = specialDrinks[Random.Range(0, specialDrinks.Count)];
+                isSpecial = false;
+            }
+
+            if (isSpecial && unlockedSpecialDrinks.Count > 0)
+            {
+                //currentSpecial = specialDrinks[Random.Range(0, specialDrinks.Count)];
+                //currentRecipe = new List<string>(currentSpecial.recipe);
+
+                currentSpecial = unlockedSpecialDrinks[Random.Range(0, unlockedSpecialDrinks.Count)];
                 currentRecipe = new List<string>(currentSpecial.recipe);
+
+
                 Debug.Log("顾客点了：" + currentSpecial.name);
 
                 switch (currentSpecial.name)
@@ -374,6 +396,7 @@ namespace Blackjack_Game
         public void OnClickIngredient(string id)
         {
             if (!timeRunning) { return; }//计时开始钱戳物品
+
 
             if (id == currentRecipe[currentIndex])
             {
@@ -503,6 +526,67 @@ namespace Blackjack_Game
         }
 
 
+        [Header("已解锁特调酒图标（按 specialDrinks 顺序对齐）")]
+        public List<GameObject> unlockedDrinkIcons; // size=7，对应 Wine_1~Wine_7
+        public GameObject unlockedDrinkList;//显示和不显示这个列表
+
+        public void RefreshUnlockedRecipesFromSave()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            // 防御：避免 null
+            if (data.unlockedDrinkNames == null)
+                data.unlockedDrinkNames = new List<string>();
+
+            unlockedSpecialDrinks = specialDrinks
+                .Where(d => data.unlockedDrinkNames.Contains(d.name))
+                .ToList();
+
+            Debug.Log($"已解锁特调数量：{unlockedSpecialDrinks.Count}");
+        }//存档内已经解锁的酒类
+
+        public void RefreshUnlockedDrinkIcons()
+        {
+            // 先全部隐藏
+            for (int i = 0; i < unlockedDrinkIcons.Count; i++)
+                unlockedDrinkIcons[i].SetActive(false);
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.unlockedDrinkNames == null)
+                data.unlockedDrinkNames = new List<string>();
+
+            // 点亮已解锁
+            for (int i = 0; i < specialDrinks.Count; i++)
+            {
+                var drink = specialDrinks[i];
+                if (data.unlockedDrinkNames.Contains(drink.name))
+                {
+                    if (i >= 0 && i < unlockedDrinkIcons.Count)
+                        unlockedDrinkIcons[i].SetActive(true);
+                    else
+                        Debug.LogWarning($"图标列表数量不足：special index={i}");
+                }
+            }
+        }//显示存档内已经有的酒类
+
+
+
+        public bool UnlockRecipe(string drinkName)
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            if (data.unlockedDrinkNames == null)
+                data.unlockedDrinkNames = new List<string>();
+
+            if (data.unlockedDrinkNames.Contains(drinkName))
+                return false;
+
+            data.unlockedDrinkNames.Add(drinkName);
+
+            SaveManager.SaveGame(data);              // ✅只传 data
+            RefreshUnlockedRecipesFromSave();
+            return true;
+        }//存入酒品
         #endregion
 
 
@@ -558,6 +642,10 @@ namespace Blackjack_Game
             timeUpPanel.SetActive(true);
             guestCountText.text = guestCount.ToString();
             revenueText.text = revenue.ToString();
+
+            //隐藏列表
+            unlockedDrinkList.SetActive(false);
+
 
             // 可选：暂停游戏等
             //Time.timeScale = 0;

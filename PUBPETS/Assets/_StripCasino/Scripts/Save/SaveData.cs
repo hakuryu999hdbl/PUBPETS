@@ -32,6 +32,9 @@ public class SaveData
     {
         saveName = name;
         saveTime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+
+        //存酒
+        unlockedDrinkNames = new List<string>();
     }
 
     // ✅ 如果你也调用过 new SaveData() 这种无参数形式，也要保留这个：
@@ -46,6 +49,11 @@ public class SaveData
     // ✅ 新增（最简单）
     public int lastCGGirl = 0; // 0 none, 1 Anto, 2 Hetty, 3 Alice
     public int lastCGIndex = 0; // 1~10
+
+
+    //你已经解锁的酒类
+    public List<string> unlockedDrinkNames = new List<string>(); // ✅新增
+
 
 
 }

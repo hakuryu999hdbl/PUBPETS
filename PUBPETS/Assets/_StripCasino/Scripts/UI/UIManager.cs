@@ -149,7 +149,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Anto_CG_01_3";
+            GameFlowData.nextAVGId = "StartRecipe";
             //Load_AVG(2011);
 
 
@@ -176,6 +176,19 @@ namespace Blackjack_Game
                         break;
                     case "StartShop_02":
                         Load_AVG(11);//开始商家界面2（商人出现）
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        break;
+
+
+                    case "StartRecipe":
+                        if (UnityEngine.Random.Range(0,2)==0) 
+                        {
+                            Load_AVG(12);//钱足够购买配方
+                        }
+                        else
+                        {
+                            Load_AVG(13);//钱不足购买配方
+                        }          
                         BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
