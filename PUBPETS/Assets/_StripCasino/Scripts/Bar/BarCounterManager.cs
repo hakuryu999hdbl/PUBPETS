@@ -29,8 +29,7 @@ namespace Blackjack_Game
 
 
 
-            UnlockRecipe("魔女之吻"); 
-            UnlockRecipe("秘法红石酒");
+      
 
             RefreshUnlockedRecipesFromSave(); // 读取你已经解锁酒类
             RefreshUnlockedDrinkIcons();// 图标显示对应酒类
@@ -352,6 +351,15 @@ namespace Blackjack_Game
                     case "狼毒酒":
                         currentDisplayedDialogue = Diagol[7];
                         break;
+                    case "太阳果皮酒":
+                        currentDisplayedDialogue = Diagol[8];
+                        break;
+                    case "森之果酒":
+                        currentDisplayedDialogue = Diagol[9];
+                        break;
+                    case "宵之玫瑰酒":
+                        currentDisplayedDialogue = Diagol[10];
+                        break;
                 }
                 currentDisplayedDialogue.SetActive(true);
 
@@ -432,22 +440,22 @@ namespace Blackjack_Game
                             case "狼毒酒":
                                 ShakerPlane.SetTrigger("Wine_7");
                                 break;
-
+                            case "太阳果皮酒":
+                                ShakerPlane.SetTrigger("Wine_8");
+                                break;
+                            case "森之果酒":
+                                ShakerPlane.SetTrigger("Wine_9");
+                                break;
+                            case "宵之玫瑰酒":
+                                ShakerPlane.SetTrigger("Wine_10");
+                                break;
                         }
                     }
                     else 
                     {
-                        switch (Random.Range(8,14))
+                        switch (Random.Range(11,21))
                         {
-                            case 8:
-                                ShakerPlane.SetTrigger("Wine_8");
-                                break;
-                            case 9:
-                                ShakerPlane.SetTrigger("Wine_9");
-                                break;
-                            case 10:
-                                ShakerPlane.SetTrigger("Wine_10");
-                                break;
+                         
                             case 11:
                                 ShakerPlane.SetTrigger("Wine_11");
                                 break;
@@ -456,6 +464,27 @@ namespace Blackjack_Game
                                 break;
                             case 13:
                                 ShakerPlane.SetTrigger("Wine_13");
+                                break;
+                            case 14:
+                                ShakerPlane.SetTrigger("Wine_14");
+                                break;
+                            case 15:
+                                ShakerPlane.SetTrigger("Wine_15");
+                                break;
+                            case 16:
+                                ShakerPlane.SetTrigger("Wine_16");
+                                break;
+                            case 17:
+                                ShakerPlane.SetTrigger("Wine_17");
+                                break;
+                            case 18:
+                                ShakerPlane.SetTrigger("Wine_18");
+                                break;
+                            case 19:
+                                ShakerPlane.SetTrigger("Wine_19");
+                                break;
+                            case 20:
+                                ShakerPlane.SetTrigger("Wine_20");
                                 break;
 
                         }
@@ -571,22 +600,6 @@ namespace Blackjack_Game
 
 
 
-        public bool UnlockRecipe(string drinkName)
-        {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-            if (data.unlockedDrinkNames.Contains(drinkName))
-                return false;
-
-            data.unlockedDrinkNames.Add(drinkName);
-
-            SaveManager.SaveGame(data);              // ✅只传 data
-            RefreshUnlockedRecipesFromSave();
-            return true;
-        }//存入酒品
         #endregion
 
 

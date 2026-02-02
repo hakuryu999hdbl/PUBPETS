@@ -149,7 +149,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "StartRecipe";
+            //GameFlowData.nextAVGId = "StartRecipe";
             //Load_AVG(2011);
 
 
@@ -181,14 +181,16 @@ namespace Blackjack_Game
 
 
                     case "StartRecipe":
-                        if (UnityEngine.Random.Range(0,2)==0) 
+
+                        if (UnityEngine.Random.Range(0, 2) == 0)
                         {
-                            Load_AVG(12);//钱足够购买配方
+                            Load_AVG(12);//神秘人购买配方
                         }
                         else
                         {
-                            Load_AVG(13);//钱不足购买配方
-                        }          
+                            Load_AVG(13);//珠宝商购买配方
+                        }
+
                         BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
@@ -818,7 +820,7 @@ namespace Blackjack_Game
         Thumbnail_Alice_06, Thumbnail_Alice_07, Thumbnail_Alice_08, Thumbnail_Alice_09, Thumbnail_Alice_10
     );
 
-           
+
             #endregion
 
 
@@ -920,7 +922,7 @@ namespace Blackjack_Game
             }
 
             pageCount = Mathf.CeilToInt(unlockedCount / 6f);
-            pageCount+=2;
+            pageCount += 2;
 
             int currentPage = Mathf.RoundToInt(
                 (target.anchoredPosition.y - topLimit) / step
