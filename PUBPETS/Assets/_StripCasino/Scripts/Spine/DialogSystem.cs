@@ -3274,26 +3274,61 @@ namespace Blackjack_Game
         void RandomToShop()
         {
 
+            bool allUnlocked = IsAllRecipesUnlocked();
 
-            switch (Random.Range(0, 1))
+            int roll = Random.Range(0, 100);
+
+            if (!allUnlocked)
             {
-                case 0:
-                    GameFlowData.nextAVGId = "StartRecipe";//是否购买配方
-                    break;
-
-                case 1:
-                case 2:
-                    GameFlowData.nextAVGId = "StartShop_02";//商人出现
-                    break;
-
-                case 3:
-                    GameFlowData.nextAVGId = "StartShop_01";//商人不出现
-                    break;
-
+                // 还没集满酒：允许配方商店
+                if (roll < 30)
+                {
+                    //配方商人出现
+                    GameFlowData.nextAVGId = "StartRecipe";   // 30%
+                }
+                else if (roll < 70)
+                {
+                    //商人出现
+                    GameFlowData.nextAVGId = "StartShop_02";  // 40%
+                }
+                else
+                {
+                    //无事发生
+                    GameFlowData.nextAVGId = "StartShop_01";  // 30%
+                }
             }
+            else
+            {
+
+                Debug.Log("已经买齐所有酒，不需要再去买配方了");
+
+                // 已集满酒：彻底禁止配方商店
+                if (roll < 60)
+                {
+                    //商人出现
+                    GameFlowData.nextAVGId = "StartShop_02";  // 60%
+                }
+                else
+                {
+                    //无事发生
+                    GameFlowData.nextAVGId = "StartShop_01";  // 40%
+                }
+            }
+
 
             uiManager.LoadingScene_Spine();
         }
+
+        bool IsAllRecipesUnlocked()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            if (data.unlockedDrinkNames == null)
+                return false;
+
+            return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
+        }
+
 
         #endregion
 

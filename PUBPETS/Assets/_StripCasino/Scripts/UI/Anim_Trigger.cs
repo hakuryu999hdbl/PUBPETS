@@ -15,6 +15,9 @@ public class Anim_Trigger : MonoBehaviour
             myButton.onClick.AddListener(OnButtonClick);
         }
     }
+
+
+
     void OnButtonClick()
     {
         if (myButton != null)
@@ -60,6 +63,14 @@ public class Anim_Trigger : MonoBehaviour
     }
 
 
+    public void TimeStop() 
+    {
+        Time.timeScale = 0f;
+    }
+    public void TimeStopOver()
+    {
+        Time.timeScale = 1f;
+    }
 
 
     [Header("便捷切换")]

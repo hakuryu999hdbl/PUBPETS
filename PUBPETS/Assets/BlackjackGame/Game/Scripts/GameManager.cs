@@ -70,21 +70,21 @@ namespace Blackjack_Game
 
                 ChipBox.SetInteger("Situation", 1);//开赌后筹码消失
 
-                TreasureBox.SetActive(true);//宝箱出现
-
-
                 OnPlayerDeal();//玩家下注完毕显示女荷官骚话
             }
             else
             {
                 StartCoroutine(PlayerDeal());
 
+                HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
+
+                isHit = true;//只有要牌才能再让宝箱出现
             }
         }
 
         public void OnClickStand()
         {
-            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -93,7 +93,7 @@ namespace Blackjack_Game
 
         public void OnClickDouble()
         {
-            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -105,7 +105,7 @@ namespace Blackjack_Game
 
         public void OnClickSplit()
         {
-            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
+            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -154,7 +154,30 @@ namespace Blackjack_Game
             }
 
             ChangeGameState(GameState.OnPlay);
+
+            // ✅ 发牌结束后再决定要不要开宝箱
+            ShowTreasureBoxIfAllowed();
         }
+
+        [Header("Treasure / Item UI")]
+        public GameObject TreasureBox;//宝箱按钮
+        public GameObject ItemPanel; // 物品栏面板（你实际名字替换）
+
+        private void HideTreasureAndItemUI()
+        {
+            if (TreasureBox != null) TreasureBox.SetActive(false);
+            if (ItemPanel != null) ItemPanel.SetActive(false);
+        }//统一隐藏宝箱
+
+        private void ShowTreasureBoxIfAllowed()
+        {
+            if (State != GameState.OnPlay) return;
+            if (player.Score == 21) return; // 或 player.HasBlackjack()
+
+            if (TreasureBox != null) TreasureBox.SetActive(true);
+        }//统一出现宝箱（仅有发牌结束/Hit结束两种）
+
+
 
         private IEnumerator PlayerDeal()
         {
@@ -396,7 +419,28 @@ namespace Blackjack_Game
         {
             State = newState;
             _ui.ChangeByGameState(State);
+
+
+            // ✅ 只要不是可操作阶段，一律关宝箱+物品栏
+            if (State == GameState.OnDealing || State == GameState.OnRewards || State == GameState.OnIdle)
+            {
+                HideTreasureAndItemUI();
+                return;
+            }
+
+            // ✅ 回到可操作阶段才允许显示宝箱
+            if (State == GameState.OnPlay && isHit)
+            {
+                Invoke(nameof(ShowTreasureBoxIfAllowed), 1f);
+                isHit = false;
+            }
+
+
         }
+
+
+        //只有Hit可以再次显示宝箱
+        public bool isHit = false;
 
         /// <summary>
         /// 游戏结束时镜头转向女荷官
@@ -410,7 +454,6 @@ namespace Blackjack_Game
 
         public GameObject ChangeViewButon;
 
-        public GameObject TreasureBox;//宝箱
 
         //玩家输/赢判断
         public enum PlayerResult
@@ -425,18 +468,21 @@ namespace Blackjack_Game
         {
 
             HideDialogue();//这个阶段会隐藏之前下筹码的时候的话语
-    
 
+
+            #region   在开牌的瞬间触发
+
+            //均衡徽章
             if (SameScore)
             { 
                 dealer.hand.SetScore(player.Score); 
                 SameScore = false;
                 Sign_SameScore.SetActive(false);
 
-
-              
-
             }//女荷官强制变成玩家点数
+
+
+            //藏宝图残片
             if (SaveScore && player.Score > 21)
             {
                 Debug.Log("【救場：点数超过21，强制削减随机3~5】");
@@ -446,12 +492,59 @@ namespace Blackjack_Game
 
                
 
-            }// 点数超过21，强制削减随机3~5
+            }// 玩家点数超过21，强制削减随机3~5
             SaveScore = false;
             Sign_SaveScore.SetActive(false);
             SaveNumber = 0;//强制清零
 
 
+            //女荷官使用藏宝图残片
+            if (dealer.Score > 21)
+            {
+                Debug.Log("女荷官使用【救場：点数超过21，强制削减随机3~5】");
+            
+                int Dealer_SaveNumber = Random.Range(3, 6);
+            
+                switch (PlayerPrefs.GetInt("language"))
+                {
+                    case 0:
+                        // 日语
+                        Show(5, "ディーラー点数を強制的に-" + Dealer_SaveNumber);
+                        break;
+            
+                    case 1:
+                        // 简体中文
+                        Show(5, "庄家点数强制削减" + Dealer_SaveNumber);
+                        break;
+            
+                    case 2:
+                        // 繁体中文
+                        Show(5, "莊家點數強制削減" + Dealer_SaveNumber);
+                        break;
+            
+                    case 3:
+                        // 英语
+                        Show(5, "Dealer Score -" + Dealer_SaveNumber);
+                        break;
+            
+                    case 4:
+                        // 韩语
+                        Show(5, "주가의 강제적 감소 -" + Dealer_SaveNumber);
+                        break;
+            
+                }
+            
+            
+                dealer.hand.ChangeScore(-Dealer_SaveNumber);
+            
+            
+            
+            }// 玩家点数超过21，强制削减随机3~5
+
+
+           
+
+            #endregion
 
 
 
@@ -514,6 +607,9 @@ namespace Blackjack_Game
 
 
         }
+
+
+
         #endregion
 
 
@@ -917,7 +1013,7 @@ namespace Blackjack_Game
                     data.Item_2 = currentCount;
                     break;
                 case 2:
-                    //均衡法杖
+                    //均衡徽章
                     Item_SameScore();//强制平局
                     currentCount = data.Item_3;
                     currentCount--;
@@ -1386,6 +1482,7 @@ namespace Blackjack_Game
         bool SaveScore = false;
         public GameObject Sign_SaveScore;
         int SaveNumber;
+        public Text Sign_SaveScore_SaveNumber;
         public void Item_SaveScore()
         {
             SaveScore = true;
@@ -1423,6 +1520,8 @@ namespace Blackjack_Game
 
             }
 
+            Sign_SaveScore_SaveNumber.text = "-" + SaveNumber.ToString();//数字展示出来
+
 
         }//点数超过21，强制削减随机3~5
 
@@ -1450,6 +1549,19 @@ namespace Blackjack_Game
             tipText.text = text;
         }
 
+        [Header("女荷官物品被使用提示")]
+        public GameObject Dealer_root; 
+        public Image Dealer_itemImage;
+        public Text Dealer_tipText;
+        public void Dealer_Show(int itemId, string text)
+        {
+            Dealer_root.SetActive(true);
+
+            //if (itemId >= 0 && itemId < List_Item_Image.Count)
+            //    itemImage.sprite = List_Item_Image[itemId];
+
+            Dealer_tipText.text = text;
+        }
 
         #endregion
 

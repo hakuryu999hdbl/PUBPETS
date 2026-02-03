@@ -94,6 +94,8 @@ namespace Blackjack_Game
             StopWorkButton.SetActive(false);
         }
 
+
+
         /// <summary>
         /// 321倒计时
         /// </summary>
@@ -131,6 +133,8 @@ namespace Blackjack_Game
         }
 
         #endregion
+
+
 
         /// <summary>
         /// 客人逐步上前
@@ -244,6 +248,8 @@ namespace Blackjack_Game
 
         #endregion
 
+
+
         /// <summary>
         /// 随机显示顾客要求
         /// </summary>
@@ -309,13 +315,32 @@ namespace Blackjack_Game
             currentSpecial = null;
 
             // 50% 概率是随机饮品，50% 概率是特调饮品
-            isSpecial = Random.Range(0f, 1f) < 0.5f;
+            //isSpecial = Random.Range(0f, 1f) < 0.5f;
+
+
+            //当玩家的特殊酒越多，出现特殊酒的几率也就越大
+
+            int unlockedCount = unlockedSpecialDrinks.Count;
+            int totalCount = specialDrinks.Count;
+
 
             //如果没有解锁任何特调饮品，那么不允许出现 isSpecial 
             if (unlockedSpecialDrinks.Count <= 0)
             {
                 isSpecial = false;
             }
+            else 
+            {
+                //当玩家的特殊酒越多，出现特殊酒的几率也就越大
+                // 1种=40%，全解锁=80%
+                float specialChance = 0.4f + 0.4f * (unlockedCount - 1) / (float)(totalCount - 1);
+                specialChance = Mathf.Clamp01(specialChance);
+
+                isSpecial = Random.value < specialChance;
+            }
+
+
+
 
             if (isSpecial && unlockedSpecialDrinks.Count > 0)
             {
@@ -330,13 +355,13 @@ namespace Blackjack_Game
 
                 switch (currentSpecial.name)
                 {
-                    case "龙炎酒":
+                    case "龙焰酒":
                         currentDisplayedDialogue = Diagol[1];
                         break;
                     case "魔女之吻":
                         currentDisplayedDialogue = Diagol[2];
                         break;
-                    case "精灵树蜂蜜":
+                    case "精灵树蜂蜜酒":
                         currentDisplayedDialogue = Diagol[3];
                         break;
                     case "冰结之息":
@@ -419,13 +444,13 @@ namespace Blackjack_Game
                         //播放酒好了动画
                         switch (currentSpecial.name)
                         {
-                            case "龙炎酒":
+                            case "龙焰酒":
                                 ShakerPlane.SetTrigger("Wine_1");
                                 break;
                             case "魔女之吻":
                                 ShakerPlane.SetTrigger("Wine_2");
                                 break;
-                            case "精灵树蜂蜜":
+                            case "精灵树蜂蜜酒":
                                 ShakerPlane.SetTrigger("Wine_3");
                                 break;
                             case "冰结之息":
