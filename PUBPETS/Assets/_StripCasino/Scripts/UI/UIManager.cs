@@ -149,8 +149,8 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "StartRecipe";
-            //Load_AVG(2011);
+            //GameFlowData.nextAVGId = "Hetty_CG_07_3";
+            //Load_AVG(1091);
 
 
             if (currentScene.name == "Spine")
