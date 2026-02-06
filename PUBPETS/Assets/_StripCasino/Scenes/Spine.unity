@@ -548,8 +548,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 813033750}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.8861}
   m_SizeDelta: {x: 5.9822, y: -1.3623}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -5277,8 +5277,8 @@ RectTransform:
   m_GameObject: {fileID: 666976499}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 40440190}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7532,8 +7532,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1369864161}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.8861}
   m_SizeDelta: {x: 5.9822, y: -1.3623}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -10592,7 +10592,7 @@ RectTransform:
   m_Father: {fileID: 747342756}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -14382,8 +14382,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1002530908}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.8, y: 0}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.8861}
   m_SizeDelta: {x: 5.9822, y: -1.3623}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -18063,15 +18063,7 @@ MonoBehaviour:
   waitCursor: {fileID: 2800000, guid: 6b7da93d5171f4d41b21e0a8daaff924, type: 3}
   DisplayMode_1: {fileID: 0}
   DisplayMode_2: {fileID: 0}
-  isDisplayMode: 0
-  AllowedResizingGameWindow: {fileID: 0}
-  AllowedResizingGameWindow_1: {fileID: 0}
-  AllowedResizingGameWindow_2: {fileID: 0}
-  isAllowedResizingGameWindow: 0
-  WindowedCurrent: {fileID: 0}
-  WindowedCurrentResolution_1: {fileID: 0}
-  WindowedCurrentResolution_2: {fileID: 0}
-  isWindowedCurrentResolution: 0
+  ResolutionsText: {fileID: 0}
   AllowedBackgroundRunning_1: {fileID: 0}
   AllowedBackgroundRunning_2: {fileID: 0}
   isAllowedBackgroundRunning: 0
@@ -18113,10 +18105,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 337413874}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -73.999756, y: -68.63306}
-  m_SizeDelta: {x: 90.8625, y: 92.7331}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 631, y: 280}
+  m_SizeDelta: {x: 90.86255, y: 92.73309}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1998471754
 MonoBehaviour:
@@ -19089,7 +19081,7 @@ RectTransform:
   m_Father: {fileID: 1951822640}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -19334,7 +19326,7 @@ RectTransform:
   m_Father: {fileID: 1916910831}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0.8, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -20009,7 +20001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1964507439358976813
 Transform:
   m_ObjectHideFlags: 0
@@ -21490,6 +21482,7 @@ MonoBehaviour:
   animation_number: 0
   TextButton: {fileID: 7426418186620853652}
   People: {fileID: 4599691317216262253}
+  People_Anim: {fileID: 5469842756559280742}
   ShopManager: {fileID: 21300000, guid: 593a0561ab8581e4d9f08321e4d44ed2, type: 3}
   Andon: {fileID: 21300000, guid: ac8b8b08c61c68d438b805827dd8dc91, type: 3}
   Enemy: {fileID: 21300000, guid: bd622362f2a30f3428b3d147e8155f46, type: 3}

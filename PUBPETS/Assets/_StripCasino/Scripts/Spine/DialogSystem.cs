@@ -48,6 +48,7 @@ namespace Blackjack_Game
         public GameObject TextButton;
 
         public Image People;
+        public Animator People_Anim;
         public Sprite ShopManager, Andon, Enemy, XXX, Eirik, MimicHades, Doll3, Jeweler,
                        NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
@@ -1447,7 +1448,7 @@ namespace Blackjack_Game
 
                     Background.sprite = BarCounter;// 默认是酒馆背景
 
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
 
                     Lose_Black.SetActive(true);//黑色外圈
                     index++;
@@ -1460,7 +1461,7 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     Background.sprite = BarCounter;// 默认是酒馆背景
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
                     index++;
                     break;
                 case "DungeonEntrance":
@@ -1470,7 +1471,7 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     Background.sprite = Background_DungeonEntrance;// 地下城入口
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
                     index++;
                     break;
                 case "DungeonCorridor":
@@ -1480,7 +1481,7 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     Background.sprite = Background_DungeonCorridor;// 地下城走廊
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
                     index++;
                     break;
                 case "Town":
@@ -1490,7 +1491,7 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     Background.sprite = Background_Town;//乡镇
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
                     index++;
                     break;
 
@@ -1518,7 +1519,7 @@ namespace Blackjack_Game
 
                     voiceSource.Stop();
 
-                    People.GetComponent<Animator>().SetBool("Dark", true);
+                    People_Anim.SetBool("Dark", true);
 
                     index++;
                     break;
@@ -1532,7 +1533,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_1;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1545,7 +1546,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_2;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1558,7 +1559,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_3;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1571,7 +1572,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_4;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1585,7 +1586,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = ShopManager;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1598,7 +1599,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Andon;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
                 case "Enemy":
@@ -1610,7 +1611,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Enemy;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
                 case "XXX":
@@ -1622,7 +1623,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = XXX;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
                 case "Eirik":
@@ -1634,7 +1635,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Eirik;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1647,7 +1648,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = MimicHades;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1661,7 +1662,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Doll3;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1674,7 +1675,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Jeweler;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1692,7 +1693,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_Lose;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1706,7 +1707,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_01;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1720,7 +1721,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_02;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1733,7 +1734,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_03;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1747,7 +1748,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_04;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1761,7 +1762,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_05;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1775,7 +1776,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_06;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1788,7 +1789,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_07;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1801,7 +1802,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_08;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1814,7 +1815,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_09;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1827,7 +1828,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_10;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1840,7 +1841,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_11;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1853,7 +1854,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_12;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1867,7 +1868,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_13;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1881,7 +1882,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_14;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1895,7 +1896,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_15;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1909,7 +1910,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_16;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1923,7 +1924,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_17;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1937,7 +1938,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Anto_18;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
                 #endregion
@@ -1954,7 +1955,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_Lose;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1969,7 +1970,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_01;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1983,7 +1984,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_02;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1996,7 +1997,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_03;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2010,7 +2011,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_04;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2024,7 +2025,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_05;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2038,7 +2039,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_06;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2051,7 +2052,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_07;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2064,7 +2065,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Hetty_08;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2083,7 +2084,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_Lose;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2097,7 +2098,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_01;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2110,7 +2111,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_02;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2123,7 +2124,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_03;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2136,7 +2137,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_04;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2149,7 +2150,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_05;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2162,7 +2163,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_06;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2175,7 +2176,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_07;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
@@ -2188,7 +2189,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Alice_08;
-                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    People_Anim.SetBool("Dark", false);
                     index++;
                     break;
 
