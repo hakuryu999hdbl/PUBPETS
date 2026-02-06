@@ -3,26 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-    public class AudioManager_2 : MonoBehaviour
+public class AudioManager_2 : MonoBehaviour
+{
+    public static AudioManager_2 _Instance;
+
+    public AudioClip[] audioClip;
+
+    public AudioSource AudioSource;
+
+    void Start()
     {
-        public static AudioManager_2 _Instance;
-
-        public AudioClip[] audioClip;
-
-        public AudioSource AudioSource;
-
-        void Start()
-        {
-            _Instance = this;
-
-           
-        }
+        _Instance = this;
 
 
-        public static void SoundPlay(int iType)
-        {
-
-            AudioSource aS = _Instance.GetComponent<AudioSource>();
-            aS.PlayOneShot(_Instance.audioClip[iType]);
-        }
     }
+
+
+    public static void SoundPlay(int iType)
+    {
+
+        //AudioSource aS = _Instance.GetComponent<AudioSource>();
+        //aS.PlayOneShot(_Instance.audioClip[iType]);
+        _Instance.AudioSource.PlayOneShot(_Instance.audioClip[iType]);
+    }
+}

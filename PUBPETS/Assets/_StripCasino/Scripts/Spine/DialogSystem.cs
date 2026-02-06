@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
+using JetBrains.Annotations;
 namespace Blackjack_Game
 {
     public class DialogSystem : MonoBehaviour
@@ -1430,10 +1431,7 @@ namespace Blackjack_Game
 
                 //场景    
                 case "Black":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
+                    case_BG();
 
                     Background.sprite = Black;// 过场
                     People.gameObject.SetActive(false);
@@ -1441,57 +1439,32 @@ namespace Blackjack_Game
                     break;
 
                 case "BG_Black":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
+                    case_BG();
 
                     Background.sprite = BarCounter;// 默认是酒馆背景
-
-                    People_Anim.SetBool("Dark", true);
-
                     Lose_Black.SetActive(true);//黑色外圈
                     index++;
                     break;
 
                 case "BG":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
                     Background.sprite = BarCounter;// 默认是酒馆背景
-                    People_Anim.SetBool("Dark", true);
+                    case_BG();
                     index++;
                     break;
                 case "DungeonEntrance":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
                     Background.sprite = Background_DungeonEntrance;// 地下城入口
-                    People_Anim.SetBool("Dark", true);
+                    case_BG();
                     index++;
                     break;
                 case "DungeonCorridor":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
-                    Background.sprite = Background_DungeonCorridor;// 地下城走廊
-                    People_Anim.SetBool("Dark", true);
+                    Background.sprite = Background_DungeonCorridor;// 地下城
+                    case_BG();
                     index++;
                     break;
                 case "Town":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
                     Background.sprite = Background_Town;//乡镇
-                    People_Anim.SetBool("Dark", true);
+                    case_BG();
+
                     index++;
                     break;
 
@@ -1499,12 +1472,9 @@ namespace Blackjack_Game
 
 
                 case "Shop":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
-                    Background.sprite = Background_Shop;
+                    Background.sprite = Background_Shop;//夜间小路
+                    case_BG();
+                    
                     index++;
                     break;
 
@@ -1519,7 +1489,11 @@ namespace Blackjack_Game
 
                     voiceSource.Stop();
 
-                    People_Anim.SetBool("Dark", true);
+
+                    if (People.IsActive())
+                    {
+                        People_Anim.SetBool("Dark", true);
+                    }//只有这里变
 
                     index++;
                     break;
@@ -1685,260 +1659,126 @@ namespace Blackjack_Game
                 #region AVG角色_安托
 
                 case "Anto_Lose":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_Lose;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_01":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_01;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_02":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_02;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_03":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_03;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_04":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_04;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_05":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_05;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_06":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_06;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_07":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_07;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_08":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_08;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_09":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_09;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_10":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_10;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_11":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_11;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
                 case "Anto_12":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_12;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_13":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_13;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_14":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_14;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_15":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_15;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_16":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_16;
-                    People_Anim.SetBool("Dark", false);
-                    index++;
+                    case_Anto();
                     break;
 
 
                 case "Anto_17":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_17;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
 
 
                 case "Anto_18":
-                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                    CleanNameText();
-                    NameObject[1].SetActive(true);
-
-                    AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Anto_18;
-                    People_Anim.SetBool("Dark", false);
+                    case_Anto();
                     index++;
                     break;
                 #endregion
@@ -1947,125 +1787,62 @@ namespace Blackjack_Game
 
 
                 case "Hetty_Lose":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_Lose;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
 
 
                 case "Hetty_01":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_01;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
 
                 case "Hetty_02":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_02;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
                 case "Hetty_03":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_03;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
 
                 case "Hetty_04":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_04;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
 
                 case "Hetty_05":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_05;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
 
                 case "Hetty_06":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_06;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
                 case "Hetty_07":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_07;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
                 case "Hetty_08":
-                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                    CleanNameText();
-                    NameObject[2].SetActive(true);
-
-                    //AntoVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_08;
-                    People_Anim.SetBool("Dark", false);
+                    case_Hetty();
                     index++;
                     break;
 
@@ -2076,120 +1853,57 @@ namespace Blackjack_Game
                 #region AVG角色_爱丽丝
 
                 case "Alice_Lose":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_Lose;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
 
                 case "Alice_01":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_01;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_02":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_02;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_03":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_03;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_04":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_04;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_05":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_05;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_06":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_06;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_07":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_07;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
                 case "Alice_08":
-                    text.color = Color.green; //绿色
-                    CleanNameText();
-                    NameObject[3].SetActive(true);
-
-                    //AliceVoice();
-
-                    People.gameObject.SetActive(true);
                     People.sprite = Alice_08;
-                    People_Anim.SetBool("Dark", false);
+                    case_Alice();
                     index++;
                     break;
 
@@ -2220,6 +1934,70 @@ namespace Blackjack_Game
 
 
             }
+
+            //统合整理AVG角色
+
+
+
+            //统合整理BG
+            void case_BG()
+            {
+                text.color = Color.white;
+                CleanNameText();
+
+                voiceSource.Stop();
+
+                if (People.IsActive()) 
+                {
+                    People_Anim.SetBool("Dark", true);
+                }
+                
+            }
+
+
+            //统合整理Anto
+            void case_Anto()
+            {
+                text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                CleanNameText();
+                NameObject[1].SetActive(true);
+
+                AntoVoice();
+
+                People.gameObject.SetActive(true);         
+                People_Anim.SetBool("Dark", false);
+            }
+
+            //统合整理Hetty
+            void case_Hetty()
+            {
+                text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                CleanNameText();
+                NameObject[2].SetActive(true);
+
+                //AntoVoice();
+
+                People.gameObject.SetActive(true);
+              
+                People_Anim.SetBool("Dark", false);
+            }
+
+
+            //统合整理Alice
+            void case_Alice()
+            {
+                text.color = Color.green; //绿色
+                CleanNameText();
+                NameObject[3].SetActive(true);
+
+                //AliceVoice();
+
+                People.gameObject.SetActive(true);
+               
+                People_Anim.SetBool("Dark", false);
+            }
+
+
 
 
             int letter = 0;

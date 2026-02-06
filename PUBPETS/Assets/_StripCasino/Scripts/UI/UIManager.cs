@@ -27,6 +27,15 @@ namespace Blackjack_Game
         public GameObject CG_Thumbnail_Menu;
         private void Start()
         {
+            GameFlowData.EnsureInit();
+            if (string.IsNullOrEmpty(GameFlowData.nextAVGId))
+            {
+                //Debug.LogError("❌ nextAVGId 未初始化，阻止 AVG 显示");
+                AudioManager_2.SoundPlay(4);
+                return;
+            }
+
+
             Scene currentScene = SceneManager.GetActiveScene(); // 获取当前场景
             if (currentScene.name == "Lobby")
             {
@@ -139,6 +148,7 @@ namespace Blackjack_Game
                 //播放AV媒介
                 switch (GameFlowData.nextAVGId)
                 {
+                   
                     case "StartStory_01":
                         Load_AVG(1);//开始剧情
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -1623,13 +1633,10 @@ namespace Blackjack_Game
 
 
 
-
-
         public void Load_AVG(int Number)
         {
 
             dialog.animation_number = Number;
-            dialog.gameObject.SetActive(true);
             AVG.SetActive(true);
         }
 
