@@ -499,47 +499,47 @@ namespace Blackjack_Game
 
 
             //女荷官使用藏宝图残片
-            if (dealer.Score > 21)
-            {
-                Debug.Log("女荷官使用【救場：点数超过21，强制削减随机3~5】");
-            
-                int Dealer_SaveNumber = Random.Range(3, 6);
-            
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Dealer_Show(5, "ディーラー点数を強制的に-" + Dealer_SaveNumber);
-                        break;
-            
-                    case 1:
-                        // 简体中文
-                        Dealer_Show(5, "庄家点数强制削减" + Dealer_SaveNumber);
-                        break;
-            
-                    case 2:
-                        // 繁体中文
-                        Dealer_Show(5, "莊家點數強制削減" + Dealer_SaveNumber);
-                        break;
-            
-                    case 3:
-                        // 英语
-                        Dealer_Show(5, "Dealer Score -" + Dealer_SaveNumber);
-                        break;
-            
-                    case 4:
-                        // 韩语
-                        Dealer_Show(5, "주가의 강제적 감소 -" + Dealer_SaveNumber);
-                        break;
-            
-                }
-            
-            
-                dealer.hand.ChangeScore(-Dealer_SaveNumber);
-            
-            
-            
-            }// 玩家点数超过21，强制削减随机3~5
+            //if (dealer.Score > 21)
+            //{
+            //    Debug.Log("女荷官使用【救場：点数超过21，强制削减随机3~5】");
+            //
+            //    int Dealer_SaveNumber = Random.Range(3, 6);
+            //
+            //    switch (PlayerPrefs.GetInt("language"))
+            //    {
+            //        case 0:
+            //            // 日语
+            //            Dealer_Show(5, "ディーラー点数を強制的に-" + Dealer_SaveNumber);
+            //            break;
+            //
+            //        case 1:
+            //            // 简体中文
+            //            Dealer_Show(5, "庄家点数强制削减" + Dealer_SaveNumber);
+            //            break;
+            //
+            //        case 2:
+            //            // 繁体中文
+            //            Dealer_Show(5, "莊家點數強制削減" + Dealer_SaveNumber);
+            //            break;
+            //
+            //        case 3:
+            //            // 英语
+            //            Dealer_Show(5, "Dealer Score -" + Dealer_SaveNumber);
+            //            break;
+            //
+            //        case 4:
+            //            // 韩语
+            //            Dealer_Show(5, "주가의 강제적 감소 -" + Dealer_SaveNumber);
+            //            break;
+            //
+            //    }
+            //
+            //
+            //    dealer.hand.ChangeScore(-Dealer_SaveNumber);
+            //
+            //
+            //
+            //}// 玩家点数超过21，强制削减随机3~5
 
 
            
