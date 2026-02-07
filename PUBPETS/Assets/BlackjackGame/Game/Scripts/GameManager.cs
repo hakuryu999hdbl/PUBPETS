@@ -571,6 +571,17 @@ namespace Blackjack_Game
         public List<GameObject> Anto_SmallDealDialogues = new List<GameObject>();
 
 
+        [Header("[安托发情]玩家下注")]
+        public List<GameObject> Anto_LewdSound_DealDialogues = new List<GameObject>();
+
+        [Header("[安托发情]玩家赢一局垃圾话")]
+        public List<GameObject> Anto_LewdSound_PlayerWinDialogues = new List<GameObject>();
+
+        [Header("[安托发情]玩家输一局垃圾话")]
+        public List<GameObject> Anto_LewdSound_PlayerLoseDialogues = new List<GameObject>();
+
+
+
         [Header("[赫蒂]对局开始垃圾话")]
         public List<GameObject> Hetty_StartDialogues = new List<GameObject>();
 
@@ -585,6 +596,17 @@ namespace Blackjack_Game
 
         [Header("[赫蒂]玩家的筹码小")]
         public List<GameObject> Hetty_SmallDealDialogues = new List<GameObject>();
+
+
+        [Header("[赫蒂发情]玩家下注")]
+        public List<GameObject> Hetty_LewdSound_DealDialogues = new List<GameObject>();
+
+        [Header("[赫蒂发情]玩家赢一局垃圾话")]
+        public List<GameObject> Hetty_LewdSound_PlayerWinDialogues = new List<GameObject>();
+
+        [Header("[赫蒂发情]玩家输一局垃圾话")]
+        public List<GameObject> Hetty_LewdSound_PlayerLoseDialogues = new List<GameObject>();
+
 
 
 
@@ -604,6 +626,17 @@ namespace Blackjack_Game
         public List<GameObject> Alice_SmallDealDialogues = new List<GameObject>();
 
 
+        [Header("[爱丽丝发情]玩家下注")]
+        public List<GameObject> Alice_LewdSound_DealDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝发情]玩家赢一局垃圾话")]
+        public List<GameObject> Alice_LewdSound_PlayerWinDialogues = new List<GameObject>();
+
+        [Header("[爱丽丝发情]玩家输一局垃圾话")]
+        public List<GameObject> Alice_LewdSound_PlayerLoseDialogues = new List<GameObject>();
+
+
+
         private GameObject currentDisplayedDialogue;
 
 
@@ -613,8 +646,12 @@ namespace Blackjack_Game
             PlayerWin,
             PlayerLose,
             BigDeal,
-            SmallDeal
+            SmallDeal,
+            LewdSoundDeal,
+            LewdSoundPlayerWin,
+            LewdSoundPlayerLose
         }
+
 
 
         void ShowDialogue(List<GameObject> dialogueList)
@@ -649,6 +686,9 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Anto_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Anto_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Anto_SmallDealDialogues;
+                        case DialogueEvent.LewdSoundDeal: return Anto_LewdSound_DealDialogues;
+                        case DialogueEvent.LewdSoundPlayerWin: return Anto_LewdSound_PlayerWinDialogues;
+                        case DialogueEvent.LewdSoundPlayerLose: return Anto_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;//结算画面女荷官
                     break;
@@ -661,6 +701,9 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Hetty_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Hetty_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Hetty_SmallDealDialogues;
+                        case DialogueEvent.LewdSoundDeal: return Hetty_LewdSound_DealDialogues;
+                        case DialogueEvent.LewdSoundPlayerWin: return Hetty_LewdSound_PlayerWinDialogues;
+                        case DialogueEvent.LewdSoundPlayerLose: return Hetty_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;//结算画面女荷官
                     break;
@@ -673,6 +716,9 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Alice_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Alice_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Alice_SmallDealDialogues;
+                        case DialogueEvent.LewdSoundDeal: return Alice_LewdSound_DealDialogues;
+                        case DialogueEvent.LewdSoundPlayerWin: return Alice_LewdSound_PlayerWinDialogues;
+                        case DialogueEvent.LewdSoundPlayerLose: return Alice_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;//结算画面女荷官
                     break;
@@ -705,33 +751,61 @@ namespace Blackjack_Game
         void OnPlayerWin()
         {
             // 玩家赢
-            ShowDialogue(GetDialogueList(DialogueEvent.PlayerWin));
+            if (dealerAnimator.GetInteger("Undress") >= 4) //女荷官是否进入发情状态
+            {
+                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundPlayerWin));
+            }
+            else
+            {
+                ShowDialogue(GetDialogueList(DialogueEvent.PlayerWin));
+            }
+
         }
 
         void OnPlayerLose()
         {
             // 玩家输
-            ShowDialogue(GetDialogueList(DialogueEvent.PlayerLose));
-        }
-
-        void OnPlayerDeal() 
-        {
-            HideDialogue();//防止上面的话还没说完
-
-            bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
-
-
-            if (isBigDeal)
+            if (dealerAnimator.GetInteger("Undress") >= 4) //女荷官是否进入发情状态
             {
-                //玩家下大注
-                ShowDialogue(GetDialogueList(DialogueEvent.BigDeal));
+                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundPlayerLose));
             }
             else
             {
-                //玩家下小注
-                ShowDialogue(GetDialogueList(DialogueEvent.SmallDeal));
+                ShowDialogue(GetDialogueList(DialogueEvent.PlayerLose));
             }
-            
+
+        }
+
+        void OnPlayerDeal()
+        {
+            HideDialogue();//防止上面的话还没说完
+
+
+            if (dealerAnimator.GetInteger("Undress") >= 4) //女荷官是否进入发情状态
+            {
+                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundDeal));
+            }
+            else
+            {
+                bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
+
+
+                if (isBigDeal)
+                {
+                    //玩家下大注
+                    ShowDialogue(GetDialogueList(DialogueEvent.BigDeal));
+                }
+                else
+                {
+                    //玩家下小注
+                    ShowDialogue(GetDialogueList(DialogueEvent.SmallDeal));
+                }
+
+            }
+
+
+
+
         }
 
         #endregion
@@ -1241,7 +1315,7 @@ namespace Blackjack_Game
 
 
 
-            dealerAnimator.SetInteger("Undress", 0); // 重置参数防止连播
+            //dealerAnimator.SetInteger("Undress", 0); // 重置参数防止连播
             isTransitioning = false;
         }
 
