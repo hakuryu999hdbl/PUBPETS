@@ -70,21 +70,21 @@ namespace Blackjack_Game
 
                 ChipBox.SetInteger("Situation", 1);//开赌后筹码消失
 
+                TreasureBox.SetActive(true);//宝箱出现
+
+
                 OnPlayerDeal();//玩家下注完毕显示女荷官骚话
             }
             else
             {
                 StartCoroutine(PlayerDeal());
 
-                HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
-
-                isHit = true;//只有要牌才能再让宝箱出现
             }
         }
 
         public void OnClickStand()
         {
-            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -93,7 +93,7 @@ namespace Blackjack_Game
 
         public void OnClickDouble()
         {
-            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -105,7 +105,7 @@ namespace Blackjack_Game
 
         public void OnClickSplit()
         {
-            HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
+            TreasureBox.SetActive(false); // ✅ 按下瞬间隐藏
             PeekNextCard.gameObject.SetActive(false);
             PeekSecondNextCard.gameObject.SetActive(false);
 
@@ -154,30 +154,7 @@ namespace Blackjack_Game
             }
 
             ChangeGameState(GameState.OnPlay);
-
-            // ✅ 发牌结束后再决定要不要开宝箱
-            ShowTreasureBoxIfAllowed();
         }
-
-        [Header("Treasure / Item UI")]
-        public GameObject TreasureBox;//宝箱按钮
-        public GameObject ItemPanel; // 物品栏面板（你实际名字替换）
-
-        private void HideTreasureAndItemUI()
-        {
-            if (TreasureBox != null) TreasureBox.SetActive(false);
-            if (ItemPanel != null) ItemPanel.SetActive(false);
-        }//统一隐藏宝箱
-
-        private void ShowTreasureBoxIfAllowed()
-        {
-            if (State != GameState.OnPlay) return;
-            if (player.Score == 21) return; // 或 player.HasBlackjack()
-
-            if (TreasureBox != null) TreasureBox.SetActive(true);
-        }//统一出现宝箱（仅有发牌结束/Hit结束两种）
-
-
 
         private IEnumerator PlayerDeal()
         {
@@ -419,28 +396,7 @@ namespace Blackjack_Game
         {
             State = newState;
             _ui.ChangeByGameState(State);
-
-
-            // ✅ 只要不是可操作阶段，一律关宝箱+物品栏
-            if (State == GameState.OnDealing || State == GameState.OnRewards || State == GameState.OnIdle)
-            {
-                HideTreasureAndItemUI();
-                return;
-            }
-
-            // ✅ 回到可操作阶段才允许显示宝箱
-            if (State == GameState.OnPlay && isHit)
-            {
-                Invoke(nameof(ShowTreasureBoxIfAllowed), 1f);
-                isHit = false;
-            }
-
-
         }
-
-
-        //只有Hit可以再次显示宝箱
-        public bool isHit = false;
 
         /// <summary>
         /// 游戏结束时镜头转向女荷官
@@ -454,6 +410,7 @@ namespace Blackjack_Game
 
         public GameObject ChangeViewButon;
 
+        public GameObject TreasureBox;//宝箱
 
         //玩家输/赢判断
         public enum PlayerResult
@@ -468,85 +425,15 @@ namespace Blackjack_Game
         {
 
             HideDialogue();//这个阶段会隐藏之前下筹码的时候的话语
+    
 
-
-            #region   在开牌的瞬间触发
-
-            //均衡徽章
-            if (SameScore)
-            { 
-                dealer.hand.SetScore(player.Score); 
-                SameScore = false;
-                Sign_SameScore.SetActive(false);
-
-            }//女荷官强制变成玩家点数
-
-
-            //藏宝图残片
+            if (SameScore) { dealer.hand.SetScore(player.Score); SameScore = false; }//女荷官强制变成玩家点数
             if (SaveScore && player.Score > 21)
             {
                 Debug.Log("【救場：点数超过21，强制削减随机3~5】");
-
-
-                player.hand.ChangeScore(-SaveNumber);
-
-               
-
-            }// 玩家点数超过21，强制削减随机3~5
+                player.hand.ChangeScore(-Random.Range(3, 6));
+            }// 点数超过21，强制削减随机3~5
             SaveScore = false;
-            Sign_SaveScore.SetActive(false);
-            SaveNumber = 0;//强制清零
-
-
-            //女荷官使用藏宝图残片
-            //if (dealer.Score > 21)
-            //{
-            //    Debug.Log("女荷官使用【救場：点数超过21，强制削减随机3~5】");
-            //
-            //    int Dealer_SaveNumber = Random.Range(3, 6);
-            //
-            //    switch (PlayerPrefs.GetInt("language"))
-            //    {
-            //        case 0:
-            //            // 日语
-            //            Dealer_Show(5, "ディーラー点数を強制的に-" + Dealer_SaveNumber);
-            //            break;
-            //
-            //        case 1:
-            //            // 简体中文
-            //            Dealer_Show(5, "庄家点数强制削减" + Dealer_SaveNumber);
-            //            break;
-            //
-            //        case 2:
-            //            // 繁体中文
-            //            Dealer_Show(5, "莊家點數強制削減" + Dealer_SaveNumber);
-            //            break;
-            //
-            //        case 3:
-            //            // 英语
-            //            Dealer_Show(5, "Dealer Score -" + Dealer_SaveNumber);
-            //            break;
-            //
-            //        case 4:
-            //            // 韩语
-            //            Dealer_Show(5, "주가의 강제적 감소 -" + Dealer_SaveNumber);
-            //            break;
-            //
-            //    }
-            //
-            //
-            //    dealer.hand.ChangeScore(-Dealer_SaveNumber);
-            //
-            //
-            //
-            //}// 玩家点数超过21，强制削减随机3~5
-
-
-           
-
-            #endregion
-
-
 
             StartCoroutine(ShowRandomGuestsSequentially());//展示客人骚话
 
@@ -607,9 +494,6 @@ namespace Blackjack_Game
 
 
         }
-
-
-
         #endregion
 
 
@@ -687,17 +571,6 @@ namespace Blackjack_Game
         public List<GameObject> Anto_SmallDealDialogues = new List<GameObject>();
 
 
-        [Header("[安托发情]玩家下注")]
-        public List<GameObject> Anto_LewdSound_DealDialogues = new List<GameObject>();
-
-        [Header("[安托发情]玩家赢一局垃圾话")]
-        public List<GameObject> Anto_LewdSound_PlayerWinDialogues = new List<GameObject>();
-
-        [Header("[安托发情]玩家输一局垃圾话")]
-        public List<GameObject> Anto_LewdSound_PlayerLoseDialogues = new List<GameObject>();
-
-
-
         [Header("[赫蒂]对局开始垃圾话")]
         public List<GameObject> Hetty_StartDialogues = new List<GameObject>();
 
@@ -712,17 +585,6 @@ namespace Blackjack_Game
 
         [Header("[赫蒂]玩家的筹码小")]
         public List<GameObject> Hetty_SmallDealDialogues = new List<GameObject>();
-
-
-        [Header("[赫蒂发情]玩家下注")]
-        public List<GameObject> Hetty_LewdSound_DealDialogues = new List<GameObject>();
-
-        [Header("[赫蒂发情]玩家赢一局垃圾话")]
-        public List<GameObject> Hetty_LewdSound_PlayerWinDialogues = new List<GameObject>();
-
-        [Header("[赫蒂发情]玩家输一局垃圾话")]
-        public List<GameObject> Hetty_LewdSound_PlayerLoseDialogues = new List<GameObject>();
-
 
 
 
@@ -742,16 +604,6 @@ namespace Blackjack_Game
         public List<GameObject> Alice_SmallDealDialogues = new List<GameObject>();
 
 
-        [Header("[爱丽丝发情]玩家下注")]
-        public List<GameObject> Alice_LewdSound_DealDialogues = new List<GameObject>();
-
-        [Header("[爱丽丝发情]玩家赢一局垃圾话")]
-        public List<GameObject> Alice_LewdSound_PlayerWinDialogues = new List<GameObject>();
-
-        [Header("[爱丽丝发情]玩家输一局垃圾话")]
-        public List<GameObject> Alice_LewdSound_PlayerLoseDialogues = new List<GameObject>();
-
-
         private GameObject currentDisplayedDialogue;
 
 
@@ -761,10 +613,7 @@ namespace Blackjack_Game
             PlayerWin,
             PlayerLose,
             BigDeal,
-            SmallDeal,
-            LewdSoundDeal,
-            LewdSoundPlayerWin,
-            LewdSoundPlayerLose
+            SmallDeal
         }
 
 
@@ -782,7 +631,7 @@ namespace Blackjack_Game
 
             //Invoke("HideDialogue", 3f); // 3秒后隐藏
 
-            ChipBox.SetInteger("Situation", 0);//弹出筹码
+            ChipBox.SetInteger("Situation", 0);//弹出
 
 
         }//显示女荷官垃圾话
@@ -800,9 +649,6 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Anto_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Anto_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Anto_SmallDealDialogues;
-                        case DialogueEvent.LewdSoundDeal: return Anto_LewdSound_DealDialogues;
-                        case DialogueEvent.LewdSoundPlayerWin: return Anto_LewdSound_PlayerWinDialogues;
-                        case DialogueEvent.LewdSoundPlayerLose: return Anto_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;//结算画面女荷官
                     break;
@@ -815,9 +661,6 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Hetty_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Hetty_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Hetty_SmallDealDialogues;
-                        case DialogueEvent.LewdSoundDeal: return Hetty_LewdSound_DealDialogues;
-                        case DialogueEvent.LewdSoundPlayerWin: return Hetty_LewdSound_PlayerWinDialogues;
-                        case DialogueEvent.LewdSoundPlayerLose: return Hetty_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;//结算画面女荷官
                     break;
@@ -830,9 +673,6 @@ namespace Blackjack_Game
                         case DialogueEvent.PlayerLose: return Alice_PlayerLoseDialogues;
                         case DialogueEvent.BigDeal: return Alice_BigDealDialogues;
                         case DialogueEvent.SmallDeal: return Alice_SmallDealDialogues;
-                        case DialogueEvent.LewdSoundDeal: return Alice_LewdSound_DealDialogues;
-                        case DialogueEvent.LewdSoundPlayerWin: return Alice_LewdSound_PlayerWinDialogues;
-                        case DialogueEvent.LewdSoundPlayerLose: return Alice_LewdSound_PlayerLoseDialogues;
                     }
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;//结算画面女荷官
                     break;
@@ -865,68 +705,40 @@ namespace Blackjack_Game
         void OnPlayerWin()
         {
             // 玩家赢
-            if (dealerAnimator.GetInteger("Undress") > 4) //女荷官是否进入发情状态
-            {
-                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundPlayerWin));
-            }
-            else 
-            {
-                ShowDialogue(GetDialogueList(DialogueEvent.PlayerWin));
-            }
-                
+            ShowDialogue(GetDialogueList(DialogueEvent.PlayerWin));
         }
 
         void OnPlayerLose()
         {
             // 玩家输
-            if (dealerAnimator.GetInteger("Undress") > 4) //女荷官是否进入发情状态
-            {
-                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundPlayerLose));
-            }
-            else 
-            {
-                ShowDialogue(GetDialogueList(DialogueEvent.PlayerLose));
-            }
-                
+            ShowDialogue(GetDialogueList(DialogueEvent.PlayerLose));
         }
 
         void OnPlayerDeal() 
         {
             HideDialogue();//防止上面的话还没说完
 
+            bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
 
-            if (dealerAnimator.GetInteger("Undress") > 4) //女荷官是否进入发情状态
+
+            if (isBigDeal)
             {
-                ShowDialogue(GetDialogueList(DialogueEvent.LewdSoundDeal));
+                //玩家下大注
+                ShowDialogue(GetDialogueList(DialogueEvent.BigDeal));
             }
-            else 
+            else
             {
-                bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
-
-
-                if (isBigDeal)
-                {
-                    //玩家下大注
-                    ShowDialogue(GetDialogueList(DialogueEvent.BigDeal));
-                }
-                else
-                {
-                    //玩家下小注
-                    ShowDialogue(GetDialogueList(DialogueEvent.SmallDeal));
-                }
-
+                //玩家下小注
+                ShowDialogue(GetDialogueList(DialogueEvent.SmallDeal));
             }
-
-
-
-
+            
         }
 
         #endregion
 
 
         /// <summary>
-        /// 筹码栏
+        /// 物品栏和筹码栏
         /// </summary>
         #region
         [Header("筹码栏")]
@@ -1013,7 +825,7 @@ namespace Blackjack_Game
                     data.Item_2 = currentCount;
                     break;
                 case 2:
-                    //均衡徽章
+                    //均衡法杖
                     Item_SameScore();//强制平局
                     currentCount = data.Item_3;
                     currentCount--;
@@ -1090,36 +902,6 @@ namespace Blackjack_Game
             PeekCard.gameObject.SetActive(true);
             PeekCard.mesh = nextCard.GetMesh();
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(4, "ディーラーの伏せ札を見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(4, "查看庄家盖牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(4, "查看莊家蓋牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(4, "Reveal Dealer's Hole Card");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(4, "딜러의 히든 카드 확인");
-                    break;
-
-            }
-
-
         }//看女荷官的盖牌
 
         [Header("展示牌")]
@@ -1143,37 +925,7 @@ namespace Blackjack_Game
             PeekNextCard.gameObject.SetActive(true);
             PeekNextCard.mesh = nextCard.GetMesh();
 
-
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(1, "山札の次のカードを見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(1, "查看牌堆下一张牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(1, "查看牌堆下一張牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(1, "Reveal Next Card in Deck");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(1, "덱의 다음 카드 확인");
-                    break;
-
-            }
-
-
+           
         }//看你的下一张卡
 
 
@@ -1192,35 +944,6 @@ namespace Blackjack_Game
             PeekSecondNextCard.mesh = nextCard.GetMesh();
 
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(7, "山札の二枚目を見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(7, "查看牌堆下下张牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(7, "查看牌堆下下張牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(7, "Reveal Second Card in Deck");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(7, "덱의 두 번째 카드 확인");
-                    break;
-
-            }
-
         }//看你的下一张卡
 
 
@@ -1230,68 +953,10 @@ namespace Blackjack_Game
             if (Random.Range(0, 2) == 0)
             {
                 player.hand.ChangeScore(-1);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(6, "プレイヤーの点数 -1");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(6, "玩家点数 -1");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(6, "玩家點數 -1");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(6, "Dealer Score -1");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(6, "딜러 점수 -1");
-                        break;
-
-                }
             }
             else
             {
                 player.hand.ChangeScore(1);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(6, "プレイヤーの点数 +1");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(6, "玩家点数 +1");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(6, "玩家點數 +1");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(6, "Dealer Score +1");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(6, "딜러 점수 +1");
-                        break;
-
-                }
             }
         }//修改你的点数
 
@@ -1300,69 +965,10 @@ namespace Blackjack_Game
             if (Random.Range(0, 2) == 0)
             {
                 dealer.hand.ChangeScore(-1);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(0, "ディーラーの点数 -1");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(0, "庄家点数 -1");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(0, "莊家點數 -1");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(0, "Player Score -1");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(0, "딜러 점수 -1");
-                        break;
-
-                }  
-
             }
             else
             {
                 dealer.hand.ChangeScore(1);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(0, "ディーラーの点数 +1");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(0, "庄家点数 +1");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(0, "莊家點數 +1");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(0, "Dealer Score +1");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(0, "플레이어 점수 +1");
-                        break;
-
-                }
             }
 
 
@@ -1374,196 +980,28 @@ namespace Blackjack_Game
             if (Random.Range(0, 2) == 0)
             {
                 player.hand.ChangeScore(player.Score);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(4, "プレイヤーの点数が2倍");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(4, "玩家点数翻倍");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(4, "玩家點數翻倍");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(4, "Player Score Doubled");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(4, "플레이어 점수 2배");
-                        break;
-
-                }
             }
             else
             {
                 dealer.hand.ChangeScore(dealer.Score);
-
-                switch (PlayerPrefs.GetInt("language"))
-                {
-                    case 0:
-                        // 日语
-                        Show(4, "ディーラー点数2倍");
-                        break;
-
-                    case 1:
-                        // 简体中文
-                        Show(4, "庄家点数翻倍");
-                        break;
-
-                    case 2:
-                        // 繁体中文
-                        Show(4, "莊家點數翻倍");
-                        break;
-
-                    case 3:
-                        // 英语
-                        Show(4, "Dealer Score Doubled");
-                        break;
-
-                    case 4:
-                        // 韩语
-                        Show(4, "딜러 점수 2배");
-                        break;
-
-                }
             }
 
         }//双方随机一方双倍
 
         bool SameScore = false;
-        public GameObject Sign_SameScore;
         public void Item_SameScore()
         {
             SameScore = true;
-            Sign_SameScore.SetActive(true);
-
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(2, "ディーラーの点数をプレイヤーと同じにする");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(2, "庄家强制变成玩家点数");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(2, "莊家強制變成玩家點數");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(2, "Dealer Score Equals Player Score");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(2, "딜러 점수를 플레이어와 동일하게 변경");
-                    break;
-
-            }
-
-
         }//强制平局
 
         bool SaveScore = false;
-        public GameObject Sign_SaveScore;
-        int SaveNumber;
-        public Text Sign_SaveScore_SaveNumber;
         public void Item_SaveScore()
         {
             SaveScore = true;
-            Sign_SaveScore.SetActive(true);
-
-
-            SaveNumber = Random.Range(3, 6);
-
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(5, "プレイヤー点数を強制的に-" + SaveNumber);
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(5, "玩家点数强制削减" + SaveNumber);
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(5, "玩家點數強制削減" + SaveNumber);
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(5, "Player Score -" + SaveNumber);
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(5, "플레이어 점수 강제 -" + SaveNumber);
-                    break;
-
-            }
-
-            Sign_SaveScore_SaveNumber.text = "-" + SaveNumber.ToString();//数字展示出来
-
-
         }//点数超过21，强制削减随机3~5
 
         #endregion
 
-
-        /// <summary>
-        /// 物品被使用提示
-        /// </summary>
-        #region
-        [Header("物品被使用提示")]
-        public GameObject root;                 // 整个提示面板（用于SetActive）
-        public Image itemImage;
-        public Text tipText;                    // 老版Text
-        public List<Sprite> List_Item_Image; // 8个图片对象，对应物品0~7
-
-
-        public void Show(int itemId, string text)
-        {
-            root.SetActive(true);
-
-            if (itemId >= 0 && itemId < List_Item_Image.Count)
-                itemImage.sprite = List_Item_Image[itemId];
-
-            tipText.text = text;
-        }
-
-        [Header("女荷官物品被使用提示")]
-        public GameObject Dealer_root; 
-        public Image Dealer_itemImage;
-        public Text Dealer_tipText;
-        public void Dealer_Show(int itemId, string text)
-        {
-            Dealer_root.SetActive(true);
-
-            //if (itemId >= 0 && itemId < List_Item_Image.Count)
-            //    itemImage.sprite = List_Item_Image[itemId];
-
-            Dealer_tipText.text = text;
-        }
-
-        #endregion
 
 
         /// <summary>
@@ -1618,12 +1056,6 @@ namespace Blackjack_Game
                     Progress = data.antoProgress;
                     currentDealer = DealerType.Anto;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;
-
-                    //选择女荷官界面BGM
-                    BGM.instance.Stop();
-                    BGM.instance.AudioPlayBackgroundMusic(2);
-
-
                     break;
 
                 case "VSHetty":
@@ -1631,12 +1063,6 @@ namespace Blackjack_Game
                     Progress = data.hettyProgress;
                     currentDealer = DealerType.Hetty;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;
-
-                    //选择女荷官界面BGM
-                    BGM.instance.Stop();
-                    BGM.instance.AudioPlayBackgroundMusic(8);
-
-
                     break;
 
                 case "VSAlice":
@@ -1644,12 +1070,6 @@ namespace Blackjack_Game
                     Progress = data.aliceProgress;
                     currentDealer = DealerType.Alice;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;
-
-                    //选择女荷官界面BGM
-                    BGM.instance.Stop();
-                    BGM.instance.AudioPlayBackgroundMusic(10);
-
-
                     break;
 
 
@@ -1736,7 +1156,7 @@ namespace Blackjack_Game
             UIManager.LoadingScene_BJ_Mobile();
         }
 
-        [Header("女荷官动画")]
+        [Header("安托动画")]
         [SerializeField] Animator dealerAnimator;
         public Animator antoAnimator, hettyAnimator, aliceAnimator;
 
@@ -1803,7 +1223,7 @@ namespace Blackjack_Game
 
 
 
-            //dealerAnimator.SetInteger("Undress", 0); // 重置参数防止连播
+            dealerAnimator.SetInteger("Undress", 0); // 重置参数防止连播
             isTransitioning = false;
         }
 

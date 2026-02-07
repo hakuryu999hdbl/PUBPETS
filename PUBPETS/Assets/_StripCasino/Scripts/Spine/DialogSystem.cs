@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using Unity.VisualScripting;
-using JetBrains.Annotations;
 namespace Blackjack_Game
 {
     public class DialogSystem : MonoBehaviour
@@ -49,8 +48,7 @@ namespace Blackjack_Game
         public GameObject TextButton;
 
         public Image People;
-        public Animator People_Anim;
-        public Sprite ShopManager, Andon, Enemy, XXX, Eirik, MimicHades, Doll3, Jeweler,
+        public Sprite ShopManager, Andon,Enemy,XXX, Eirik, MimicHades, Doll3, Jeweler,
                        NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
@@ -66,9 +64,6 @@ namespace Blackjack_Game
                       Background_Shop;
 
         public GameObject Lose_Black;//失败后的黑色外圈
-
-
-
 
         [Header("自动播放")]
         public bool autoMode = false; // 是否自动播放
@@ -201,13 +196,10 @@ namespace Blackjack_Game
                     //开启一天工作
                     textAssets.Add(100, Resources.Load<TextAsset>("TXT_Japanese/J_StartWork_01"));
 
-                    //前往商店
+                    //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_02"));
 
                     #region  安托日语
 
@@ -389,10 +381,6 @@ namespace Blackjack_Game
                     //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
-
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_02"));
 
                     #region  安托简中
 
@@ -576,10 +564,6 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_02"));
-
 
                     #region  安托繁中
 
@@ -762,9 +746,7 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_English/E_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_English/E_StartShop_02"));
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_02"));
+
 
 
                     #region  安托英语
@@ -948,10 +930,6 @@ namespace Blackjack_Game
                     //离开酒馆前往商店
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
-
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_02"));
 
 
                     #region  安托韩语
@@ -1431,7 +1409,10 @@ namespace Blackjack_Game
 
                 //场景    
                 case "Black":
-                    case_BG();
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
 
                     Background.sprite = Black;// 过场
                     People.gameObject.SetActive(false);
@@ -1439,32 +1420,57 @@ namespace Blackjack_Game
                     break;
 
                 case "BG_Black":
-                    case_BG();
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
 
                     Background.sprite = BarCounter;// 默认是酒馆背景
+
+                    People.GetComponent<Animator>().SetBool("Dark", true);
+
                     Lose_Black.SetActive(true);//黑色外圈
                     index++;
                     break;
 
                 case "BG":
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = BarCounter;// 默认是酒馆背景
-                    case_BG();
+                    People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
                     break;
                 case "DungeonEntrance":
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
+
                     Background.sprite = Background_DungeonEntrance;// 地下城入口
-                    case_BG();
+                    People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
                     break;
                 case "DungeonCorridor":
-                    Background.sprite = Background_DungeonCorridor;// 地下城
-                    case_BG();
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
+
+                    Background.sprite = Background_DungeonCorridor;// 地下城走廊
+                    People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
                     break;
                 case "Town":
-                    Background.sprite = Background_Town;//乡镇
-                    case_BG();
+                    text.color = Color.white;
+                    CleanNameText();
 
+                    voiceSource.Stop();
+
+                    Background.sprite = Background_Town;//乡镇
+                    People.GetComponent<Animator>().SetBool("Dark", true);
                     index++;
                     break;
 
@@ -1472,9 +1478,12 @@ namespace Blackjack_Game
 
 
                 case "Shop":
-                    Background.sprite = Background_Shop;//夜间小路
-                    case_BG();
-                    
+                    text.color = Color.white;
+                    CleanNameText();
+
+                    voiceSource.Stop();
+
+                    Background.sprite = Background_Shop;
                     index++;
                     break;
 
@@ -1489,11 +1498,7 @@ namespace Blackjack_Game
 
                     voiceSource.Stop();
 
-
-                    if (People.IsActive())
-                    {
-                        People_Anim.SetBool("Dark", true);
-                    }//只有这里变
+                    People.GetComponent<Animator>().SetBool("Dark", true);
 
                     index++;
                     break;
@@ -1507,7 +1512,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_1;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1520,7 +1525,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_2;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1533,7 +1538,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_3;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1546,7 +1551,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = NPC_4;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1560,7 +1565,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = ShopManager;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1573,7 +1578,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Andon;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
                 case "Enemy":
@@ -1585,7 +1590,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Enemy;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
                 case "XXX":
@@ -1597,7 +1602,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = XXX;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
                 case "Eirik":
@@ -1609,7 +1614,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Eirik;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1622,7 +1627,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = MimicHades;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1636,7 +1641,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Doll3;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1649,7 +1654,7 @@ namespace Blackjack_Game
 
                     People.gameObject.SetActive(true);
                     People.sprite = Jeweler;
-                    People_Anim.SetBool("Dark", false);
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1659,126 +1664,260 @@ namespace Blackjack_Game
                 #region AVG角色_安托
 
                 case "Anto_Lose":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_Lose;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_01":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_01;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_02":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_02;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_03":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_03;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_04":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_04;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_05":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_05;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_06":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_06;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_07":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_07;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_08":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_08;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_09":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_09;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_10":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_10;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_11":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_11;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Anto_12":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_12;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_13":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_13;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_14":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_14;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_15":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_15;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_16":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_16;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
+                    index++;
                     break;
 
 
                 case "Anto_17":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_17;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Anto_18":
+                    text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
+                    CleanNameText();
+                    NameObject[1].SetActive(true);
+
+                    AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Anto_18;
-                    case_Anto();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
                 #endregion
@@ -1787,62 +1926,125 @@ namespace Blackjack_Game
 
 
                 case "Hetty_Lose":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_Lose;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
 
                 case "Hetty_01":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_01;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_02":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_02;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_03":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_03;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_04":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_04;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_05":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_05;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Hetty_06":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_06;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_07":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_07;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Hetty_08":
+                    text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
+                    CleanNameText();
+                    NameObject[2].SetActive(true);
+
+                    //AntoVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Hetty_08;
-                    case_Hetty();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
@@ -1853,79 +2055,122 @@ namespace Blackjack_Game
                 #region AVG角色_爱丽丝
 
                 case "Alice_Lose":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_Lose;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
 
                 case "Alice_01":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_01;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_02":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_02;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_03":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_03;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_04":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_04;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_05":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_05;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_06":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_06;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_07":
+                    text.color = Color.green; //绿色
+                    CleanNameText();
+                    NameObject[3].SetActive(true);
+
+                    //AliceVoice();
+
+                    People.gameObject.SetActive(true);
                     People.sprite = Alice_07;
-                    case_Alice();
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
 
                 case "Alice_08":
-                    People.sprite = Alice_08;
-                    case_Alice();
-                    index++;
-                    break;
-
-                #endregion
-
-
-                #region AVG特殊功能
-                case "ShowRecipe":
-                    text.color = Color.white;
+                    text.color = Color.green; //绿色
                     CleanNameText();
+                    NameObject[3].SetActive(true);
 
-                    voiceSource.Stop();
+                    //AliceVoice();
 
-                    OpenRecipeShop();
-
-
-
-                    //Background.sprite = Black;// 过场
-                    //People.gameObject.SetActive(false);
+                    People.gameObject.SetActive(true);
+                    People.sprite = Alice_08;
+                    People.GetComponent<Animator>().SetBool("Dark", false);
                     index++;
                     break;
-
 
                     #endregion
 
@@ -1933,71 +2178,45 @@ namespace Blackjack_Game
 
 
 
+
+                    //case "Girl":
+                    //    text.color = new Color(1.0f, 0.0f, 1.0f, 1.0f);//粉色
+                    //    index++;
+                    //    break;
+
+
+
+                    // case "Green":
+                    //     text.color = new Color(0.0f, 1.0f, 0.0f, 1.0f); // 绿色（魔族女干部）
+                    //     index++;
+                    //     break;
+                    // case "LightBlue":
+                    //     text.color = new Color(0.68f, 0.85f, 0.9f, 1.0f); // 浅蓝色（艾莉丝）
+                    //     index++;
+                    //     break;
+                    // case "Purple":
+                    //     text.color = new Color(0.7f, 0.3f, 0.7f, 1.0f); // 紫色 (女记者)
+                    //     index++;
+                    //     break;
+
+
+
+                    //case "Over":
+                    //    ChangeStory();//通常对话结束
+                    //    index++;
+                    //    break;
+                    //
+                    //
+                    //case "ReStart":
+                    //    //Spine_FrameEvents.ReStart();//教程结束回主菜单
+                    //    index++;
+                    //    break;
+
+
+
+
+
             }
-
-            //统合整理AVG角色
-
-
-
-            //统合整理BG
-            void case_BG()
-            {
-                text.color = Color.white;
-                CleanNameText();
-
-                voiceSource.Stop();
-
-                if (People.IsActive()) 
-                {
-                    People_Anim.SetBool("Dark", true);
-                }
-                
-            }
-
-
-            //统合整理Anto
-            void case_Anto()
-            {
-                text.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
-                CleanNameText();
-                NameObject[1].SetActive(true);
-
-                AntoVoice();
-
-                People.gameObject.SetActive(true);         
-                People_Anim.SetBool("Dark", false);
-            }
-
-            //统合整理Hetty
-            void case_Hetty()
-            {
-                text.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
-                CleanNameText();
-                NameObject[2].SetActive(true);
-
-                //AntoVoice();
-
-                People.gameObject.SetActive(true);
-              
-                People_Anim.SetBool("Dark", false);
-            }
-
-
-            //统合整理Alice
-            void case_Alice()
-            {
-                text.color = Color.green; //绿色
-                CleanNameText();
-                NameObject[3].SetActive(true);
-
-                //AliceVoice();
-
-                People.gameObject.SetActive(true);
-               
-                People_Anim.SetBool("Dark", false);
-            }
-
-
 
 
             int letter = 0;
@@ -2281,16 +2500,14 @@ namespace Blackjack_Game
 
                     break;
 
-                //商人不出现，出现给玩家秘方神秘人
-                case 10:
-                case 12:
-                case 13:
+                //商人不出现
+                case 10:                  
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
                     break;
 
                 //商人出现
-                case 11:
+                case 11:                
                     uiManager.LoadingScene_Shop();
                     break;
 
@@ -2368,7 +2585,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托01）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 1;
+                        data.lastCGIndex = 1; 
 
 
 
@@ -2387,7 +2604,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托02）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 2;
+                        data.lastCGIndex = 2; 
 
 
 
@@ -3052,191 +3269,18 @@ namespace Blackjack_Game
 
         void RandomToShop()
         {
-
-            bool allUnlocked = IsAllRecipesUnlocked();
-
-            int roll = Random.Range(0, 100);
-
-            if (!allUnlocked)
+            if (Random.Range(0, 3) == 0)
             {
-                // 还没集满酒：允许配方商店
-                if (roll < 30)
-                {
-                    //配方商人出现
-                    GameFlowData.nextAVGId = "StartRecipe";   // 30%
-                }
-                else if (roll < 70)
-                {
-                    //商人出现
-                    GameFlowData.nextAVGId = "StartShop_02";  // 40%
-                }
-                else
-                {
-                    //无事发生
-                    GameFlowData.nextAVGId = "StartShop_01";  // 30%
-                }
+                GameFlowData.nextAVGId = "StartShop_01";//商人不出现
+                uiManager.LoadingScene_Spine();
             }
             else
             {
-
-                Debug.Log("已经买齐所有酒，不需要再去买配方了");
-
-                // 已集满酒：彻底禁止配方商店
-                if (roll < 60)
-                {
-                    //商人出现
-                    GameFlowData.nextAVGId = "StartShop_02";  // 60%
-                }
-                else
-                {
-                    //无事发生
-                    GameFlowData.nextAVGId = "StartShop_01";  // 40%
-                }
+                GameFlowData.nextAVGId = "StartShop_02";//商人出现
+                uiManager.LoadingScene_Spine();
             }
-
-
-            uiManager.LoadingScene_Spine();
         }
 
-        bool IsAllRecipesUnlocked()
-        {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            if (data.unlockedDrinkNames == null)
-                return false;
-
-            return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
-        }
-
-
-        #endregion
-
-
-        /// <summary>
-        /// 配方商店
-        /// </summary>
-        #region
-
-        [Header("配方商店")]
-        public GameObject RecipePanel;//配方商店界面
-
-        public void BuyRecipe(int Wine_Number) 
-        {
-            // 找到对应条目
-            var item = shopItems.Find(x => x.wineNumber == Wine_Number);
-            if (item == null)
-            {
-                Debug.LogWarning("未找到商店条目 Wine_Number=" + Wine_Number);
-                return;
-            }
-
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-            // 已解锁就直接返回（防重复点）
-            if (data.unlockedDrinkNames.Contains(item.drinkName))
-            {
-                Debug.Log("已解锁：" + item.drinkName);
-                RefreshRecipeShopUI();
-                return;
-            }
-
-            // 钱够不够：你项目现在 balance 是 SaveData 里有的
-            if (data.balance < item.cost)
-            {
-                Debug.Log("钱不够，需：" + item.cost);
-                // 可在这里播放拒绝SE / 弹提示
-                AudioManager_2.SoundPlay(4);
-                return;
-            }
-
-            // ✅ 扣钱：用 BalanceManager 统一做（会更新UI+写存档）
-            BalanceManager.ChangeBalance(-item.cost);
-
-            // ✅ 关键：重新 Load 一次最新存档，避免被旧 data 覆盖
-            data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-
-
-            // 解锁
-            data.unlockedDrinkNames.Add(item.drinkName);
-
-            // 存档
-            SaveManager.SaveGame(data);
-
-            // 同步你的UI钱显示（你有 BalanceManager/UIManager的话可以更新）
-            // BalanceManager.SetBalance(data.balance); // 如果你有这种接口
-            // 或者 uiManager.RefreshBalanceText();
-
-            // 刷商店UI + 刷解锁图标（如果你做了解锁图标列表）
-            RefreshRecipeShopUI();
-            // RefreshUnlockedDrinkIcons(); // 你之前做的那个图标点亮函数
-
-            AudioManager_2.SoundPlay(3); // 成功音效
-            Debug.Log("购买并解锁：" + item.drinkName);
-
-        }
-
-
-        //public bool UnlockRecipe(string drinkName)
-        //{
-        //    SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-        //
-        //    if (data.unlockedDrinkNames == null)
-        //        data.unlockedDrinkNames = new List<string>();
-        //
-        //    if (data.unlockedDrinkNames.Contains(drinkName))
-        //        return false;
-        //
-        //    data.unlockedDrinkNames.Add(drinkName);
-        //
-        //    SaveManager.SaveGame(data);              // ✅只传 data
-        //    //RefreshUnlockedRecipesFromSave();
-        //    return true;
-        //}//存入酒品
-
-
-        [Header("配方商店条目")]
-        public List<RecipeShopItem> shopItems = new List<RecipeShopItem>();
-
-        [System.Serializable]
-        public class RecipeShopItem
-        {
-            public int wineNumber;        // 按钮传入用（1~7）
-            public string drinkName;      // 存档key：例如 "魔女之吻"
-            public float cost;            // 售价
-            public GameObject rowGO;      // 这一行UI（整行隐藏用）
-            public Text costText;     // 价格文本（可选）
-        }
-        public void RefreshRecipeShopUI()
-        {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-            foreach (var item in shopItems)
-            {
-                bool unlocked = data.unlockedDrinkNames.Contains(item.drinkName);
-
-                // 已解锁：整行隐藏（你要的“不显示”）
-                if (item.rowGO != null)
-                    item.rowGO.SetActive(!unlocked);
-
-                // 如果要动态显示价格
-                if (item.costText != null)
-                    item.costText.text = ((int)item.cost).ToString();
-            }
-        }//更新酒品
-
-        public void OpenRecipeShop()
-        {
-            RecipePanel.SetActive(true);
-            RefreshRecipeShopUI();
-        }//打开商店
         #endregion
     }
 }

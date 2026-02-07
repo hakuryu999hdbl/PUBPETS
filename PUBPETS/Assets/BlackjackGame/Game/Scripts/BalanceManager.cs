@@ -37,7 +37,7 @@ namespace Blackjack_Game
         public static void ChangeBalance(float value)
         {
 
-            if (value > 0 && GameManager.GameActive)//只有游戲中获得籌碼才可以改變生命值
+            if (value > 0 && GameManager.GameActive)//只有游戲中活得籌碼才可以改變生命值
             {
                 GameManager.ChangeHealth(-value);
             }

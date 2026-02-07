@@ -176,14 +176,14 @@ namespace Blackjack_Game
 
             switch (id)
             {
-                case 1: data.Item_1 += 1; break;  // 紫色心情
-                case 2: data.Item_2 += 1; break;  // 占卜水晶
-                case 3: data.Item_3 += 1; break;  // 均衡徽章
-                case 4: data.Item_4 += 1; break;  // 魔眼石
+                case 1: data.Item_1 += 1; break;  // 跳蛋
+                case 2: data.Item_2 += 1; break;  // 水晶
+                case 3: data.Item_3 += 1; break;  // 均衡
+                case 4: data.Item_4 += 1; break;  // 宝石
                 case 5: data.Item_5 += 1; break;  // 酒瓶
-                case 6: data.Item_6 += 1; break;  // 藏宝图残片
-                case 7: data.Item_7 += 1; break;  // 幸运币
-                case 8: data.Item_8 += 1; break;  // 透视药水
+                case 6: data.Item_6 += 1; break;  // 翡翠
+                case 7: data.Item_7 += 1; break;  // 硬币
+                case 8: data.Item_8 += 1; break;  // 旧酒
             }
             SaveManager.SaveGame(data);
 
@@ -223,9 +223,9 @@ namespace Blackjack_Game
                 case 3: return 200; // 均衡//强制平局
                 case 4: return 50; // 宝石//看女荷官的盖牌
                 case 5: return 100; // 酒瓶//双方随机一方双倍
-                case 6: return 300; // 藏宝图残片//点数超过21，强制削减随机3~5
+                case 6: return 300; // 翡翠//点数超过21，强制削减随机3~5
                 case 7: return 150; // 硬币//修改你的点数-1或+1
-                case 8: return 250; // 透视药水//看牌堆下下张卡
+                case 8: return 250; // 旧酒//看牌堆下下张卡
                 default: return 0;
             }
         }

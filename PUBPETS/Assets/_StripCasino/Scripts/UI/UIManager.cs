@@ -6,7 +6,6 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 using System;
 using Unity.VisualScripting;
-using System.Reflection;
 namespace Blackjack_Game
 {
     public class UIManager : MonoBehaviour
@@ -27,15 +26,6 @@ namespace Blackjack_Game
         public GameObject CG_Thumbnail_Menu;
         private void Start()
         {
-            GameFlowData.EnsureInit();
-            if (string.IsNullOrEmpty(GameFlowData.nextAVGId))
-            {
-                //Debug.LogError("❌ nextAVGId 未初始化，阻止 AVG 显示");
-                AudioManager_2.SoundPlay(4);
-                return;
-            }
-
-
             Scene currentScene = SceneManager.GetActiveScene(); // 获取当前场景
             if (currentScene.name == "Lobby")
             {
@@ -92,26 +82,47 @@ namespace Blackjack_Game
 
 
 
-                if (Application.platform == RuntimePlatform.Android)
-                {
-                    Debug.Log("当前是 Android");
-                }
-                else
-                {
-                    Debug.Log("当前是 PC");
-
-                    StartSetDisplayMode();//根据存档设置对应屏幕以及分辨率
-                                          
-                    GetResolutionIndex_Text();//设置屏幕分辨率文字
-
-                    if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
-                    {
-                        isAllowedBackgroundRunning = true; // 允许
-
-                    }//检测允许游戏在后台运行
-
-                    AllowBackgroundRunning();
-                }
+                //if (Application.platform == RuntimePlatform.Android)
+                //{
+                //    Debug.Log("当前是 Android");
+                //}
+                //else
+                //{
+                //    Debug.Log("当前是 PC");
+                //
+                //    if (PlayerPrefs.GetInt("Setting_Windows") == 0)
+                //    {
+                //        isDisplayMode = true; // 全屏
+                //    }//检测当前的画面设置
+                //    DisplayMode();
+                //    
+                //    
+                //    if (isDisplayMode)
+                //    {
+                //        if (PlayerPrefs.GetInt("Setting_ResolutionWindows") == 0)
+                //        {
+                //            isAllowedResizingGameWindow = true; // 全屏
+                //        }//检测当前是否基于当前分辨率全屏
+                //        ResizingGameWindow();
+                //    
+                //    }
+                //    else 
+                //    {
+                //        if (PlayerPrefs.GetInt("Setting_WindowedCurrentResolution") == 0)
+                //        {
+                //            isWindowedCurrentResolution = true; // 窗口
+                //        }//检测当前是否基于当前分辨率全屏
+                //        WindowedCurrentResolution();
+                //    }
+                //    
+                //    
+                //    
+                //    if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
+                //    {
+                //        isAllowedBackgroundRunning = true; // 允许
+                //    }//检测允许游戏在后台运行
+                //    AllowBackgroundRunning();
+                //}
 
 
             }//主菜单的设置
@@ -129,7 +140,8 @@ namespace Blackjack_Game
             Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
             // Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
-            Debug.Log("目前储存的屏幕分辨率设置" + PlayerPrefs.GetInt("ResolutionIndex"));//0基于屏幕分辨率   1 3480X2160   2 2560X1440   3  1920X1080   4  1600X900  5  1280X720...
+            // Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
+            // Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
             // Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
 
 
@@ -137,8 +149,8 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Hetty_CG_07_3";
-            //Load_AVG(1091);
+            //GameFlowData.nextAVGId = "Anto_CG_01_3";
+            //Load_AVG(2011);
 
 
             if (currentScene.name == "Spine")
@@ -148,7 +160,6 @@ namespace Blackjack_Game
                 //播放AV媒介
                 switch (GameFlowData.nextAVGId)
                 {
-                   
                     case "StartStory_01":
                         Load_AVG(1);//开始剧情
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -156,7 +167,7 @@ namespace Blackjack_Game
 
                     case "StartWork_01":
                         Load_AVG(100);//开始工作
-                        BGM.instance.AudioPlayBackgroundMusic(11);//女荷官指名AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "StartShop_01":
@@ -165,21 +176,6 @@ namespace Blackjack_Game
                         break;
                     case "StartShop_02":
                         Load_AVG(11);//开始商家界面2（商人出现）
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
-                        break;
-
-
-                    case "StartRecipe":
-
-                        if (UnityEngine.Random.Range(0, 2) == 0)
-                        {
-                            Load_AVG(12);//神秘人购买配方
-                        }
-                        else
-                        {
-                            Load_AVG(13);//珠宝商购买配方
-                        }
-
                         BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
@@ -231,17 +227,17 @@ namespace Blackjack_Game
                     case "Anto_CG_04_3":
                         Load_AVG(1043);//开启安托第四个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(14);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_05_2":
                         Load_AVG(1052);//开启安托第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
                     case "Anto_CG_05_3":
                         Load_AVG(1053);//开启安托第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(15);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_06_2":
@@ -251,7 +247,7 @@ namespace Blackjack_Game
                     case "Anto_CG_06_3":
                         Load_AVG(1063);//开启安托第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(16);
-                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_07_2":
@@ -261,7 +257,7 @@ namespace Blackjack_Game
                     case "Anto_CG_07_3":
                         Load_AVG(1073);//开启安托第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(17);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_08_2":
@@ -271,7 +267,7 @@ namespace Blackjack_Game
                     case "Anto_CG_08_3":
                         Load_AVG(1083);//开启安托第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(18);
-                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_09_2":
@@ -281,7 +277,7 @@ namespace Blackjack_Game
                     case "Anto_CG_09_3":
                         Load_AVG(1093);//开启安托第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(19);
-                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_10_2":
@@ -291,23 +287,23 @@ namespace Blackjack_Game
                     case "Anto_CG_10_3":
                         Load_AVG(1103);//开启安托第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(20);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                     #endregion
 
                     #region  Alice
                     case "VSAlice":
                         Load_Vs_Alice_AVG();//对决爱丽丝[所有Alice_CG_XX_1开端]
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_Failure":
                         Load_Alice_Lose_AVG();//输给爱丽丝
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "Alice_CG_01_2":
                         Load_AVG(3012);//开启爱丽丝第一个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_01_3":
                         Load_AVG(3013);//开启爱丽丝第一个CG
@@ -317,7 +313,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_02_2":
                         Load_AVG(3022);//开启爱丽丝第二个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_02_3":
                         Load_AVG(3023);//开启爱丽丝第二个CG
@@ -327,7 +323,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_03_2":
                         Load_AVG(3032);//开启爱丽丝第三个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_03_3":
                         Load_AVG(3033);//开启爱丽丝第三个CG
@@ -337,7 +333,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_04_2":
                         Load_AVG(3042);//开启爱丽丝第四个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_04_3":
                         Load_AVG(3043);//开启爱丽丝第四个CG
@@ -347,78 +343,78 @@ namespace Blackjack_Game
 
                     case "Alice_CG_05_2":
                         Load_AVG(3052);//开启爱丽丝第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_05_3":
                         Load_AVG(3053);//开启爱丽丝第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(35);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_06_2":
                         Load_AVG(3062);//开启爱丽丝第六个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_06_3":
                         Load_AVG(3063);//开启爱丽丝第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(36);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_07_2":
                         Load_AVG(3072);//开启爱丽丝第七个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_07_3":
                         Load_AVG(3073);//开启爱丽丝第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(37);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_08_2":
                         Load_AVG(3082);//开启爱丽丝第八个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_08_3":
                         Load_AVG(3083);//开启爱丽丝第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(38);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_09_2":
                         Load_AVG(3092);//开启爱丽丝第九个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_09_3":
                         Load_AVG(3093);//开启爱丽丝第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(39);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_10_2":
                         Load_AVG(3102);//开启爱丽丝第十个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Alice_CG_10_3":
                         Load_AVG(3103);//开启爱丽丝第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(40);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                     #endregion
 
                     #region  Hetty
                     case "VSHetty":
                         Load_Vs_Hetty_AVG();//对决赫蒂[所有Hetty_CG_XX_1开端]
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_Failure":
                         Load_Hetty_Lose_AVG();//输给赫蒂
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
 
                     case "Hetty_CG_01_2":
                         Load_AVG(2012);//开启赫蒂第一个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_01_3":
                         Load_AVG(2013);//开启赫蒂第一个CG
@@ -428,7 +424,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_02_2":
                         Load_AVG(2022);//开启赫蒂第二个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_02_3":
                         Load_AVG(2023);//开启赫蒂第二个CG
@@ -438,7 +434,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_03_2":
                         Load_AVG(2032);//开启赫蒂第三个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_03_3":
                         Load_AVG(2033);//开启赫蒂第三个CG
@@ -448,7 +444,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_04_2":
                         Load_AVG(2042);//开启赫蒂第四个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_04_3":
                         Load_AVG(2043);//开启赫蒂第四个CG
@@ -458,62 +454,62 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_05_2":
                         Load_AVG(2052);//开启赫蒂第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_05_3":
                         Load_AVG(2053);//开启赫蒂第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(25);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_06_2":
                         Load_AVG(2062);//开启赫蒂第六个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_06_3":
                         Load_AVG(2063);//开启赫蒂第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(26);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_07_2":
                         Load_AVG(2072);//开启赫蒂第七个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_07_3":
                         Load_AVG(2073);//开启赫蒂第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(27);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_08_2":
                         Load_AVG(2082);//开启赫蒂第八个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_08_3":
                         Load_AVG(2083);//开启赫蒂第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(28);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_09_2":
                         Load_AVG(2092);//开启赫蒂第九个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_09_3":
                         Load_AVG(2093);//开启赫蒂第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(29);
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_10_2":
                         Load_AVG(2102);//开启赫蒂第十个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Hetty_CG_10_3":
                         Load_AVG(2103);//开启赫蒂第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(30);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                         #endregion
                 }
@@ -809,7 +805,7 @@ namespace Blackjack_Game
         Thumbnail_Alice_06, Thumbnail_Alice_07, Thumbnail_Alice_08, Thumbnail_Alice_09, Thumbnail_Alice_10
     );
 
-
+           
             #endregion
 
 
@@ -911,7 +907,7 @@ namespace Blackjack_Game
             }
 
             pageCount = Mathf.CeilToInt(unlockedCount / 6f);
-            pageCount += 2;
+            pageCount+=2;
 
             int currentPage = Mathf.RoundToInt(
                 (target.anchoredPosition.y - topLimit) / step
@@ -1403,7 +1399,6 @@ namespace Blackjack_Game
         public void OpenURL_Discord()
         {
             Application.OpenURL("https://discord.gg/uCsSTPmMjV");
-            Application.OpenURL("https://discord.gg/bc49G5Xcq9");
         }
 
         public void OpenURL_Steam()
@@ -1442,141 +1437,126 @@ namespace Blackjack_Game
         /// </summary>
         #region
         [Header("画面显示方法")]
-        public GameObject DisplayMode_1;//全屏
-        public GameObject DisplayMode_2;//窗口
+        public GameObject DisplayMode_1;
+        public GameObject DisplayMode_2;
+
+        public bool isDisplayMode = true;//是否全屏
 
 
-
-        void StartSetDisplayMode()
+        public void _DisplayMode()
         {
-            bool fullscreen = PlayerPrefs.GetInt("DisplayMode", 1) == 1;
-            int resIndex = PlayerPrefs.GetInt("ResolutionIndex", 2); // 默认1080p
-
-            currentMode = fullscreen ? DisplayMode.Fullscreen : DisplayMode.Windowed;
-
-            var res = supportedResolutions[resIndex];
-            Screen.SetResolution(res.x, res.y, fullscreen);
-
-        }//开始设置屏幕分辨率
-
-
-
-
-        enum DisplayMode
-        {
-            Fullscreen,
-            Windowed
+            isDisplayMode = !isDisplayMode;
+            DisplayMode();
         }
-
-        DisplayMode currentMode;
-        Resolution currentResolution;
-
-
-
-        public void SetFullScreenOrWindowed() 
+        void DisplayMode()
         {
-            if (currentMode == DisplayMode.Fullscreen)
+            if (isDisplayMode)
             {
-                SetDisplayMode(false);
+
+                DisplayMode_1.SetActive(true);
+                DisplayMode_2.SetActive(false);
+
+                //Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
+                Screen.fullScreen = true;  //设置成全屏
+                PlayerPrefs.SetInt("Setting_Windows", 0);
+
+                AllowedResizingGameWindow.SetActive(true);//只有在全屏模式下可以选分辨率全屏
+                WindowedCurrent.SetActive(false);//只有在全屏模式下可以选分辨率窗口化
             }
             else
             {
-                SetDisplayMode(true);
-            }
-        }//设置屏幕模式活扣
-
-        public void SetDisplayMode(bool fullscreen)
-        {
-            Screen.fullScreen = fullscreen;
-            currentMode = fullscreen ? DisplayMode.Fullscreen : DisplayMode.Windowed;
-
-            PlayerPrefs.SetInt("DisplayMode", fullscreen ? 1 : 0);
-
-
-
-            //修改显示
-            if (currentMode == DisplayMode.Fullscreen)
-            {
-                DisplayMode_1.SetActive(true);
-                DisplayMode_2.SetActive(false);
-            }
-            else 
-            {
                 DisplayMode_1.SetActive(false);
                 DisplayMode_2.SetActive(true);
+
+
+                //Screen.SetResolution(1280, 720, false);//设置为1280 * 720不全屏
+                Screen.fullScreen = false;  //退出全屏 
+                PlayerPrefs.SetInt("Setting_Windows", 1);
+
+                AllowedResizingGameWindow.SetActive(false);//只有在全屏模式下可以选分辨率全屏
+                WindowedCurrent.SetActive(true);//只有在全屏模式下可以选分辨率窗口化
             }
 
+        }
+        [Header("设置当前分辨率全屏")]
+        public GameObject AllowedResizingGameWindow;//只有在全屏模式下可以选
 
-        }//设置全屏或者窗口化
+        public GameObject AllowedResizingGameWindow_1;
+        public GameObject AllowedResizingGameWindow_2;
 
-        Vector2Int[] supportedResolutions =
-{
-    new Vector2Int(3840, 2160),
-    new Vector2Int(2560, 1440),
-    new Vector2Int(1920, 1080),
-    new Vector2Int(1600, 900),
-    new Vector2Int(1280, 720),
-};
+        public bool isAllowedResizingGameWindow = true;
 
-        public void SetResolutionByIndex(int index)
+        public void _ResizingGameWindow()
         {
+            isAllowedResizingGameWindow = !isAllowedResizingGameWindow;
 
-            if (index==0)
-            {
-                //默认的就是基于当前屏幕分辨率
-                InitResolutions();
-            }
-            else 
-            {
-                var res = supportedResolutions[index];
-
-                Screen.SetResolution(
-                    res.x,
-                    res.y,
-                    currentMode == DisplayMode.Fullscreen
-                );
-            }
-             
-            PlayerPrefs.SetInt("ResolutionIndex", index);
-
-            //设置屏幕分辨率文字
-            GetResolutionIndex_Text();
-
-        }//设置当前屏幕模式的分辨率
-
-
-
-        public void InitResolutions() 
-        {
-
-            Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率
-            Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
-
-            //设置屏幕分辨率文字
-            GetResolutionIndex_Text();
-
-        }//设置当前屏幕分辩率
-
-
-        public Text ResolutionsText;
-
-        public void GetResolutionIndex_Text() 
-        {
-            //设置屏幕分辨率文字
-            int index = PlayerPrefs.GetInt("ResolutionIndex");
-            ResolutionsText.text = GetResolutionLabel(index).ToString();
-
-        }//读取分辨率数字
-
-    
-
-        string GetResolutionLabel(int index)
-        {
-            var r = supportedResolutions[index];
-
-            return $"{r.x}×{r.y}";
+            ResizingGameWindow();
         }
 
+        void ResizingGameWindow()
+        {
+            if (isAllowedResizingGameWindow)
+            {
+                AllowedResizingGameWindow_1.SetActive(true);
+                AllowedResizingGameWindow_2.SetActive(false);
+
+                Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
+                Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+                Screen.fullScreen = true;  //设置成全屏
+
+                PlayerPrefs.SetInt("Setting_ResolutionWindows", 0);
+            }
+            else
+            {
+                AllowedResizingGameWindow_1.SetActive(false);
+                AllowedResizingGameWindow_2.SetActive(true);
+
+                Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
+
+                PlayerPrefs.SetInt("Setting_ResolutionWindows", 1);
+            }
+
+        }
+
+        [Header("设置当前分辨率窗口化")]
+        public GameObject WindowedCurrent;
+
+        public GameObject WindowedCurrentResolution_1;
+        public GameObject WindowedCurrentResolution_2;
+
+        public bool isWindowedCurrentResolution = false;
+
+        public void _WindowedCurrentResolution()
+        {
+            isWindowedCurrentResolution = !isWindowedCurrentResolution;
+
+            WindowedCurrentResolution();
+        }
+        public void WindowedCurrentResolution()
+        {
+
+            if (isWindowedCurrentResolution)
+            {
+                WindowedCurrentResolution_1.SetActive(true);
+                WindowedCurrentResolution_2.SetActive(false);
+
+                Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
+                Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+                Screen.fullScreen = false;  //设置成窗口化
+
+                PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 0);
+            }
+            else
+            {
+                WindowedCurrentResolution_1.SetActive(false);
+                WindowedCurrentResolution_2.SetActive(true);
+
+                Screen.SetResolution(1280, 720, false);//设置1280*720的全屏
+
+                PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 1);
+            }
+
+        }
 
 
         [Header("允许后台运行")]
@@ -1633,10 +1613,13 @@ namespace Blackjack_Game
 
 
 
+
+
         public void Load_AVG(int Number)
         {
 
             dialog.animation_number = Number;
+            dialog.gameObject.SetActive(true);
             AVG.SetActive(true);
         }
 

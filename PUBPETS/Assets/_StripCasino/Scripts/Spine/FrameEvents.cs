@@ -282,15 +282,7 @@ public class FrameEvents : MonoBehaviour
 
     public void _SE_Water() 
     {
-
-        switch (Random.Range(0,3))
-        {
-            case 0:
-            case 1:
-                audioS.PlayOneShot(AudioManager.SE_Water);
-                break;
-        }
-       
+        audioS.PlayOneShot(AudioManager.SE_Water);
 
     }
 
