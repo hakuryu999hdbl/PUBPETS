@@ -157,9 +157,11 @@ namespace Blackjack_Game
             {
                 BGM.instance.Stop();
 
+
                 //播放AV媒介
                 switch (GameFlowData.nextAVGId)
                 {
+
                     case "StartStory_01":
                         Load_AVG(1);//开始剧情
                         BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -167,7 +169,7 @@ namespace Blackjack_Game
 
                     case "StartWork_01":
                         Load_AVG(100);//开始工作
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(11);//女荷官指名AVG音乐
                         break;
 
                     case "StartShop_01":
@@ -176,6 +178,21 @@ namespace Blackjack_Game
                         break;
                     case "StartShop_02":
                         Load_AVG(11);//开始商家界面2（商人出现）
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        break;
+
+
+                    case "StartRecipe":
+
+                        if (UnityEngine.Random.Range(0, 2) == 0)
+                        {
+                            Load_AVG(12);//神秘人购买配方
+                        }
+                        else
+                        {
+                            Load_AVG(13);//珠宝商购买配方
+                        }
+
                         BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
@@ -227,17 +244,17 @@ namespace Blackjack_Game
                     case "Anto_CG_04_3":
                         Load_AVG(1043);//开启安托第四个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(14);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_05_2":
                         Load_AVG(1052);//开启安托第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
+                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
                         break;
                     case "Anto_CG_05_3":
                         Load_AVG(1053);//开启安托第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(15);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Anto_CG_06_2":
@@ -247,7 +264,7 @@ namespace Blackjack_Game
                     case "Anto_CG_06_3":
                         Load_AVG(1063);//开启安托第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(16);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
                         break;
 
                     case "Anto_CG_07_2":
@@ -257,7 +274,7 @@ namespace Blackjack_Game
                     case "Anto_CG_07_3":
                         Load_AVG(1073);//开启安托第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(17);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Anto_CG_08_2":
@@ -267,7 +284,7 @@ namespace Blackjack_Game
                     case "Anto_CG_08_3":
                         Load_AVG(1083);//开启安托第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(18);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
                         break;
 
                     case "Anto_CG_09_2":
@@ -277,7 +294,7 @@ namespace Blackjack_Game
                     case "Anto_CG_09_3":
                         Load_AVG(1093);//开启安托第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(19);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
                         break;
 
                     case "Anto_CG_10_2":
@@ -287,23 +304,23 @@ namespace Blackjack_Game
                     case "Anto_CG_10_3":
                         Load_AVG(1103);//开启安托第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(20);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                     #endregion
 
                     #region  Alice
                     case "VSAlice":
                         Load_Vs_Alice_AVG();//对决爱丽丝[所有Alice_CG_XX_1开端]
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_Failure":
                         Load_Alice_Lose_AVG();//输给爱丽丝
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
 
                     case "Alice_CG_01_2":
                         Load_AVG(3012);//开启爱丽丝第一个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_01_3":
                         Load_AVG(3013);//开启爱丽丝第一个CG
@@ -313,7 +330,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_02_2":
                         Load_AVG(3022);//开启爱丽丝第二个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_02_3":
                         Load_AVG(3023);//开启爱丽丝第二个CG
@@ -323,7 +340,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_03_2":
                         Load_AVG(3032);//开启爱丽丝第三个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_03_3":
                         Load_AVG(3033);//开启爱丽丝第三个CG
@@ -333,7 +350,7 @@ namespace Blackjack_Game
 
                     case "Alice_CG_04_2":
                         Load_AVG(3042);//开启爱丽丝第四个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_04_3":
                         Load_AVG(3043);//开启爱丽丝第四个CG
@@ -343,78 +360,78 @@ namespace Blackjack_Game
 
                     case "Alice_CG_05_2":
                         Load_AVG(3052);//开启爱丽丝第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_05_3":
                         Load_AVG(3053);//开启爱丽丝第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(35);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_06_2":
                         Load_AVG(3062);//开启爱丽丝第六个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_06_3":
                         Load_AVG(3063);//开启爱丽丝第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(36);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_07_2":
                         Load_AVG(3072);//开启爱丽丝第七个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_07_3":
                         Load_AVG(3073);//开启爱丽丝第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(37);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_08_2":
                         Load_AVG(3082);//开启爱丽丝第八个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_08_3":
                         Load_AVG(3083);//开启爱丽丝第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(38);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_09_2":
                         Load_AVG(3092);//开启爱丽丝第九个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_09_3":
                         Load_AVG(3093);//开启爱丽丝第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(39);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Alice_CG_10_2":
                         Load_AVG(3102);//开启爱丽丝第十个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
                         break;
                     case "Alice_CG_10_3":
                         Load_AVG(3103);//开启爱丽丝第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(40);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                     #endregion
 
                     #region  Hetty
                     case "VSHetty":
                         Load_Vs_Hetty_AVG();//对决赫蒂[所有Hetty_CG_XX_1开端]
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_Failure":
                         Load_Hetty_Lose_AVG();//输给赫蒂
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
 
                     case "Hetty_CG_01_2":
                         Load_AVG(2012);//开启赫蒂第一个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_01_3":
                         Load_AVG(2013);//开启赫蒂第一个CG
@@ -424,7 +441,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_02_2":
                         Load_AVG(2022);//开启赫蒂第二个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_02_3":
                         Load_AVG(2023);//开启赫蒂第二个CG
@@ -434,7 +451,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_03_2":
                         Load_AVG(2032);//开启赫蒂第三个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_03_3":
                         Load_AVG(2033);//开启赫蒂第三个CG
@@ -444,7 +461,7 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_04_2":
                         Load_AVG(2042);//开启赫蒂第四个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_04_3":
                         Load_AVG(2043);//开启赫蒂第四个CG
@@ -454,62 +471,62 @@ namespace Blackjack_Game
 
                     case "Hetty_CG_05_2":
                         Load_AVG(2052);//开启赫蒂第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_05_3":
                         Load_AVG(2053);//开启赫蒂第五个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(25);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Hetty_CG_06_2":
                         Load_AVG(2062);//开启赫蒂第六个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_06_3":
                         Load_AVG(2063);//开启赫蒂第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(26);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Hetty_CG_07_2":
                         Load_AVG(2072);//开启赫蒂第七个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_07_3":
                         Load_AVG(2073);//开启赫蒂第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(27);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Hetty_CG_08_2":
                         Load_AVG(2082);//开启赫蒂第八个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_08_3":
                         Load_AVG(2083);//开启赫蒂第八个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(28);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
 
                     case "Hetty_CG_09_2":
                         Load_AVG(2092);//开启赫蒂第九个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_09_3":
                         Load_AVG(2093);//开启赫蒂第九个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(29);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
 
                     case "Hetty_CG_10_2":
                         Load_AVG(2102);//开启赫蒂第十个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
                     case "Hetty_CG_10_3":
                         Load_AVG(2103);//开启赫蒂第十个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(30);
-                        //BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
                         break;
                         #endregion
                 }
@@ -1399,6 +1416,7 @@ namespace Blackjack_Game
         public void OpenURL_Discord()
         {
             Application.OpenURL("https://discord.gg/uCsSTPmMjV");
+            Application.OpenURL("https://discord.gg/bc49G5Xcq9");
         }
 
         public void OpenURL_Steam()

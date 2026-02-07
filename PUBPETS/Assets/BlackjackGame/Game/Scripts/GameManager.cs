@@ -1056,6 +1056,12 @@ namespace Blackjack_Game
                     Progress = data.antoProgress;
                     currentDealer = DealerType.Anto;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;
+
+                    //选择女荷官界面BGM
+                    BGM.instance.Stop();
+                    BGM.instance.AudioPlayBackgroundMusic(2);
+
+
                     break;
 
                 case "VSHetty":
@@ -1063,6 +1069,12 @@ namespace Blackjack_Game
                     Progress = data.hettyProgress;
                     currentDealer = DealerType.Hetty;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;
+
+                    //选择女荷官界面BGM
+                    BGM.instance.Stop();
+                    BGM.instance.AudioPlayBackgroundMusic(8);
+
+
                     break;
 
                 case "VSAlice":
@@ -1070,6 +1082,12 @@ namespace Blackjack_Game
                     Progress = data.aliceProgress;
                     currentDealer = DealerType.Alice;
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;
+
+                    //选择女荷官界面BGM
+                    BGM.instance.Stop();
+                    BGM.instance.AudioPlayBackgroundMusic(10);
+
+
                     break;
 
 

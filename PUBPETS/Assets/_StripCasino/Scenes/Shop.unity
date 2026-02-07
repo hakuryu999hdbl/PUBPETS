@@ -631,7 +631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &65028106
 Animator:
@@ -951,7 +950,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &97146114
 Animator:
@@ -1446,7 +1444,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &174053211
@@ -1693,7 +1690,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &227593011
 Animator:
@@ -2092,7 +2088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &260201079
 Animator:
@@ -2781,6 +2776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   initialBalance: 1000
   balanceText: {fileID: 1236773846}
+  gameManager: {fileID: 0}
 --- !u!1 &356873669
 GameObject:
   m_ObjectHideFlags: 0
@@ -3520,7 +3516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!114 &442628898
 MonoBehaviour:
@@ -4082,7 +4077,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &449999728
 Animator:
@@ -4197,7 +4191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &452505520
 Animator:
@@ -4784,7 +4777,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &484436705
 Animator:
@@ -5226,7 +5218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &581910505
@@ -5823,7 +5814,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!114 &690359334
 MonoBehaviour:
@@ -6297,7 +6287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &745523729
 Animator:
@@ -6760,7 +6749,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &790115098
 Animator:
@@ -7158,7 +7146,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &874176831
 Animator:
@@ -7329,9 +7316,44 @@ MonoBehaviour:
   saveSlotUI_2: {fileID: 0}
   saveSlotUI_3: {fileID: 0}
   SaveNameMenu: {fileID: 0}
+  unlockedCount: 0
+  pageCount: 0
   Thumbnail_Anto_01: {fileID: 0}
   Thumbnail_Anto_02: {fileID: 0}
   Thumbnail_Anto_03: {fileID: 0}
+  Thumbnail_Anto_04: {fileID: 0}
+  Thumbnail_Anto_05: {fileID: 0}
+  Thumbnail_Anto_06: {fileID: 0}
+  Thumbnail_Anto_07: {fileID: 0}
+  Thumbnail_Anto_08: {fileID: 0}
+  Thumbnail_Anto_09: {fileID: 0}
+  Thumbnail_Anto_10: {fileID: 0}
+  Thumbnail_Hetty_01: {fileID: 0}
+  Thumbnail_Hetty_02: {fileID: 0}
+  Thumbnail_Hetty_03: {fileID: 0}
+  Thumbnail_Hetty_04: {fileID: 0}
+  Thumbnail_Hetty_05: {fileID: 0}
+  Thumbnail_Hetty_06: {fileID: 0}
+  Thumbnail_Hetty_07: {fileID: 0}
+  Thumbnail_Hetty_08: {fileID: 0}
+  Thumbnail_Hetty_09: {fileID: 0}
+  Thumbnail_Hetty_10: {fileID: 0}
+  Thumbnail_Alice_01: {fileID: 0}
+  Thumbnail_Alice_02: {fileID: 0}
+  Thumbnail_Alice_03: {fileID: 0}
+  Thumbnail_Alice_04: {fileID: 0}
+  Thumbnail_Alice_05: {fileID: 0}
+  Thumbnail_Alice_06: {fileID: 0}
+  Thumbnail_Alice_07: {fileID: 0}
+  Thumbnail_Alice_08: {fileID: 0}
+  Thumbnail_Alice_09: {fileID: 0}
+  Thumbnail_Alice_10: {fileID: 0}
+  target: {fileID: 0}
+  upButton: {fileID: 0}
+  downButton: {fileID: 0}
+  step: 239
+  topLimit: -23
+  bottomLimit: 1889
   textSpeedSlider: {fileID: 0}
   LoadingImage: {fileID: 492501645}
   PauseMenu: {fileID: 1249730344}
@@ -7469,7 +7491,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &912866116
 Animator:
@@ -7901,7 +7922,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &975665898
@@ -8073,7 +8093,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &999377023
 Animator:
@@ -8246,7 +8265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1000548619
 Animator:
@@ -9256,7 +9274,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1112195300
 Animator:
@@ -9559,7 +9576,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &1149784076
@@ -10147,7 +10163,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &1207130232
@@ -10619,6 +10634,11 @@ MonoBehaviour:
   - {fileID: 8300000, guid: a106754d51221ea4db79eb8935a88791, type: 3}
   - {fileID: 8300000, guid: ef18b675afb5d5b41a9f9a86aff4f4ed, type: 3}
   - {fileID: 8300000, guid: 99dfad892e39d454b8ad1f9a34d7d517, type: 3}
+  - {fileID: 8300000, guid: aca0b78fd8db42042be25688d97e64d4, type: 3}
+  - {fileID: 8300000, guid: b540685eeda480c44adf180d3dd43d09, type: 3}
+  - {fileID: 8300000, guid: 966a16becb90a76408553a6fc27091a2, type: 3}
+  - {fileID: 8300000, guid: c7c9f5d1164063b45a4d2b43273573f2, type: 3}
+  - {fileID: 8300000, guid: d5dadc9fd7cf8674289338d357c95411, type: 3}
   isPlaying: 0
   WhichMusic: 6
 --- !u!82 &1234856394
@@ -11130,7 +11150,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1266837150
 Animator:
@@ -11245,7 +11264,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1279236708
 Animator:
@@ -12099,7 +12117,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1416250831
 Animator:
@@ -12270,7 +12287,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1420542382
 Animator:
@@ -12385,7 +12401,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1423315862
 Animator:
@@ -13251,7 +13266,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1581840535
 Animator:
@@ -13413,7 +13427,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1621463593
 Animator:
@@ -14618,7 +14631,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1787291306
 Animator:
@@ -14906,7 +14918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1805122460
 Animator:
@@ -15442,7 +15453,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &1925546232
@@ -15880,7 +15890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!114 &1970023228
 MonoBehaviour:
@@ -16092,7 +16101,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &1982191701
 Animator:
@@ -16546,7 +16554,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &2005950881
 Animator:
@@ -16716,7 +16723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &2012204354
@@ -17049,7 +17055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &2026266420
 Animator:
@@ -17507,7 +17512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &2123991555
 Animator:
@@ -17753,7 +17757,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List: []
 --- !u!95 &2146095353
 Animator:
@@ -17867,7 +17870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e886d22bc37a7142b07fbe9110416a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isLoopMusicStart: 0
   List:
   - {fileID: 0}
 --- !u!95 &2146252985
