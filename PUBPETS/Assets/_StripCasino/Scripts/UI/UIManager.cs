@@ -119,8 +119,6 @@ namespace Blackjack_Game
             Debug.Log("目前储存的AVG对话框文字速度" + PlayerPrefs.GetFloat("TextSpeed"));
 
             // Debug.Log("目前储存的窗口设置" + PlayerPrefs.GetInt("Setting_Windows"));//0全屏 1窗口
-            // Debug.Log("目前储存的最大分辨率全屏设置" + PlayerPrefs.GetInt("Setting_ResolutionWindows"));//0当前分辨率 1非当前分辨率
-            // Debug.Log("目前储存的最大分辨率窗口化设置" + PlayerPrefs.GetInt("Setting_WindowedCurrentResolution"));//0当前分辨率 1非当前分辨率
             // Debug.Log("目前储存的是否允许后台运行" + PlayerPrefs.GetInt("Setting_AllowBackgroundRunning"));//0允许 1不允许
 
 
@@ -2210,7 +2208,11 @@ namespace Blackjack_Game
             GameFlowData.nextAVGId = "StartShop_02";//商人出现
             LoadingScene_Spine();
         }
-
+        public void BarToRecipe()
+        {
+            GameFlowData.nextAVGId = "StartRecipe";//酒品商店
+            LoadingScene_Spine();
+        }
         #endregion
 
         /// <summary>

@@ -26,11 +26,18 @@ namespace Blackjack_Game
             StartWork();//设定为先开始
 
             Dealer_Progress();//读取女荷官进度
+
+
+
+
+
+            RefreshUnlockedRecipesFromSave(); // 读取你已经解锁酒类
+            RefreshUnlockedDrinkIcons();// 图标显示对应酒类
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
 
-        public void StartWork() 
+        public void StartWork()
         {
             Work.SetActive(true);//展示需要沙威玛界面的全部要素
             Guests.SetActive(true);//展示所有客人
@@ -60,7 +67,7 @@ namespace Blackjack_Game
             UIManager.instance.SetWait();
         }
 
-        public void StopWork() 
+        public void StopWork()
         {
             Work.SetActive(false);//展示需要沙威玛界面的全部要素
             Guests.SetActive(false);//展示所有客人
@@ -82,10 +89,12 @@ namespace Blackjack_Game
 
             //选择女荷官界面BGM
             BGM.instance.Stop();
-            BGM.instance.AudioPlayBackgroundMusic(3);//暂时通过这个改变音乐
+            BGM.instance.AudioPlayBackgroundMusic(11);//暂时通过这个改变音乐
 
             StopWorkButton.SetActive(false);
         }
+
+
 
         /// <summary>
         /// 321倒计时
@@ -125,6 +134,8 @@ namespace Blackjack_Game
 
         #endregion
 
+
+
         /// <summary>
         /// 客人逐步上前
         /// </summary>
@@ -132,7 +143,7 @@ namespace Blackjack_Game
         int LeaveGuestNumber = 1;
         public void Guest_Move()
         {
-         
+
 
             Queues_Guest.SetTrigger("Move");
             Debug.Log("Move");
@@ -237,6 +248,8 @@ namespace Blackjack_Game
 
         #endregion
 
+
+
         /// <summary>
         /// 随机显示顾客要求
         /// </summary>
@@ -275,7 +288,10 @@ namespace Blackjack_Game
             public int price;             // 完成这杯酒后的奖励金
         }
         [Header("特调酒")]
-        public List<SpecialDrink> specialDrinks;
+        public List<SpecialDrink> specialDrinks;//目前全部的特调酒
+        public List<SpecialDrink> unlockedSpecialDrinks = new List<SpecialDrink>();//目前你这个存档已经解锁的酒品
+
+
         private SpecialDrink currentSpecial = null;//是否是随机酒
 
         [System.Serializable]
@@ -293,29 +309,63 @@ namespace Blackjack_Game
         private List<string> currentRecipe = new List<string>();
         private int currentIndex = 0;
         bool isSpecial;//是否是特制酒
+
+        private int currentRandomCount = 0;   // 当前随机酒配方长度(点了一串太过便宜不太好)
+
+
         public void GenerateNewCustomer()
         {
             currentIndex = 0;
             currentSpecial = null;
 
             // 50% 概率是随机饮品，50% 概率是特调饮品
-            isSpecial = Random.Range(0f, 1f) < 0.5f;
+            //isSpecial = Random.Range(0f, 1f) < 0.5f;
 
-            if (isSpecial && specialDrinks.Count > 0)
+
+            //当玩家的特殊酒越多，出现特殊酒的几率也就越大
+
+            int unlockedCount = unlockedSpecialDrinks.Count;
+            int totalCount = specialDrinks.Count;
+
+
+            //如果没有解锁任何特调饮品，那么不允许出现 isSpecial 
+            if (unlockedSpecialDrinks.Count <= 0)
             {
-                currentSpecial = specialDrinks[Random.Range(0, specialDrinks.Count)];
+                isSpecial = false;
+            }
+            else
+            {
+                //当玩家的特殊酒越多，出现特殊酒的几率也就越大
+                // 1种=40%，全解锁=80%
+                float specialChance = 0.4f + 0.4f * (unlockedCount - 1) / (float)(totalCount - 1);
+                specialChance = Mathf.Clamp01(specialChance);
+
+                isSpecial = Random.value < specialChance;
+            }
+
+
+
+
+            if (isSpecial && unlockedSpecialDrinks.Count > 0)
+            {
+                //currentSpecial = specialDrinks[Random.Range(0, specialDrinks.Count)];
+                //currentRecipe = new List<string>(currentSpecial.recipe);
+
+                currentSpecial = unlockedSpecialDrinks[Random.Range(0, unlockedSpecialDrinks.Count)];
                 currentRecipe = new List<string>(currentSpecial.recipe);
+
+
                 Debug.Log("顾客点了：" + currentSpecial.name);
 
                 switch (currentSpecial.name)
                 {
-                    case "龙炎酒":
+                    case "龙焰酒":
                         currentDisplayedDialogue = Diagol[1];
                         break;
                     case "魔女之吻":
                         currentDisplayedDialogue = Diagol[2];
                         break;
-                    case "精灵树蜂蜜":
+                    case "精灵树蜂蜜酒":
                         currentDisplayedDialogue = Diagol[3];
                         break;
                     case "冰结之息":
@@ -330,13 +380,25 @@ namespace Blackjack_Game
                     case "狼毒酒":
                         currentDisplayedDialogue = Diagol[7];
                         break;
+                    case "太阳果皮酒":
+                        currentDisplayedDialogue = Diagol[8];
+                        break;
+                    case "森之果酒":
+                        currentDisplayedDialogue = Diagol[9];
+                        break;
+                    case "宵之玫瑰酒":
+                        currentDisplayedDialogue = Diagol[10];
+                        break;
                 }
                 currentDisplayedDialogue.SetActive(true);
 
             }
             else
             {
-                int count = Random.Range(2, 6);
+                int count = Random.Range(2, 6); 
+                
+                currentRandomCount = count;   // ✅ 记录普通酒的复杂度
+
                 currentRecipe = allIngredients
                     .OrderBy(x => Random.value)
                     .Take(count)
@@ -375,6 +437,7 @@ namespace Blackjack_Game
         {
             if (!timeRunning) { return; }//计时开始钱戳物品
 
+
             if (id == currentRecipe[currentIndex])
             {
                 // 正确 → 隐藏当前提示图标
@@ -388,13 +451,13 @@ namespace Blackjack_Game
                         //播放酒好了动画
                         switch (currentSpecial.name)
                         {
-                            case "龙炎酒":
+                            case "龙焰酒":
                                 ShakerPlane.SetTrigger("Wine_1");
                                 break;
                             case "魔女之吻":
                                 ShakerPlane.SetTrigger("Wine_2");
                                 break;
-                            case "精灵树蜂蜜":
+                            case "精灵树蜂蜜酒":
                                 ShakerPlane.SetTrigger("Wine_3");
                                 break;
                             case "冰结之息":
@@ -409,22 +472,22 @@ namespace Blackjack_Game
                             case "狼毒酒":
                                 ShakerPlane.SetTrigger("Wine_7");
                                 break;
-
-                        }
-                    }
-                    else 
-                    {
-                        switch (Random.Range(8,14))
-                        {
-                            case 8:
+                            case "太阳果皮酒":
                                 ShakerPlane.SetTrigger("Wine_8");
                                 break;
-                            case 9:
+                            case "森之果酒":
                                 ShakerPlane.SetTrigger("Wine_9");
                                 break;
-                            case 10:
+                            case "宵之玫瑰酒":
                                 ShakerPlane.SetTrigger("Wine_10");
                                 break;
+                        }
+                    }
+                    else
+                    {
+                        switch (Random.Range(11, 21))
+                        {
+
                             case 11:
                                 ShakerPlane.SetTrigger("Wine_11");
                                 break;
@@ -433,6 +496,27 @@ namespace Blackjack_Game
                                 break;
                             case 13:
                                 ShakerPlane.SetTrigger("Wine_13");
+                                break;
+                            case 14:
+                                ShakerPlane.SetTrigger("Wine_14");
+                                break;
+                            case 15:
+                                ShakerPlane.SetTrigger("Wine_15");
+                                break;
+                            case 16:
+                                ShakerPlane.SetTrigger("Wine_16");
+                                break;
+                            case 17:
+                                ShakerPlane.SetTrigger("Wine_17");
+                                break;
+                            case 18:
+                                ShakerPlane.SetTrigger("Wine_18");
+                                break;
+                            case 19:
+                                ShakerPlane.SetTrigger("Wine_19");
+                                break;
+                            case 20:
+                                ShakerPlane.SetTrigger("Wine_20");
                                 break;
 
                         }
@@ -463,12 +547,30 @@ namespace Blackjack_Game
         public Animator ShakerPlane;
 
         //酒完成动画调用
-        public void MakeWineSuccess() 
-        {      
+        public void MakeWineSuccess()
+        {
             OverDialog();//目前要求消失
 
             Debug.Log("调酒成功！");
-            int reward = currentSpecial != null ? currentSpecial.price : 100;
+
+            int reward;
+
+            if (currentSpecial != null)
+            {
+                reward = currentSpecial.price; // 特调固定收益
+            }
+            else
+            {
+                // ✅ 随机酒：按复杂度小幅提升
+                int c = Mathf.Clamp(currentRandomCount, 2, 5);
+
+                int baseMin = 60;
+                int baseMax = 80;
+                int stepBonus = (c - 2) * 15;   // 2步=0, 3步=+15, 4步=+30, 5步=+45
+
+                reward = Random.Range(baseMin + stepBonus, baseMax + stepBonus + 1);
+            }
+
             BalanceManager.ChangeBalance(reward);
             AddGuest(reward);//营收记录
             startText.gameObject.SetActive(true);
@@ -484,12 +586,15 @@ namespace Blackjack_Game
             //隐藏挡板
             Block_Panel.SetActive(false);
             UIManager.instance.SetNormal();
+
+            //普通酒复杂度清零
+            currentRandomCount = 0;
         }
 
 
         //在点击暂停营业的时候，外部调用
 
-        public void timeRunningFalse() 
+        public void timeRunningFalse()
         {
             //timeRunning = false;//计时暂停
 
@@ -501,6 +606,51 @@ namespace Blackjack_Game
             //timeRunning = true;//继续计时
             Time.timeScale = 1f;
         }
+
+
+        [Header("已解锁特调酒图标（按 specialDrinks 顺序对齐）")]
+        public List<GameObject> unlockedDrinkIcons; // size=7，对应 Wine_1~Wine_7
+        public GameObject unlockedDrinkList;//显示和不显示这个列表
+
+        public void RefreshUnlockedRecipesFromSave()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            // 防御：避免 null
+            if (data.unlockedDrinkNames == null)
+                data.unlockedDrinkNames = new List<string>();
+
+            unlockedSpecialDrinks = specialDrinks
+                .Where(d => data.unlockedDrinkNames.Contains(d.name))
+                .ToList();
+
+            Debug.Log($"已解锁特调数量：{unlockedSpecialDrinks.Count}");
+        }//存档内已经解锁的酒类
+
+        public void RefreshUnlockedDrinkIcons()
+        {
+            // 先全部隐藏
+            for (int i = 0; i < unlockedDrinkIcons.Count; i++)
+                unlockedDrinkIcons[i].SetActive(false);
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.unlockedDrinkNames == null)
+                data.unlockedDrinkNames = new List<string>();
+
+            // 点亮已解锁
+            for (int i = 0; i < specialDrinks.Count; i++)
+            {
+                var drink = specialDrinks[i];
+                if (data.unlockedDrinkNames.Contains(drink.name))
+                {
+                    if (i >= 0 && i < unlockedDrinkIcons.Count)
+                        unlockedDrinkIcons[i].SetActive(true);
+                    else
+                        Debug.LogWarning($"图标列表数量不足：special index={i}");
+                }
+            }
+        }//显示存档内已经有的酒类
+
 
 
         #endregion
@@ -559,6 +709,10 @@ namespace Blackjack_Game
             guestCountText.text = guestCount.ToString();
             revenueText.text = revenue.ToString();
 
+            //隐藏列表
+            unlockedDrinkList.SetActive(false);
+
+
             // 可选：暂停游戏等
             //Time.timeScale = 0;
         }
@@ -579,10 +733,10 @@ namespace Blackjack_Game
         #region
         public GameObject Alice;
         public GameObject Hetty;
-        public void Set_Alice_Hetty() 
+        public void Set_Alice_Hetty()
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            if (data.antoProgress>=3) 
+            if (data.antoProgress >= 3)
             {
                 Alice.SetActive(true);
                 Hetty.SetActive(true);
@@ -608,7 +762,7 @@ namespace Blackjack_Game
 
         }
 
-     
+
         public void Load_Vs_Alice_AVG()
         {
 
@@ -632,7 +786,7 @@ namespace Blackjack_Game
 
         public Image FillImage_Anto, FillImage_Hetty, FillImage_Alice;
 
-        public void Dealer_Progress() 
+        public void Dealer_Progress()
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 

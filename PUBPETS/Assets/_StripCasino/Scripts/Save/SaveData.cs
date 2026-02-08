@@ -47,6 +47,8 @@ public class SaveData
     public int lastCGGirl = 0; // 0 none, 1 Anto, 2 Hetty, 3 Alice
     public int lastCGIndex = 0; // 1~10
 
+    //你已经解锁的酒类
+    public List<string> unlockedDrinkNames = new List<string>(); // ✅新增
 
 }
 
