@@ -82,47 +82,26 @@ namespace Blackjack_Game
 
 
 
-                //if (Application.platform == RuntimePlatform.Android)
-                //{
-                //    Debug.Log("当前是 Android");
-                //}
-                //else
-                //{
-                //    Debug.Log("当前是 PC");
-                //
-                //    if (PlayerPrefs.GetInt("Setting_Windows") == 0)
-                //    {
-                //        isDisplayMode = true; // 全屏
-                //    }//检测当前的画面设置
-                //    DisplayMode();
-                //    
-                //    
-                //    if (isDisplayMode)
-                //    {
-                //        if (PlayerPrefs.GetInt("Setting_ResolutionWindows") == 0)
-                //        {
-                //            isAllowedResizingGameWindow = true; // 全屏
-                //        }//检测当前是否基于当前分辨率全屏
-                //        ResizingGameWindow();
-                //    
-                //    }
-                //    else 
-                //    {
-                //        if (PlayerPrefs.GetInt("Setting_WindowedCurrentResolution") == 0)
-                //        {
-                //            isWindowedCurrentResolution = true; // 窗口
-                //        }//检测当前是否基于当前分辨率全屏
-                //        WindowedCurrentResolution();
-                //    }
-                //    
-                //    
-                //    
-                //    if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
-                //    {
-                //        isAllowedBackgroundRunning = true; // 允许
-                //    }//检测允许游戏在后台运行
-                //    AllowBackgroundRunning();
-                //}
+                if (Application.platform == RuntimePlatform.Android)
+                {
+                    Debug.Log("当前是 Android");
+                }
+                else
+                {
+                    Debug.Log("当前是 PC");
+
+                    StartSetDisplayMode();//根据存档设置对应屏幕以及分辨率
+
+                    GetResolutionIndex_Text();//设置屏幕分辨率文字
+
+                    if (PlayerPrefs.GetInt("Setting_AllowBackgroundRunning") == 0)
+                    {
+                        isAllowedBackgroundRunning = true; // 允许
+
+                    }//检测允许游戏在后台运行
+
+                    AllowBackgroundRunning();
+                }
 
 
             }//主菜单的设置
@@ -907,36 +886,36 @@ namespace Blackjack_Game
 
         private void RefreshButtons()
         {
-            //float y = target.anchoredPosition.y;
+            float y = target.anchoredPosition.y;
+            
+            // 到顶：隐藏上键；否则显示
+            if (downButton) downButton.SetActive(y < bottomLimit);
+            
+            // 到底：隐藏下键；否则显示
+            if (upButton) upButton.SetActive(y > topLimit);
+
+            // if (unlockedCount <= 6)
+            // {
+            //     // 只有一页，两个按钮都不显示
+            //     if (upButton) upButton.SetActive(false);
+            //     if (downButton) downButton.SetActive(false);
+            //     return;
+            // }
             //
-            //// 到顶：隐藏上键；否则显示
-            //if (downButton) downButton.SetActive(y < bottomLimit);
+            // pageCount = Mathf.CeilToInt(unlockedCount / 6f);
+            // pageCount+=2;
             //
-            //// 到底：隐藏下键；否则显示
-            //if (upButton) upButton.SetActive(y > topLimit);
-
-            if (unlockedCount <= 6)
-            {
-                // 只有一页，两个按钮都不显示
-                if (upButton) upButton.SetActive(false);
-                if (downButton) downButton.SetActive(false);
-                return;
-            }
-
-            pageCount = Mathf.CeilToInt(unlockedCount / 6f);
-            pageCount+=2;
-
-            int currentPage = Mathf.RoundToInt(
-                (target.anchoredPosition.y - topLimit) / step
-            );
-
-            // 上一页是否存在
-            if (upButton)
-                upButton.SetActive(currentPage > 0);
-
-            // 下一页是否存在
-            if (downButton)
-                downButton.SetActive(currentPage < pageCount - 1);
+            // int currentPage = Mathf.RoundToInt(
+            //     (target.anchoredPosition.y - topLimit) / step
+            // );
+            //
+            // // 上一页是否存在
+            // if (upButton)
+            //     upButton.SetActive(currentPage > 0);
+            //
+            // // 下一页是否存在
+            // if (downButton)
+            //     downButton.SetActive(currentPage < pageCount - 1);
 
 
         }
@@ -1455,126 +1434,148 @@ namespace Blackjack_Game
         /// </summary>
         #region
         [Header("画面显示方法")]
-        public GameObject DisplayMode_1;
-        public GameObject DisplayMode_2;
-
-        public bool isDisplayMode = true;//是否全屏
+        public GameObject DisplayMode_1;//全屏
+        public GameObject DisplayMode_2;//窗口
 
 
-        public void _DisplayMode()
+
+        void StartSetDisplayMode()
         {
-            isDisplayMode = !isDisplayMode;
-            DisplayMode();
+            bool fullscreen = PlayerPrefs.GetInt("DisplayMode", 1) == 1;
+            int resIndex = PlayerPrefs.GetInt("ResolutionIndex", 2); // 默认1080p
+
+            currentMode = fullscreen ? DisplayMode.Fullscreen : DisplayMode.Windowed;
+
+            var res = supportedResolutions[resIndex];
+            Screen.SetResolution(res.x, res.y, fullscreen);
+
+        }//开始设置屏幕分辨率
+
+
+
+
+        enum DisplayMode
+        {
+            Fullscreen,
+            Windowed
         }
-        void DisplayMode()
-        {
-            if (isDisplayMode)
-            {
 
+        DisplayMode currentMode;
+        Resolution currentResolution;
+
+
+
+        public void SetFullScreenOrWindowed()
+        {
+            if (currentMode == DisplayMode.Fullscreen)
+            {
+                SetDisplayMode(false);
+            }
+            else
+            {
+                SetDisplayMode(true);
+            }
+        }//设置屏幕模式活扣
+
+        public void SetDisplayMode(bool fullscreen)
+        {
+            Screen.fullScreen = fullscreen;
+            currentMode = fullscreen ? DisplayMode.Fullscreen : DisplayMode.Windowed;
+
+            PlayerPrefs.SetInt("DisplayMode", fullscreen ? 1 : 0);
+
+
+
+            //修改显示
+            if (currentMode == DisplayMode.Fullscreen)
+            {
                 DisplayMode_1.SetActive(true);
                 DisplayMode_2.SetActive(false);
-
-                //Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
-                Screen.fullScreen = true;  //设置成全屏
-                PlayerPrefs.SetInt("Setting_Windows", 0);
-
-                AllowedResizingGameWindow.SetActive(true);//只有在全屏模式下可以选分辨率全屏
-                WindowedCurrent.SetActive(false);//只有在全屏模式下可以选分辨率窗口化
             }
             else
             {
                 DisplayMode_1.SetActive(false);
                 DisplayMode_2.SetActive(true);
-
-
-                //Screen.SetResolution(1280, 720, false);//设置为1280 * 720不全屏
-                Screen.fullScreen = false;  //退出全屏 
-                PlayerPrefs.SetInt("Setting_Windows", 1);
-
-                AllowedResizingGameWindow.SetActive(false);//只有在全屏模式下可以选分辨率全屏
-                WindowedCurrent.SetActive(true);//只有在全屏模式下可以选分辨率窗口化
             }
 
-        }
-        [Header("设置当前分辨率全屏")]
-        public GameObject AllowedResizingGameWindow;//只有在全屏模式下可以选
 
-        public GameObject AllowedResizingGameWindow_1;
-        public GameObject AllowedResizingGameWindow_2;
+        }//设置全屏或者窗口化
 
-        public bool isAllowedResizingGameWindow = true;
+        Vector2Int[] supportedResolutions =
+{
+    new Vector2Int(3840, 2160),
+    new Vector2Int(2560, 1440),
+    new Vector2Int(1920, 1080),
+    new Vector2Int(1600, 900),
+    new Vector2Int(1280, 720),
+};
 
-        public void _ResizingGameWindow()
+        public void SetResolutionByIndex(int index)
         {
-            isAllowedResizingGameWindow = !isAllowedResizingGameWindow;
+            var res = supportedResolutions[index];
 
-            ResizingGameWindow();
-        }
+            Screen.SetResolution(
+                res.x,
+                res.y,
+                currentMode == DisplayMode.Fullscreen
+            );
 
-        void ResizingGameWindow()
+            // if (index == 0)
+            // {
+            //     //默认的就是基于当前屏幕分辨率
+            //     InitResolutions();
+            // }
+            // else
+            // {
+            //     var res = supportedResolutions[index];
+            //
+            //     Screen.SetResolution(
+            //         res.x,
+            //         res.y,
+            //         currentMode == DisplayMode.Fullscreen
+            //     );
+            // }
+
+            PlayerPrefs.SetInt("ResolutionIndex", index);
+
+            //设置屏幕分辨率文字
+            GetResolutionIndex_Text();
+
+        }//设置当前屏幕模式的分辨率
+
+
+
+       // public void InitResolutions()
+       // {
+       //
+       //     Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率
+       //     Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
+       //
+       //     //设置屏幕分辨率文字
+       //     GetResolutionIndex_Text();
+       //
+       // }//设置当前屏幕分辩率
+
+
+        public Text ResolutionsText;
+
+        public void GetResolutionIndex_Text()
         {
-            if (isAllowedResizingGameWindow)
-            {
-                AllowedResizingGameWindow_1.SetActive(true);
-                AllowedResizingGameWindow_2.SetActive(false);
+            //设置屏幕分辨率文字
+            int index = PlayerPrefs.GetInt("ResolutionIndex");
+            ResolutionsText.text = GetResolutionLabel(index).ToString();
 
-                Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
-                Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
-                Screen.fullScreen = true;  //设置成全屏
+        }//读取分辨率数字
 
-                PlayerPrefs.SetInt("Setting_ResolutionWindows", 0);
-            }
-            else
-            {
-                AllowedResizingGameWindow_1.SetActive(false);
-                AllowedResizingGameWindow_2.SetActive(true);
 
-                Screen.SetResolution(1280, 720, true);//设置1280*720的全屏
 
-                PlayerPrefs.SetInt("Setting_ResolutionWindows", 1);
-            }
-
-        }
-
-        [Header("设置当前分辨率窗口化")]
-        public GameObject WindowedCurrent;
-
-        public GameObject WindowedCurrentResolution_1;
-        public GameObject WindowedCurrentResolution_2;
-
-        public bool isWindowedCurrentResolution = false;
-
-        public void _WindowedCurrentResolution()
+        string GetResolutionLabel(int index)
         {
-            isWindowedCurrentResolution = !isWindowedCurrentResolution;
+            var r = supportedResolutions[index];
 
-            WindowedCurrentResolution();
+            return $"{r.x}×{r.y}";
         }
-        public void WindowedCurrentResolution()
-        {
 
-            if (isWindowedCurrentResolution)
-            {
-                WindowedCurrentResolution_1.SetActive(true);
-                WindowedCurrentResolution_2.SetActive(false);
-
-                Resolution[] resolutions = Screen.resolutions;//获取设置当前屏幕分辩率全屏
-                Screen.SetResolution(resolutions[resolutions.Length - 1].width, resolutions[resolutions.Length - 1].height, true);//设置当前分辨率
-                Screen.fullScreen = false;  //设置成窗口化
-
-                PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 0);
-            }
-            else
-            {
-                WindowedCurrentResolution_1.SetActive(false);
-                WindowedCurrentResolution_2.SetActive(true);
-
-                Screen.SetResolution(1280, 720, false);//设置1280*720的全屏
-
-                PlayerPrefs.SetInt("Setting_WindowedCurrentResolution", 1);
-            }
-
-        }
 
 
         [Header("允许后台运行")]
@@ -1620,6 +1621,11 @@ namespace Blackjack_Game
 
 
         #endregion
+
+
+
+
+
 
         /// <summary>
         /// AVG画面
