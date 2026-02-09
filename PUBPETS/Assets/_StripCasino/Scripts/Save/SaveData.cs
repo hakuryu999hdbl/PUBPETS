@@ -17,14 +17,22 @@ public class SaveData
 
 
 
-    public int Item_1;
-    public int Item_2;
-    public int Item_3;
-    public int Item_4;
-    public int Item_5;
-    public int Item_6;
-    public int Item_7;
-    public int Item_8;
+    public int Item_1;//紫色心情
+    public int Item_2;//占卜水晶
+    public int Item_3;//均衡徽章
+    public int Item_4;//魔眼石
+    public int Item_5;//酒瓶
+    public int Item_6;//藏宝图残片
+    public int Item_7;//幸运币
+    public int Item_8;//透视药水
+    public int Item_9;//绿色心情
+    public int Item_10;//匕首
+    public int Item_11;//黑棋子
+    public int Item_12;//魔眼药水
+    public int Item_13;//空瓶
+    public int Item_14;//白棋子
+    public int Item_15;//厄运币
+    public int Item_16;//皇室家徽
 
 
     // ✅ 加上这个构造函数 ↓↓↓↓↓↓↓↓↓

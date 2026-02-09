@@ -167,17 +167,18 @@ namespace Blackjack_Game
                     break;
             }
 
-            Invoke("HideIcon", 1f);
+            //这里跳出字上面的动画器
+            //Invoke("HideIcon", 1f);
         }
 
 
-        void HideIcon() 
-        {
-            GameManager._Instance.Icon_Win.SetActive(false);
-            GameManager._Instance.Icon_NoWin.SetActive(false);
-            GameManager._Instance.Icon_Push.SetActive(false);
-            GameManager._Instance.Icon_Bust.SetActive(false);
-        }
+        //void HideIcon() 
+        //{
+        //    GameManager._Instance.Icon_Win.SetActive(false);
+        //    GameManager._Instance.Icon_NoWin.SetActive(false);
+        //    GameManager._Instance.Icon_Push.SetActive(false);
+        //    GameManager._Instance.Icon_Bust.SetActive(false);
+        //}
 
 
         protected void AddCardToHand(GameObject card)

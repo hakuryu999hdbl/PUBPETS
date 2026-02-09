@@ -60,6 +60,17 @@ namespace Blackjack_Game
         }//手动修改，看下下张牌
 
 
+        public void BurnTopCard()
+        {
+            GetCard();
+        }//手动修改，去掉牌堆第一张卡
+
+
+        public void ShuffleNow()
+        {
+            Shuffle(_deckCount);
+
+        }//手动修改，直接洗牌
 
 
 

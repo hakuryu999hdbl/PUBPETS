@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ItemManager : MonoBehaviour
 {
-    public GameObject Item_1, Item_2, Item_3, Item_4, Item_5, Item_6, Item_7, Item_8;
-    public Text Item_1_Number, Item_2_Number, Item_3_Number, Item_4_Number, Item_5_Number, Item_6_Number, Item_7_Number, Item_8_Number;
+    public GameObject Item_1, Item_2, Item_3, Item_4, Item_5, Item_6, Item_7, Item_8, Item_9, Item_10, Item_11, Item_12, Item_13, Item_14, Item_15, Item_16;
+    public Text Item_1_Number, Item_2_Number, Item_3_Number, Item_4_Number, Item_5_Number, Item_6_Number, Item_7_Number, Item_8_Number, Item_9_Number, Item_10_Number, Item_11_Number, Item_12_Number, Item_13_Number, Item_14_Number, Item_15_Number, Item_16_Number;
 
     void OnEnable() => UpdateInventoryUI();   // 进入界面时自动刷新
     public void UpdateInventoryUI()
@@ -21,6 +21,15 @@ public class ItemManager : MonoBehaviour
         Set(Item_6, Item_6_Number, data.Item_6);
         Set(Item_7, Item_7_Number, data.Item_7);
         Set(Item_8, Item_8_Number, data.Item_8);
+
+        Set(Item_9, Item_9_Number, data.Item_9);
+        Set(Item_10, Item_10_Number, data.Item_10);
+        Set(Item_11, Item_11_Number, data.Item_11);
+        Set(Item_12, Item_12_Number, data.Item_12);
+        Set(Item_13, Item_13_Number, data.Item_13);
+        Set(Item_14, Item_14_Number, data.Item_14);
+        Set(Item_15, Item_15_Number, data.Item_15);
+        Set(Item_16, Item_16_Number, data.Item_16);
     }
 
     private void Set(GameObject icon, Text label, int count)

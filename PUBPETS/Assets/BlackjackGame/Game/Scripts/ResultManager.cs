@@ -22,6 +22,19 @@ namespace Blackjack_Game
         {
 
             float totalWin = ChipManager.GetWinnings();
+
+
+            // ✅ 奖励翻倍（只在赢的时候加成）
+            //float mul = GameManager._Instance != null ? GameManager._Instance.rewardMultiplier : 1f;
+            //if (totalWin > 0) totalWin *= mul;
+
+            if (totalWin > 0)
+            {
+                float mul = GameManager._Instance.rewardMultiplier;
+                totalWin *= mul;
+            }
+
+
             BalanceManager.ChangeBalance(totalWin);
             ShowResult(totalWin);
         }
@@ -45,21 +58,20 @@ namespace Blackjack_Game
 
 
 
-                //AudioManager.SoundPlay(2);
+
                 AudioManager_2.SoundPlay(3);//手动SE音频替换
 
             }
-            else 
+            else
             {
                 winText.text = "";
 
 
 
-                //AudioManager.SoundPlay(5);
                 AudioManager_2.SoundPlay(4);//手动SE音频替换
 
             }
-               
+
         }
     }
 }
