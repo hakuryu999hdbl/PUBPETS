@@ -161,6 +161,10 @@ namespace Blackjack_Game
                 case Outcome.Blackjack:
                     outcomeText.text = "Blackjack";
                     outcomeText.color = Color.yellow;
+
+
+                    GameManager._Instance.Icon_Win.SetActive(true);
+
                     break;
                 default:
                     outcomePanel.SetActive(false);

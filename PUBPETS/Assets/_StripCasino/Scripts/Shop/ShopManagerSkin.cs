@@ -50,7 +50,7 @@ namespace Blackjack_Game
         // 随机 4 个不重复（1..8）
         public void RandomizeFour()
         {
-            List<int> pool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+            List<int> pool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
             for (int i = 0; i < 4; i++)
             {
                 int r = Random.Range(0, pool.Count);
@@ -176,20 +176,31 @@ namespace Blackjack_Game
 
             switch (id)
             {
-                case 1: data.Item_1 += 1; break;  // 跳蛋
-                case 2: data.Item_2 += 1; break;  // 水晶
-                case 3: data.Item_3 += 1; break;  // 均衡
-                case 4: data.Item_4 += 1; break;  // 宝石
+                case 1: data.Item_1 += 1; break;  // 紫色心情
+                case 2: data.Item_2 += 1; break;  // 占卜水晶
+                case 3: data.Item_3 += 1; break;  // 均衡徽章
+                case 4: data.Item_4 += 1; break;  // 魔眼石
                 case 5: data.Item_5 += 1; break;  // 酒瓶
-                case 6: data.Item_6 += 1; break;  // 翡翠
-                case 7: data.Item_7 += 1; break;  // 硬币
-                case 8: data.Item_8 += 1; break;  // 旧酒
+                case 6: data.Item_6 += 1; break;  // 藏宝图残片
+                case 7: data.Item_7 += 1; break;  // 幸运币
+                case 8: data.Item_8 += 1; break;  // 透视药水
+                case 9: data.Item_9 += 1; break;  // 绿色心情
+                case 10: data.Item_10 += 1; break;  // 匕首
+                case 11: data.Item_11 += 1; break;  // 黑棋子
+                case 12: data.Item_12 += 1; break;  // 魔眼药水
+                case 13: data.Item_13 += 1; break;  // 空瓶
+                case 14: data.Item_14 += 1; break;  // 白棋子
+                case 15: data.Item_15 += 1; break;  // 厄运币
+                case 16: data.Item_16 += 1; break;  // 皇室家徽
             }
             SaveManager.SaveGame(data);
 
             Debug.Log($"购买成功：Item_{id} 价格 {price}G");
 
-            Debug.Log($"库存｜跳蛋:{data.Item_1}  水晶:{data.Item_2}  法杖:{data.Item_3}  宝石:{data.Item_4}  " + $"酒瓶:{data.Item_5}  翡翠:{data.Item_6}  硬币:{data.Item_7}  旧酒:{data.Item_8}");
+            Debug.Log($"库存｜紫色心情:{data.Item_1}  占卜水晶:{data.Item_2}  均衡徽章:{data.Item_3}  魔眼石:{data.Item_4}  " 
+                    + $"酒瓶:{data.Item_5}  藏宝图残片:{data.Item_6}  幸运币:{data.Item_7}  透视药水:{data.Item_8}" +
+                      $"绿色心情:{data.Item_9}  匕首:{data.Item_10}  黑棋子:{data.Item_11}  魔眼药水:{data.Item_12}" +
+                      $"空瓶:{data.Item_13}  白棋子:{data.Item_14}  厄运币:{data.Item_15}  皇室家徽:{data.Item_16}");
 
             AudioManager_2.SoundPlay(3); // 播放打开音效
 
@@ -218,14 +229,24 @@ namespace Blackjack_Game
         {
             switch (id)
             {
-                case 1: return 100; // 跳蛋//修改女荷官点数-1或+1
-                case 2: return 150; // 水晶//看牌堆下一张卡
-                case 3: return 200; // 均衡//强制平局
-                case 4: return 50; // 宝石//看女荷官的盖牌
-                case 5: return 100; // 酒瓶//双方随机一方双倍
-                case 6: return 300; // 翡翠//点数超过21，强制削减随机3~5
-                case 7: return 150; // 硬币//修改你的点数-1或+1
-                case 8: return 250; // 旧酒//看牌堆下下张卡
+                case 1: return 150; // 紫色心情
+                case 2: return 150; // 占卜水晶
+                case 3: return 500; // 均衡徽章
+                case 4: return 100; // 魔眼石
+                case 5: return 300; // 酒瓶
+                case 6: return 400; // 藏宝图残片
+                case 7: return 150; // 幸运币
+                case 8: return 50;  // 透视药水
+
+                case 9: return 150; // 绿色心情
+                case 10: return 250; // 匕首（丢弃顶牌）
+                case 11: return 350; // 黑棋子
+                case 12: return 200; // 魔眼药水（洗牌）
+                case 13: return 300; // 空瓶（庄家翻倍）
+                case 14: return 350; // 白棋子（庄家+5）
+                case 15: return 150; // 厄运币（玩家-1）
+                case 16: return 450; // 皇室家徽（双倍奖励）
+
                 default: return 0;
             }
         }

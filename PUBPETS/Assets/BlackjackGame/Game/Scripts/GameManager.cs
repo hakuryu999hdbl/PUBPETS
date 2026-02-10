@@ -498,6 +498,10 @@ namespace Blackjack_Game
             SaveNumber = 0;//强制清零
 
 
+
+            Invoke(nameof(ResetDoubleReward),1f);
+
+
             //女荷官使用藏宝图残片
             //if (dealer.Score > 21)
             //{
@@ -577,7 +581,7 @@ namespace Blackjack_Game
             player.hand.CheatNumber = 0;//作弊點數清零
             dealer.hand.CheatNumber = 0;//作弊點數清零
 
-            rewardMultiplier = 1f; // ✅ 双倍奖励重置
+
 
             TreasureBox.SetActive(false);//宝箱消失
 
@@ -1061,66 +1065,66 @@ namespace Blackjack_Game
                 case 8:
                     //绿色心情
                     Item_DecreaseFemaleDealerScore();//修改女荷官点数-1
-                    //currentCount = data.Item_9;
-                    //currentCount--;
-                    //data.Item_9 = currentCount;
+                    currentCount = data.Item_9;
+                    currentCount--;
+                    data.Item_9 = currentCount;
                     break;
 
 
                 case 9:
                     //匕首
                     Item_TryBurnTopCard();//移除牌堆顶牌
-                    //currentCount = data.Item_10;
-                    //currentCount--;
-                    //data.Item_10 = currentCount;
+                    currentCount = data.Item_10;
+                    currentCount--;
+                    data.Item_10 = currentCount;
                     break;
 
                 case 10:
                     //黑棋子
                     Item_IncreasePlayerScore_2();//修改你的点数+5
-                    //currentCount = data.Item_11;
-                    //currentCount--;
-                    //data.Item_11 = currentCount;
+                    currentCount = data.Item_11;
+                    currentCount--;
+                    data.Item_11 = currentCount;
                     break;
 
                 case 11:
                     //魔眼药水
                     Item_TryShuffleDeck();//洗牌
-                    //currentCount = data.Item_12;
-                    //currentCount--;
-                    //data.Item_12 = currentCount;
+                    currentCount = data.Item_12;
+                    currentCount--;
+                    data.Item_12 = currentCount;
                     break;
 
                 case 12:
                     //空瓶
                     Item_DealerDoubleScore();//女荷官一方双倍
-                    //currentCount = data.Item_13;
-                    //currentCount--;
-                    //data.Item_13 = currentCount;
+                    currentCount = data.Item_13;
+                    currentCount--;
+                    data.Item_13 = currentCount;
                     break;
 
                 case 13:
                     //白棋子
                     Item_IncreaseFemaleDealerScore_2();//修改女荷官点数+5
-                    //currentCount = data.Item_14;
-                    //currentCount--;
-                    //data.Item_14 = currentCount;
+                    currentCount = data.Item_14;
+                    currentCount--;
+                    data.Item_14 = currentCount;
                     break;
 
                 case 14:
                     //厄运币
                     Item_DecreasePlayerScore();//修改你的点数-1
-                    //currentCount = data.Item_15;
-                    //currentCount--;
-                    //data.Item_15 = currentCount;
+                    currentCount = data.Item_15;
+                    currentCount--;
+                    data.Item_15 = currentCount;
                     break;
 
                 case 15:
                     //皇室徽章
                     ActivateDoubleRewardThisRound();//本局如果获胜获得双倍奖励
-                    //currentCount = data.Item_16;
-                    //currentCount--;
-                    //data.Item_16 = currentCount;
+                    currentCount = data.Item_16;
+                    currentCount--;
+                    data.Item_16 = currentCount;
                     break;
             }
 
@@ -1313,12 +1317,12 @@ namespace Blackjack_Game
 
                 case 3:
                     // 英语
-                    Show(6, "Dealer Score +5");
+                    Show(6, "Player Score +5");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(6, "딜러 점수 +5");
+                    Show(6, "플레이어 점수 +5");
                     break;
 
             }
@@ -1347,12 +1351,12 @@ namespace Blackjack_Game
 
                 case 3:
                     // 英语
-                    Show(6, "Dealer Score +1");
+                    Show(6, "Player Score +1");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(6, "딜러 점수 +1");
+                    Show(6, "플레이어 점수  +1");
                     break;
 
             }
@@ -1360,33 +1364,33 @@ namespace Blackjack_Game
 
         public void Item_DecreasePlayerScore()
         {
-            player.hand.ChangeScore(1);
+            player.hand.ChangeScore(-1);
 
             switch (PlayerPrefs.GetInt("language"))
             {
                 case 0:
                     // 日语
-                    Show(6, "プレイヤーの点数 +1");
+                    Show(14, "プレイヤーの点数 -1");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(6, "玩家点数 +1");
+                    Show(14, "玩家点数 -1");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(6, "玩家點數 +1");
+                    Show(14, "玩家點數 -1");
                     break;
 
                 case 3:
                     // 英语
-                    Show(6, "Dealer Score +1");
+                    Show(14, "Player Score -1");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(6, "딜러 점수 +1");
+                    Show(14, "플레이어 점수  -1");
                     break;
 
             }
@@ -1400,27 +1404,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(0, "ディーラーの点数 +5");
+                    Show(13, "ディーラーの点数 +5");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(0, "庄家点数 +5");
+                    Show(13, "庄家点数 +5");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(0, "莊家點數 +5");
+                    Show(13, "莊家點數 +5");
                     break;
 
                 case 3:
                     // 英语
-                    Show(0, "Dealer Score +5");
+                    Show(13, "Dealer Score +5");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(0, "플레이어 점수 +5");
+                    Show(13, "주가의 점수  +5");
                     break;
 
             }
@@ -1456,7 +1460,7 @@ namespace Blackjack_Game
 
                 case 4:
                     // 韩语
-                    Show(0, "플레이어 점수 +1");
+                    Show(0, "주가의 점수 +1");
                     break;
 
             }
@@ -1472,27 +1476,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(0, "ディーラーの点数 -1");
+                    Show(8, "ディーラーの点数 -1");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(0, "庄家点数 -1");
+                    Show(8, "庄家点数 -1");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(0, "莊家點數 -1");
+                    Show(8, "莊家點數 -1");
                     break;
 
                 case 3:
                     // 英语
-                    Show(0, "Player Score -1");
+                    Show(8, "Dealer Score -1");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(0, "딜러 점수 -1");
+                    Show(8, "주가의 점수  -1");
                     break;
 
             }
@@ -1508,17 +1512,17 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(4, "ディーラー点数2倍");
+                    Show(4, "プレイヤー点数2倍");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(4, "庄家点数翻倍");
+                    Show(4, "玩家点数翻倍");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(4, "莊家點數翻倍");
+                    Show(4, "玩家點數翻倍");
                     break;
 
                 case 3:
@@ -1543,27 +1547,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(4, "ディーラー点数2倍");
+                    Show(12, "ディーラー点数2倍");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(4, "庄家点数翻倍");
+                    Show(12, "庄家点数翻倍");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(4, "莊家點數翻倍");
+                    Show(12, "莊家點數翻倍");
                     break;
 
                 case 3:
                     // 英语
-                    Show(4, "Dealer Score Doubled");
+                    Show(12, "Dealer Score Doubled");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(4, "딜러 점수 2배");
+                    Show(12, "딜러 점수 2배");
                     break;
 
             }
@@ -1574,6 +1578,41 @@ namespace Blackjack_Game
 
         public bool Item_TryBurnTopCard()
         {
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Show(9, "一番上のカードをデッキの底に置く");
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Show(9, "牌库第一张牌置于牌库底部");
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Show(9, "牌庫第一張牌置於牌庫底部");
+                    break;
+
+                case 3:
+                    // 英语
+                    Show(9, "Move top card to the bottom");
+                    break;
+
+                case 4:
+                    // 韩语
+                    Show(9, "덱의 맨 위 카드를 덱 바닥으로 이동");
+                    break;
+
+            }
+
+
+
+
+
+
             // 只允许在玩家操作阶段用
             if (State != GameState.OnPlay) return false;
             if (!GameActive) return false;
@@ -1599,6 +1638,38 @@ namespace Blackjack_Game
 
         public bool Item_TryShuffleDeck()
         {
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Show(11, "デッキをシャッフル");
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Show(11, "牌库洗牌");
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Show(11, "牌庫洗牌");
+                    break;
+
+                case 3:
+                    // 英语
+                    Show(11, "Shuffle the Deck");
+                    break;
+
+                case 4:
+                    // 韩语
+                    Show(11, "덱 셔플");
+                    break;
+
+            }
+
+
+
             // ✅ 只允许玩家可操作阶段洗牌（避免发牌过程中洗牌导致“已经排队的牌”变了）
             if (State != GameState.OnPlay) return false;
             if (!GameActive) return false;
@@ -1675,27 +1746,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(5, "プレイヤー点数を強制的に-" + SaveNumber);
+                    Show(14, "プレイヤー点数を強制的に-" + SaveNumber);
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(5, "玩家点数强制削减" + SaveNumber);
+                    Show(14, "玩家点数强制削减" + SaveNumber);
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(5, "玩家點數強制削減" + SaveNumber);
+                    Show(14, "玩家點數強制削減" + SaveNumber);
                     break;
 
                 case 3:
                     // 英语
-                    Show(5, "Player Score -" + SaveNumber);
+                    Show(14, "Player Score -" + SaveNumber);
                     break;
 
                 case 4:
                     // 韩语
-                    Show(5, "플레이어 점수 강제 -" + SaveNumber);
+                    Show(14, "플레이어 점수 강제 -" + SaveNumber);
                     break;
 
             }
@@ -1708,11 +1779,51 @@ namespace Blackjack_Game
 
 
         public float rewardMultiplier = 1f; // 本局奖励倍率（默认1）
-
+        public GameObject Sign_DoubleReward;
         public void ActivateDoubleRewardThisRound()
         {
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Show(15, "勝利で報酬2倍");
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Show(15, "获胜的话双倍奖励");
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Show(15, "獲勝的話雙倍獎勵");
+                    break;
+
+                case 3:
+                    // 英语
+                    Show(15, "Double reward if win");
+                    break;
+
+                case 4:
+                    // 韩语
+                    Show(15, "이 판 승리 시 보상 2배");
+                    break;
+
+            }
+            Sign_DoubleReward.SetActive(true);
+
             rewardMultiplier = 2f;
-        }
+        }//双倍奖励
+
+
+        private void ResetDoubleReward()
+        {
+            //双倍奖励标志消失
+            Sign_DoubleReward.SetActive(false);
+            rewardMultiplier = 1f; // ✅ 双倍奖励重置
+
+        }//重置双倍奖励状态
 
         #endregion
 
