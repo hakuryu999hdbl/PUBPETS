@@ -58,7 +58,25 @@ public class Anim_Trigger : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    //public void Dice_Voice()
+    //{
+    //    AudioManager_2.SoundPlay(2);//手动SE音频替换，骰子
+    //}
 
+    public void Run_Voice()
+    {
+        AudioManager_2.SoundPlay(4);//手动SE音频替换，失败声音
+    }
+
+    public void TimeStop() 
+    {
+        Time.timeScale = 0f;
+    }
+
+    public void TimeOver()
+    {
+        Time.timeScale = 1f;
+    }
 
 
 
