@@ -2225,6 +2225,39 @@ namespace Blackjack_Game
             Thumbnail_Anto_01.SetActive(true);
             Thumbnail_Anto_02.SetActive(true);
             Thumbnail_Anto_03.SetActive(true);
+            Thumbnail_Anto_04.SetActive(true);
+            Thumbnail_Anto_05.SetActive(true);
+            Thumbnail_Anto_06.SetActive(true);
+            Thumbnail_Anto_07.SetActive(true);
+            Thumbnail_Anto_08.SetActive(true);
+            Thumbnail_Anto_09.SetActive(true);
+            Thumbnail_Anto_10.SetActive(true);
+
+            Thumbnail_Hetty_01.SetActive(true);
+            Thumbnail_Hetty_02.SetActive(true);
+            Thumbnail_Hetty_03.SetActive(true);
+            Thumbnail_Hetty_04.SetActive(true);
+            Thumbnail_Hetty_05.SetActive(true);
+            Thumbnail_Hetty_06.SetActive(true);
+            Thumbnail_Hetty_07.SetActive(true);
+            Thumbnail_Hetty_08.SetActive(true);
+            Thumbnail_Hetty_09.SetActive(true);
+            Thumbnail_Hetty_10.SetActive(true);
+
+
+            Thumbnail_Alice_01.SetActive(true);
+            Thumbnail_Alice_02.SetActive(true);
+            Thumbnail_Alice_03.SetActive(true);
+            Thumbnail_Alice_04.SetActive(true);
+            Thumbnail_Alice_05.SetActive(true);
+            Thumbnail_Alice_06.SetActive(true);
+            Thumbnail_Alice_07.SetActive(true);
+            Thumbnail_Alice_08.SetActive(true);
+            Thumbnail_Alice_09.SetActive(true);
+            Thumbnail_Alice_10.SetActive(true);
+
+
+
 
             CG_Thumbnail_Menu.SetActive(true);
         }
