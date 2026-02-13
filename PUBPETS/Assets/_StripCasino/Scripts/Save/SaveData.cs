@@ -15,7 +15,8 @@ public class SaveData
     public int hettyProgress;
     public int aliceProgress;
 
-
+    public int DayCount;      // 当前经营天数
+    public bool HasCleared;   // 是否已经通关
 
     public int Item_1;//紫色心情
     public int Item_2;//占卜水晶

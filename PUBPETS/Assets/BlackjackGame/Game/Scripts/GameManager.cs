@@ -464,6 +464,8 @@ namespace Blackjack_Game
         }
         private PlayerResult lastResult = PlayerResult.None;
 
+        /// ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         public void ChangeView()
         {
 
@@ -475,7 +477,10 @@ namespace Blackjack_Game
             //均衡徽章
             if (SameScore)
             {
-                dealer.hand.SetScore(player.Score);
+                Debug.Log("玩家使用【强制平局：玩家点数和女荷官相同】");
+
+                player.hand.SetScore(dealer.Score);
+                
                 SameScore = false;
                 Sign_SameScore.SetActive(false);
 
@@ -501,8 +506,11 @@ namespace Blackjack_Game
 
             Invoke(nameof(ResetDoubleReward),1f);
 
-            Dealer_SaveScore();
-            //女荷官使用藏宝图残片
+
+            Dealer_SameScore();//女荷官使用均衡徽章
+        
+
+            Dealer_SaveScore();//女荷官使用藏宝图残片
            
 
 
@@ -954,6 +962,7 @@ namespace Blackjack_Game
 
         }
 
+        //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         public void _UseItem()
         {
@@ -965,8 +974,9 @@ namespace Blackjack_Game
             {
                 case 0:
                     //紫色心情
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(0);//女荷官反制【紫色心情】
                     }
                     else
@@ -980,8 +990,9 @@ namespace Blackjack_Game
                     break;
                 case 1:
                     //占卜水晶
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(1);//女荷官反制【占卜水晶】
                     }
                     else
@@ -995,8 +1006,9 @@ namespace Blackjack_Game
                     break;
                 case 2:
                     //均衡徽章
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(2);//女荷官反制【均衡徽章】
                     }
                     else
@@ -1010,8 +1022,9 @@ namespace Blackjack_Game
                     break;
                 case 3:
                     //魔眼石
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(3);//女荷官反制【魔眼石】
                     }
                     else
@@ -1025,8 +1038,9 @@ namespace Blackjack_Game
                     break;
                 case 4:
                     //酒瓶
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(4);//女荷官反制【酒瓶】
                     }
                     else
@@ -1040,8 +1054,9 @@ namespace Blackjack_Game
                     break;
                 case 5:
                     //藏宝图残片
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(5);//女荷官反制【藏宝图残片】
                     }
                     else
@@ -1055,8 +1070,9 @@ namespace Blackjack_Game
                     break;
                 case 6:
                     //幸运币
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(6);//女荷官反制【幸运币】
                     }
                     else
@@ -1070,8 +1086,9 @@ namespace Blackjack_Game
                     break;
                 case 7:
                     //透视药水
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(7);//女荷官反制【透视药水】
                     }
                     else
@@ -1088,8 +1105,9 @@ namespace Blackjack_Game
 
                 case 8:
                     //绿色心情
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(8);//女荷官反制【绿色心情】
                     }
                     else
@@ -1104,8 +1122,9 @@ namespace Blackjack_Game
 
                 case 9:
                     //匕首
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(9);//女荷官反制【匕首】
                     }
                     else 
@@ -1120,8 +1139,9 @@ namespace Blackjack_Game
 
                 case 10:
                     //黑棋子
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(10);//女荷官反制【黑棋子】
                     }
                     else
@@ -1136,8 +1156,9 @@ namespace Blackjack_Game
 
                 case 11:
                     //魔眼药水
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(11);//女荷官反制【魔眼药水】
                     }
                     else
@@ -1152,8 +1173,9 @@ namespace Blackjack_Game
 
                 case 12:
                     //空瓶
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(12);//女荷官反制【空瓶】
                     }
                     else
@@ -1168,8 +1190,9 @@ namespace Blackjack_Game
 
                 case 13:
                     //白棋子
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(13);//女荷官反制【白棋子】
                     }
                     else
@@ -1184,8 +1207,9 @@ namespace Blackjack_Game
 
                 case 14:
                     //厄运币
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(14);//女荷官反制【厄运币】
                     }
                     else
@@ -1200,8 +1224,9 @@ namespace Blackjack_Game
 
                 case 15:
                     //皇室徽章
-                    if (Random.Range(0, 1) == 0)
+                    if (HasCounter())
                     {
+                        ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(15);//女荷官反制【皇室徽章】
                     }
                     else
@@ -1949,7 +1974,7 @@ namespace Blackjack_Game
         public Text healthText;
         public Image healthFillImage;
         public float maxHealth = 1000f;
-        private float currentHealth;
+        public float currentHealth;
 
         public Text Limit;//本局赌注上限
         int LimitPlace;//本局赌注上限
@@ -2044,11 +2069,34 @@ namespace Blackjack_Game
             UpdateFill();
 
 
+            int hearts = GetCounterByProgress(Progress);
+            Init(hearts);//女荷官的反制槽根据当前等级
+
+
             Invoke("StartMatch", 1f); // 开局时显示女荷官垃圾话
             //Invoke("StartDialog", 1f);//游戏开始时显示女荷官垃圾话
 
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
         }
+
+        int GetCounterByProgress(int progress)
+        {
+            if (progress <= 3) return 0;
+            if (progress >= 10) return 7;
+            return progress - 3; // 4->1, 5->2 ... 9->6
+        }//更具关卡设置
+
+//1~3关：0心
+//4关：1心
+//5关：2心
+//6关：3心
+//7关：4心
+//8关：5心
+//9关：6心
+//10关：7心
+//11关：7心
+
+
 
         public static void ChangeHealth(float amount)
         {
@@ -2104,6 +2152,10 @@ namespace Blackjack_Game
 
 
             _Instance.ShowResult();//结算画面数据显示
+
+
+          
+
 
         }//显示胜利画面
         public void ReLoadScene()
@@ -2215,10 +2267,79 @@ namespace Blackjack_Game
         /// 女荷官反制动画
         /// </summary>
         #region
+
+        [Header("女荷官反制槽")]
+        public GameObject heartPrefab;
+        public Transform heartGroup;
+
+        private List<GameObject> hearts = new List<GameObject>();
+
+        private int currentCounter;
+        private int maxCounter = 3;   // 默认3颗爱心
+
+        // 初始化
+        public void Init(int max)
+        {
+            maxCounter = max;
+            currentCounter = max;
+
+            CreateHearts();
+        }
+
+        void CreateHearts()
+        {
+            // 清空旧的
+            foreach (Transform child in heartGroup)
+            {
+                Destroy(child.gameObject);
+            }
+
+            hearts.Clear();
+
+            for (int i = 0; i < maxCounter; i++)
+            {
+                GameObject h = Instantiate(heartPrefab, heartGroup);
+                hearts.Add(h);
+            }
+        }
+
+        // 消耗一颗
+        public bool ConsumeOne()
+        {
+            if (currentCounter <= 0)
+                return false;
+
+            currentCounter--;
+
+            hearts[currentCounter].SetActive(false);
+
+            return true;
+        }
+
+        // 重置
+        public void ResetCounter()
+        {
+            currentCounter = maxCounter;
+
+            for (int i = 0; i < hearts.Count; i++)
+            {
+                hearts[i].SetActive(true);
+            }
+        }
+
+        public bool HasCounter()
+        {
+            return currentCounter > 0;
+        }
+
+
+
+
+        [Header("女荷官反制动画")]
         public Animator Interrupt;
         public Text Dealer_Interrupt_Text;
         public Image Dealer_Interrupt_Image;
-
+        public GameObject Sign_Forbidden;
         public void Interrupt_Item(int Item_Image)
         {
             switch (PlayerPrefs.GetInt("language"))
@@ -2247,7 +2368,7 @@ namespace Blackjack_Game
             }
 
             Dealer_Interrupt_Image.sprite = List_Item_Image[Item_Image];
-            Dealer_Interrupt_Image.color = Color.red;//反制道具使用红色
+            Sign_Forbidden.SetActive(true);
             ShowDealerInterrputAnimator();
 
         }//反制玩家使用道具
@@ -2301,13 +2422,16 @@ namespace Blackjack_Game
             }
 
             Dealer_Interrupt_Image.sprite = List_Item_Image[Item_Image];
-            Dealer_Interrupt_Image.color = Color.white;//使用道具用白色
+            Sign_Forbidden.SetActive(false);
             ShowDealerInterrputAnimator();
 
         }//女荷官使用道具
 
         public void Dealer_SaveScore() 
         {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+
             if (dealer.Score > 21)
             {
                 Debug.Log("女荷官使用【救場：点数超过21，强制削减随机3~5】");
@@ -2318,11 +2442,37 @@ namespace Blackjack_Game
 
                 DealerUse_Item(5);
 
+
+                ConsumeOne();//消耗一颗爱心
+
             }// 女荷官点数超过21，强制削减随机3~5
 
 
         }//女荷官使用藏宝图残片
 
+        public void Dealer_SameScore() 
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+
+            // 1) 玩家爆牌，庄家本来就赢，不用徽章
+            if (player.Score > 21) return;
+
+            // 2) 庄家爆牌，这时候应该走藏宝图残片救场，不用徽章
+            if (dealer.Score > 21) return;
+
+            // 3) 庄家本来就 >= 玩家，不会输，不用徽章
+            if (dealer.Score >= player.Score) return;
+
+            Debug.Log("女荷官使用【强制平局：女荷官点数和玩家相同】");
+
+            dealer.hand.SetScore(player.Score);
+
+            DealerUse_Item(2);
+
+            ConsumeOne();//消耗一颗爱心
+
+        }//女荷官在停牌之后，发现自己点数比玩家低，玩家也没有爆牌（高于21），强制让自己点数和玩家一致
 
         #endregion
 

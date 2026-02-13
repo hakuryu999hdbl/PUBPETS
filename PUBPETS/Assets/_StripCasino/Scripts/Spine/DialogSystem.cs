@@ -2533,6 +2533,7 @@ namespace Blackjack_Game
                         data.antoProgress = 11;
                         SaveManager.SaveGame(data);
 
+                        CheckClean();//检测三位女荷官是否通关
 
                         RandomToShop();
                     }
@@ -2781,6 +2782,7 @@ namespace Blackjack_Game
                         data.hettyProgress = 10;
                         SaveManager.SaveGame(data);
 
+                        CheckClean();//检测三位女荷官是否通关
 
                         RandomToShop();
                     }
@@ -3020,7 +3022,7 @@ namespace Blackjack_Game
                         data.aliceProgress = 11;
                         SaveManager.SaveGame(data);
 
-
+                        CheckClean();//检测三位女荷官是否通关
 
                         RandomToShop();
                     }
@@ -3102,6 +3104,33 @@ namespace Blackjack_Game
 
             return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
         }
+
+
+
+        void CheckClean() 
+        {
+
+            //如果本局胜利时，三位女荷官都进度已满，打开【通关】记录
+            // ===== 通关判定 =====
+            var data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            bool allMax =
+                data.antoProgress >= 11 &&
+                data.hettyProgress >= 11 &&
+                data.aliceProgress >= 11;
+
+            if (allMax && !data.HasCleared)
+            {
+                data.HasCleared = true;
+
+
+
+                SaveManager.SaveGame(data);
+
+                Debug.Log("【通关达成】三位女荷官进度已满");
+            }
+        }
+
 
         #endregion
 

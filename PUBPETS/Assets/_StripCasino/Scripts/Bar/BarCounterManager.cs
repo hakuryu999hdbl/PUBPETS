@@ -33,6 +33,9 @@ namespace Blackjack_Game
 
             RefreshUnlockedRecipesFromSave(); // 读取你已经解锁酒类
             RefreshUnlockedDrinkIcons();// 图标显示对应酒类
+
+
+            OnEnterTavern();//每次进入酒店经营界面刷新
         }
 
         public List<GameObject> NoAVG_Object;//游戏开始或者AVG画面不需要别的按钮
@@ -798,5 +801,21 @@ namespace Blackjack_Game
         }
         #endregion
 
+
+        /// <summary>
+        /// 通关前记录天数
+        /// </summary>
+        void OnEnterTavern()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            if (!data.HasCleared)
+            {
+                data.DayCount++;
+                SaveManager.SaveGame(data);
+            }
+
+            Debug.Log("当前天数：" + data.DayCount);
+        }
     }
 }

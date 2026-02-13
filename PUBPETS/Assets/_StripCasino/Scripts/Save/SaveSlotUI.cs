@@ -9,7 +9,7 @@ namespace Blackjack_Game
         public string slotName; // "CurrentPlayer1", "CurrentPlayer2", "CurrentPlayer3"
         public string saveName;//玩家当前储存的这个存档名称
 
-        public Text nameText, timeText, moneyText;
+        public Text nameText, timeText, moneyText, dayText;
         public Image thumbnail;
 
 
@@ -47,22 +47,53 @@ namespace Blackjack_Game
                 //moneyText.text = $"Money: {data.balance}";
                 moneyText.text = $"{data.balance}";
 
-                //未来可以做当前进度最高
-                //switch (data.antoProgress) 
-                //{
-                //    case 2:
-                //        thumbnail.sprite = Thumbnail_Anto_01;
-                //        break;
-                //    case 3:
-                //        thumbnail.sprite = Thumbnail_Anto_02;
-                //        break;
-                //    case 4:
-                //        thumbnail.sprite = Thumbnail_Anto_03;
-                //        break;
-                //    default:
-                //        thumbnail.sprite = Thumbnail_City;
-                //        break;
-                //}
+
+                Color normalColor = new Color(1f, 0f, 0.831f, 1f); //粉色
+                Color clearColor = new Color32(255, 122, 0, 255);//金橘红
+
+
+                switch (PlayerPrefs.GetInt("language"))
+                {
+                    case 0:
+                        // 日语
+                        dayText.text = data.HasCleared
+                            ? $"クリア日：{data.DayCount}日目"
+                            : $"{data.DayCount}日目";
+                        break;
+
+                    case 1:
+                        // 简体中文
+                        dayText.text = data.HasCleared
+                            ? $"通关日：第{data.DayCount}天"
+                            : $"第{data.DayCount}天";
+                        break;
+
+                    case 2:
+                        // 繁体中文
+                        dayText.text = data.HasCleared
+                            ? $"通關日：第{data.DayCount}天"
+                            : $"第{data.DayCount}天";
+                        break;
+
+                    case 3:
+                        // 英语
+                        dayText.text = data.HasCleared
+                            ? $"Cleared On: Day {data.DayCount}"
+                            : $"Day {data.DayCount}";
+                        break;
+
+                    case 4:
+                        // 韩语
+                        dayText.text = data.HasCleared
+                            ? $"클리어 날짜: {data.DayCount}일째"
+                            : $"{data.DayCount}일째";
+                        break;
+
+                }
+
+                // 设置颜色
+                dayText.color = data.HasCleared ? clearColor : normalColor;
+
 
 
                 thumbnail.sprite = Thumbnail_City;
