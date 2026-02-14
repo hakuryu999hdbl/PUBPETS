@@ -165,8 +165,10 @@ namespace Blackjack_Game
 
         private void HideTreasureAndItemUI()
         {
-            if (TreasureBox != null) TreasureBox.SetActive(false);
-            if (ItemPanel != null) ItemPanel.SetActive(false);
+            //TreasureBox.SetActive(false);
+            TreasureBox.GetComponent<Animator>().SetTrigger("Out");
+
+             ItemPanel.SetActive(false);
         }//统一隐藏宝箱
 
         private void ShowTreasureBoxIfAllowed()
@@ -526,7 +528,7 @@ namespace Blackjack_Game
             //ChangeViewButon.SetActive(true);
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
 
-            /////////////////////////////////////////////////////VoiceManager.instance.PauseMoanLoop();//暂停娇喘
+
             #region 显示女荷官垃圾话
             //Invoke("StartDialog", 2f);//显示女荷官垃圾话
 
@@ -551,11 +553,31 @@ namespace Blackjack_Game
 
 
 
-            TreasureBox.SetActive(false);//宝箱消失
+            //TreasureBox.SetActive(false);//宝箱消失
+            TreasureBox.GetComponent<Animator>().SetTrigger("Out");
 
             PeekCard.gameObject.SetActive(false);//盖牌消失
             PeekNextCard.gameObject.SetActive(false);//下一张卡消失
             PeekSecondNextCard.gameObject.SetActive(false);//下一张卡消失
+
+
+
+
+            //使用欢呼声
+            switch (Random.Range(0,3)) 
+            {
+                case 0:
+                    AudioManager_2.SoundPlay(9);//手动SE音频替换
+                    break;
+
+                case 1:
+                    AudioManager_2.SoundPlay(10);//手动SE音频替换
+                    break;
+                case 2:
+                    AudioManager_2.SoundPlay(11);//手动SE音频替换
+                    break;
+            }
+            
 
 
             turns++;
@@ -1979,7 +2001,6 @@ namespace Blackjack_Game
         public Text Limit;//本局赌注上限
         int LimitPlace;//本局赌注上限
 
-        public VoiceManager voiceManager;//一旦超过这个阈值就能触发安托的呻吟
 
         int Progress;//女荷官进度
 
@@ -2122,12 +2143,7 @@ namespace Blackjack_Game
                 _Instance.Invoke("ShowWINButton", 1f);
             }
 
-            //当女荷官生命值低于过半开始呻吟
-            if (_Instance.currentHealth <= _Instance.maxHealth)
-            {
-                _Instance.voiceManager.CanScream = true;
 
-            }
 
         }
 
