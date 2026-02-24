@@ -39,7 +39,7 @@ namespace Blackjack_Game
 
             if (value > 0 && GameManager.GameActive)//只有游戲中活得籌碼才可以改變生命值
             {
-                GameManager.ChangeHealth(-value);
+                GameManager.ChangeHealth(-value,true);
             }
 
 

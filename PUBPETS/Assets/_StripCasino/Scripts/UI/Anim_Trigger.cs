@@ -58,6 +58,12 @@ public class Anim_Trigger : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+
+    public void SetDestroy()
+    {
+       Destroy(gameObject);
+    }
+
     //public void Dice_Voice()
     //{
     //    AudioManager_2.SoundPlay(2);//手动SE音频替换，骰子

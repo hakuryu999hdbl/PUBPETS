@@ -79,6 +79,7 @@ namespace Blackjack_Game
                 HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
 
                 isHit = true;//只有要牌才能再让宝箱出现
+          
             }
         }
 
@@ -89,6 +90,11 @@ namespace Blackjack_Game
             PeekSecondNextCard.gameObject.SetActive(false);
 
             StandPlayerHand();
+
+            if (currentDealer == DealerType.Alice)
+            {
+                Dealer_AliceMilk();//女荷官使用回复生命
+            }
         }
 
         public void OnClickDouble()
@@ -509,14 +515,21 @@ namespace Blackjack_Game
             Invoke(nameof(ResetDoubleReward),1f);
 
 
-            Dealer_SameScore();//女荷官使用均衡徽章
-        
+            if (currentDealer == DealerType.Hetty)
+            {
 
-            Dealer_SaveScore();//女荷官使用藏宝图残片
-           
-
+                Dealer_SameScore();//女荷官使用均衡徽章
 
 
+                Dealer_SaveScore();//女荷官使用藏宝图残片
+
+            }
+
+
+            //if (currentDealer == DealerType.Alice)
+            //{
+            //    Invoke(nameof(Dealer_AliceMilk),2f);//女荷官使用回复生命
+            //}          
 
             #endregion
 
@@ -602,6 +615,81 @@ namespace Blackjack_Game
             ChipBox.SetInteger("Situation", 0);//筹码出现
 
 
+            if (Progress>3) //1~3关女荷官不会回复反制槽
+            {
+                //不同的女荷官反击时恢复的爱心不同
+                switch (currentDealer) 
+                {
+                    case DealerType.Anto:
+
+                        if (currentHealth < maxHealth / 3)
+                        {
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                AddCounter(4);
+                            }
+                        }
+                        else if (currentHealth < maxHealth / 2)
+                        {
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                AddCounter(2);
+                            }
+                        }
+                        else
+                        {
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                AddCounter(1);
+                            }
+                        }
+
+                        break;
+
+                    case DealerType.Hetty:
+
+                        if (currentHealth < maxHealth / 3)
+                        {
+                            AddCounter(3);   // 危机爆发
+                        }
+                        else if (currentHealth < maxHealth / 2)
+                        {
+                            AddCounter(2);
+                        }
+                        else
+                        {
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                AddCounter(1);
+                            }
+                        }
+
+                        break;
+
+                    case DealerType.Alice:
+
+
+
+                        bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
+
+
+                        if (currentHealth < maxHealth / 3)
+                        {
+                            AddCounter(2);  // 危机稳定恢复
+                        }
+                        else if (isBigDeal)
+                        {
+                            AddCounter(1);  // 玩家大注时恢复
+                        }
+
+                        break;
+                }
+
+
+               
+            }
+        
+          
         }
 
 
@@ -996,7 +1084,7 @@ namespace Blackjack_Game
             {
                 case 0:
                     //紫色心情
-                    if (HasCounter())
+                    if (HasCounter()&&Random.Range(0,2)==0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(0);//女荷官反制【紫色心情】
@@ -1012,7 +1100,7 @@ namespace Blackjack_Game
                     break;
                 case 1:
                     //占卜水晶
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(1);//女荷官反制【占卜水晶】
@@ -1028,7 +1116,7 @@ namespace Blackjack_Game
                     break;
                 case 2:
                     //均衡徽章
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(2);//女荷官反制【均衡徽章】
@@ -1044,7 +1132,7 @@ namespace Blackjack_Game
                     break;
                 case 3:
                     //魔眼石
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(3);//女荷官反制【魔眼石】
@@ -1060,7 +1148,7 @@ namespace Blackjack_Game
                     break;
                 case 4:
                     //酒瓶
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(4);//女荷官反制【酒瓶】
@@ -1076,7 +1164,7 @@ namespace Blackjack_Game
                     break;
                 case 5:
                     //藏宝图残片
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(5);//女荷官反制【藏宝图残片】
@@ -1092,7 +1180,7 @@ namespace Blackjack_Game
                     break;
                 case 6:
                     //幸运币
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(6);//女荷官反制【幸运币】
@@ -1108,7 +1196,7 @@ namespace Blackjack_Game
                     break;
                 case 7:
                     //透视药水
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(7);//女荷官反制【透视药水】
@@ -1127,7 +1215,7 @@ namespace Blackjack_Game
 
                 case 8:
                     //绿色心情
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(8);//女荷官反制【绿色心情】
@@ -1144,7 +1232,7 @@ namespace Blackjack_Game
 
                 case 9:
                     //匕首
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(9);//女荷官反制【匕首】
@@ -1161,7 +1249,7 @@ namespace Blackjack_Game
 
                 case 10:
                     //黑棋子
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(10);//女荷官反制【黑棋子】
@@ -1178,7 +1266,7 @@ namespace Blackjack_Game
 
                 case 11:
                     //魔眼药水
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(11);//女荷官反制【魔眼药水】
@@ -1195,7 +1283,7 @@ namespace Blackjack_Game
 
                 case 12:
                     //空瓶
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(12);//女荷官反制【空瓶】
@@ -1212,7 +1300,7 @@ namespace Blackjack_Game
 
                 case 13:
                     //白棋子
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(13);//女荷官反制【白棋子】
@@ -1229,7 +1317,7 @@ namespace Blackjack_Game
 
                 case 14:
                     //厄运币
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(14);//女荷官反制【厄运币】
@@ -1246,7 +1334,7 @@ namespace Blackjack_Game
 
                 case 15:
                     //皇室徽章
-                    if (HasCounter())
+                    if (HasCounter() && Random.Range(0, 2) == 0)
                     {
                         ConsumeOne();//消耗一颗爱心
                         Interrupt_Item(15);//女荷官反制【皇室徽章】
@@ -1278,7 +1366,14 @@ namespace Blackjack_Game
             itemsUsed++;
 
 
+            //爱丽丝在玩家使用道具后会再度使用回血道具(随机)
+            if (currentDealer == DealerType.Alice&&Random.Range(0,2)==0)
+            {
+                Invoke(nameof(Dealer_AliceMilk), 2f);
+                //女荷官使用回复生命
+            }
         }
+
 
 
 
@@ -1436,27 +1531,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(6, "プレイヤーの点数 +5");
+                    Show(10, "プレイヤーの点数 +5");
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(6, "玩家点数 +5");
+                    Show(10, "玩家点数 +5");
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(6, "玩家點數 +5");
+                    Show(10, "玩家點數 +5");
                     break;
 
                 case 3:
                     // 英语
-                    Show(6, "Player Score +5");
+                    Show(10, "Player Score +5");
                     break;
 
                 case 4:
                     // 韩语
-                    Show(6, "플레이어 점수 +5");
+                    Show(10, "플레이어 점수 +5");
                     break;
 
             }
@@ -2045,6 +2140,12 @@ namespace Blackjack_Game
                     BGM.instance.AudioPlayBackgroundMusic(2);
 
 
+                    //女荷官反制槽
+                    int antoHearts = GetAntoHearts(Progress);
+                    maxCounter = 5;   // 安托上限
+                    Init(antoHearts);
+
+
                     break;
 
                 case "VSHetty":
@@ -2058,6 +2159,12 @@ namespace Blackjack_Game
                     BGM.instance.AudioPlayBackgroundMusic(8);
 
 
+                    //女荷官反制槽
+                    int hettyHearts = GetHettyHearts(Progress);
+                    maxCounter = 4;   // 赫蒂上限
+                    Init(hettyHearts);
+
+
                     break;
 
                 case "VSAlice":
@@ -2069,6 +2176,14 @@ namespace Blackjack_Game
                     //选择女荷官界面BGM
                     BGM.instance.Stop();
                     BGM.instance.AudioPlayBackgroundMusic(10);
+
+
+
+                    //女荷官反制槽
+                    int aliceHearts = GetAliceHearts(Progress);
+                    maxCounter = 7;   // 爱丽丝上限
+                    Init(aliceHearts);
+
 
 
                     break;
@@ -2090,8 +2205,6 @@ namespace Blackjack_Game
             UpdateFill();
 
 
-            int hearts = GetCounterByProgress(Progress);
-            Init(hearts);//女荷官的反制槽根据当前等级
 
 
             Invoke("StartMatch", 1f); // 开局时显示女荷官垃圾话
@@ -2100,48 +2213,82 @@ namespace Blackjack_Game
             TableAnim.SetInteger("ChangeColor", 1);//桌子强制变淡
         }
 
-        int GetCounterByProgress(int progress)
+        int GetAntoHearts(int p)
         {
-            if (progress <= 3) return 0;
-            if (progress >= 10) return 7;
-            return progress - 3; // 4->1, 5->2 ... 9->6
-        }//更具关卡设置
-
-//1~3关：0心
-//4关：1心
-//5关：2心
-//6关：3心
-//7关：4心
-//8关：5心
-//9关：6心
-//10关：7心
-//11关：7心
-
-
-
-        public static void ChangeHealth(float amount)
+            if (p <= 3) return 0;
+            if (p <= 6) return 2;
+            if (p <= 9) return 4;
+            return 5;
+        }
+        int GetHettyHearts(int p)
         {
+            if (p <= 3) return 1;
+            if (p <= 6) return 2;
+            if (p <= 9) return 3;
+            return 4;
+        }
+        int GetAliceHearts(int p)
+        {
+            if (p <= 3) return 1;
+            if (p <= 6) return 3;
+            if (p <= 9) return 6;
+            return 7;
+        }
+
+
+
+
+
+
+
+        public Text HUD;
+
+        public static void ChangeHealth(float amount,bool NeedAnimator)//调整女荷官生命值的时候不一定需要动画
+        {
+           
+           
+         
+            //显示回血伤血提示
+            if (amount > 0)
+            {
+                _Instance.HUD.color = Color.green;
+                _Instance.HUD.text = "+"+amount.ToString();
+            }
+            else
+            {
+                _Instance.HUD.color = Color.red;
+                _Instance.HUD.text = amount.ToString();
+            }
+            _Instance.HUD.gameObject.SetActive(true);
+
+
+
 
             _Instance.currentHealth += amount;
             _Instance.currentHealth = Mathf.Clamp(_Instance.currentHealth, 0, _Instance.maxHealth);
             _Instance.UpdateFill();
 
 
-            // —— 新增：根据 currentHealth 计算脱衣阶段 ——
-            float segment = _Instance.maxHealth / 8f;
-            // 计算已脱几段：当 currentHealth 掉到小于 (maxHealth - segment * n) 时，就脱到第 n+1 段
-            int newSituation = Mathf.FloorToInt((_Instance.maxHealth - _Instance.currentHealth) / segment) + 1;
-            newSituation = Mathf.Clamp(newSituation, 1, 8);
-
-            // 延迟调用处理逻辑
-            _Instance.StartCoroutine(_Instance.HandleSituationTransition(newSituation));
-
-            // —— 结束 新增 ——
-
-            if (_Instance.currentHealth <= 0)
+            if (NeedAnimator) 
             {
-                _Instance.Invoke("ShowWINButton", 1f);
+                // —— 新增：根据 currentHealth 计算脱衣阶段 ——
+                float segment = _Instance.maxHealth / 8f;
+                // 计算已脱几段：当 currentHealth 掉到小于 (maxHealth - segment * n) 时，就脱到第 n+1 段
+                int newSituation = Mathf.FloorToInt((_Instance.maxHealth - _Instance.currentHealth) / segment) + 1;
+                newSituation = Mathf.Clamp(newSituation, 1, 8);
+
+                // 延迟调用处理逻辑
+                _Instance.StartCoroutine(_Instance.HandleSituationTransition(newSituation));
+
+                // —— 结束 新增 ——
+
+                if (_Instance.currentHealth <= 0)
+                {
+                    _Instance.Invoke("ShowWINButton", 1f);
+                }
+
             }
+
 
 
 
@@ -2291,7 +2438,7 @@ namespace Blackjack_Game
         private List<GameObject> hearts = new List<GameObject>();
 
         private int currentCounter;
-        private int maxCounter = 3;   // 默认3颗爱心
+        private int maxCounter = 7;   // 默认7颗爱心
 
         // 初始化
         public void Init(int max)
@@ -2327,10 +2474,45 @@ namespace Blackjack_Game
 
             currentCounter--;
 
-            hearts[currentCounter].SetActive(false);
+
+
+
+            //hearts[currentCounter].SetActive(false);
+
+            //改成触发动画
+            var heart = hearts[currentCounter];
+            var anim = heart.GetComponent<Animator>();
+            anim.SetTrigger("Out");
+
+
 
             return true;
         }
+
+        //增加X颗爱心
+        public void AddCounter(int amount)
+        {
+            if (amount <= 0) return;
+
+            int oldValue = currentCounter;
+
+            currentCounter += amount;
+
+            if (currentCounter > maxCounter)
+                currentCounter = maxCounter;
+
+
+            // 播放新增部分的 In 动画
+            for (int i = oldValue; i < currentCounter; i++)
+            {
+                if (i < hearts.Count)
+                {
+                    hearts[i].SetActive(true);
+                }
+            }
+        }
+
+
 
         // 重置
         public void ResetCounter()
@@ -2489,6 +2671,58 @@ namespace Blackjack_Game
             ConsumeOne();//消耗一颗爱心
 
         }//女荷官在停牌之后，发现自己点数比玩家低，玩家也没有爆牌（高于21），强制让自己点数和玩家一致
+
+
+
+        public Sprite Alice_Milk;
+        public void Dealer_AliceMilk()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+            if(_Instance.currentHealth>= _Instance.maxHealth) return;//满血的时候没必要使用道具
+
+            if (_Instance.currentHealth <= 0){ return; }
+
+            ChangeHealth(Player.bet,false);//爱丽丝回复玩家赌注生命值
+            
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Dealer_Interrupt_Text.text = "体力を回復した";
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Dealer_Interrupt_Text.text = "回复生命值";
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Dealer_Interrupt_Text.text = "回復生命值";
+                    break;
+
+                case 3:
+                    // 英语
+                    Dealer_Interrupt_Text.text = "HP Restored";
+                    break;
+
+                case 4:
+                    // 韩语
+                    Dealer_Interrupt_Text.text = "체력을 회복했다";
+                    break;
+
+            }
+
+            Dealer_Interrupt_Image.sprite = Alice_Milk;
+            Sign_Forbidden.SetActive(false);
+            ShowDealerInterrputAnimator();
+
+            ConsumeOne();//消耗一颗爱心
+
+        }//女荷官回复生命值
+
 
         #endregion
 
