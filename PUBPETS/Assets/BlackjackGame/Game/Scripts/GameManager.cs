@@ -91,7 +91,7 @@ namespace Blackjack_Game
 
             StandPlayerHand();
 
-            if (currentDealer == DealerType.Alice)
+            if (currentDealer == DealerType.Alice && Random.Range(0, 2) == 0)
             {
                 Dealer_AliceMilk();//女荷官使用回复生命
             }
@@ -515,7 +515,7 @@ namespace Blackjack_Game
             Invoke(nameof(ResetDoubleReward),1f);
 
 
-            if (currentDealer == DealerType.Hetty)
+            if (currentDealer == DealerType.Hetty&&Random.Range(0,3)==0)
             {
 
                 Dealer_SameScore();//女荷官使用均衡徽章
@@ -615,7 +615,7 @@ namespace Blackjack_Game
             ChipBox.SetInteger("Situation", 0);//筹码出现
 
 
-            if (Progress>3) //1~3关女荷官不会回复反制槽
+            if (Progress>3)
             {
                 //不同的女荷官反击时恢复的爱心不同
                 switch (currentDealer) 
@@ -686,10 +686,10 @@ namespace Blackjack_Game
                 }
 
 
-               
-            }
-        
-          
+
+            } //1~3关女荷官不会回复反制槽
+
+
         }
 
 
@@ -1367,7 +1367,7 @@ namespace Blackjack_Game
 
 
             //爱丽丝在玩家使用道具后会再度使用回血道具(随机)
-            if (currentDealer == DealerType.Alice&&Random.Range(0,2)==0)
+            if (currentDealer == DealerType.Alice&&Random.Range(0,3)==0)
             {
                 Invoke(nameof(Dealer_AliceMilk), 2f);
                 //女荷官使用回复生命
@@ -2792,5 +2792,63 @@ namespace Blackjack_Game
         }
         #endregion
 
+
+        /// <summary>
+        /// 局内教程
+        /// </summary>
+        #region
+
+        [Header("局内教程")]
+        public GameObject TutorialPanel;
+        public void OpenTutorialPanel()
+        {
+            Time.timeScale = 0f;
+            TutorialPanel.SetActive(true);
+        }
+        public void CloseTutorialPanel()
+        {
+            Time.timeScale = 1f;
+            TutorialPanel.SetActive(false);
+        }
+
+
+        public GameObject BasicRule, DoubleDown, Insurance, Split;
+
+        // Method to call when a tab is clicked
+        public void OnTabClick(string tabName)
+        {
+            AudioManager_2.SoundPlay(5);//手动SE音频替换
+
+
+            BasicRule.SetActive(false);
+            DoubleDown.SetActive(false);
+            Insurance.SetActive(false);
+            Split.SetActive(false);
+
+            switch (tabName)
+            {
+                case "BasicRule":
+                    BasicRule.SetActive(true);
+                    break;
+                case "DoubleDown":
+                    DoubleDown.SetActive(true);
+                    break;
+                case "Insurance":
+                    Insurance.SetActive(true);
+                    break;
+                case "Split":
+                    Split.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+
+
+
+
+        #endregion
     }
 }
