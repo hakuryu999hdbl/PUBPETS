@@ -74,6 +74,16 @@ namespace Blackjack_Game
             }
             else
             {
+                if (PeekNextCard.gameObject.activeInHierarchy)
+                {
+                    PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+                }
+                if (PeekSecondNextCard.gameObject.activeInHierarchy)
+                {
+                    PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+                }
+
+
                 StartCoroutine(PlayerDeal());
 
                 HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
@@ -85,9 +95,18 @@ namespace Blackjack_Game
 
         public void OnClickStand()
         {
+            if (PeekNextCard.gameObject.activeInHierarchy)
+            {
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
+            {
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+
             HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
-            PeekNextCard.gameObject.SetActive(false);
-            PeekSecondNextCard.gameObject.SetActive(false);
+
+          
 
             StandPlayerHand();
 
@@ -99,9 +118,19 @@ namespace Blackjack_Game
 
         public void OnClickDouble()
         {
+            if (PeekNextCard.gameObject.activeInHierarchy)
+            {
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
+            {
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+
+
             HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
-            PeekNextCard.gameObject.SetActive(false);
-            PeekSecondNextCard.gameObject.SetActive(false);
+
+          
 
 
             Trigger_DoubleDownCheck = true;
@@ -111,9 +140,20 @@ namespace Blackjack_Game
 
         public void OnClickSplit()
         {
+
+            if (PeekNextCard.gameObject.activeInHierarchy)
+            {
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
+            {
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+
+
+
             HideTreasureAndItemUI();      // ✅ 按下瞬间强制关
-            PeekNextCard.gameObject.SetActive(false);
-            PeekSecondNextCard.gameObject.SetActive(false);
+
 
 
             if (Trigger_CheckDoubleAce && !player.IsAceSplitGame)
@@ -220,16 +260,26 @@ namespace Blackjack_Game
         public void CheckStatus()
         {
             // ===== Peek 卡隐藏逻辑 =====
-            if (DealQueue.CardCount >= 1)//发第一张牌隐藏
+            //if (DealQueue.CardCount >= 1)//发第一张牌隐藏
+            //{
+            //    PeekNextCard.gameObject.SetActive(false);
+            //}
+            //
+            //if (DealQueue.CardCount >= 2)//发第二张牌隐藏
+            //{
+            //    PeekSecondNextCard.gameObject.SetActive(false);
+            //}
+            if (PeekNextCard.gameObject.activeInHierarchy)
             {
-                PeekNextCard.gameObject.SetActive(false);
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
             }
-
-            if (DealQueue.CardCount >= 2)//发第二张牌隐藏
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
             {
-                PeekSecondNextCard.gameObject.SetActive(false);
-            }
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
 
+                //然后再调用看第一张牌
+                StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+            }
             // =========================
 
 
@@ -570,11 +620,10 @@ namespace Blackjack_Game
             TreasureBox.GetComponent<Animator>().SetTrigger("Out");
 
             PeekCard.gameObject.SetActive(false);//盖牌消失
-            PeekNextCard.gameObject.SetActive(false);//下一张卡消失
-            PeekSecondNextCard.gameObject.SetActive(false);//下一张卡消失
-
-
-
+            //PeekNextCard.gameObject.SetActive(false);//下一张卡消失
+            //PeekSecondNextCard.gameObject.SetActive(false);//下一张卡消失
+            PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
 
             //使用欢呼声
             switch (Random.Range(0,3)) 
@@ -1387,7 +1436,7 @@ namespace Blackjack_Game
             yield return new WaitForSeconds(1.5f);
 
 
-            PeekCard.gameObject.SetActive(true);
+            PeekCard.gameObject.SetActive(true); 
             PeekCard.mesh = nextCard.GetMesh();
 
             switch (PlayerPrefs.GetInt("language"))
@@ -1440,7 +1489,7 @@ namespace Blackjack_Game
             yield return new WaitForSeconds(2.5f);
 
 
-            PeekNextCard.gameObject.SetActive(true);
+            PeekNextCard.gameObject.SetActive(true); PeekNextCard.GetComponent<Animator>().Rebind();//动画恢复状态
             PeekNextCard.mesh = nextCard.GetMesh();
 
 
@@ -1488,7 +1537,7 @@ namespace Blackjack_Game
             yield return new WaitForSeconds(2.5f);
 
 
-            PeekSecondNextCard.gameObject.SetActive(true);
+            PeekSecondNextCard.gameObject.SetActive(true); PeekSecondNextCard.GetComponent<Animator>().Rebind();//动画恢复状态
             PeekSecondNextCard.mesh = nextCard.GetMesh();
 
 
@@ -1854,10 +1903,14 @@ namespace Blackjack_Game
             // ✅ 无论第一张牌被抽取还是怎么样，Peek的牌隐藏
             if (PeekNextCard.gameObject.activeInHierarchy) 
             {
-            
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
             }
-            PeekNextCard.gameObject.SetActive(false);
-            PeekSecondNextCard.gameObject.SetActive(false);
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
+            {
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+
+         
 
             FadeDeck.SetTrigger("TakeOneCard");
 
@@ -1907,8 +1960,15 @@ namespace Blackjack_Game
             Deck.ShuffleNow();
 
             // ✅ 洗牌后，Peek 系列全部无效，直接关掉
-            PeekNextCard.gameObject.SetActive(false);
-            PeekSecondNextCard.gameObject.SetActive(false);
+            if (PeekNextCard.gameObject.activeInHierarchy)
+            {
+                PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+            if (PeekSecondNextCard.gameObject.activeInHierarchy)
+            {
+                PeekSecondNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
+            }
+
             //ShowCard.gameObject.SetActive(false);
 
             FadeDeck.SetTrigger("Shuffle");
@@ -2817,7 +2877,7 @@ namespace Blackjack_Game
         // Method to call when a tab is clicked
         public void OnTabClick(string tabName)
         {
-            AudioManager_2.SoundPlay(5);//手动SE音频替换
+            //AudioManager_2.SoundPlay(5);//手动SE音频替换
 
 
             BasicRule.SetActive(false);
