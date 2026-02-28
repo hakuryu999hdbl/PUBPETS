@@ -33892,12 +33892,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  J: "\u7DD1\u306E\u30E0\u30FC\u30C9\u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u5F37\u5236-1"
-  C_1: "\u7EFF\u8272\u5FC3\u60C5 \u2192 \u5F3A\u5236\u8BA9\u5973\u8377\u5B98\u70B9\u6570-1"
-  C_2: "\u7DA0\u8272\u5FC3\u60C5 \u2192 \u5F37\u5236\u8B93\u5973\u8377\u5B98\u9EDE\u6578-1"
-  E: "Green Mood \u2192 Force the female dealer's points -1"
-  K: "\uB179\uC0C9 \uAE30\uBD84 \u2192 \uC5EC\uC131 \uB51C\uB7EC \uC810\uC218 \uAC15\uC81C
-    -1"
+  J: "\u7DD1\u306E\u30E0\u30FC\u30C9\u2192 \u81EA\u5206\u306E\u70B9\u6570\u3092 +3"
+  C_1: "\u7EFF\u8272\u5FC3\u60C5 \u2192 \u81EA\u5DF1\u70B9\u6570 +3"
+  C_2: "\u7DA0\u8272\u60C5\u7DD2 \u2192 \u81EA\u5DF1\u9EDE\u6578 +3"
+  E: "Green Mood \u2192 Your Score +3"
+  K: "\uCD08\uB85D\uC0C9 \uBB34\uB4DC \u2192 \uC790\uC2E0\uC758 \uC810\uC218 +3"
   isTyped: 0
 --- !u!114 &776814556
 MonoBehaviour:
@@ -33947,7 +33946,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7DD1\u306E\u30E0\u30FC\u30C9\u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u5F37\u5236-1"
+  m_Text: "\u7DD1\u306E\u30E0\u30FC\u30C9\u2192 \u81EA\u5206\u306E\u70B9\u6570\u3092
+    +3"
 --- !u!222 &776814558
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -67135,12 +67135,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  J: "\u7D2B\u306E\u30E0\u30FC\u30C9 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u5F37\u5236\u7684\u306B+1"
-  C_1: "\u7D2B\u8272\u5FC3\u60C5 \u2192 \u5F3A\u5236\u8BA9\u5973\u8377\u5B98\u70B9\u6570+1"
-  C_2: "\u7D2B\u8272\u5FC3\u60C5 \u2192 \u5F37\u5236\u8B93\u5973\u8377\u5B98\u9EDE\u6578+1  "
-  E: "Purple Mood \u2192 Force the female dealer's points +1"
-  K: "\uBCF4\uB77C\uC0C9 \uAE30\uBD84 \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uC810\uC218\uB97C
-    \uAC15\uC81C\uB85C +1"
+  J: "\u7D2B\u306E\u30E0\u30FC\u30C9 \u2192 \u81EA\u5206\u306E\u70B9\u6570\u3092-3"
+  C_1: "\u7D2B\u8272\u5FC3\u60C5 \u2192 \u81EA\u5DF1\u70B9\u6570 -3"
+  C_2: "\u7D2B\u8272\u60C5\u7DD2 \u2192 \u81EA\u5DF1\u9EDE\u6578 -3"
+  E: "Purple Mood \u2192 Your Score -3"
+  K: "\uBCF4\uB77C\uC0C9 \uBB34\uB4DC \u2192 \uC790\uC2E0\uC758 \uC810\uC218 -3"
   isTyped: 0
 --- !u!114 &1544565451
 MonoBehaviour:
@@ -67190,7 +67189,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7D2B\u306E\u30E0\u30FC\u30C9\uFF08\u30D0\u30A4\u30D6\uFF09\u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u5F37\u5236\u7684\u306B+1\u307E\u305F\u306F-1\u306B\u3059\u308B\uFF08\u30E9\u30F3\u30C0\u30E0\uFF09"
+  m_Text: "\u7D2B\u306E\u30E0\u30FC\u30C9 \u2192 \u81EA\u5206\u306E\u70B9\u6570\u3092-3"
 --- !u!222 &1544565453
 CanvasRenderer:
   m_ObjectHideFlags: 0

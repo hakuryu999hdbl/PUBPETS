@@ -1179,12 +1179,12 @@ namespace Blackjack_Game
             switch (currentDealer)
             {
                 case DealerType.Hetty:
-                    if (Random.Range(0, 2) == 0)
+                    if (Random.Range(0, 2) == 0&& HasCounter())
                         return DealerReaction.Interrupt;
                     break;
 
                 case DealerType.Anto:
-                    if (Random.Range(0, 2) == 0)
+                    if (Random.Range(0, 2) == 0 && HasCounter())
                         return DealerReaction.Steal;
                     break;
 
@@ -1217,8 +1217,8 @@ namespace Blackjack_Game
                 switch (CurrentItem)
                 {
                     case 0:
-                        //紫色心情
-                        //Item_IncreaseFemaleDealerScore();//修改女荷官点数+1
+                        ConsumeOne();//消耗一颗爱心                       
+                        Dealer_StealItems_0(); //玩家使用紫色心情，安托偷过来给自己-3
 
 
                         break;
@@ -1278,8 +1278,9 @@ namespace Blackjack_Game
 
 
                     case 8:
-                        //绿色心情
-                        //Item_DecreaseFemaleDealerScore();//修改女荷官点数-1
+                        ConsumeOne();//消耗一颗爱心                       
+                        Dealer_StealItems_8(); //玩家使用绿色心情，安托偷过来给自己＋3
+
 
                         break;
 
@@ -1352,7 +1353,7 @@ namespace Blackjack_Game
                 {
                     case 0:
                         //紫色心情
-                        Item_IncreaseFemaleDealerScore();//修改女荷官点数+1
+                        Item_DecreasePlayerScore_3();//修改玩家点数-3
 
                         currentCount = data.Item_1;
                         currentCount--;
@@ -1419,7 +1420,7 @@ namespace Blackjack_Game
 
                     case 8:
                         //绿色心情
-                        Item_DecreaseFemaleDealerScore();//修改女荷官点数-1
+                        Item_IncreasePlayerScore_3();//修改玩家点数+3
 
                         currentCount = data.Item_9;
                         currentCount--;
@@ -1437,7 +1438,7 @@ namespace Blackjack_Game
 
                     case 10:
                         //黑棋子
-                        Item_IncreasePlayerScore_2();//修改你的点数+5
+                        Item_IncreasePlayerScore_5();//修改你的点数+5
 
                         currentCount = data.Item_11;
                         currentCount--;
@@ -1464,7 +1465,7 @@ namespace Blackjack_Game
 
                     case 13:
                         //白棋子
-                        Item_IncreaseFemaleDealerScore_2();//修改女荷官点数+5
+                        Item_IncreaseFemaleDealerScore_5();//修改女荷官点数+5
 
                         currentCount = data.Item_14;
                         currentCount--;
@@ -1682,7 +1683,7 @@ namespace Blackjack_Game
         }//看你的下一张卡
 
 
-        public void Item_IncreasePlayerScore_2()
+        public void Item_IncreasePlayerScore_5()
         {
             player.hand.ChangeScore(5);
 
@@ -1804,7 +1805,88 @@ namespace Blackjack_Game
 
         }//修改你的点数-1
 
-        public void Item_IncreaseFemaleDealerScore_2()
+        public void Item_IncreasePlayerScore_3()
+        {
+            player.hand.ChangeScore(3);
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Show(8, "プレイヤーの点数 +3");
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Show(8, "玩家点数 +3");
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Show(8, "玩家點數 +3");
+                    break;
+
+                case 3:
+                    // 英语
+                    Show(8, "Player Score +3");
+                    break;
+
+                case 4:
+                    // 韩语
+                    Show(8, "플레이어 점수  +3");
+                    break;
+
+            }
+
+            //锁按钮再解锁
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 0.5f);
+
+
+        }//修改你的点数+3
+
+        public void Item_DecreasePlayerScore_3()
+        {
+            player.hand.ChangeScore(-3);
+
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Show(0, "プレイヤーの点数 -3");
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Show(0, "玩家点数 -3");
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Show(0, "玩家點數 -3");
+                    break;
+
+                case 3:
+                    // 英语
+                    Show(0, "Player Score -3");
+                    break;
+
+                case 4:
+                    // 韩语
+                    Show(0, "플레이어 점수  -3");
+                    break;
+
+            }
+
+
+            //锁按钮再解锁
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 0.5f);
+
+
+        }//修改你的点数-3
+
+        public void Item_IncreaseFemaleDealerScore_5()
         {
             dealer.hand.ChangeScore(5);
 
@@ -1844,84 +1926,88 @@ namespace Blackjack_Game
 
         }//修改女荷官点数+5
 
-        public void Item_IncreaseFemaleDealerScore()
-        {
-            dealer.hand.ChangeScore(1);
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(0, "ディーラーの点数 +1");
-                    break;
+        #region  女荷官±1
+        // public void Item_IncreaseFemaleDealerScore()
+        // {
+        //     dealer.hand.ChangeScore(1);
+        //
+        //     switch (PlayerPrefs.GetInt("language"))
+        //     {
+        //         case 0:
+        //             // 日语
+        //             Show(0, "ディーラーの点数 +1");
+        //             break;
+        //
+        //         case 1:
+        //             // 简体中文
+        //             Show(0, "庄家点数 +1");
+        //             break;
+        //
+        //         case 2:
+        //             // 繁体中文
+        //             Show(0, "莊家點數 +1");
+        //             break;
+        //
+        //         case 3:
+        //             // 英语
+        //             Show(0, "Dealer Score +1");
+        //             break;
+        //
+        //         case 4:
+        //             // 韩语
+        //             Show(0, "주가의 점수 +1");
+        //             break;
+        //
+        //     }
+        //
+        //     //锁按钮再解锁
+        //     //_ui.DisableButtons();
+        //     //Invoke(nameof(Unclock), 0.5f);
+        //
+        //
+        // }//修改女荷官点数+1
+        //
+        // public void Item_DecreaseFemaleDealerScore()
+        // {
+        //     dealer.hand.ChangeScore(-1);
+        //
+        //     switch (PlayerPrefs.GetInt("language"))
+        //     {
+        //         case 0:
+        //             // 日语
+        //             Show(8, "ディーラーの点数 -1");
+        //             break;
+        //
+        //         case 1:
+        //             // 简体中文
+        //             Show(8, "庄家点数 -1");
+        //             break;
+        //
+        //         case 2:
+        //             // 繁体中文
+        //             Show(8, "莊家點數 -1");
+        //             break;
+        //
+        //         case 3:
+        //             // 英语
+        //             Show(8, "Dealer Score -1");
+        //             break;
+        //
+        //         case 4:
+        //             // 韩语
+        //             Show(8, "주가의 점수  -1");
+        //             break;
+        //
+        //     }
+        //
+        //     //锁按钮再解锁
+        //     //_ui.DisableButtons();
+        //     //Invoke(nameof(Unclock), 0.5f);
+        //
+        // }//修改女荷官点数-1
+        #endregion
 
-                case 1:
-                    // 简体中文
-                    Show(0, "庄家点数 +1");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(0, "莊家點數 +1");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(0, "Dealer Score +1");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(0, "주가의 점수 +1");
-                    break;
-
-            }
-
-            //锁按钮再解锁
-            //_ui.DisableButtons();
-            //Invoke(nameof(Unclock), 0.5f);
-
-
-        }//修改女荷官点数+1
-
-        public void Item_DecreaseFemaleDealerScore()
-        {
-            dealer.hand.ChangeScore(-1);
-
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(8, "ディーラーの点数 -1");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(8, "庄家点数 -1");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(8, "莊家點數 -1");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(8, "Dealer Score -1");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(8, "주가의 점수  -1");
-                    break;
-
-            }
-
-            //锁按钮再解锁
-            //_ui.DisableButtons();
-            //Invoke(nameof(Unclock), 0.5f);
-
-        }//修改女荷官点数-1
 
         public void Item_PlayerDoubleScore()
         {
@@ -3077,6 +3163,22 @@ namespace Blackjack_Game
             dealer.hand.ChangeScore(-1);
             Dealer_StealItems(14);
         }//女荷官偷窃道具厄运币，给自己-1
+
+
+        public void Dealer_StealItems_0()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(-3);
+            Dealer_StealItems(0);
+        }//女荷官偷窃道具紫色心情，给自己-3
+
+        public void Dealer_StealItems_8()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(3);
+            Dealer_StealItems(8);
+        }//女荷官偷窃道具绿色心情，给自己+3
+
 
         public void Dealer_StealItems_4()
         {

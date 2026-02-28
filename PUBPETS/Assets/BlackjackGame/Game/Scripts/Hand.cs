@@ -314,6 +314,11 @@ namespace Blackjack_Game
             naturalScore = bestNatural;
             currentScore = bestNatural + CheatNumber;
 
+
+            // 🔒 最低限制为1
+            currentScore = Mathf.Max(currentScore, 1);
+            diminishedScore = Mathf.Max(diminishedScore, 1);
+
             if (aceCount > 0)
                 diminishedScore = diminishedNatural + CheatNumber;  // ✅ diminished 也要加作弊
             else
