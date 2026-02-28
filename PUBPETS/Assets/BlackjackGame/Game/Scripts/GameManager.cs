@@ -74,6 +74,14 @@ namespace Blackjack_Game
             }
             else
             {
+
+                if (currentDealer == DealerType.Anto && Random.Range(0, 2) == 0)
+                {
+                    Dealer_TryBurnTopCard();//女荷官使用匕首
+                }
+
+
+
                 if (PeekNextCard.gameObject.activeInHierarchy)
                 {
                     PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失
@@ -93,7 +101,7 @@ namespace Blackjack_Game
                 isHit = true;//只有要牌才能再让宝箱出现
 
 
-
+               
 
 
             }
@@ -120,6 +128,9 @@ namespace Blackjack_Game
             {
                 Dealer_AliceMilk();//女荷官使用回复生命
             }
+
+          
+          
         }
 
         public void OnClickDouble()
@@ -583,6 +594,15 @@ namespace Blackjack_Game
             Invoke(nameof(ResetDoubleReward), 1f);
 
 
+
+            if (currentDealer == DealerType.Anto)
+            {
+
+                Dealer_IncreaseFemaleDealerScore();//女荷官使用幸运币
+
+            }
+
+
             if (currentDealer == DealerType.Hetty && Random.Range(0, 3) == 0)
             {
 
@@ -592,6 +612,11 @@ namespace Blackjack_Game
                 Dealer_SaveScore();//女荷官使用藏宝图残片
 
             }
+
+
+
+
+
 
 
             //if (currentDealer == DealerType.Alice)
@@ -1186,8 +1211,130 @@ namespace Blackjack_Game
             }
             else if (reaction == DealerReaction.Steal)
             {
-                ConsumeOne();//消耗一颗爱心
+              
+
                 //盗窃物品并使用
+                switch (CurrentItem)
+                {
+                    case 0:
+                        //紫色心情
+                        //Item_IncreaseFemaleDealerScore();//修改女荷官点数+1
+
+
+                        break;
+                    case 1:
+                        //占卜水晶
+                        StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+
+                        currentCount = data.Item_2;
+                        currentCount--;
+                        data.Item_2 = currentCount;
+                        break;
+                    case 2:
+                        //均衡徽章
+                        Item_SameScore();//强制平局
+
+                        currentCount = data.Item_3;
+                        currentCount--;
+                        data.Item_3 = currentCount;
+                        break;
+                    case 3:
+                        //魔眼石
+                        StartCoroutine(Item_ViewCard());//看女荷官的盖牌     
+
+                        currentCount = data.Item_4;
+                        currentCount--;
+                        data.Item_4 = currentCount;
+                        break;
+                    case 4: 
+                        ConsumeOne();//消耗一颗爱心 
+                        Dealer_StealItems_4(); //玩家使用酒瓶，安托偷过来给自己双倍
+
+                        break;
+                    case 5:
+                        //藏宝图残片
+                        Item_SaveScore();//点数超过21，强制削减随机3~5   
+
+                        currentCount = data.Item_6;
+                        currentCount--;
+                        data.Item_6 = currentCount;
+
+                        break;
+                    case 6:
+                        ConsumeOne();//消耗一颗爱心 
+                        Dealer_StealItems_6(); //玩家使用幸运币，安托偷过来给自己+1
+
+                        break;
+                    case 7:
+                        //透视药水
+                        StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+
+                        currentCount = data.Item_8;
+                        currentCount--;
+                        data.Item_8 = currentCount;
+
+                        break;
+
+
+
+                    case 8:
+                        //绿色心情
+                        //Item_DecreaseFemaleDealerScore();//修改女荷官点数-1
+
+                        break;
+
+                    case 9:
+                        //匕首
+                        Item_TryBurnTopCard();//移除牌堆顶牌
+
+                        currentCount = data.Item_10;
+                        currentCount--;
+                        data.Item_10 = currentCount;
+                        break;
+
+                    case 10:
+                        ConsumeOne();//消耗一颗爱心                    
+                        Dealer_StealItems_10();//玩家使用黑棋子，安托偷过来给自己＋5
+                        break;
+
+                    case 11:
+                        //魔眼药水
+                        Item_TryShuffleDeck();//洗牌
+
+                        currentCount = data.Item_12;
+                        currentCount--;
+                        data.Item_12 = currentCount;
+
+                        break;
+
+                    case 12:
+                        ConsumeOne();//消耗一颗爱心 
+                        Dealer_StealItems_12(); //玩家使用空瓶，安托偷过来给玩家双倍
+
+
+                        break;
+
+                    case 13:
+                        ConsumeOne();//消耗一颗爱心                       
+                        Dealer_StealItems_13(); //玩家使用白棋子，安托偷过来给玩家＋5
+
+                        break;
+
+                    case 14:
+                        ConsumeOne();//消耗一颗爱心 
+                        Dealer_StealItems_14(); //玩家使用厄运币，安托偷过来给自己-1
+
+                        break;
+
+                    case 15:
+                        //皇室徽章
+                        ActivateDoubleRewardThisRound();//本局如果获胜获得双倍奖励
+
+                        currentCount = data.Item_16;
+                        currentCount--;
+                        data.Item_16 = currentCount;
+                        break;
+                }
             }
             else
             {
@@ -1348,278 +1495,6 @@ namespace Blackjack_Game
 
 
 
-            //switch (CurrentItem)
-            //{
-            //    case 0:
-            //        //紫色心情
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(0);//女荷官反制【紫色心情】
-            //        }
-            //        else
-            //        {
-            //            Item_IncreaseFemaleDealerScore();//修改女荷官点数+1
-            //        }
-
-            //        currentCount = data.Item_1;
-            //        currentCount--;
-            //        data.Item_1 = currentCount;
-            //        break;
-            //    case 1:
-            //        //占卜水晶
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(1);//女荷官反制【占卜水晶】
-            //        }
-            //        else
-            //        {
-            //            StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
-            //        }
-
-            //        currentCount = data.Item_2;
-            //        currentCount--;
-            //        data.Item_2 = currentCount;
-            //        break;
-            //    case 2:
-            //        //均衡徽章
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(2);//女荷官反制【均衡徽章】
-            //        }
-            //        else
-            //        {
-            //            Item_SameScore();//强制平局
-            //        }
-
-            //        currentCount = data.Item_3;
-            //        currentCount--;
-            //        data.Item_3 = currentCount;
-            //        break;
-            //    case 3:
-            //        //魔眼石
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(3);//女荷官反制【魔眼石】
-            //        }
-            //        else
-            //        {
-            //            StartCoroutine(Item_ViewCard());//看女荷官的盖牌            
-            //        }
-
-            //        currentCount = data.Item_4;
-            //        currentCount--;
-            //        data.Item_4 = currentCount;
-            //        break;
-            //    case 4:
-            //        //酒瓶
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(4);//女荷官反制【酒瓶】
-            //        }
-            //        else
-            //        {
-            //            Item_PlayerDoubleScore();//玩家一方双倍        
-            //        }
-
-            //        currentCount = data.Item_5;
-            //        currentCount--;
-            //        data.Item_5 = currentCount;
-            //        break;
-            //    case 5:
-            //        //藏宝图残片
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(5);//女荷官反制【藏宝图残片】
-            //        }
-            //        else
-            //        {
-            //            Item_SaveScore();//点数超过21，强制削减随机3~5   
-            //        }
-
-            //        currentCount = data.Item_6;
-            //        currentCount--;
-            //        data.Item_6 = currentCount;
-            //        break;
-            //    case 6:
-            //        //幸运币
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(6);//女荷官反制【幸运币】
-            //        }
-            //        else
-            //        {
-            //            Item_IncreasePlayerScore();//修改你的点数+1
-            //        }
-
-            //        currentCount = data.Item_7;
-            //        currentCount--;
-            //        data.Item_7 = currentCount;
-            //        break;
-            //    case 7:
-            //        //透视药水
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(7);//女荷官反制【透视药水】
-            //        }
-            //        else
-            //        {
-            //            StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
-            //        }
-
-            //        currentCount = data.Item_8;
-            //        currentCount--;
-            //        data.Item_8 = currentCount;
-            //        break;
-
-
-
-            //    case 8:
-            //        //绿色心情
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(8);//女荷官反制【绿色心情】
-            //        }
-            //        else
-            //        {
-            //            Item_DecreaseFemaleDealerScore();//修改女荷官点数-1
-            //        }
-
-            //        currentCount = data.Item_9;
-            //        currentCount--;
-            //        data.Item_9 = currentCount;
-            //        break;
-
-            //    case 9:
-            //        //匕首
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(9);//女荷官反制【匕首】
-            //        }
-            //        else
-            //        {
-            //            Item_TryBurnTopCard();//移除牌堆顶牌
-            //        }
-
-            //        currentCount = data.Item_10;
-            //        currentCount--;
-            //        data.Item_10 = currentCount;
-            //        break;
-
-            //    case 10:
-            //        //黑棋子
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(10);//女荷官反制【黑棋子】
-            //        }
-            //        else
-            //        {
-            //            Item_IncreasePlayerScore_2();//修改你的点数+5
-            //        }
-
-            //        currentCount = data.Item_11;
-            //        currentCount--;
-            //        data.Item_11 = currentCount;
-            //        break;
-
-            //    case 11:
-            //        //魔眼药水
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(11);//女荷官反制【魔眼药水】
-            //        }
-            //        else
-            //        {
-            //            Item_TryShuffleDeck();//洗牌
-            //        }
-
-            //        currentCount = data.Item_12;
-            //        currentCount--;
-            //        data.Item_12 = currentCount;
-            //        break;
-
-            //    case 12:
-            //        //空瓶
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(12);//女荷官反制【空瓶】
-            //        }
-            //        else
-            //        {
-            //            Item_DealerDoubleScore();//女荷官一方双倍
-            //        }
-
-            //        currentCount = data.Item_13;
-            //        currentCount--;
-            //        data.Item_13 = currentCount;
-            //        break;
-
-            //    case 13:
-            //        //白棋子
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(13);//女荷官反制【白棋子】
-            //        }
-            //        else
-            //        {
-            //            Item_IncreaseFemaleDealerScore_2();//修改女荷官点数+5
-            //        }
-
-            //        currentCount = data.Item_14;
-            //        currentCount--;
-            //        data.Item_14 = currentCount;
-            //        break;
-
-            //    case 14:
-            //        //厄运币
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(14);//女荷官反制【厄运币】
-            //        }
-            //        else
-            //        {
-            //            Item_DecreasePlayerScore();//修改你的点数-1
-            //        }
-
-            //        currentCount = data.Item_15;
-            //        currentCount--;
-            //        data.Item_15 = currentCount;
-            //        break;
-
-            //    case 15:
-            //        //皇室徽章
-            //        if (HasCounter() && Random.Range(0, 2) == 0)
-            //        {
-            //            ConsumeOne();//消耗一颗爱心
-            //            Interrupt_Item(15);//女荷官反制【皇室徽章】
-            //        }
-            //        else
-            //        {
-            //            ActivateDoubleRewardThisRound();//本局如果获胜获得双倍奖励
-            //        }
-
-            //        currentCount = data.Item_16;
-            //        currentCount--;
-            //        data.Item_16 = currentCount;
-            //        break;
-            //}
-
-
-
 
             //写回存档
             SaveManager.SaveGame(data);
@@ -1650,7 +1525,7 @@ namespace Blackjack_Game
         {
 
             //锁按钮再解锁
-            _ui.DisableButtons();
+            //_ui.DisableButtons();
 
 
             dealer.ConcealCard();
@@ -1694,7 +1569,7 @@ namespace Blackjack_Game
             }
 
 
-            Invoke(nameof(Unclock), 0.5f);
+            //Invoke(nameof(Unclock), 0.5f);
 
         }//看女荷官的盖牌
 
@@ -1750,8 +1625,8 @@ namespace Blackjack_Game
             }
 
             //锁按钮再解锁
-            _ui.DisableButtons();
-            Invoke(nameof(Unclock), 0.5f);
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 0.5f);
 
         }//看你的下一张卡
 
@@ -1801,8 +1676,8 @@ namespace Blackjack_Game
             }
 
             //锁按钮再解锁
-            _ui.DisableButtons();
-            Invoke(nameof(Unclock), 0.5f);
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 0.5f);
 
         }//看你的下一张卡
 
@@ -2194,8 +2069,8 @@ namespace Blackjack_Game
             FadeDeck.SetTrigger("TakeOneCard");
 
             //锁按钮再解锁
-            _ui.DisableButtons();
-            Invoke(nameof(Unclock), 0.9f);
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 0.9f);
 
             return true;
         }//移除牌堆第一张牌
@@ -2260,8 +2135,8 @@ namespace Blackjack_Game
             FadeDeck.SetTrigger("Shuffle");
 
             //锁按钮再解锁
-            _ui.DisableButtons();
-            Invoke(nameof(Unclock), 1.1f);
+            //_ui.DisableButtons();
+            //Invoke(nameof(Unclock), 1.1f);
 
             return true;
         }//洗牌
@@ -2328,27 +2203,27 @@ namespace Blackjack_Game
             {
                 case 0:
                     // 日语
-                    Show(14, "プレイヤー点数を強制的に-" + SaveNumber);
+                    Show(5, "プレイヤー点数を強制的に-" + SaveNumber);
                     break;
 
                 case 1:
                     // 简体中文
-                    Show(14, "玩家点数强制削减" + SaveNumber);
+                    Show(5, "玩家点数强制削减" + SaveNumber);
                     break;
 
                 case 2:
                     // 繁体中文
-                    Show(14, "玩家點數強制削減" + SaveNumber);
+                    Show(5, "玩家點數強制削減" + SaveNumber);
                     break;
 
                 case 3:
                     // 英语
-                    Show(14, "Player Score -" + SaveNumber);
+                    Show(5, "Player Score -" + SaveNumber);
                     break;
 
                 case 4:
                     // 韩语
-                    Show(14, "플레이어 점수 강제 -" + SaveNumber);
+                    Show(5, "플레이어 점수 강제 -" + SaveNumber);
                     break;
 
             }
@@ -2908,6 +2783,7 @@ namespace Blackjack_Game
         public Text Dealer_Interrupt_Text;
         public Image Dealer_Interrupt_Image;
         public GameObject Sign_Forbidden;
+        public GameObject Sign_Steal;
         public void Interrupt_Item(int Item_Image)
         {
             switch (PlayerPrefs.GetInt("language"))
@@ -2960,7 +2836,7 @@ namespace Blackjack_Game
             }
         }//显示对应CutIn
 
-
+        //----------------------------------------------------------------------------------------------------------------------------------------
         public void DealerUse_Item(int Item_Image)
         {
 
@@ -2991,6 +2867,7 @@ namespace Blackjack_Game
 
             Dealer_Interrupt_Image.sprite = List_Item_Image[Item_Image];
             Sign_Forbidden.SetActive(false);
+            Sign_Steal.SetActive(false);
             ShowDealerInterrputAnimator();
 
         }//女荷官使用道具
@@ -3042,7 +2919,48 @@ namespace Blackjack_Game
 
         }//女荷官在停牌之后，发现自己点数比玩家低，玩家也没有爆牌（高于21），强制让自己点数和玩家一致
 
+        public void Dealer_TryBurnTopCard()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            // ✅ 无论第一张牌被抽取还是怎么样，Peek的牌隐藏
+            if (PeekNextCard.gameObject.activeInHierarchy)
+            {
+                Deck.GetCard(); // ✅ 直接抽走顶牌（= 丢弃）
+                FadeDeck.SetTrigger("TakeOneCard");
 
+                DealerUse_Item(9);
+
+                ConsumeOne();//消耗一颗爱心
+            }
+          
+        }//女荷官在玩家有展示第一张的时候抓牌瞬间，使用匕首
+
+
+        public void Dealer_IncreaseFemaleDealerScore() 
+        {
+            //if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            //
+            //
+            //// 1) 玩家爆牌，庄家本来就赢，不用徽章
+            //if (player.Score > 21) return;
+            //
+            //// 2) 庄家爆牌，这时候应该走藏宝图残片救场，不用徽章
+            //if (dealer.Score > 21) return;
+            //
+            //// 3) 庄家本来就 >= 玩家，不会输，不用徽章
+            //if (dealer.Score == player.Score|| dealer.Score == player.Score-1 || dealer.Score == player.Score - 2 || dealer.Score == player.Score - 3) 
+            //{
+            //    dealer.hand.ChangeScore(1);
+            //
+            //    DealerUse_Item(6);
+            //
+            //    ConsumeOne();//消耗一颗爱心
+            //}
+            //
+
+        }//女荷官在停牌之后，发现自己点数比玩家低1或者一致，玩家也没有爆牌（高于21），强制让自己点数上升1
+
+        //----------------------------------------------------------------------------------------------------------------------------------------
 
         public Sprite Alice_Milk;
         public void Dealer_AliceMilk()
@@ -3087,12 +3005,92 @@ namespace Blackjack_Game
 
             Dealer_Interrupt_Image.sprite = Alice_Milk;
             Sign_Forbidden.SetActive(false);
+            Sign_Steal.SetActive(false);
             ShowDealerInterrputAnimator();
 
             ConsumeOne();//消耗一颗爱心
 
         }//女荷官回复生命值
 
+        //----------------------------------------------------------------------------------------------------------------------------------------
+        public void Dealer_StealItems(int Item_Image)
+        {
+            switch (PlayerPrefs.GetInt("language"))
+            {
+                case 0:
+                    // 日语
+                    Dealer_Interrupt_Text.text = "アイテムを盗まれた";
+                    break;
+
+                case 1:
+                    // 简体中文
+                    Dealer_Interrupt_Text.text = "偷窃物品";
+                    break;
+
+                case 2:
+                    // 繁体中文
+                    Dealer_Interrupt_Text.text = "偷竊道具";
+                    break;
+
+                case 3:
+                    // 英语
+                    Dealer_Interrupt_Text.text = "Item Stolen";
+                    break;
+
+                case 4:
+                    // 韩语
+                    Dealer_Interrupt_Text.text = "아이템 도난";
+                    break;
+
+            }
+
+            Dealer_Interrupt_Image.sprite = List_Item_Image[Item_Image];
+            Sign_Steal.SetActive(true);
+            ShowDealerInterrputAnimator();
+
+        }//偷窃玩家的道具
+
+        public void Dealer_StealItems_10() 
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(5);
+            Dealer_StealItems(10);
+        }//女荷官偷窃道具黑棋子，给自己＋5
+
+        public void Dealer_StealItems_13()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            player.hand.ChangeScore(5);
+            Dealer_StealItems(13);
+        }//女荷官偷窃道具白棋子，给玩家＋5
+
+        public void Dealer_StealItems_6()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(1);
+            Dealer_StealItems(6);
+        }//女荷官偷窃道具幸运币，给自己+1
+
+        public void Dealer_StealItems_14()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(-1);
+            Dealer_StealItems(14);
+        }//女荷官偷窃道具厄运币，给自己-1
+
+        public void Dealer_StealItems_4()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            dealer.hand.ChangeScore(dealer.Score);
+            Dealer_StealItems(4);
+        }//女荷官偷窃道具酒瓶，给自己双倍
+
+        public void Dealer_StealItems_12()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            player.hand.ChangeScore(player.Score);
+            Dealer_StealItems(12);
+        }//女荷官偷窃道具空瓶，给玩家双倍
 
         #endregion
 

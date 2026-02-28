@@ -6081,6 +6081,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 136393334}
   m_CullTransparentMesh: 1
+--- !u!1 &141586376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 141586379}
+  - component: {fileID: 141586378}
+  - component: {fileID: 141586377}
+  m_Layer: 5
+  m_Name: Steal
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &141586377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141586376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 05aedc2fb0d236f4d8f9d19c152c02cc, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &141586378
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141586376}
+  m_CullTransparentMesh: 1
+--- !u!224 &141586379
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141586376}
+  m_LocalRotation: {x: -0, y: -0, z: -1.6325429e-18, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 760203989}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 133.6608, y: 133.6608}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &143533184
 GameObject:
   m_ObjectHideFlags: 0
@@ -17854,6 +17929,7 @@ MonoBehaviour:
   currentScore: 0
   outcomePanel: {fileID: 960037787}
   outcomeText: {fileID: 0}
+  naturalScore: 0
   CheatNumber: 0
   splitAceHand: 0
   offsetSplitPosition: {x: -0.2, y: 0, z: 0}
@@ -24396,6 +24472,7 @@ MonoBehaviour:
   Dealer_Interrupt_Text: {fileID: 119351137}
   Dealer_Interrupt_Image: {fileID: 760203987}
   Sign_Forbidden: {fileID: 982640602}
+  Sign_Steal: {fileID: 141586376}
   Alice_Milk: {fileID: 21300000, guid: fd8bde59962fd0d4985db2938a3c7e53, type: 3}
   CheckoutScreen_Dealer: {fileID: 689601414}
   CheckoutScreen_Anto: {fileID: 21300000, guid: 957440cff721a4946bb9863a926baad3,
@@ -31890,6 +31967,7 @@ MonoBehaviour:
   currentScore: 0
   outcomePanel: {fileID: 2143662312}
   outcomeText: {fileID: 0}
+  naturalScore: 0
   CheatNumber: 0
 --- !u!1 &750007787
 GameObject:
@@ -32921,6 +32999,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 982640605}
+  - {fileID: 141586379}
   - {fileID: 119351135}
   m_Father: {fileID: 1839436376}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
@@ -90924,6 +91003,7 @@ MonoBehaviour:
   currentScore: 0
   outcomePanel: {fileID: 346937525}
   outcomeText: {fileID: 0}
+  naturalScore: 0
   CheatNumber: 0
   splitAceHand: 0
   offsetSplitPosition: {x: 0, y: 0, z: 0}

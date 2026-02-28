@@ -57,7 +57,15 @@ namespace Blackjack_Game
         {
             currentScore = 0;
 
+            //UpdateScoreView();
+
+
+            //手动修改
+            diminishedScore = 0;
+            CheatNumber = 0;   // ✅别忘了
             UpdateScoreView();
+
+
 
             if (scoreOutput == null || scorePanel == null)
                 return;
@@ -270,46 +278,86 @@ namespace Blackjack_Game
             nextTransformPosition = cardShift * (_Cards.Count - 1) + transform.position;
         }
 
+
+        public int naturalScore = 0; // （可选）记录不含作弊的最终分
+
         public void CalculateScore()
         {
-            currentScore = 0;
+            //包含作弊点数的计算
+            int baseScore = 0;
             int aceCount = 0;
 
             foreach (Card card in _Cards)
             {
-                if (card.side == FlipType.FlipUp)
-                {
-                    if (card.cardData.rank != CardData.Rank.Ace)
-                    {
-                        currentScore += card.cardData.GetValue();
-                    }
-                    else
-                    {
-                        aceCount++;
-                    }
-                }
+                if (card.side != FlipType.FlipUp) continue;
+
+                if (card.cardData.rank == CardData.Rank.Ace) aceCount++;
+                else baseScore += card.cardData.GetValue();
             }
 
-            if (aceCount > 0)
-                diminishedScore = currentScore + aceCount;
-            else
-                diminishedScore = 0;
+            // 全部A当1（不含作弊）
+            int diminishedNatural = aceCount > 0 ? (baseScore + aceCount) : 0;
+
+            // 在 diminishedNatural 基础上，尽量把某些A从1升级到11（+10）
+            int bestNatural = (aceCount > 0) ? diminishedNatural : baseScore;
 
             for (int i = 0; i < aceCount; i++)
             {
-                if (currentScore + 11 < 22)
-                {
-                    currentScore += 11;
-                }
+                // ✅ 注意：这里要把 CheatNumber 算进去，避免“作弊导致爆牌却仍把A当11”
+                if (bestNatural + 10 + CheatNumber <= 21)
+                    bestNatural += 10;
                 else
-                {
-                    currentScore++;
-                }
+                    break;
             }
 
-            //最後結算增加作弊數字
-            currentScore += CheatNumber;
+            // 输出
+            naturalScore = bestNatural;
+            currentScore = bestNatural + CheatNumber;
 
+            if (aceCount > 0)
+                diminishedScore = diminishedNatural + CheatNumber;  // ✅ diminished 也要加作弊
+            else
+                diminishedScore = 0;
+
+
+            // currentScore = 0;
+            // int aceCount = 0;
+            //
+            // foreach (Card card in _Cards)
+            // {
+            //     if (card.side == FlipType.FlipUp)
+            //     {
+            //         if (card.cardData.rank != CardData.Rank.Ace)
+            //         {
+            //             currentScore += card.cardData.GetValue();
+            //         }
+            //         else
+            //         {
+            //             aceCount++;
+            //         }
+            //     }
+            // }
+            //
+            // if (aceCount > 0)
+            //     diminishedScore = currentScore + aceCount;
+            // else
+            //     diminishedScore = 0;
+            //
+            // for (int i = 0; i < aceCount; i++)
+            // {
+            //     if (currentScore + 11 < 22)
+            //     {
+            //         currentScore += 11;
+            //     }
+            //     else
+            //     {
+            //         currentScore++;
+            //     }
+            // }
+            //
+            // //最後結算增加作弊數字
+            // currentScore += CheatNumber;
+            //
 
         }
 
@@ -380,16 +428,23 @@ namespace Blackjack_Game
             ShowNumber();
         }//设置点数
 
+
+
         public int CheatNumber;//作弊點數
         public void ChangeScore(int score) 
         {
             CheatNumber += score;
-            currentScore += score;
-            diminishedScore += score;
+            //currentScore += score;
+            //diminishedScore += score;
 
-            ShowNumber();
+            //ShowNumber();
+            UpdateScoreView(); // 统一刷新，别用 ShowNumber
 
         }//增加点数
+
+
+
+
 
         void ShowNumber() 
         {
