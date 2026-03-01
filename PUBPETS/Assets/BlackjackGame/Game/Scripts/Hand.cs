@@ -445,6 +445,28 @@ namespace Blackjack_Game
             //ShowNumber();
             UpdateScoreView(); // 统一刷新，别用 ShowNumber
 
+
+
+
+
+            //需要显示
+            if (score < 0)
+            {
+                GameManager._Instance.Score_HUD.text = score.ToString();
+                GameManager._Instance.Score_HUD.color = Color.red;
+            }
+            else 
+            {
+                GameManager._Instance.Score_HUD.text = "+" + score.ToString();
+                GameManager._Instance.Score_HUD.color = Color.green;
+            }
+
+            GameManager._Instance.Score_HUD.gameObject.SetActive(true);
+
+
+
+
+
         }//增加点数
 
 

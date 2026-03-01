@@ -61,7 +61,7 @@ namespace Blackjack_Game
             {
                 //结算画面的总收益
                 _Instance.gameManager.revenue += value;
-
+                _Instance.gameManager.Revenue_2.text = _Instance.gameManager.revenue.ToString();//时刻更新
             }
 
 

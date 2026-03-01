@@ -75,7 +75,7 @@ namespace Blackjack_Game
             else
             {
 
-                if (currentDealer == DealerType.Anto && Random.Range(0, 2) == 0)
+                if (currentDealer == DealerType.Hetty)
                 {
                     Dealer_TryBurnTopCard();//女荷官使用匕首
                 }
@@ -124,7 +124,7 @@ namespace Blackjack_Game
 
             StandPlayerHand();
 
-            if (currentDealer == DealerType.Alice && Random.Range(0, 2) == 0)
+            if (currentDealer == DealerType.Alice && Random.Range(0, 1) == 0)
             {
                 Dealer_AliceMilk();//女荷官使用回复生命
             }
@@ -598,18 +598,26 @@ namespace Blackjack_Game
             if (currentDealer == DealerType.Anto)
             {
 
-                Dealer_IncreaseFemaleDealerScore();//女荷官使用幸运币
+                Dealer_IncreaseFemaleDealerScore_3();//女荷官使用绿色心情
+
+                Dealer_IncreaseFemaleDealerScore_1();//女荷官使用幸运币
 
             }
 
 
-            if (currentDealer == DealerType.Hetty && Random.Range(0, 3) == 0)
+            if (currentDealer == DealerType.Hetty)
             {
 
-                Dealer_SameScore();//女荷官使用均衡徽章
+                bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
+
+                if (isBigDeal)
+                {
+                    Dealer_SameScore();//女荷官使用均衡徽章
 
 
-                Dealer_SaveScore();//女荷官使用藏宝图残片
+                    Dealer_SaveScore();//女荷官使用藏宝图残片
+                }
+              
 
             }
 
@@ -657,6 +665,8 @@ namespace Blackjack_Game
             player.hand.CheatNumber = 0;//作弊點數清零
             dealer.hand.CheatNumber = 0;//作弊點數清零
 
+            swampRate = 1f;//爱丽丝的沼泽吞噬盈利恢复原状
+            Sign_SwampRate.SetActive(false);
 
 
             //TreasureBox.SetActive(false);//宝箱消失
@@ -713,66 +723,76 @@ namespace Blackjack_Game
                 switch (currentDealer)
                 {
                     case DealerType.Anto:
+                        bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
 
-                        if (currentHealth < maxHealth / 3)
+                        if (isBigDeal)
                         {
-                            if (Random.Range(0, 2) == 0)
+                            if (Progress == 7 && Progress == 8 && Progress == 9)
                             {
-                                AddCounter(3);
+                                if (Random.Range(0, 2) == 0)
+                                {
+                                    AddCounter(1);//在7，8，9关的时候安托看见大注随机恢复1颗
+                                }
                             }
-                        }
-                        else if (currentHealth < maxHealth / 2)
-                        {
-                            if (Random.Range(0, 2) == 0)
-                            {
-                                AddCounter(2);
-                            }
-                        }
-                        else
-                        {
-                            if (Random.Range(0, 2) == 0)
-                            {
-                                AddCounter(1);
-                            }
-                        }
 
+                            if (Progress >= 10)
+                            {
+
+                                if (Random.Range(0, 2) == 0)
+                                {
+                                    AddCounter(2);//在10关的时候安托看见大注固定恢复2颗
+
+                                }
+
+                            }
+
+                        }
                         break;
 
                     case DealerType.Hetty:
 
-                        if (currentHealth < maxHealth / 3)
+
+                        if (currentHealth < maxHealth / 2)
                         {
-                            AddCounter(3);   // 危机爆发
-                        }
-                        else if (currentHealth < maxHealth / 2)
-                        {
-                            AddCounter(2);
-                        }
-                        else
-                        {
-                            if (Random.Range(0, 2) == 0)
+                            if(Progress == 7&& Progress == 8&& Progress == 9)
                             {
-                                AddCounter(1);
+                                if (Random.Range(0, 2) == 0)
+                                {
+                                    AddCounter(1);//在7，8，9关的时候赫蒂半血以下随机恢复1颗
+                                }
+                            }
+
+                            if (Progress >=10)
+                            {
+                                AddCounter(1);//在10关的时候赫蒂半血以下固定恢复1颗
+
                             }
                         }
+
+                        if (Progress >= 4)
+                        {
+                            if (currentCounter <= 0)
+                            {
+                                AddCounter(1);//赫蒂无爱心情况下固定恢复1颗
+                            }
+
+                        }
+
+                    
 
                         break;
 
                     case DealerType.Alice:
 
-
-
-                        bool isBigDeal = Player.bet >= LimitPlace * 0.5f;//判断是大注还是小注
-
-
-                        if (currentHealth < maxHealth / 3)
+                        if (Progress >= 10)
                         {
-                            AddCounter(2);  // 危机稳定恢复
+                            if (Random.Range(0, 2) == 0)
+                            {
+                                AddCounter(1);//在10关的时候爱丽丝半血以下随机恢复1颗
+                            }
+
                         }
-                        else if (isBigDeal)
-                        {
-                            AddCounter(1);  // 玩家大注时恢复
-                        }
+
 
                         break;
                 }
@@ -1179,12 +1199,12 @@ namespace Blackjack_Game
             switch (currentDealer)
             {
                 case DealerType.Hetty:
-                    if (Random.Range(0, 2) == 0&& HasCounter())
+                    if (Random.Range(0, 3) == 0&& HasCounter())
                         return DealerReaction.Interrupt;
                     break;
 
                 case DealerType.Anto:
-                    if (Random.Range(0, 2) == 0 && HasCounter())
+                    if (Random.Range(0, 3) == 0 && HasCounter())
                         return DealerReaction.Steal;
                     break;
 
@@ -1341,7 +1361,7 @@ namespace Blackjack_Game
             {
 
                 //爱丽丝在玩家使用道具后会再度使用回血道具(随机)
-                if (currentDealer == DealerType.Alice && Random.Range(0, 3) == 0)
+                if (currentDealer == DealerType.Alice && Random.Range(0, 2) == 0)
                 {
                     //Invoke(nameof(Dealer_AliceMilk), 2f);
                     //女荷官使用回复生命
@@ -2399,6 +2419,9 @@ namespace Blackjack_Game
         public List<Sprite> List_Item_Image; // 8个图片对象，对应物品0~7
 
 
+        public Text Score_HUD;//更改点数通用
+
+
         public void Show(int itemId, string text)
         {
             root.SetActive(true);
@@ -2555,14 +2578,14 @@ namespace Blackjack_Game
         {
             if (p <= 3) return 0;
             if (p <= 6) return 1;
-            if (p <= 9) return 3;
-            return 4;
+            if (p <= 9) return 2;
+            return 3;
         }
         int GetAliceHearts(int p)
         {
             if (p <= 3) return 0;
             if (p <= 6) return 3;
-            if (p <= 9) return 6;
+            if (p <= 9) return 5;
             return 7;
         }
 
@@ -2572,7 +2595,7 @@ namespace Blackjack_Game
 
 
 
-        public Text HUD;
+        public Text Health_HUD;
 
         public static void ChangeHealth(float amount, bool NeedAnimator)//调整女荷官生命值的时候不一定需要动画
         {
@@ -2582,15 +2605,15 @@ namespace Blackjack_Game
             //显示回血伤血提示
             if (amount > 0)
             {
-                _Instance.HUD.color = Color.green;
-                _Instance.HUD.text = "+" + amount.ToString();
+                _Instance.Health_HUD.color = Color.green;
+                _Instance.Health_HUD.text = "+" + amount.ToString();
             }
             else
             {
-                _Instance.HUD.color = Color.red;
-                _Instance.HUD.text = amount.ToString();
+                _Instance.Health_HUD.color = Color.red;
+                _Instance.Health_HUD.text = amount.ToString();
             }
-            _Instance.HUD.gameObject.SetActive(true);
+            _Instance.Health_HUD.gameObject.SetActive(true);
 
 
 
@@ -3022,29 +3045,49 @@ namespace Blackjack_Game
         }//女荷官在玩家有展示第一张的时候抓牌瞬间，使用匕首
 
 
-        public void Dealer_IncreaseFemaleDealerScore() 
+        public void Dealer_IncreaseFemaleDealerScore_3() 
         {
-            //if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
-            //
-            //
-            //// 1) 玩家爆牌，庄家本来就赢，不用徽章
-            //if (player.Score > 21) return;
-            //
-            //// 2) 庄家爆牌，这时候应该走藏宝图残片救场，不用徽章
-            //if (dealer.Score > 21) return;
-            //
-            //// 3) 庄家本来就 >= 玩家，不会输，不用徽章
-            //if (dealer.Score == player.Score|| dealer.Score == player.Score-1 || dealer.Score == player.Score - 2 || dealer.Score == player.Score - 3) 
-            //{
-            //    dealer.hand.ChangeScore(1);
-            //
-            //    DealerUse_Item(6);
-            //
-            //    ConsumeOne();//消耗一颗爱心
-            //}
-            //
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+            
+            
+            // 1) 玩家爆牌，庄家本来就赢，不用徽章
+            if (player.Score > 21) return;
+            
 
-        }//女荷官在停牌之后，发现自己点数比玩家低1或者一致，玩家也没有爆牌（高于21），强制让自己点数上升1
+            
+
+            if (dealer.Score == 17 || dealer.Score == 18) 
+            {
+                dealer.hand.ChangeScore(3);
+            
+                DealerUse_Item(8);
+            
+                ConsumeOne();//消耗一颗爱心
+            }
+            
+
+        }//女荷官在结算时 17，18自动升级为 20，21
+
+        public void Dealer_IncreaseFemaleDealerScore_1()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+
+            // 1) 玩家爆牌，庄家本来就赢，不用徽章
+            if (player.Score > 21) return;
+
+
+            if (dealer.Score == 19 || dealer.Score == 20)
+            {
+                dealer.hand.ChangeScore(1);
+
+                DealerUse_Item(6);
+
+                ConsumeOne();//消耗一颗爱心
+            }
+
+
+        }//女荷官在结算时 19，20自动升级为 20，21
 
         //----------------------------------------------------------------------------------------------------------------------------------------
 
@@ -3096,7 +3139,24 @@ namespace Blackjack_Game
 
             ConsumeOne();//消耗一颗爱心
 
+
+            swampRate = 0.5f;//爱丽丝的沼泽吞噬盈利
+            Sign_SwampRate.SetActive(true);
+
         }//女荷官回复生命值
+
+
+
+        public float swampRate = 1f;   // 1 = 正常   //0.5 玩家收益减半
+        public GameObject Sign_SwampRate;
+
+        public float ApplySwampEffect(float winAmount)
+        {
+            if (currentDealer == DealerType.Alice)
+                return winAmount * swampRate;
+
+            return winAmount;
+        }//女荷官沼泽吞噬玩家盈利空间
 
         //----------------------------------------------------------------------------------------------------------------------------------------
         public void Dealer_StealItems(int Item_Image)
@@ -3218,6 +3278,8 @@ namespace Blackjack_Game
         public Text Turns;
         public Text Revenue;
         public Text ItemsUsed;
+
+        public Text Revenue_2;//展示在金币下方的常驻亏损赚取显示
 
         #endregion
 

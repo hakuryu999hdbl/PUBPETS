@@ -147,6 +147,9 @@ namespace Blackjack_Game
                     case "StartWork_01":
                         Load_AVG(100);//开始工作
                         BGM.instance.AudioPlayBackgroundMusic(11);//女荷官指名AVG音乐
+
+                        OnEnterTavern();//每次进入酒店经营AVG界面刷新
+
                         break;
 
                     case "StartShop_01":
@@ -1624,7 +1627,67 @@ namespace Blackjack_Game
 
 
 
+        /// <summary>
+        /// 通关前记录天数
+        /// </summary>
+        #region
+        [Header("显示是第几日")]
+        public Text Day;
+        void OnEnterTavern()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
 
+            if (!data.HasCleared)
+            {
+                data.DayCount++;
+                SaveManager.SaveGame(data);
+
+
+                Debug.Log("当前天数：" + data.DayCount);
+
+                //显示现在是第X天
+                switch (PlayerPrefs.GetInt("language"))
+                {
+                    case 0:
+                        // 日语
+                        Day.text = data.DayCount + "日目";
+                        break;
+
+                    case 1:
+                        // 简体中文
+                        Day.text = "第" + data.DayCount + "天";
+                        break;
+
+                    case 2:
+                        // 繁体中文
+                        Day.text = "第" + data.DayCount + "天";
+                        break;
+
+                    case 3:
+                        // 英语
+                        Day.text = "Day " + data.DayCount;
+                        break;
+
+                    case 4:
+                        // 韩语
+                        Day.text = data.DayCount + "일째";
+                        break;
+                }
+
+                Day.color = new Color(1f, 0f, 0.831f, 1f); //粉色
+
+
+                Invoke(nameof(ShowDay), 0.5f);
+            }
+
+         
+        }
+
+        void ShowDay()
+        {
+            Day.gameObject.SetActive(true);
+        }
+        #endregion
 
 
         /// <summary>

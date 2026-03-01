@@ -14,7 +14,7 @@ namespace Blackjack_Game
 
         public TMPro.TMP_Text betValuePanel;
 
-        private static readonly float[] CHIP_VALUES = { 0.5f, 1, 5, 10, 25, 100 };
+        private static readonly float[] CHIP_VALUES = { 0.5f, 1, 5, 10, 100, 500 };
 
         private bool IsWinnningStack = false;
         private bool IsPushStack = false;
@@ -116,6 +116,12 @@ namespace Blackjack_Game
             if (IsWinnningStack)
             {
                 winAmount = value * (IsBlackjack ? 2.5f : 2);
+
+
+                // 🔥 爱丽丝沼泽削减(不是爱丽丝会折回)
+                winAmount = GameManager._Instance.ApplySwampEffect(winAmount);
+
+
             }
             else if (IsPushStack)
             {
