@@ -32,6 +32,10 @@ namespace Blackjack_Game
             {
                 float mul = GameManager._Instance.rewardMultiplier;
                 totalWin *= mul;
+
+                // ✅ 用完立即清掉，保证只影响这一局
+                GameManager._Instance.rewardMultiplier = 1f;
+                GameManager._Instance.Sign_DoubleReward.SetActive(false);
             }
 
 

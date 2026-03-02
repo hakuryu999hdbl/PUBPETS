@@ -590,18 +590,21 @@ namespace Blackjack_Game
             SaveNumber = 0;//强制清零
 
 
+            //我在Result里立即重置了
+            //Invoke(nameof(ResetDoubleReward), 1f);
 
-            Invoke(nameof(ResetDoubleReward), 1f);
 
 
-
-            if (currentDealer == DealerType.Anto)
+            if (currentDealer == DealerType.Anto && Random.Range(0,2)==0)
             {
 
                 Dealer_IncreaseFemaleDealerScore_3();//女荷官使用绿色心情
 
                 Dealer_IncreaseFemaleDealerScore_1();//女荷官使用幸运币
 
+                Dealer_DecreaseFemaleDealerScore_3();//女荷官使用紫色心情
+
+                Dealer_DecreaseFemaleDealerScore_1();//女荷官使用厄运币
             }
 
 
@@ -1237,9 +1240,9 @@ namespace Blackjack_Game
                 switch (CurrentItem)
                 {
                     case 0:
-                        ConsumeOne();//消耗一颗爱心                       
+                                    
                         Dealer_StealItems_0(); //玩家使用紫色心情，安托偷过来给自己-3
-
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）        
 
                         break;
                     case 1:
@@ -1266,9 +1269,9 @@ namespace Blackjack_Game
                         currentCount--;
                         data.Item_4 = currentCount;
                         break;
-                    case 4: 
-                        ConsumeOne();//消耗一颗爱心 
+                    case 4:                      
                         Dealer_StealItems_4(); //玩家使用酒瓶，安托偷过来给自己双倍
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
                     case 5:
@@ -1281,8 +1284,8 @@ namespace Blackjack_Game
 
                         break;
                     case 6:
-                        ConsumeOne();//消耗一颗爱心 
                         Dealer_StealItems_6(); //玩家使用幸运币，安托偷过来给自己+1
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
                     case 7:
@@ -1297,10 +1300,9 @@ namespace Blackjack_Game
 
 
 
-                    case 8:
-                        ConsumeOne();//消耗一颗爱心                       
+                    case 8:         
                         Dealer_StealItems_8(); //玩家使用绿色心情，安托偷过来给自己＋3
-
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
 
@@ -1313,9 +1315,10 @@ namespace Blackjack_Game
                         data.Item_10 = currentCount;
                         break;
 
-                    case 10:
-                        ConsumeOne();//消耗一颗爱心                    
+                    case 10:           
                         Dealer_StealItems_10();//玩家使用黑棋子，安托偷过来给自己＋5
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
+
                         break;
 
                     case 11:
@@ -1329,21 +1332,20 @@ namespace Blackjack_Game
                         break;
 
                     case 12:
-                        ConsumeOne();//消耗一颗爱心 
                         Dealer_StealItems_12(); //玩家使用空瓶，安托偷过来给玩家双倍
-
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
 
-                    case 13:
-                        ConsumeOne();//消耗一颗爱心                       
+                    case 13:                      
                         Dealer_StealItems_13(); //玩家使用白棋子，安托偷过来给玩家＋5
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
 
                     case 14:
-                        ConsumeOne();//消耗一颗爱心 
                         Dealer_StealItems_14(); //玩家使用厄运币，安托偷过来给自己-1
+                        ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
                         break;
 
@@ -3088,6 +3090,49 @@ namespace Blackjack_Game
 
 
         }//女荷官在结算时 19，20自动升级为 20，21
+
+        public void Dealer_DecreaseFemaleDealerScore_1()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+
+            // 1) 玩家爆牌，庄家本来就赢，不用徽章
+            if (player.Score > 21) return;
+
+
+            if (dealer.Score == 22)
+            {
+                dealer.hand.ChangeScore(-1);
+
+                DealerUse_Item(14);
+
+                ConsumeOne();//消耗一颗爱心
+            }
+
+
+        }//女荷官在结算时 22 爆牌 自动削减为 21
+
+        public void Dealer_DecreaseFemaleDealerScore_3()
+        {
+            if (!HasCounter()) return;//女荷官爱心消耗完毕无法使用道具
+
+
+            // 1) 玩家爆牌，庄家本来就赢，不用徽章
+            if (player.Score > 21) return;
+
+
+            if (dealer.Score == 23|| dealer.Score == 24)
+            {
+                dealer.hand.ChangeScore(-3);
+
+                DealerUse_Item(14);
+
+                ConsumeOne();//消耗一颗爱心
+            }
+
+
+        }//女荷官在结算时 23  24 爆牌 自动削减为 20  21
+
 
         //----------------------------------------------------------------------------------------------------------------------------------------
 
