@@ -80,6 +80,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip SE_LotionGauze_1, SE_LotionGauze_2, SE_LotionGauze_3;
 
 
+
+
     public AudioClip Anto_Game_034, Anto_Game_035, Anto_Game_036;
 
     #endregion
