@@ -126,8 +126,14 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Anto_CG_01_3";
-            //Load_AVG(2011);
+            //GameFlowData.nextAVGId = "Hetty_CG_01_3";//获胜失败和CG使用
+            //GameFlowData.nextAVGId = "VSHetty";
+            //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+            //BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
+            //BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
+            
+            //Load_AVG(2014);//VS对应女荷官使用
+           
 
 
             if (currentScene.name == "Spine")

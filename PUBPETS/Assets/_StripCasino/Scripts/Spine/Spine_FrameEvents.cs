@@ -13,8 +13,14 @@ public class Spine_FrameEvents : MonoBehaviour
 
     public Animator Hetty_CG_01;
     public Animator Hetty_CG_02;
+    public Animator Hetty_CG_03;
     public Animator Hetty_CG_04;
     public Animator Hetty_CG_05;
+    public Animator Hetty_CG_06;
+    public Animator Hetty_CG_07;
+    public Animator Hetty_CG_08;
+    public Animator Hetty_CG_09;
+    public Animator Hetty_CG_10;
 
     public Animator Alice_CG_01;
     public Animator Alice_CG_02;
@@ -62,11 +68,33 @@ public class Spine_FrameEvents : MonoBehaviour
                 currentAnimator = Hetty_CG_02;
                 break;
 
+            case 23:
+                currentAnimator = Hetty_CG_03;
+                break;
+
             case 24:
                 currentAnimator = Hetty_CG_04;
                 break;
             case 25:
                 currentAnimator = Hetty_CG_05;
+                break;
+
+            case 26:
+                currentAnimator = Hetty_CG_06;
+                break;
+
+            case 27:
+                currentAnimator = Hetty_CG_07;
+                break;
+            case 28:
+                currentAnimator = Hetty_CG_08;
+                break;
+
+            case 29:
+                currentAnimator = Hetty_CG_09;
+                break;
+            case 30:
+                currentAnimator = Hetty_CG_10;
                 break;
 
             #endregion
