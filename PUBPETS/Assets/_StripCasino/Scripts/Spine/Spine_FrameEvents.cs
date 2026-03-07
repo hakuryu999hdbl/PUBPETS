@@ -10,6 +10,9 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Anto_CG_01;
     public Animator Anto_CG_02;
     public Animator Anto_CG_03;
+    public Animator Anto_CG_04;
+    public Animator Anto_CG_05;
+    public Animator Anto_CG_06;
 
     public Animator Hetty_CG_01;
     public Animator Hetty_CG_02;
@@ -54,6 +57,15 @@ public class Spine_FrameEvents : MonoBehaviour
                 break;
             case 13:
                 currentAnimator = Anto_CG_03;
+                break;
+            case 14:
+                currentAnimator = Anto_CG_04;
+                break;
+            case 15:
+                currentAnimator = Anto_CG_05;
+                break;
+            case 16:
+                currentAnimator = Anto_CG_06;
                 break;
 
             #endregion

@@ -132,8 +132,24 @@ public class FrameEvents : MonoBehaviour
     public void _Attack_pai2() { audioS.PlayOneShot(AudioManager.Attack_pai2); }
 
 
+    public void _Attack_blood()
+    {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                audioS.PlayOneShot(AudioManager.Attack_blood1);
+                break;
+            case 1:
+                audioS.PlayOneShot(AudioManager.Attack_blood2);
+                break;
+            case 2:
+                audioS.PlayOneShot(AudioManager.Attack_blood3);
+                break;
+        }
 
-  
+    }
+
+
     public void _SE_Whip()
     {
         switch (Random.Range(0, 3))

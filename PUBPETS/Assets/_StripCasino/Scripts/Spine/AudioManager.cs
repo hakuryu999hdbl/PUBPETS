@@ -57,6 +57,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip Attack_pai2;
 
+    public AudioClip Attack_blood1, Attack_blood2, Attack_blood3;
+
     public AudioClip SE_Whip_1, SE_Whip_2, SE_Whip_3;
 
 
