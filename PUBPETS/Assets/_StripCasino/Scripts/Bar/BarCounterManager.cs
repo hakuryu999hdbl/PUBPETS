@@ -738,6 +738,7 @@ namespace Blackjack_Game
         /// 女荷官AVG随机入口
         /// </summary>
         #region
+        [Header("女荷官AVG随机入口")]
         public GameObject Alice;
         public GameObject Hetty;
         public void Set_Alice_Hetty()
@@ -753,31 +754,172 @@ namespace Blackjack_Game
         }
 
 
+
+        public GameObject SelectStage_Anto;//通关之后，玩家选择
+        public GameObject SelectStage_Hetty;//通关之后，玩家选择
+        public GameObject SelectStage_Alice;//通关之后，玩家选择
+
+
         public void Load_Vs_Anto_AVG()
         {
-
-            GameFlowData.nextAVGId = "VSAnto";//确定女荷官
-            uiManager.LoadingScene_Spine();
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.antoProgress>=11)
+            {
+                SelectStage_Anto.SetActive(true);//通关后选择关卡
+            }
+            else
+            {
+                GameFlowData.nextAVGId = "VSAnto";//确定女荷官
+                uiManager.LoadingScene_Spine();
+            }
+         
 
         }
+        public void Menu_SelectStage_Anto(int Lv) 
+        {
+            switch (Lv)
+            {
+                case 1:
+                    GameFlowData.nextAVGId = "Anto_CG_01_1";//开启安托第一个CG前端AVG
+                    break;
+                case 2:
+                    GameFlowData.nextAVGId = "Anto_CG_02_1";//开启安托第二个CG前端AVG
+                    break;
+                case 3:
+                    GameFlowData.nextAVGId = "Anto_CG_03_1";//开启安托第三个CG前端AVG
+                    break;
+                case 4:
+                    GameFlowData.nextAVGId = "Anto_CG_04_1";//开启安托第四个CG前端AVG
+                    break;
+                case 5:
+                    GameFlowData.nextAVGId = "Anto_CG_05_1";//开启安托第五个CG前端AVG
+                    break;
+                case 6:
+                    GameFlowData.nextAVGId = "Anto_CG_06_1";//开启安托第六个CG前端AVG
+                    break;
+                case 7:
+                    GameFlowData.nextAVGId = "Anto_CG_07_1";//开启安托第七个CG前端AVG
+                    break;
+                case 8:
+                    GameFlowData.nextAVGId = "Anto_CG_08_1";//开启安托第八个CG前端AVG
+                    break;
+                case 9:
+                    GameFlowData.nextAVGId = "Anto_CG_09_1";//开启安托第九个CG前端AVG
+                    break;
+                case 10:
+                    GameFlowData.nextAVGId = "Anto_CG_10_1";//开启安托第十个CG前端AVG
+                    break;
+            }
 
+            uiManager.LoadingScene_Spine();
+        }//通关后的关卡选择界面
         public void Load_Vs_Hetty_AVG()
         {
 
-            GameFlowData.nextAVGId = "VSHetty";//开启开头剧情介绍
-            uiManager.LoadingScene_Spine();
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.hettyProgress >= 11)
+            {
+                SelectStage_Hetty.SetActive(true);//通关后选择关卡
+            }
+            else
+            {
+                GameFlowData.nextAVGId = "VSHetty";//开启开头剧情介绍
+                uiManager.LoadingScene_Spine();
+            }
 
         }
+        public void Menu_SelectStage_Hetty(int Lv)
+        {
+            switch (Lv)
+            {
+                case 1:
+                    GameFlowData.nextAVGId = "Hetty_CG_01_1";//开启赫蒂第一个CG前端AVG
+                    break;
+                case 2:
+                    GameFlowData.nextAVGId = "Hetty_CG_02_1";//开启赫蒂第二个CG前端AVG
+                    break;
+                case 3:
+                    GameFlowData.nextAVGId = "Hetty_CG_03_1";//开启赫蒂第三个CG前端AVG
+                    break;
+                case 4:
+                    GameFlowData.nextAVGId = "Hetty_CG_04_1";//开启赫蒂第四个CG前端AVG
+                    break;
+                case 5:
+                    GameFlowData.nextAVGId = "Hetty_CG_05_1";//开启赫蒂第五个CG前端AVG
+                    break;
+                case 6:
+                    GameFlowData.nextAVGId = "Hetty_CG_06_1";//开启赫蒂第六个CG前端AVG
+                    break;
+                case 7:
+                    GameFlowData.nextAVGId = "Hetty_CG_07_1";//开启赫蒂第七个CG前端AVG
+                    break;
+                case 8:
+                    GameFlowData.nextAVGId = "Hetty_CG_08_1";//开启赫蒂第八个CG前端AVG
+                    break;
+                case 9:
+                    GameFlowData.nextAVGId = "Hetty_CG_09_1";//开启赫蒂第九个CG前端AVG
+                    break;
+                case 10:
+                    GameFlowData.nextAVGId = "Hetty_CG_10_1";//开启赫蒂第十个CG前端AVG
+                    break;
+            }
 
-
+            uiManager.LoadingScene_Spine();
+        }//通关后的关卡选择界面
         public void Load_Vs_Alice_AVG()
         {
 
-            GameFlowData.nextAVGId = "VSAlice";//确定女荷官
-            uiManager.LoadingScene_Spine();
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.aliceProgress >= 11)
+            {
+                SelectStage_Alice.SetActive(true);//通关后选择关卡
+            }
+            else
+            {
+                GameFlowData.nextAVGId = "VSAlice";//确定女荷官
+                uiManager.LoadingScene_Spine();
+            }
+
 
         }
+        public void Menu_SelectStage_Alice(int Lv)
+        {
+            switch (Lv)
+            {
+                case 1:
+                    GameFlowData.nextAVGId = "Alice_CG_01_1";//开启爱丽丝第一个CG前端AVG
+                    break;
+                case 2:
+                    GameFlowData.nextAVGId = "Alice_CG_02_1";//开启爱丽丝第二个CG前端AVG
+                    break;
+                case 3:
+                    GameFlowData.nextAVGId = "Alice_CG_03_1";//开启爱丽丝第三个CG前端AVG
+                    break;
+                case 4:
+                    GameFlowData.nextAVGId = "Alice_CG_04_1";//开启爱丽丝第四个CG前端AVG
+                    break;
+                case 5:
+                    GameFlowData.nextAVGId = "Alice_CG_05_1";//开启爱丽丝第五个CG前端AVG
+                    break;
+                case 6:
+                    GameFlowData.nextAVGId = "Alice_CG_06_1";//开启爱丽丝第六个CG前端AVG
+                    break;
+                case 7:
+                    GameFlowData.nextAVGId = "Alice_CG_07_1";//开启爱丽丝第七个CG前端AVG
+                    break;
+                case 8:
+                    GameFlowData.nextAVGId = "Alice_CG_08_1";//开启爱丽丝第八个CG前端AVG
+                    break;
+                case 9:
+                    GameFlowData.nextAVGId = "Alice_CG_09_1";//开启爱丽丝第九个CG前端AVG
+                    break;
+                case 10:
+                    GameFlowData.nextAVGId = "Alice_CG_10_1";//开启爱丽丝第十个CG前端AVG
+                    break;
+            }
 
+            uiManager.LoadingScene_Spine();
+        }//通关后的关卡选择界面
 
         public void Hide()
         {

@@ -2445,12 +2445,17 @@ namespace Blackjack_Game
         #region
         [Header("女荷官生命值")]
         public Text healthText;
-        public Image healthFillImage;
+        public Image healthFillImage;       // 前景真实血条
+        public Image healthGhostFillImage;     // 半透明覆盖血条
         public float maxHealth = 1000f;
         public float currentHealth;
 
+        private float ghostHealth;             // 半透明条显示值
+        private float displayHealth;    // UI当前显示的血量
+        private Coroutine healthAnimCoroutine;
+
         public Text Limit;//本局赌注上限
-        int LimitPlace;//本局赌注上限
+        public int LimitPlace;//本局赌注上限
 
 
         int Progress;//女荷官进度
@@ -2465,6 +2470,81 @@ namespace Blackjack_Game
 
         private DealerType currentDealer;//女荷官类型
 
+
+        #region  兼合了通关后的关卡选择
+
+        private int GetStageProgressBySceneId(string sceneId)
+        {
+            switch (sceneId)
+            {
+                case "Anto_CG_01_1": return 1;
+                case "Anto_CG_02_1": return 2;
+                case "Anto_CG_03_1": return 3;
+                case "Anto_CG_04_1": return 4;
+                case "Anto_CG_05_1": return 5;
+                case "Anto_CG_06_1": return 6;
+                case "Anto_CG_07_1": return 7;
+                case "Anto_CG_08_1": return 8;
+                case "Anto_CG_09_1": return 9;
+                case "Anto_CG_10_1": return 10;
+
+                case "Hetty_CG_01_1": return 1;
+                case "Hetty_CG_02_1": return 2;
+                case "Hetty_CG_03_1": return 3;
+                case "Hetty_CG_04_1": return 4;
+                case "Hetty_CG_05_1": return 5;
+                case "Hetty_CG_06_1": return 6;
+                case "Hetty_CG_07_1": return 7;
+                case "Hetty_CG_08_1": return 8;
+                case "Hetty_CG_09_1": return 9;
+                case "Hetty_CG_10_1": return 10;
+
+                case "Alice_CG_01_1": return 1;
+                case "Alice_CG_02_1": return 2;
+                case "Alice_CG_03_1": return 3;
+                case "Alice_CG_04_1": return 4;
+                case "Alice_CG_05_1": return 5;
+                case "Alice_CG_06_1": return 6;
+                case "Alice_CG_07_1": return 7;
+                case "Alice_CG_08_1": return 8;
+                case "Alice_CG_09_1": return 9;
+                case "Alice_CG_10_1": return 10;
+            }
+
+            return 0; // 0 = 没有指定关卡，走正常存档进度
+        }
+
+        private int GetEffectiveProgress(DealerType dealerType, SaveData data)
+        {
+            int stageProgress = GetStageProgressBySceneId(GameFlowData.nextAVGId);
+
+            // 如果端口名里带了关卡，就优先用那个
+            if (stageProgress > 0)
+            {
+                return stageProgress;
+            }
+
+            // 否则走正常存档进度
+            switch (dealerType)
+            {
+                case DealerType.Anto:
+                    return data.antoProgress;
+                case DealerType.Hetty:
+                    return data.hettyProgress;
+                case DealerType.Alice:
+                    return data.aliceProgress;
+                default:
+                    return 1;
+            }
+        }
+
+        private int ClampProgress(int progress)
+        {
+            return Mathf.Clamp(progress, 1, 10);
+        }
+
+
+        #endregion
 
 
         void Start()
@@ -2486,9 +2566,22 @@ namespace Blackjack_Game
             {
                 default:
                 case "VSAnto":
+                case "Anto_CG_01_1":
+                case "Anto_CG_02_1":
+                case "Anto_CG_03_1":
+                case "Anto_CG_04_1":
+                case "Anto_CG_05_1":
+                case "Anto_CG_06_1":
+                case "Anto_CG_07_1":
+                case "Anto_CG_08_1":
+                case "Anto_CG_09_1":
+                case "Anto_CG_10_1":
                     dealerAnimator = antoAnimator;
-                    Progress = data.antoProgress;
                     currentDealer = DealerType.Anto;
+
+                    //Progress = data.antoProgress;
+                    Progress = ClampProgress(GetEffectiveProgress(currentDealer, data));//兼具了关卡读取的功能
+
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Anto;
 
                     //选择女荷官界面BGM
@@ -2502,12 +2595,27 @@ namespace Blackjack_Game
                     Init(antoHearts);
 
 
+
+
                     break;
 
                 case "VSHetty":
+                case "Hetty_CG_01_1":
+                case "Hetty_CG_02_1":
+                case "Hetty_CG_03_1":
+                case "Hetty_CG_04_1":
+                case "Hetty_CG_05_1":
+                case "Hetty_CG_06_1":
+                case "Hetty_CG_07_1":
+                case "Hetty_CG_08_1":
+                case "Hetty_CG_09_1":
+                case "Hetty_CG_10_1":
                     dealerAnimator = hettyAnimator;
-                    Progress = data.hettyProgress;
                     currentDealer = DealerType.Hetty;
+
+                    //Progress = data.hettyProgress;
+                    Progress = ClampProgress(GetEffectiveProgress(currentDealer, data));//兼具了关卡读取的功能
+
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Hetty;
 
                     //选择女荷官界面BGM
@@ -2524,9 +2632,22 @@ namespace Blackjack_Game
                     break;
 
                 case "VSAlice":
+                case "Alice_CG_01_1":
+                case "Alice_CG_02_1":
+                case "Alice_CG_03_1":
+                case "Alice_CG_04_1":
+                case "Alice_CG_05_1":
+                case "Alice_CG_06_1":
+                case "Alice_CG_07_1":
+                case "Alice_CG_08_1":
+                case "Alice_CG_09_1":
+                case "Alice_CG_10_1":
                     dealerAnimator = aliceAnimator;
-                    Progress = data.aliceProgress;
                     currentDealer = DealerType.Alice;
+
+                    //Progress = data.aliceProgress;
+                    Progress = ClampProgress(GetEffectiveProgress(currentDealer, data));//兼具了关卡读取的功能
+
                     CheckoutScreen_Dealer.sprite = CheckoutScreen_Alice;
 
                     //选择女荷官界面BGM
@@ -2555,11 +2676,19 @@ namespace Blackjack_Game
             LimitPlace = Progress * 200;
             Limit.text = LimitPlace.ToString();//本局赌注上限
 
+
+            //直接通过GameManager去设置
+            //LimitBetPlate._Instance.max = LimitPlace;
+            //LimitBetPlate.SetLimit(1, LimitPlace);
+
             maxHealth = Progress * 1000;
 
             currentHealth = maxHealth;
-            UpdateFill();
+            //UpdateFill();
 
+            displayHealth = currentHealth;
+            ghostHealth = currentHealth;
+            UpdateAllBarsImmediate();
 
 
 
@@ -2617,12 +2746,23 @@ namespace Blackjack_Game
             }
             _Instance.Health_HUD.gameObject.SetActive(true);
 
-
+            float oldHealth = _Instance.currentHealth;
 
 
             _Instance.currentHealth += amount;
             _Instance.currentHealth = Mathf.Clamp(_Instance.currentHealth, 0, _Instance.maxHealth);
-            _Instance.UpdateFill();
+            //_Instance.UpdateFill();
+
+            //血条动画
+            // 不直接 UpdateFill()
+            if (_Instance.healthAnimCoroutine != null)
+            {
+                _Instance.StopCoroutine(_Instance.healthAnimCoroutine);
+            }
+            _Instance.healthAnimCoroutine = _Instance.StartCoroutine(
+                  _Instance.AnimateHealthBarDual(oldHealth, _Instance.currentHealth)
+              );
+
 
 
             if (NeedAnimator)
@@ -2650,11 +2790,84 @@ namespace Blackjack_Game
 
         }
 
-        void UpdateFill()
+        //void UpdateFill()
+        //{
+        //    healthFillImage.fillAmount = currentHealth / maxHealth;
+        //    healthText.text = $"{currentHealth} / {maxHealth}";
+        //}
+
+
+        //血条动画
+        private IEnumerator AnimateHealthBarDual(float oldHealth, float newHealth)
+        {
+            // 受伤
+            if (newHealth < oldHealth)
+            {
+                // 前景真实血条先立刻到目标
+                displayHealth = newHealth;
+                UpdateFrontBar();
+
+                // 半透明条停顿一下，再慢慢掉
+                yield return new WaitForSeconds(0.15f);
+
+                while (ghostHealth > newHealth)
+                {
+                    ghostHealth -= 100f;
+                    if (ghostHealth < newHealth)
+                        ghostHealth = newHealth;
+
+                    UpdateGhostBar();
+                    UpdateHealthText();
+
+                    yield return new WaitForSeconds(0.02f);
+                }
+            }
+            // 治疗
+            else if (newHealth > oldHealth)
+            {
+                // 半透明条先立刻到目标
+                ghostHealth = newHealth;
+                UpdateGhostBar();
+
+                // 前景真实血条慢慢追上去
+                while (displayHealth < newHealth)
+                {
+                    displayHealth += 100f;
+                    if (displayHealth > newHealth)
+                        displayHealth = newHealth;
+
+                    UpdateFrontBar();
+                    UpdateHealthText();
+
+                    yield return new WaitForSeconds(0.02f);
+                }
+            }
+
+            UpdateAllBarsImmediate();
+            healthAnimCoroutine = null;
+        }
+        void UpdateFrontBar()
+        {
+            healthFillImage.fillAmount = displayHealth / maxHealth;
+        }
+
+        void UpdateGhostBar()
+        {
+            healthGhostFillImage.fillAmount = ghostHealth / maxHealth;
+        }
+
+        void UpdateHealthText()
+        {
+            healthText.text = $"{displayHealth} / {maxHealth}";
+        }
+
+        void UpdateAllBarsImmediate()
         {
             healthFillImage.fillAmount = currentHealth / maxHealth;
+            healthGhostFillImage.fillAmount = currentHealth / maxHealth;
             healthText.text = $"{currentHealth} / {maxHealth}";
         }
+
 
 
         [Header("胜利图标")]

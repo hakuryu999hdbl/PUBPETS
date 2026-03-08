@@ -19,35 +19,41 @@ namespace Blackjack_Game
         {
 
             //手动修改(限制赌注上限的地方)
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            //SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            //
+            ////根据存档来显示对应的动画器
+            //switch (GameFlowData.nextAVGId)
+            //{
+            //    default:
+            //    case "VSAnto":
+            //        int Story_Anto = data.antoProgress;
+            //        max = Story_Anto * 200;
+            //        break;
+            //
+            //    case "VSHetty":
+            //        int Story_Hetty = data.hettyProgress;
+            //        max = Story_Hetty * 200;
+            //        break;
+            //
+            //    case "VSAlice":
+            //
+            //        int Story_Alice = data.aliceProgress;
+            //        max = Story_Alice * 200;
+            //        break;
+            //
+            //
+            //}
 
-            //根据存档来显示对应的动画器
-            switch (GameFlowData.nextAVGId)
-            {
-                default:
-                case "VSAnto":
-                    int Story_Anto = data.antoProgress;
-                    max = Story_Anto * 200;
-                    break;
-
-                case "VSHetty":
-                    int Story_Hetty = data.hettyProgress;
-                    max = Story_Hetty * 200;
-                    break;
-
-                case "VSAlice":
-
-                    int Story_Alice = data.aliceProgress;
-                    max = Story_Alice * 200;
-                    break;
-
-
-            }
-
-
+         
 
             _Instance = this;
-            SetLimit(min, max);
+            //SetLimit(min, max);
+            Invoke(nameof(SetGameManagerLimitPlace), 0.5f);//等GameManager那边的设置完成后
+        }
+
+        void SetGameManagerLimitPlace() 
+        {
+            SetLimit(min, GameManager._Instance.LimitPlace);
         }
 
         public static void SetLimit(float min, float max)
