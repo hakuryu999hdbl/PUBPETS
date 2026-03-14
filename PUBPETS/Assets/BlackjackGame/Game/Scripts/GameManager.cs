@@ -3602,7 +3602,7 @@ namespace Blackjack_Game
         }
 
 
-        public GameObject BasicRule, DoubleDown, Insurance, Split;
+        public GameObject BasicRule, DoubleDown, Insurance, Split, Introduce_Anto, Introduce_Hetty, Introduce_Alice, Item;
 
         // Method to call when a tab is clicked
         public void OnTabClick(string tabName)
@@ -3614,7 +3614,10 @@ namespace Blackjack_Game
             DoubleDown.SetActive(false);
             Insurance.SetActive(false);
             Split.SetActive(false);
-
+            Introduce_Anto.SetActive(false);
+            Introduce_Hetty.SetActive(false);
+            Introduce_Alice.SetActive(false);
+            Item.SetActive(false);
             switch (tabName)
             {
                 case "BasicRule":
@@ -3628,6 +3631,18 @@ namespace Blackjack_Game
                     break;
                 case "Split":
                     Split.SetActive(true);
+                    break;
+                case "Introduce_Anto":
+                    Introduce_Anto.SetActive(true);
+                    break;
+                case "Introduce_Hetty":
+                    Introduce_Hetty.SetActive(true);
+                    break;
+                case "Introduce_Alice":
+                    Introduce_Alice.SetActive(true);
+                    break;
+                case "Item":
+                    Item.SetActive(true);
                     break;
                 default:
                     break;

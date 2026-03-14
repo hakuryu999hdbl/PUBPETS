@@ -48,7 +48,8 @@ namespace Blackjack_Game
                 moneyText.text = $"{data.balance}";
 
 
-                Color normalColor = new Color(1f, 0f, 0.831f, 1f); //粉色
+                //Color normalColor = new Color(1f, 0f, 0.831f, 1f); //粉色
+                Color normalColor = Color.white;
                 Color clearColor = new Color32(255, 122, 0, 255);//金橘红
 
 

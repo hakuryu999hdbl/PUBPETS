@@ -126,7 +126,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Hetty_CG_10_3";//获胜失败和CG使用
+            //GameFlowData.nextAVGId = "Alice_CG_10_3";//获胜失败和CG使用
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
             //BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
@@ -1959,32 +1959,32 @@ namespace Blackjack_Game
                 {
                     case 0:
                         // 日语
-                        Day.text = data.DayCount + "日目";
+                        Day.text = "—— " + data.DayCount + "日目 ——";
                         break;
 
                     case 1:
                         // 简体中文
-                        Day.text = "第" + data.DayCount + "天";
+                        Day.text = "—— 第" + data.DayCount + "天 ——";
                         break;
 
                     case 2:
                         // 繁体中文
-                        Day.text = "第" + data.DayCount + "天";
+                        Day.text = "—— 第" + data.DayCount + "天 ——";
                         break;
 
                     case 3:
                         // 英语
-                        Day.text = "Day " + data.DayCount;
+                        Day.text = "—— Day " + data.DayCount + " ——";
                         break;
 
                     case 4:
                         // 韩语
-                        Day.text = data.DayCount + "일째";
+                        Day.text = "—— " + data.DayCount + "일째 ——";
                         break;
                 }
 
-                Day.color = new Color(1f, 0f, 0.831f, 1f); //粉色
-
+                //Day.color = new Color(1f, 0f, 0.831f, 1f); //粉色
+                Day.color = Color.white;
 
                 Invoke(nameof(ShowDay), 0.5f);
             }
