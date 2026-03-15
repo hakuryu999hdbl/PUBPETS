@@ -1404,7 +1404,7 @@ namespace Blackjack_Game
                     text_2.color = new Color(1.0f, 0.2f, 0.5f, 1.0f); //浅红色
 
                     // 播放一句对白（娇喘暂停，播完再恢复）
-                    AntoVoice();
+                    Girl_Voice();
 
                     index++;
                     break;
@@ -1417,6 +1417,7 @@ namespace Blackjack_Game
                 case "alice":
                     text_2.color = Color.green;
 
+                    Girl_Voice();
 
                     index++;
                     break;
@@ -1956,7 +1957,7 @@ namespace Blackjack_Game
                 CleanNameText();
                 NameObject[1].SetActive(true);
 
-                AntoVoice();
+                Girl_Voice();
 
                 People.gameObject.SetActive(true);
                 People_Anim.SetBool("Dark", false);
@@ -1984,7 +1985,7 @@ namespace Blackjack_Game
                 CleanNameText();
                 NameObject[3].SetActive(true);
 
-                //AliceVoice();
+                Girl_Voice();
 
                 People.gameObject.SetActive(true);
 
@@ -2039,11 +2040,12 @@ namespace Blackjack_Game
 
         [Header("插入声音")]
         [SerializeField] AudioSource voiceSource;
-        [SerializeField] List<AudioClip> antoPlaylist;//当前播放的列表
+        [SerializeField] List<AudioClip> Playlist;//当前播放的列表
 
         [SerializeField] List<AudioClip> antoPlaylist_StartStory;
 
-
+        [Header("安托声音")]
+        #region 安托声音
 
         [SerializeField] List<AudioClip> antoPlaylist_CG_01_1;
         [SerializeField] List<AudioClip> antoPlaylist_CG_01_2;
@@ -2059,12 +2061,78 @@ namespace Blackjack_Game
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_2;
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_3;
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_4;
+        #endregion
+
+        [Header("爱丽丝声音")]
+        #region 爱丽丝声音
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_01_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_01_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_01_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_01_4;
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_02_1;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_02_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_02_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_02_4;
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_03_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_03_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_03_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_03_4;
+
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_04_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_04_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_04_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_04_4;
+
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_05_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_05_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_05_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_05_4;
+
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_06_1;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_06_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_06_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_06_4;
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_07_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_07_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_07_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_07_4;
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_08_1;
+        //[SerializeField] List<AudioClip> alicePlaylist_CG_08_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_08_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_08_4;
+
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_09_1;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_09_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_09_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_09_4;
+
+        [SerializeField] List<AudioClip> alicePlaylist_CG_10_1;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_10_2;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_10_3;
+        [SerializeField] List<AudioClip> alicePlaylist_CG_10_4;
+
+        #endregion
 
 
         int VoiceIndex = 0;
 
 
-        public void AntoVoice()
+        public void Girl_Voice()
         {
 
             // 1) 选择「当前台词列表」
@@ -2073,53 +2141,221 @@ namespace Blackjack_Game
             switch (animation_number)
             {
                 case 1:
-                    antoPlaylist = antoPlaylist_StartStory;
+                    Playlist = antoPlaylist_StartStory;
                     break;
 
-
+                #region 安托声音调用
 
                 case 1011:
-                    antoPlaylist = antoPlaylist_CG_01_1;
+                    Playlist = antoPlaylist_CG_01_1;
                     break;
                 case 1012:
-                    antoPlaylist = antoPlaylist_CG_01_2;
+                    Playlist = antoPlaylist_CG_01_2;
                     break;
                 case 1013:
-                    antoPlaylist = antoPlaylist_CG_01_3;
+                    Playlist = antoPlaylist_CG_01_3;
                     break;
                 case 1014:
-                    antoPlaylist = antoPlaylist_CG_01_4;
+                    Playlist = antoPlaylist_CG_01_4;
                     break;
 
 
 
                 case 1021:
-                    antoPlaylist = antoPlaylist_CG_02_1;
+                    Playlist = antoPlaylist_CG_02_1;
                     break;
                 case 1022:
-                    antoPlaylist = antoPlaylist_CG_02_2;
+                    Playlist = antoPlaylist_CG_02_2;
                     break;
                 case 1023:
-                    antoPlaylist = antoPlaylist_CG_02_3;
+                    Playlist = antoPlaylist_CG_02_3;
                     break;
                 case 1024:
-                    antoPlaylist = antoPlaylist_CG_02_4;
+                    Playlist = antoPlaylist_CG_02_4;
                     break;
 
 
 
                 case 1031:
-                    antoPlaylist = antoPlaylist_CG_03_1;
+                    Playlist = antoPlaylist_CG_03_1;
                     break;
                 case 1032:
-                    antoPlaylist = antoPlaylist_CG_03_2;
+                    Playlist = antoPlaylist_CG_03_2;
                     break;
                 case 1033:
-                    antoPlaylist = antoPlaylist_CG_03_3;
+                    Playlist = antoPlaylist_CG_03_3;
                     break;
                 case 1034:
-                    antoPlaylist = antoPlaylist_CG_03_4;
+                    Playlist = antoPlaylist_CG_03_4;
                     break;
+
+                #endregion
+
+                #region 爱丽丝声音调用
+
+                case 3011:
+                    Playlist = alicePlaylist_CG_01_1;
+                    break;
+                //case 3012:
+                //    Playlist = alicePlaylist_CG_01_2;
+                //    break;
+                case 3013:
+                    Playlist = alicePlaylist_CG_01_3;
+                    break;
+                case 3014:
+                    Playlist = alicePlaylist_CG_01_4;
+                    break;
+
+
+
+                case 3021:
+                    Playlist = alicePlaylist_CG_02_1;
+                    break;
+                case 3012:
+                    Playlist = alicePlaylist_CG_02_2;
+                    break;
+                case 3023:
+                    Playlist = alicePlaylist_CG_02_3;
+                    break;
+                case 3024:
+                    Playlist = alicePlaylist_CG_02_4;
+                    break;
+
+
+
+                case 3031:
+                    Playlist = alicePlaylist_CG_03_1;
+                    break;
+               //case 3032:
+               //    Playlist = alicePlaylist_CG_03_2;
+               //    break;
+                case 3033:
+                    Playlist = alicePlaylist_CG_03_3;
+                    break;
+                case 3034:
+                    Playlist = alicePlaylist_CG_03_4;
+                    break;
+
+
+
+                case 3041:
+                    Playlist = alicePlaylist_CG_04_1;
+                    break;
+               //case 3042:
+               //    Playlist = alicePlaylist_CG_04_2;
+               //    break;
+                case 3043:
+                    Playlist = alicePlaylist_CG_04_3;
+                    break;
+                case 3044:
+                    Playlist = alicePlaylist_CG_04_4;
+                    break;
+
+
+
+                case 3051:
+                    Playlist = alicePlaylist_CG_05_1;
+                    break;
+                //case 3052:
+                //    Playlist = alicePlaylist_CG_05_2;
+                //    break;
+                case 3053:
+                    Playlist = alicePlaylist_CG_05_3;
+                    break;
+                case 3054:
+                    Playlist = alicePlaylist_CG_05_4;
+                    break;
+
+
+
+                case 3061:
+                    Playlist = alicePlaylist_CG_06_1;
+                    break;
+                case 3062:
+                    Playlist = alicePlaylist_CG_06_2;
+                    break;
+                case 3063:
+                    Playlist = alicePlaylist_CG_06_3;
+                    break;
+                case 3064:
+                    Playlist = alicePlaylist_CG_06_4;
+                    break;
+
+
+
+                case 3071:
+                    Playlist = alicePlaylist_CG_07_1;
+                    break;
+                //case 3072:
+                //    Playlist = alicePlaylist_CG_07_2;
+                //    break;
+                case 3073:
+                    Playlist = alicePlaylist_CG_07_3;
+                    break;
+                case 3074:
+                    Playlist = alicePlaylist_CG_07_4;
+                    break;
+
+
+
+
+                case 3081:
+                    Playlist = alicePlaylist_CG_08_1;
+                    break;
+                //case 3082:
+                //    Playlist = alicePlaylist_CG_08_2;
+                //    break;
+                case 3083:
+                    Playlist = alicePlaylist_CG_08_3;
+                    break;
+                case 3084:
+                    Playlist = alicePlaylist_CG_08_4;
+                    break;
+
+
+
+                case 3091:
+                    Playlist = alicePlaylist_CG_09_1;
+                    break;
+                case 3092:
+                    Playlist = alicePlaylist_CG_09_2;
+                    break;
+                case 3093:
+                    Playlist = alicePlaylist_CG_09_3;
+                    break;
+                case 3094:
+                    Playlist = alicePlaylist_CG_09_4;
+                    break;
+
+
+
+
+                case 3101:
+                    Playlist = alicePlaylist_CG_10_1;
+                    break;
+                case 3102:
+                    Playlist = alicePlaylist_CG_10_2;
+                    break;
+                case 3103:
+                    Playlist = alicePlaylist_CG_10_3;
+                    break;
+                case 3104:
+                    Playlist = alicePlaylist_CG_10_4;
+                    break;
+
+                    #endregion
+
+
+
+
+
+
+
+
+
+
+
+
             }
 
             // 如果列表切换了，重置索引
@@ -2139,14 +2375,14 @@ namespace Blackjack_Game
 
 
 
-            if (antoPlaylist == null || antoPlaylist.Count == 0)
+            if (Playlist == null || Playlist.Count == 0)
             {
                 Debug.LogWarning("Anto playlist is empty.");
                 return;
             }
 
 
-            if (VoiceIndex >= antoPlaylist.Count)
+            if (VoiceIndex >= Playlist.Count)
             {
                 Debug.Log("Anto playlist finished.");
                 return;
@@ -2160,7 +2396,7 @@ namespace Blackjack_Game
 
 
             // 3) 播台词
-            var clip = antoPlaylist[VoiceIndex++];
+            var clip = Playlist[VoiceIndex++];
             voiceSource.Stop();
             voiceSource.clip = clip;
             voiceSource.Play();
@@ -2190,22 +2426,32 @@ namespace Blackjack_Game
         /// </summary>
         #region
 
-        [Header("娇喘音频列表")]
+        [Header("安托CG_01_娇喘音频列表")]
         public List<AudioClip> moan_Clips = new List<AudioClip>();
-        [Header("剧烈娇喘音频列表")]
+        [Header("安托CG_01_剧烈娇喘音频列表")]
         public List<AudioClip> moanLoud_Clips = new List<AudioClip>();
-        [Header("触手娇喘音频列表")]
+        [Header("安托CG_02_触手娇喘音频列表")]
         public List<AudioClip> moanTentacle_Clips = new List<AudioClip>();
-        [Header("触手口交音频列表")]
+        [Header("安托CG_02_触手口交音频列表")]
         public List<AudioClip> FeraTentacle_Clips = new List<AudioClip>();
-        [Header("剧烈触手口交音频列表")]
+        [Header("安托CG_02_剧烈触手口交音频列表")]
         public List<AudioClip> FeraTentacleLoud_Clips = new List<AudioClip>();
-        [Header("钢管舞喘息音频列表")]
+        [Header("安托CG_03_钢管舞喘息音频列表")]
         public List<AudioClip> moanPoleDance_Clips = new List<AudioClip>();
-        [Header("钢管舞剧烈喘息音频列表")]
+        [Header("安托CG_03_钢管舞剧烈喘息音频列表")]
         public List<AudioClip> moanLoudPoleDance_Clips = new List<AudioClip>();
-        [Header("昏厥喘息音频列表")]
+        [Header("安托CG_03_昏厥喘息音频列表")]
         public List<AudioClip> FaintingGasp_Clips = new List<AudioClip>();
+
+
+
+
+        [Header("爱丽丝CG_01_娇喘音频列表")]
+        public List<AudioClip> ailce_01_moan_Clips = new List<AudioClip>();
+        public List<AudioClip> ailce_01_moanLoad_Clips = new List<AudioClip>();
+        public List<AudioClip> ailce_01_FaintingGasp_Clips = new List<AudioClip>();
+
+
 
         // —— 新增字段 —— //
         [Header("Loop(呻吟)播放器")]

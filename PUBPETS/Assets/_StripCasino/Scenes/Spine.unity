@@ -21060,7 +21060,7 @@ MonoBehaviour:
   Auto_on: {fileID: 55315812}
   Auto_off: {fileID: 1580862800}
   voiceSource: {fileID: 449782037}
-  antoPlaylist: []
+  Playlist: []
   antoPlaylist_StartStory:
   - {fileID: 8300000, guid: 178fcbaf2de0dec4888d3e050ced3225, type: 3}
   - {fileID: 8300000, guid: ed480a71703b2e344a68d84df9aab54d, type: 3}
@@ -21302,6 +21302,459 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c9e39d823c12e9e4da59262cedb59872, type: 3}
   antoPlaylist_CG_03_4:
   - {fileID: 8300000, guid: 2833722c7bbbbff46beb08644f5c6f9c, type: 3}
+  alicePlaylist_CG_01_1:
+  - {fileID: 8300000, guid: 9cfd380d6005efe4c8bee987ba93ce41, type: 3}
+  - {fileID: 8300000, guid: 78fe7f56e34b0a446b017a3c884bee2b, type: 3}
+  - {fileID: 8300000, guid: d32838c94651be74290583bb7892ab83, type: 3}
+  - {fileID: 8300000, guid: c9e4294b19794114aa0e02f589348114, type: 3}
+  - {fileID: 8300000, guid: ab13dd0c78291e64c81a9604a8c23bd5, type: 3}
+  - {fileID: 8300000, guid: e399cac37b8168447aff0d449d5fafa5, type: 3}
+  - {fileID: 8300000, guid: bd02097a1ec77824d880cb24a0419e7b, type: 3}
+  - {fileID: 8300000, guid: de6a2edb0c9167745923d6509dfa2ffa, type: 3}
+  - {fileID: 8300000, guid: 4e6efe0e032d6e74bbda0e5537e7d000, type: 3}
+  - {fileID: 8300000, guid: 30ef606599086224798f7575ddc36422, type: 3}
+  - {fileID: 8300000, guid: 9978088efc90ffe41b1227fa32862a78, type: 3}
+  - {fileID: 8300000, guid: 8ed1c6d29d51b3747ab47b2b8ac85c8f, type: 3}
+  - {fileID: 8300000, guid: 2fae431137a865f4b9bfc0e872af7e97, type: 3}
+  - {fileID: 8300000, guid: ce5f9e3d6998a3347a4d4b000c0beee4, type: 3}
+  - {fileID: 8300000, guid: 1ba2a12f1dab0ec4398c92b06658b587, type: 3}
+  - {fileID: 8300000, guid: 3065d83ded657b04f8a8daf222defa08, type: 3}
+  - {fileID: 8300000, guid: 9fe4ebcb9d7734142b404eeb3a484345, type: 3}
+  - {fileID: 8300000, guid: f0e97073907d4d24183ebc74075a82ce, type: 3}
+  - {fileID: 8300000, guid: 3aec862163e0ae84c9ae8434783b0eab, type: 3}
+  - {fileID: 8300000, guid: 217ebd072c2993547a58305d121147e9, type: 3}
+  - {fileID: 8300000, guid: faf2810cf339050459935f552f212303, type: 3}
+  - {fileID: 8300000, guid: 536f4e504e28a174283ebd9ca327f08c, type: 3}
+  alicePlaylist_CG_01_3:
+  - {fileID: 8300000, guid: b7659459c99d49d4d82817cdf984e695, type: 3}
+  - {fileID: 8300000, guid: a9a7885323070b34a9a321727c09a7f4, type: 3}
+  - {fileID: 8300000, guid: a9de67d3729d3544ba13383ca1d7dfdc, type: 3}
+  - {fileID: 8300000, guid: 9796a0096170659439b79484f895731d, type: 3}
+  - {fileID: 8300000, guid: 488288bef57b33147b148c746c525879, type: 3}
+  - {fileID: 8300000, guid: ddfb19d2f042b114c8e88872f1f73320, type: 3}
+  - {fileID: 8300000, guid: f8352b233c52a3340b30204a7a21c52a, type: 3}
+  - {fileID: 8300000, guid: 83fdd28e1c9325c448ae6e85372727ae, type: 3}
+  - {fileID: 8300000, guid: 85188fcfb5f8643459f88fc64936d037, type: 3}
+  - {fileID: 8300000, guid: a1ec9f72121784c42954b52ca6ab9d35, type: 3}
+  - {fileID: 8300000, guid: 3d2c8c5f88aaad94296722be3809cb08, type: 3}
+  - {fileID: 8300000, guid: ec796560e8a271141848bdae43069796, type: 3}
+  - {fileID: 8300000, guid: c1f0202f4cfc39143a20868e6ed7ab95, type: 3}
+  - {fileID: 8300000, guid: 552a18740a944a4498ab0e34b417d529, type: 3}
+  - {fileID: 8300000, guid: 9dc79ae317b4cbb43804b98f6b09085e, type: 3}
+  - {fileID: 8300000, guid: f6a7fd2f39a5df441820da23bb2661db, type: 3}
+  - {fileID: 8300000, guid: 512e03caa3e684643b7c56d57f402238, type: 3}
+  - {fileID: 8300000, guid: 203a2c9a14999444a84b279b1339bc0c, type: 3}
+  - {fileID: 8300000, guid: 6ca25671e52ce284698893a50a261e74, type: 3}
+  - {fileID: 8300000, guid: e73a62423af24754f8ff2ddf3a10f2b8, type: 3}
+  - {fileID: 8300000, guid: f31bf528d7a7135408f7e6b33902c2f9, type: 3}
+  - {fileID: 8300000, guid: 8b5d9059521124e429c4b997113e1ec5, type: 3}
+  alicePlaylist_CG_01_4:
+  - {fileID: 8300000, guid: 79ca3d291f9cd6947a58eb1b3070da8f, type: 3}
+  - {fileID: 8300000, guid: f2e98a99776844f40bebf4fe42fe638f, type: 3}
+  alicePlaylist_CG_02_1:
+  - {fileID: 8300000, guid: 9c9ee6e65365cc445ad5084dd73ed333, type: 3}
+  - {fileID: 8300000, guid: cb6fd625ae63aef499cd39e4ff7b84b3, type: 3}
+  - {fileID: 8300000, guid: 2c85d01be9f4f114893af61706e7e3d6, type: 3}
+  - {fileID: 8300000, guid: c5d2b68711aa8784a95353f00a3150c0, type: 3}
+  - {fileID: 8300000, guid: 1a99a6eb3927e8d4085e4d788808c59c, type: 3}
+  - {fileID: 8300000, guid: e96bc64204905dd4384b3554c8df7389, type: 3}
+  alicePlaylist_CG_02_2:
+  - {fileID: 8300000, guid: fedbec470abe9894599591d900d1a600, type: 3}
+  alicePlaylist_CG_02_3:
+  - {fileID: 8300000, guid: a7f76dc6d01b39d4ba243dbdfbb66c25, type: 3}
+  - {fileID: 8300000, guid: 132141771ba62274baad41697a0db04b, type: 3}
+  - {fileID: 8300000, guid: e59fffd655c49d245a809141697cf03b, type: 3}
+  - {fileID: 8300000, guid: 5136a469637267147b501504471ce7c9, type: 3}
+  - {fileID: 8300000, guid: 3a46e048d7acede4893210d6c808f9fa, type: 3}
+  - {fileID: 8300000, guid: 2f9f739e0ea0c794ba50ba0fa2f3de96, type: 3}
+  - {fileID: 8300000, guid: 872d0fa43a252884881b8f5c8bbfc41b, type: 3}
+  - {fileID: 8300000, guid: 22eef03e4f2742848b78e5e5ce3f069d, type: 3}
+  - {fileID: 8300000, guid: a8d35805d8c9b3e45827d3674d049a50, type: 3}
+  - {fileID: 8300000, guid: 2dacf3d6a2431914b9f001aaeaa371d1, type: 3}
+  - {fileID: 8300000, guid: cd2fee728ff53924382356e7dd27fe4b, type: 3}
+  - {fileID: 8300000, guid: be804cb9ca97481479b5b6bf33f42616, type: 3}
+  - {fileID: 8300000, guid: 3bc13a6aa02134e48b4dd196581a49e8, type: 3}
+  - {fileID: 8300000, guid: 66a44d87ffa01ad4fba0559528432117, type: 3}
+  - {fileID: 8300000, guid: e8273bf875d52514893e1c0d9e9c473e, type: 3}
+  - {fileID: 8300000, guid: f2c5df356e86c664b85d5dcf3c706b35, type: 3}
+  - {fileID: 8300000, guid: 95f63917e7954e94e94ce622ee481c3e, type: 3}
+  - {fileID: 8300000, guid: 954d6e92b2e4ee740bfed6ffd74c5615, type: 3}
+  - {fileID: 8300000, guid: a789bf354c4124743810f0f4f14585c7, type: 3}
+  - {fileID: 8300000, guid: 5dad275bdc4d05749a4e980ccbefd73b, type: 3}
+  - {fileID: 8300000, guid: f429e5da7b70eaa4b895ee71b8cde9ee, type: 3}
+  - {fileID: 8300000, guid: 227a3540d0e02e14581c365a8e02cb55, type: 3}
+  - {fileID: 8300000, guid: 928aa27c68180d04cbd32ec24dc4efb6, type: 3}
+  - {fileID: 8300000, guid: aecadb22833a66e4888438b7c361c166, type: 3}
+  - {fileID: 8300000, guid: 88c60ec96fb67794bb67f51b2b80d280, type: 3}
+  - {fileID: 8300000, guid: 2262e54cec3971044b7f18afc0e2058f, type: 3}
+  - {fileID: 8300000, guid: c95a36a671437ce428aa5e21bbe84b34, type: 3}
+  - {fileID: 8300000, guid: 4b1052c06361a14458faac8d9ba805dc, type: 3}
+  - {fileID: 8300000, guid: 5205b0eb458e66347b3fdefa60aeee04, type: 3}
+  - {fileID: 8300000, guid: 438f9c7d8793d1347a33998bdbc39b3f, type: 3}
+  alicePlaylist_CG_02_4:
+  - {fileID: 8300000, guid: 949aa856b0f49d545ad429555146d6e9, type: 3}
+  alicePlaylist_CG_03_1:
+  - {fileID: 8300000, guid: 9f24d276412c99a48ae8847c6bf0081c, type: 3}
+  - {fileID: 8300000, guid: 5913a5062baa3e6478108d86b3fa5165, type: 3}
+  - {fileID: 8300000, guid: b52ef50bbfb5b094fab02afcf95cc190, type: 3}
+  - {fileID: 8300000, guid: d5150589c42dd4a48b8ab7d78027b53d, type: 3}
+  - {fileID: 8300000, guid: 4b9c2ce2fdf101c47855cfeeaf74cb8f, type: 3}
+  - {fileID: 8300000, guid: 91bca5fdd7dbb50499b0944dbd77c5bd, type: 3}
+  - {fileID: 8300000, guid: d850d21b0dbb2e1479c316881d4f470a, type: 3}
+  - {fileID: 8300000, guid: 40dea39fe5e17634c9af2537394914a3, type: 3}
+  - {fileID: 8300000, guid: 7dbb6378d9f78d54eb6849677e669d4f, type: 3}
+  alicePlaylist_CG_03_3:
+  - {fileID: 8300000, guid: fee56e9e6c5384448a3f7eaca13e7759, type: 3}
+  - {fileID: 8300000, guid: 7ee4621261f560d41929f6f752f4484b, type: 3}
+  - {fileID: 8300000, guid: feccfeca50a20324f9ace35fd7d9a29e, type: 3}
+  - {fileID: 8300000, guid: f97bb3255964dbd4091632b5cec42598, type: 3}
+  - {fileID: 8300000, guid: 40b7f352d6ee7b6499d7fff9e3443988, type: 3}
+  - {fileID: 8300000, guid: 81bd37a8b9d69b54ebbfb3ef24b0358d, type: 3}
+  - {fileID: 8300000, guid: 193535d3709717f47b9e8a50ab968fe6, type: 3}
+  - {fileID: 8300000, guid: 5384dd040f386b94ab6bcc0d3f155519, type: 3}
+  - {fileID: 8300000, guid: 4da5eec1bf98b9144adc8d91229a7149, type: 3}
+  - {fileID: 8300000, guid: ca53b577892dd4341a9e4f2147f4f4f8, type: 3}
+  - {fileID: 8300000, guid: 8a41ce1af9f2dcf459b6fbb377211a5b, type: 3}
+  - {fileID: 8300000, guid: c4df2bd39414496409c120563cdca84b, type: 3}
+  - {fileID: 8300000, guid: fc00a2576672dcf4683a6f73b7572bb5, type: 3}
+  - {fileID: 8300000, guid: a7b41686897feae4290bd33dbf211d62, type: 3}
+  - {fileID: 8300000, guid: dd7807e5d810e884995080b0e0349ecb, type: 3}
+  - {fileID: 8300000, guid: 078587cd34ae6c84f9074cc778d6fe82, type: 3}
+  - {fileID: 8300000, guid: 7d5f779d53e149f46a32fbfe09ef9e2b, type: 3}
+  - {fileID: 8300000, guid: 61bf8cf3968d24446996665138591bd8, type: 3}
+  - {fileID: 8300000, guid: a5b89284100bcee4cba9c4c39d9156b9, type: 3}
+  - {fileID: 8300000, guid: 94e2bbdb141aa6243919f41e8d22c15a, type: 3}
+  - {fileID: 8300000, guid: 30f05a318c8f3134d84e4913612a22f8, type: 3}
+  - {fileID: 8300000, guid: e3c69353fe60ee540be285f3e628a4d6, type: 3}
+  - {fileID: 8300000, guid: 130d4368d691fcd4a9ef1e5f69765065, type: 3}
+  - {fileID: 8300000, guid: 9637064ccbf92e84d81e9d34c0e30383, type: 3}
+  - {fileID: 8300000, guid: 24a4a9eb32fe12243be908629633fbc4, type: 3}
+  - {fileID: 8300000, guid: f8b07cee7d6763d46a5fc4f6f8fc6a01, type: 3}
+  - {fileID: 8300000, guid: 75f50f3dd0d567f4eb04b23d964847d9, type: 3}
+  - {fileID: 8300000, guid: dd51eb37e615caf43a2cf2ad0a5c31b2, type: 3}
+  - {fileID: 8300000, guid: 518a8f385f1397a43a89bcd393a555eb, type: 3}
+  - {fileID: 8300000, guid: 56e7a05eba89a9b4bbdf6ad07453fddd, type: 3}
+  alicePlaylist_CG_03_4:
+  - {fileID: 8300000, guid: 039135e78f96006439c4d2e6c90d71fb, type: 3}
+  alicePlaylist_CG_04_1:
+  - {fileID: 8300000, guid: 34f1d0278156fab42b25bc55eba05b92, type: 3}
+  - {fileID: 8300000, guid: ff3465b6f165e1c4582a53b2efd13132, type: 3}
+  - {fileID: 8300000, guid: ba6864e23a0557e40b7d067e6620dbc4, type: 3}
+  - {fileID: 8300000, guid: 2f10cc9c04773494e842cba2af91fd61, type: 3}
+  - {fileID: 8300000, guid: 89eee4bf5f084044291a8a36f4e84bec, type: 3}
+  - {fileID: 8300000, guid: ffefcbefe32aef6439bb730ebc5c327a, type: 3}
+  - {fileID: 8300000, guid: 8b4ac341512a7974090b5d6799079eed, type: 3}
+  - {fileID: 8300000, guid: 9fbd2058ebd2822408d5de69a3f1b253, type: 3}
+  - {fileID: 8300000, guid: d0b7418c69a84584e988e30693deff22, type: 3}
+  alicePlaylist_CG_04_3:
+  - {fileID: 8300000, guid: b8f9f8cf3fa84c944a2b7f892ed77d9c, type: 3}
+  - {fileID: 8300000, guid: 3fdc12265703bdf4da4853da99f9fa15, type: 3}
+  - {fileID: 8300000, guid: a46dda58260bde04ba346e3870758938, type: 3}
+  - {fileID: 8300000, guid: 93549ad29898de445bd93c9026fc0c10, type: 3}
+  - {fileID: 8300000, guid: 7410c9765679deb459006176647dfe41, type: 3}
+  - {fileID: 8300000, guid: b412eb82b23e1de46a745e5185fff722, type: 3}
+  - {fileID: 8300000, guid: a8b15104aa4fe0d4e818bb82cccebd42, type: 3}
+  - {fileID: 8300000, guid: aa7fe08399ca1d14784e8cf9e03d83ba, type: 3}
+  - {fileID: 8300000, guid: fdfad2cb8553c9b4fac2e4464fc3fd92, type: 3}
+  - {fileID: 8300000, guid: f0113d377d3b6114f883576bb9621963, type: 3}
+  - {fileID: 8300000, guid: caf551e94f9e8a249a3fb527b9ca4251, type: 3}
+  - {fileID: 8300000, guid: 5a67fc7c574156940b7de20d3e40ddb2, type: 3}
+  - {fileID: 8300000, guid: 696970780a265c34abef333cd645a727, type: 3}
+  - {fileID: 8300000, guid: e779bf6dfaee0944a95a6597d59860cc, type: 3}
+  - {fileID: 8300000, guid: 7dbf1a8b9fe843c42a94cb1d68f81c57, type: 3}
+  - {fileID: 8300000, guid: 54e29faf64fbf0440835cee08ca06b87, type: 3}
+  - {fileID: 8300000, guid: bb95fbfb4c41c674297658893a92df3d, type: 3}
+  - {fileID: 8300000, guid: 85688e2b35c49f642b24fd88f1246577, type: 3}
+  - {fileID: 8300000, guid: d646c607244e139459444cc9c8af07bd, type: 3}
+  - {fileID: 8300000, guid: 2cd770f734ef32341b78d6872f5b17bd, type: 3}
+  - {fileID: 8300000, guid: d57cc2715f21d884d9ff8f98ee5115c8, type: 3}
+  - {fileID: 8300000, guid: 73fa7509856a99143847a91da30f970c, type: 3}
+  - {fileID: 8300000, guid: a6164be8f07e2744c8111164565841de, type: 3}
+  - {fileID: 8300000, guid: 107d8e214629a4846b5be9144ad398b0, type: 3}
+  - {fileID: 8300000, guid: 7bb9b215dad013d4c8b7ee8757e771a0, type: 3}
+  - {fileID: 8300000, guid: 131efa00dc6ad9343b072103bdc50669, type: 3}
+  - {fileID: 8300000, guid: 091a38c077560514c9817696c0c167d9, type: 3}
+  - {fileID: 8300000, guid: b1a36ce54887f2849927ecde07ec49cc, type: 3}
+  alicePlaylist_CG_04_4:
+  - {fileID: 8300000, guid: 03b4cc4e298ed3f4aa1cf569eabf9329, type: 3}
+  - {fileID: 8300000, guid: c4a5a3ef57654cd499bf835514392fdd, type: 3}
+  alicePlaylist_CG_05_1:
+  - {fileID: 8300000, guid: 31b95b2b66db7ed4daf98ec5f3e9fbe3, type: 3}
+  - {fileID: 8300000, guid: f67c70f6aa507204d9b6592fdc580746, type: 3}
+  - {fileID: 8300000, guid: afc7f95583c22d945acb01819dd53cd4, type: 3}
+  - {fileID: 8300000, guid: 1b7ac36823b99c74aa69f4becc1cff2b, type: 3}
+  alicePlaylist_CG_05_3:
+  - {fileID: 8300000, guid: 135d674c231606244868cd7ccf0275da, type: 3}
+  - {fileID: 8300000, guid: 1f6d17dd06ff2b24f923cda05acfab8d, type: 3}
+  - {fileID: 8300000, guid: 3c459bb25e49c7c4aa9e3e7213094de1, type: 3}
+  - {fileID: 8300000, guid: 4a8acfae75ed9774da8b35b68ba16518, type: 3}
+  - {fileID: 8300000, guid: 373be15d977bd324da045ef8f5c7d6b6, type: 3}
+  - {fileID: 8300000, guid: f67dc60eb66ec764b9a5f0bd180e4752, type: 3}
+  - {fileID: 8300000, guid: a7452ada5378ffe499fc143cfbfd72af, type: 3}
+  - {fileID: 8300000, guid: 9bb8c4a09bb565841a4b710bb1297a96, type: 3}
+  - {fileID: 8300000, guid: b29ad5da1cf695842b8a270697237e9b, type: 3}
+  - {fileID: 8300000, guid: d581e2383698894409ce3873588cd323, type: 3}
+  - {fileID: 8300000, guid: c97d13289268932488d6163d46e505bd, type: 3}
+  - {fileID: 8300000, guid: f6bca1fb5efbcf14593251beabff635b, type: 3}
+  - {fileID: 8300000, guid: b39d720af287c944abcd5d48a6b5def8, type: 3}
+  - {fileID: 8300000, guid: 5ae990fb37170684bb9c8b120709c5ab, type: 3}
+  - {fileID: 8300000, guid: 236c3ecb26409a445895778d808378e4, type: 3}
+  - {fileID: 8300000, guid: d0a231d3691791b479ed0519c24cfff1, type: 3}
+  - {fileID: 8300000, guid: dd242ab04e4f3874d9db09fbb89d63be, type: 3}
+  - {fileID: 8300000, guid: 11351238533e7b447994ec4d5d510f9a, type: 3}
+  - {fileID: 8300000, guid: 194eaf0577d2cd24fb5f9544ab105709, type: 3}
+  - {fileID: 8300000, guid: 53b356867bca22c40b70cfce0ae4da43, type: 3}
+  - {fileID: 8300000, guid: 1a5a864245841c7488b858171189df03, type: 3}
+  - {fileID: 8300000, guid: ff5e9ebd0288a5f409ef142eb45d2aa2, type: 3}
+  - {fileID: 8300000, guid: 733c85288895a98469202336f917b9d4, type: 3}
+  - {fileID: 8300000, guid: e91708ac814e75e4abe47b0599cde2b7, type: 3}
+  - {fileID: 8300000, guid: bdf8c2ec4c3867b45a9980ab3320387b, type: 3}
+  - {fileID: 8300000, guid: 682edaa0d0f12ff41866a24833958e7a, type: 3}
+  - {fileID: 8300000, guid: 0d918f088293efa47b58075d0d440959, type: 3}
+  - {fileID: 8300000, guid: 01632df88bd7f55429cd7bfa2753487d, type: 3}
+  - {fileID: 8300000, guid: ea46ed44728bda049aa84dc9c82b4a85, type: 3}
+  - {fileID: 8300000, guid: ece08a43d99aafb498eb14f42a141be7, type: 3}
+  alicePlaylist_CG_05_4:
+  - {fileID: 8300000, guid: e4a0d5cb785ba1747b287986110f2ab8, type: 3}
+  - {fileID: 8300000, guid: 8341faf01b1231b40b305c2ed1f5467e, type: 3}
+  - {fileID: 8300000, guid: 8c4591c7031347245851a0fa703ba7ad, type: 3}
+  alicePlaylist_CG_06_1:
+  - {fileID: 8300000, guid: e2b73460bea120d44bb33ca4ac04b7a2, type: 3}
+  - {fileID: 8300000, guid: 9ef90796184effe4eacd27127ec0524e, type: 3}
+  - {fileID: 8300000, guid: b7de107d98a51f74e911b82b5de60631, type: 3}
+  - {fileID: 8300000, guid: 921c9204ecaba104da92524c0b923de5, type: 3}
+  - {fileID: 8300000, guid: fb4cbc3633991df4385dd5d034226663, type: 3}
+  - {fileID: 8300000, guid: 855d04471256ba44ba30c94b63772fd0, type: 3}
+  - {fileID: 8300000, guid: fa9a9f8143ac9974eb6349cf0302d12f, type: 3}
+  - {fileID: 8300000, guid: 9f4ce6b010f201e4686b07ecd7c09034, type: 3}
+  - {fileID: 8300000, guid: 5865687c1f4bbe848b1a9e43571bbabd, type: 3}
+  - {fileID: 8300000, guid: 0f799145f07df444bae873c075147103, type: 3}
+  - {fileID: 8300000, guid: cc2fb0af8c8fa4641882192633d2bbd1, type: 3}
+  alicePlaylist_CG_06_2:
+  - {fileID: 8300000, guid: 9336f36f8d7710942ac0121a75e7e31e, type: 3}
+  alicePlaylist_CG_06_3:
+  - {fileID: 8300000, guid: b65879e3e47d7a944ac2d3c8af7167ff, type: 3}
+  - {fileID: 8300000, guid: 4629802d03c469a4c93dcdd897fc57b1, type: 3}
+  - {fileID: 8300000, guid: f63decc6b7ed86047a3abbe8ae4e45e0, type: 3}
+  - {fileID: 8300000, guid: f616b347a283aa5479dfd659a92d2719, type: 3}
+  - {fileID: 8300000, guid: c24c3255a546db84a8dd6a5877938b85, type: 3}
+  - {fileID: 8300000, guid: 247e86d1bcd19a646a60b0e1be71e84e, type: 3}
+  - {fileID: 8300000, guid: 3f0fc70cd08f48d439a5654fd8879d44, type: 3}
+  - {fileID: 8300000, guid: a3850f5e029ece643bbadd32f673c9ed, type: 3}
+  - {fileID: 8300000, guid: a462ddf7b9140b049929dd40424cdfee, type: 3}
+  - {fileID: 8300000, guid: d68cdc4a2f079c648b542c364611573e, type: 3}
+  - {fileID: 8300000, guid: 68d69cad39a87a549991bb5fb2cb597d, type: 3}
+  - {fileID: 8300000, guid: 2ab54787492faee449de74a1d38c9f82, type: 3}
+  - {fileID: 8300000, guid: c5acf57a9a6736a48a97c653c5707f18, type: 3}
+  - {fileID: 8300000, guid: 4493821beb9f9e64ebc55d9768f2ddec, type: 3}
+  - {fileID: 8300000, guid: 285d3ef55e90901479f4fd63b904a8cb, type: 3}
+  - {fileID: 8300000, guid: ff5da288808e03f44a76fad7350e60f7, type: 3}
+  - {fileID: 8300000, guid: ecad6795bca98ad47b9da54df0586c78, type: 3}
+  - {fileID: 8300000, guid: f25a938e34e7fc4499893da0114b63db, type: 3}
+  - {fileID: 8300000, guid: d4cb5c5e7ab2c4945a72be9b970bf78c, type: 3}
+  - {fileID: 8300000, guid: 6daed0d5cc86478489f0098704586215, type: 3}
+  - {fileID: 8300000, guid: 44ca728083cf2a942a40fb94ae4afbdb, type: 3}
+  - {fileID: 8300000, guid: 6bb63679fdd34be40825b7bbf5d94e5f, type: 3}
+  - {fileID: 8300000, guid: b35102f207354084c923b163767ef0e0, type: 3}
+  - {fileID: 8300000, guid: 7a1e1e9e63d3e9844ad26fd4df4b7a03, type: 3}
+  - {fileID: 8300000, guid: 56aa420a826252244b549bb1c34bcaba, type: 3}
+  - {fileID: 8300000, guid: 2c5004fba6c5e2446bcd68aafe274a08, type: 3}
+  - {fileID: 8300000, guid: 8eebcc600e553a647b6005c5587c5ad9, type: 3}
+  - {fileID: 8300000, guid: 34284145f029b1545aa3094acd1c4461, type: 3}
+  alicePlaylist_CG_06_4:
+  - {fileID: 8300000, guid: fcac8ab64bb15754f94847ebc871054e, type: 3}
+  alicePlaylist_CG_07_1:
+  - {fileID: 8300000, guid: 4215c6fabc8e5cd449f6a90ce1c81a3c, type: 3}
+  - {fileID: 8300000, guid: b1919f21fe648db4283f7560b21637d0, type: 3}
+  - {fileID: 8300000, guid: 9a40be0825c387649ac89c4515150f19, type: 3}
+  - {fileID: 8300000, guid: 0361537f4def57c46a3e7d0fbcdc22c8, type: 3}
+  - {fileID: 8300000, guid: e535ef2a346636642998d063073977de, type: 3}
+  - {fileID: 8300000, guid: b0c1f212be869fc428e1c7445199a7af, type: 3}
+  - {fileID: 8300000, guid: 5fa4747263caf184fa78447460c53663, type: 3}
+  alicePlaylist_CG_07_3:
+  - {fileID: 8300000, guid: bbf53f4856302094885e809c061dbbf6, type: 3}
+  - {fileID: 8300000, guid: b43cda7b0da980b479c20982117a009a, type: 3}
+  - {fileID: 8300000, guid: af8cf33ee69e53348a44a888882f6599, type: 3}
+  - {fileID: 8300000, guid: 9c2f9daf68cae7441ba45b22c0077dfe, type: 3}
+  - {fileID: 8300000, guid: 25b9abc130fa5644e909fc2c958de82c, type: 3}
+  - {fileID: 8300000, guid: 4f1e8c7b29ee80549a9f447212e2fbff, type: 3}
+  - {fileID: 8300000, guid: a6a007b301f24d8499ed38a4ede21173, type: 3}
+  - {fileID: 8300000, guid: ff1fa2217b261924089131eacf3ea419, type: 3}
+  - {fileID: 8300000, guid: aa6326b8ca3b51244938d0531fcca572, type: 3}
+  - {fileID: 8300000, guid: 767aa76b3528a4f44a1fdcc8b2e0b2e0, type: 3}
+  - {fileID: 8300000, guid: 3cda4ae262fde6f4780a4c42dd17b425, type: 3}
+  - {fileID: 8300000, guid: c959e1bab26d51345982f3841c275b4e, type: 3}
+  - {fileID: 8300000, guid: 13a360e978b1555499717c2e8cdc6402, type: 3}
+  - {fileID: 8300000, guid: 1bde03a9ab7d35d43899ceb64d87be5c, type: 3}
+  - {fileID: 8300000, guid: 15837c4cc0308bd4fb74f7de243eb5dd, type: 3}
+  - {fileID: 8300000, guid: 3b8f572b99e6e45478c5e9f025752c58, type: 3}
+  - {fileID: 8300000, guid: 88a45b029e95cc94fa97b2b48818cf6c, type: 3}
+  - {fileID: 8300000, guid: 1992546d2099be34c86e11988092513f, type: 3}
+  - {fileID: 8300000, guid: ddeb65430abcca2419b90d45036c6a4a, type: 3}
+  - {fileID: 8300000, guid: 9b3e0023e81c17c49b6387d236be926b, type: 3}
+  - {fileID: 8300000, guid: 7b247c4127f50c04ea52407dc2fb28ca, type: 3}
+  - {fileID: 8300000, guid: a896b98c83bc5b548bdccc8c545f5610, type: 3}
+  - {fileID: 8300000, guid: c73fce99680d0924791abc8a1a7785c2, type: 3}
+  - {fileID: 8300000, guid: abd1df8258ab1e940b234ceda93db0d0, type: 3}
+  - {fileID: 8300000, guid: a43da1899c536ca42b195e2501314728, type: 3}
+  - {fileID: 8300000, guid: 8ee3c1e8ab4ab1d4e88b00ea9e8720f6, type: 3}
+  - {fileID: 8300000, guid: b16227707180d1648b9831afa5f452d3, type: 3}
+  - {fileID: 8300000, guid: 853191d3f08188642a67b5f9d9e6973d, type: 3}
+  - {fileID: 8300000, guid: 39fe3191c28466c46ad360f7d5b53ff6, type: 3}
+  - {fileID: 8300000, guid: b73ef63f1a18fb44983d3240eb8348a5, type: 3}
+  alicePlaylist_CG_07_4:
+  - {fileID: 8300000, guid: 8bbe6f1b6c119434f8562893ff8fb52e, type: 3}
+  alicePlaylist_CG_08_1:
+  - {fileID: 8300000, guid: dbff3ca1652a9e94bb7e0d3517d65b14, type: 3}
+  alicePlaylist_CG_08_3:
+  - {fileID: 8300000, guid: efb6c18aac914f7418cad85a45d72953, type: 3}
+  - {fileID: 8300000, guid: 97f78f92dfb4d4d40a49300ceff2ba68, type: 3}
+  - {fileID: 8300000, guid: 65af3a25353ad5b4f97e7d20ecac8c29, type: 3}
+  - {fileID: 8300000, guid: 35cc2af82bcd1e044bae4784087c599e, type: 3}
+  - {fileID: 8300000, guid: c8e3a933e4c135d4f8341ee8fd4e31cc, type: 3}
+  - {fileID: 8300000, guid: bac36dcc741014045a1ef4055890f688, type: 3}
+  - {fileID: 8300000, guid: 15f1b0fd5109b53438fe5ea74b57dbe3, type: 3}
+  - {fileID: 8300000, guid: 9f605fc67c05ffe45bf85fa4a004222e, type: 3}
+  - {fileID: 8300000, guid: 46786534d5492914ebde8436c0be27ed, type: 3}
+  - {fileID: 8300000, guid: 2857cd739a186ca49951dbd5ea76bcc5, type: 3}
+  - {fileID: 8300000, guid: 52568e8b3f67a8d4c928545aa6ac3853, type: 3}
+  - {fileID: 8300000, guid: 39a5cd82b623ea544a4a863bb6c6cf3b, type: 3}
+  - {fileID: 8300000, guid: b49436576e3e8ea429854bd442987ba5, type: 3}
+  - {fileID: 8300000, guid: 26ebfa832d507c34d87627e1e1f25df8, type: 3}
+  - {fileID: 8300000, guid: bd48da63a6b2a32489fafdc0948658fa, type: 3}
+  - {fileID: 8300000, guid: 7a052b047faf6a04cb6190a78d8740a6, type: 3}
+  - {fileID: 8300000, guid: 9ddacf6ec912bc44fa7f6c70ec22825d, type: 3}
+  - {fileID: 8300000, guid: 69fa21fa92fecdd40891da6961c736dc, type: 3}
+  - {fileID: 8300000, guid: 3895852185a35ef4399f5a9746c2913f, type: 3}
+  - {fileID: 8300000, guid: 2ec6986967cc83441be5582d790a7849, type: 3}
+  - {fileID: 8300000, guid: bfcf369d34293404b8e9d4f8b030a320, type: 3}
+  - {fileID: 8300000, guid: 26188f36de8f8a84fb1aa5662e6cb864, type: 3}
+  - {fileID: 8300000, guid: 105d0da9ccb6b3349a97e101a5ed07f5, type: 3}
+  - {fileID: 8300000, guid: c2a2f8cbb5f1dd947b17dd6903e9f962, type: 3}
+  - {fileID: 8300000, guid: 60f21ff10a246304a8352405aa7b27be, type: 3}
+  - {fileID: 8300000, guid: 327ce155c9260994693b37a02cb4203b, type: 3}
+  - {fileID: 8300000, guid: 75b9a1048c087424aa227e28a5bfa1d0, type: 3}
+  - {fileID: 8300000, guid: 278e1e26c4d69ed458874ab4e8704e6c, type: 3}
+  - {fileID: 8300000, guid: da02e163e292a5342a2d7a0ef5dbea60, type: 3}
+  alicePlaylist_CG_08_4:
+  - {fileID: 8300000, guid: dbff3ca1652a9e94bb7e0d3517d65b14, type: 3}
+  - {fileID: 8300000, guid: ed4d3e8d7dc272444a7ba64159f81f92, type: 3}
+  alicePlaylist_CG_09_1:
+  - {fileID: 8300000, guid: d8de43699db6f4145b5d95ec02151bb3, type: 3}
+  - {fileID: 8300000, guid: 6bf6e5b480b711d48b9bced4a22a835b, type: 3}
+  - {fileID: 8300000, guid: df5f67c4c6279064ba669b2b026372e3, type: 3}
+  - {fileID: 8300000, guid: cfe2646b919a1dc48a8283d2b4a56ff3, type: 3}
+  - {fileID: 8300000, guid: 56ee9bec422eb234b9b5aae80956d9c2, type: 3}
+  - {fileID: 8300000, guid: 7228cd6fdad9ccc49882b5a30e031541, type: 3}
+  - {fileID: 8300000, guid: de6011000adc7e84f825e3e04fbf1a1e, type: 3}
+  alicePlaylist_CG_09_2:
+  - {fileID: 8300000, guid: 9ea9d4466c53cd546bc986cffbd45104, type: 3}
+  - {fileID: 8300000, guid: 88bfb9d32e1f14f4c8368e2596e81dd7, type: 3}
+  - {fileID: 8300000, guid: f10aba1f5a5da984896711b5b790c912, type: 3}
+  alicePlaylist_CG_09_3:
+  - {fileID: 8300000, guid: 0a0609342d77d7044bc9716aabd6694f, type: 3}
+  - {fileID: 8300000, guid: b257baee80cba964d8faff8aa8ef7214, type: 3}
+  - {fileID: 8300000, guid: eee25a37df9a75f48be24e55a2abe363, type: 3}
+  - {fileID: 8300000, guid: f4817ebdfe70c09499a4ce8bcf016c1c, type: 3}
+  - {fileID: 8300000, guid: 9a00ad22074547049afc59d95c3f3676, type: 3}
+  - {fileID: 8300000, guid: 087e1bb5ef9fddb4e90a7ac5091c70f6, type: 3}
+  - {fileID: 8300000, guid: 44134c39b8d4cb549bd46b7faf01bbd2, type: 3}
+  - {fileID: 8300000, guid: c2bc893bc18e5aa4b9829a9ab7fc2b28, type: 3}
+  - {fileID: 8300000, guid: fddcef0b6748dcd48be4e3858a4cd388, type: 3}
+  - {fileID: 8300000, guid: abc2d66aea355ee4e801014536ce5c67, type: 3}
+  - {fileID: 8300000, guid: 208b8ab0c52800f4eb0b824e7d26395e, type: 3}
+  - {fileID: 8300000, guid: 0bf83f4adbdf0cf4f8772690e9eda754, type: 3}
+  - {fileID: 8300000, guid: 327ae3b90d7858d4f82f23d0364c0ee1, type: 3}
+  - {fileID: 8300000, guid: f1d135cf1e3b07642b9fc6c0642236c2, type: 3}
+  - {fileID: 8300000, guid: 6bddc1bd5e3e42441a2863166f51d6b2, type: 3}
+  - {fileID: 8300000, guid: b9b67c4c8ef961b489fd4ae3a16992f2, type: 3}
+  - {fileID: 8300000, guid: 625bde3300ec03940bf689553633d8a1, type: 3}
+  - {fileID: 8300000, guid: 5eb7e41b33d0e6448a7a4ae54034d1e0, type: 3}
+  - {fileID: 8300000, guid: 1b83dd4d753c1f1428b4084b865d21d4, type: 3}
+  - {fileID: 8300000, guid: eb3524ba0b01811498428c2f6da394c4, type: 3}
+  - {fileID: 8300000, guid: e405cc5aa9f88dd418ee1061277e0cd0, type: 3}
+  - {fileID: 8300000, guid: 6c82e92accd45d74d8f417bd602fc9da, type: 3}
+  - {fileID: 8300000, guid: 040f7b3ff2b66794c85841f5ce6b6411, type: 3}
+  - {fileID: 8300000, guid: 2292d658ead59594193cff01b14a6f87, type: 3}
+  - {fileID: 8300000, guid: 5c89e3d8ebc0a43409cd625a2fb09544, type: 3}
+  - {fileID: 8300000, guid: b6d4b0ec3097e9a4ea277cf90774b0c7, type: 3}
+  - {fileID: 8300000, guid: 9b7c5e935fb764942916e674a423e19f, type: 3}
+  - {fileID: 8300000, guid: 585e591a27d8bff4488a928ce049fb54, type: 3}
+  - {fileID: 8300000, guid: 672c5d67a63891b4496cb726412bd0d0, type: 3}
+  alicePlaylist_CG_09_4:
+  - {fileID: 8300000, guid: 1beb7b8df5a51cc4e959a60fc72112f0, type: 3}
+  alicePlaylist_CG_10_1:
+  - {fileID: 8300000, guid: 50247c1e899aa1341a8913768041cf16, type: 3}
+  - {fileID: 8300000, guid: c941ef1eeb8ff404e812f801f701b8ad, type: 3}
+  - {fileID: 8300000, guid: e7162df3e8d3e504481b3378957f2528, type: 3}
+  - {fileID: 8300000, guid: 89c2360da953311419c8ca6b13d66006, type: 3}
+  alicePlaylist_CG_10_2:
+  - {fileID: 8300000, guid: 9fb1886cc2f5bee4296a88290de5ac77, type: 3}
+  - {fileID: 8300000, guid: 0a6ff0b50075aeb4eb69e0c65ab282ee, type: 3}
+  - {fileID: 8300000, guid: d00d55c37b697464c83d51a7da273de5, type: 3}
+  - {fileID: 8300000, guid: fcefd7f14907f0b48962d9f0e8df2395, type: 3}
+  - {fileID: 8300000, guid: 397c82ef2a814c94ab138339ac4e8370, type: 3}
+  - {fileID: 8300000, guid: 199e8dc6ef32e834bb4686f14888c62a, type: 3}
+  - {fileID: 8300000, guid: 96e975c8e23d6fc48afa9814c663b03a, type: 3}
+  - {fileID: 8300000, guid: 87839c409d73d1d4799880db124d53ca, type: 3}
+  - {fileID: 8300000, guid: 022dc6723bf3fe641abce1f65dfc5ea0, type: 3}
+  - {fileID: 8300000, guid: 24d73ed2df5223745a528e9c5e2d8aa1, type: 3}
+  alicePlaylist_CG_10_3:
+  - {fileID: 8300000, guid: 60483e32dcb55304ebaa2570e545d091, type: 3}
+  - {fileID: 8300000, guid: 2348416f71aeb0e41bbaab53f2268b79, type: 3}
+  - {fileID: 8300000, guid: 66dddb5fee5feaf43b257aea4c682c3e, type: 3}
+  - {fileID: 8300000, guid: 87d59ba20cac24349bc487b5b5e5b094, type: 3}
+  - {fileID: 8300000, guid: f797a62c5e8da6548bf07240223f0c51, type: 3}
+  - {fileID: 8300000, guid: 9af53220ae92b5b429d3d082c2cfa2c8, type: 3}
+  - {fileID: 8300000, guid: ccd365496feef4d449dfed3242fd1198, type: 3}
+  - {fileID: 8300000, guid: 2378b5ad6bd0326478131bfd6fabfadf, type: 3}
+  - {fileID: 8300000, guid: 521066ee6b33bd2498a4421205ec88dd, type: 3}
+  - {fileID: 8300000, guid: 00537e8a29ab4f04687ccb287fcb1353, type: 3}
+  - {fileID: 8300000, guid: 08a2e823d43839345b5eb9fa3c30a42c, type: 3}
+  - {fileID: 8300000, guid: 1f8944153d7645e49aad37b3ca05f72c, type: 3}
+  - {fileID: 8300000, guid: 350d2fca06c46c449a449b7184bba6f8, type: 3}
+  - {fileID: 8300000, guid: 4d65c181fa05bbd41bb1bea08f329ba7, type: 3}
+  - {fileID: 8300000, guid: 932e43323faa72543b912ae9be4c0be8, type: 3}
+  - {fileID: 8300000, guid: a12d603a6df85b249b6fd998b4f5653d, type: 3}
+  - {fileID: 8300000, guid: 5d7511c6db965924093311dafa159de5, type: 3}
+  - {fileID: 8300000, guid: 5b7a7be0eb26864458b52a1e0aed1c28, type: 3}
+  - {fileID: 8300000, guid: e1e028fb98206bb4097f0c5f71564c40, type: 3}
+  - {fileID: 8300000, guid: 0dbee89e3c4efc1489360037837a83ac, type: 3}
+  - {fileID: 8300000, guid: fab6ea9febd5f5a49a389e3606697240, type: 3}
+  - {fileID: 8300000, guid: a6af4f6a4538f3249b56e832afc74726, type: 3}
+  - {fileID: 8300000, guid: 0bd89a21b251b9744831a3b0f6ea3df7, type: 3}
+  - {fileID: 8300000, guid: 0155d14a728f6d94393bbab47f0b83c6, type: 3}
+  - {fileID: 8300000, guid: d996943c103c6504782508bf08de9b72, type: 3}
+  - {fileID: 8300000, guid: 3e4e59aa93588f54181cb51a045d39f6, type: 3}
+  - {fileID: 8300000, guid: df58d5b2b2ff2e142b5d58e8b2d7c21f, type: 3}
+  - {fileID: 8300000, guid: ce06cc43c66a89b428ee7d2208eb1e43, type: 3}
+  - {fileID: 8300000, guid: a154e02ba6ca3454ab5dca938fd1d63d, type: 3}
+  - {fileID: 8300000, guid: 951bb0375e5d3824682c6295b24d10a1, type: 3}
+  - {fileID: 8300000, guid: f454d8556cbcf034b97e493dbf20f42e, type: 3}
+  - {fileID: 8300000, guid: bc73188f5e4a65f43a9488767cbab64e, type: 3}
+  - {fileID: 8300000, guid: 462364e3e13fffc45bcb598a9c934c0b, type: 3}
+  - {fileID: 8300000, guid: b82a11976e9d1b44fb03850a9cea2c6d, type: 3}
+  - {fileID: 8300000, guid: 48a88702b8959c64fa8a8b529f087c73, type: 3}
+  alicePlaylist_CG_10_4:
+  - {fileID: 8300000, guid: ea79bc974d45b1240ab57d5bd4529e3f, type: 3}
+  - {fileID: 8300000, guid: c18a990dcdcf46d4ea0c9ff71e42e7b0, type: 3}
+  - {fileID: 8300000, guid: d02b842a2c533bc488ce9bd7f526ed4b, type: 3}
+  - {fileID: 8300000, guid: a23d8b7400bf54e48b320593e5ceede9, type: 3}
+  - {fileID: 8300000, guid: 34bfdb277e8dd8845be549f3d88625eb, type: 3}
+  - {fileID: 8300000, guid: 4369321d7681dd34581011576eeda8f8, type: 3}
+  - {fileID: 8300000, guid: 1cbd5945279746f4ba204c5a13615925, type: 3}
+  - {fileID: 8300000, guid: 99e26a663f81d0a42bf5dbc3afa41b44, type: 3}
+  - {fileID: 8300000, guid: a1cf1849c5ac81242868880ab27cb7af, type: 3}
+  - {fileID: 8300000, guid: 7db98cbfe64eb5e43a4858c7adec7b13, type: 3}
+  - {fileID: 8300000, guid: 06afe70a869c8ac43a8ceb1bd63e4601, type: 3}
+  - {fileID: 8300000, guid: b80a0f123cb206941aa69d54f8f903ba, type: 3}
+  - {fileID: 8300000, guid: cad5eb40acae04846b270e1127ef3862, type: 3}
+  - {fileID: 8300000, guid: db7f7c55ea56aa94d9c2a29ec2d8d32a, type: 3}
+  - {fileID: 8300000, guid: 4e987755dc1c9b743820ac8b1a72a99b, type: 3}
+  - {fileID: 8300000, guid: d1e883c2dc9257d4daabc58edeb9ad7a, type: 3}
+  - {fileID: 8300000, guid: d79651bd7c7d60f4e8ae751a762f3d52, type: 3}
+  - {fileID: 8300000, guid: 001c78d34c6818244aa2b3baeead697f, type: 3}
+  - {fileID: 8300000, guid: a22ea691fdb27084a9577e8a56be6172, type: 3}
   moan_Clips:
   - {fileID: 8300000, guid: 78012aafe6a733f438778af85d1fb570, type: 3}
   - {fileID: 8300000, guid: b4184e2374a161040a3ebef1c1d08e39, type: 3}
@@ -21342,6 +21795,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 83cbde4628297c84ebeff2c5a94c4fc7, type: 3}
   - {fileID: 8300000, guid: fdc7ae38017eb5c45b14a4a66fc3fbad, type: 3}
   - {fileID: 8300000, guid: f58d210a30b27754eac5a8a1dabe2fa1, type: 3}
+  ailce_01_moan_Clips:
+  - {fileID: 8300000, guid: b64537989e6f116439075b2b54dc6e13, type: 3}
+  - {fileID: 8300000, guid: b4531fa91c58cc44dabf6136647cc15f, type: 3}
+  - {fileID: 8300000, guid: 5814c49005ab1bc49bf16db430731c27, type: 3}
+  ailce_01_moanLoad_Clips:
+  - {fileID: 8300000, guid: 9b0c51a131db57740a560ff655bbef3a, type: 3}
+  - {fileID: 8300000, guid: 782e8ed6de6a093478eed890dbd43046, type: 3}
+  ailce_01_FaintingGasp_Clips:
+  - {fileID: 8300000, guid: 89fd72febc2d7e244883c33dee2be357, type: 3}
   moanLoop: {fileID: 1183872096}
   resumeMoanAfterVoice: 1
   uiManager: {fileID: 1983342863}
