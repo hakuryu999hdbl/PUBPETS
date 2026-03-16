@@ -49,7 +49,7 @@ namespace Blackjack_Game
 
         public Image People;
         public Animator People_Anim;
-        public Sprite ShopManager, Andon,Enemy,XXX, Eirik, MimicHades, Doll3, Jeweler,
+        public Sprite ShopManager, Andon, Enemy, XXX, Eirik, MimicHades, Doll3, Jeweler,
                        NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
@@ -1210,7 +1210,10 @@ namespace Blackjack_Game
                     index++;
                     break;
 
-                case "CG_Loop_moan":
+
+                #region 安托CG循环娇喘
+
+                case "Anto_CG_01_Loop_moan":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1219,10 +1222,10 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(moan_Clips);
+                    PlayMoanLoop(Anto_CG_01_moan_Clips);
                     break;
 
-                case "CG_Loop_moanLoud":
+                case "Anto_CG_01_Loop_moanLoud":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1231,13 +1234,13 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(moanLoud_Clips);
+                    PlayMoanLoop(Anto_CG_01_moanLoud_Clips);
                     break;
 
 
 
 
-                case "CG_Loop_moanTentacle":
+                case "Anto_CG_02_Loop_moanTentacle":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1246,10 +1249,10 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(moanTentacle_Clips);
+                    PlayMoanLoop(Anto_CG_02_moanTentacle_Clips);
                     break;
 
-                case "CG_Loop_FeraTentacle":
+                case "Anto_CG_02_Loop_FeraTentacle":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1258,12 +1261,12 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(FeraTentacle_Clips);
+                    PlayMoanLoop(Anto_CG_02_FeraTentacle_Clips);
 
-                    Debug.Log("CG_Loop_FeraTentacle");
+
                     break;
 
-                case "CG_Loop_FeraTentacleLoud":
+                case "Anto_CG_02_Loop_FeraTentacleLoud":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1272,13 +1275,13 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(FeraTentacleLoud_Clips);
+                    PlayMoanLoop(Anto_CG_02_FeraTentacleLoud_Clips);
                     break;
 
 
 
 
-                case "CG_Loop_moanPoleDance":
+                case "Anto_CG_03_Loop_moanPoleDance":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1287,10 +1290,10 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(moanPoleDance_Clips);
+                    PlayMoanLoop(Anto_CG_03_moanPoleDance_Clips);
                     break;
 
-                case "CG_Loop_moanLoudPoleDance":
+                case "Anto_CG_03_Loop_moanLoudPoleDance":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1299,10 +1302,10 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(moanLoudPoleDance_Clips);
+                    PlayMoanLoop(Anto_CG_03_moanLoudPoleDance_Clips);
                     break;
 
-                case "CG_Loop_FaintingGasp":
+                case "Anto_CG_03_Loop_FaintingGasp":
                     text_2.color = Color.white;
 
                     voiceSource.Stop();
@@ -1311,8 +1314,185 @@ namespace Blackjack_Game
                     index++;
 
                     //重启娇喘
-                    PlayMoanLoop(FaintingGasp_Clips);
+                    PlayMoanLoop(Anto_CG_03_FaintingGasp_Clips);
                     break;
+
+
+                #endregion
+
+
+
+                #region 爱丽丝CG循环娇喘
+
+
+                case "Alice_CG_01_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_01_moan_Clips);
+                    break;
+
+                case "Alice_CG_01_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_01_moanLoad_Clips);
+                    break;
+
+                case "Alice_CG_01_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_01_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+                case "Alice_CG_02_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_02_Tease_Clips);
+                    break;
+
+                case "Alice_CG_02_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_02_moan_Clips);
+                    break;
+
+                case "Alice_CG_02_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_02_moanLoad_Clips);
+                    break;
+
+                case "Alice_CG_02_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_02_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+                case "Alice_CG_03_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_03_Tease_Clips);
+                    break;
+
+                case "Alice_CG_03_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_03_moan_Clips);
+                    break;
+
+                case "Alice_CG_03_Loop_moanFist":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_03_moanFist_Clips);
+                    break;
+
+                case "Alice_CG_03_Loop_moanFistLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_03_moanFistLoud_Clips);
+                    break;
+
+                case "Alice_CG_03_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Ailce_CG_03_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+                #endregion
+
+
 
 
                 case "--------------------NEXT--------------------":
@@ -1325,6 +1505,9 @@ namespace Blackjack_Game
                     //当前显示的Spine动画器里触发Next
                     spine_FrameEvents.TriggerNext();
                     break;
+
+
+
 
                 //角色
                 case "me":
@@ -2459,9 +2642,9 @@ namespace Blackjack_Game
                 case 3031:
                     Playlist = alicePlaylist_CG_03_1;
                     break;
-               //case 3032:
-               //    Playlist = alicePlaylist_CG_03_2;
-               //    break;
+                //case 3032:
+                //    Playlist = alicePlaylist_CG_03_2;
+                //    break;
                 case 3033:
                     Playlist = alicePlaylist_CG_03_3;
                     break;
@@ -2474,9 +2657,9 @@ namespace Blackjack_Game
                 case 3041:
                     Playlist = alicePlaylist_CG_04_1;
                     break;
-               //case 3042:
-               //    Playlist = alicePlaylist_CG_04_2;
-               //    break;
+                //case 3042:
+                //    Playlist = alicePlaylist_CG_04_2;
+                //    break;
                 case 3043:
                     Playlist = alicePlaylist_CG_04_3;
                     break;
@@ -2659,30 +2842,40 @@ namespace Blackjack_Game
         /// </summary>
         #region
 
-        [Header("安托CG_01_娇喘音频列表")]
-        public List<AudioClip> moan_Clips = new List<AudioClip>();
-        [Header("安托CG_01_剧烈娇喘音频列表")]
-        public List<AudioClip> moanLoud_Clips = new List<AudioClip>();
-        [Header("安托CG_02_触手娇喘音频列表")]
-        public List<AudioClip> moanTentacle_Clips = new List<AudioClip>();
-        [Header("安托CG_02_触手口交音频列表")]
-        public List<AudioClip> FeraTentacle_Clips = new List<AudioClip>();
-        [Header("安托CG_02_剧烈触手口交音频列表")]
-        public List<AudioClip> FeraTentacleLoud_Clips = new List<AudioClip>();
-        [Header("安托CG_03_钢管舞喘息音频列表")]
-        public List<AudioClip> moanPoleDance_Clips = new List<AudioClip>();
-        [Header("安托CG_03_钢管舞剧烈喘息音频列表")]
-        public List<AudioClip> moanLoudPoleDance_Clips = new List<AudioClip>();
-        [Header("安托CG_03_昏厥喘息音频列表")]
-        public List<AudioClip> FaintingGasp_Clips = new List<AudioClip>();
+        [Header("安托CG_循环娇喘音频列表")]
+        public List<AudioClip> Anto_CG_01_moan_Clips = new List<AudioClip>();//安托CG_01_娇喘音频列表
+        public List<AudioClip> Anto_CG_01_moanLoud_Clips = new List<AudioClip>();//安托CG_01_剧烈娇喘音频列表
+
+
+        public List<AudioClip> Anto_CG_02_moanTentacle_Clips = new List<AudioClip>();//安托CG_02_触手娇喘音频列表
+        public List<AudioClip> Anto_CG_02_FeraTentacle_Clips = new List<AudioClip>();//安托CG_02_触手口交音频列表
+        public List<AudioClip> Anto_CG_02_FeraTentacleLoud_Clips = new List<AudioClip>();//安托CG_02_剧烈触手口交音频列表
+
+
+        public List<AudioClip> Anto_CG_03_moanPoleDance_Clips = new List<AudioClip>();//安托CG_03_钢管舞喘息音频列表
+        public List<AudioClip> Anto_CG_03_moanLoudPoleDance_Clips = new List<AudioClip>();//安托CG_03_钢管舞剧烈喘息音频列表
+        public List<AudioClip> Anto_CG_03_FaintingGasp_Clips = new List<AudioClip>();//安托CG_03_昏厥喘息音频列表
 
 
 
 
-        [Header("爱丽丝CG_01_娇喘音频列表")]
-        public List<AudioClip> ailce_01_moan_Clips = new List<AudioClip>();
-        public List<AudioClip> ailce_01_moanLoad_Clips = new List<AudioClip>();
-        public List<AudioClip> ailce_01_FaintingGasp_Clips = new List<AudioClip>();
+        [Header("爱丽丝CG_娇喘音频列表")]
+        public List<AudioClip> Ailce_CG_01_moan_Clips = new List<AudioClip>();//爱丽丝CG_01_娇喘音频列表
+        public List<AudioClip> Ailce_CG_01_moanLoad_Clips = new List<AudioClip>();//爱丽丝CG_01_娇喘音频列表
+        public List<AudioClip> Ailce_CG_01_Afterglow_Clips = new List<AudioClip>();//爱丽丝CG_01_事后喘息
+
+
+        public List<AudioClip> Ailce_CG_02_Tease_Clips = new List<AudioClip>();//爱丽丝CG_02_轻声诱惑音频列表
+        public List<AudioClip> Ailce_CG_02_moan_Clips = new List<AudioClip>();//爱丽丝CG_02_娇喘音频列表
+        public List<AudioClip> Ailce_CG_02_moanLoad_Clips = new List<AudioClip>();//爱丽丝CG_02_娇喘音频列表
+        public List<AudioClip> Ailce_CG_02_Afterglow_Clips = new List<AudioClip>();//爱丽丝CG_02_事后喘息
+
+        public List<AudioClip> Ailce_CG_03_Tease_Clips = new List<AudioClip>();//爱丽丝CG_03_轻声诱惑音频列表
+        public List<AudioClip> Ailce_CG_03_moan_Clips = new List<AudioClip>();//爱丽丝CG_03_娇喘音频列表
+        public List<AudioClip> Ailce_CG_03_moanFist_Clips = new List<AudioClip>();//爱丽丝CG_03_拳交娇喘音频列表
+        public List<AudioClip> Ailce_CG_03_moanFistLoud_Clips = new List<AudioClip>();//爱丽丝CG_03_拳交剧烈娇喘音频列表
+        public List<AudioClip> Ailce_CG_03_Afterglow_Clips = new List<AudioClip>();//爱丽丝CG_03_事后喘息
+
 
 
 
@@ -2765,7 +2958,7 @@ namespace Blackjack_Game
                     break;
 
                 //商人出现
-                case 11:                
+                case 11:
                     uiManager.LoadingScene_Shop();
                     break;
 
@@ -2843,7 +3036,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托01）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 1; 
+                        data.lastCGIndex = 1;
 
 
 
@@ -2862,7 +3055,7 @@ namespace Blackjack_Game
                     {
                         // ✅ 记录上一局CG缩略图（安托02）
                         data.lastCGGirl = 1;   // 1=安托
-                        data.lastCGIndex = 2; 
+                        data.lastCGIndex = 2;
 
 
 
@@ -3586,7 +3779,7 @@ namespace Blackjack_Game
 
 
 
-        void CheckClean() 
+        void CheckClean()
         {
 
             //如果本局胜利时，三位女荷官都进度已满，打开【通关】记录
@@ -3727,8 +3920,8 @@ namespace Blackjack_Game
                     item.rowGO.SetActive(!unlocked);
 
                 // 如果要动态显示价格
-               //if (item.costText != null)
-               //    item.costText.text = ((int)item.cost).ToString();
+                //if (item.costText != null)
+                //    item.costText.text = ((int)item.cost).ToString();
             }
         }//更新酒品
 

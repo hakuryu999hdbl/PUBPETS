@@ -85,6 +85,7 @@ public class AudioManager : MonoBehaviour
 
 
     public AudioClip Anto_Game_034, Anto_Game_035, Anto_Game_036;
+    public AudioClip Alice_Game_062, Alice_Game_063, Alice_Game_066;
 
     #endregion
 }

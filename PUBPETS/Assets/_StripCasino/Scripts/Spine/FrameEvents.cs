@@ -332,5 +332,11 @@ public class FrameEvents : MonoBehaviour
     public void _Anto_Game_035() { audioS.PlayOneShot(AudioManager.Anto_Game_035); }
     public void _Anto_Game_036() { audioS.PlayOneShot(AudioManager.Anto_Game_036); }
 
+    //------------爱丽丝声音
+
+    public void _Alice_Game_062() { audioS.PlayOneShot(AudioManager.Alice_Game_062); }
+    public void _Alice_Game_063() { audioS.PlayOneShot(AudioManager.Alice_Game_063); }
+    public void _Alice_Game_066() { audioS.PlayOneShot(AudioManager.Alice_Game_066); }
+
     #endregion
 }
