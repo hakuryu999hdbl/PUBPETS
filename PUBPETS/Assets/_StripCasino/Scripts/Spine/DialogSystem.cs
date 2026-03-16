@@ -1411,6 +1411,7 @@ namespace Blackjack_Game
                 case "hetty":
                     text_2.color = new Color(0.8f, 0.2f, 0.2f, 1.0f); // 深红色
 
+                    Girl_Voice();
 
                     index++;
                     break;
@@ -1444,6 +1445,15 @@ namespace Blackjack_Game
                     Lose_Black.SetActive(true);//黑色外圈
                     index++;
                     break;
+                case "DungeonCorridor_Black":
+                    case_BG();
+
+                    Background.sprite = Background_DungeonCorridor;// 默认是酒馆背景
+                    Lose_Black.SetActive(true);//黑色外圈
+                    index++;
+                    break;
+
+
 
                 case "BG":
                     Background.sprite = BarCounter;// 默认是酒馆背景
@@ -1970,7 +1980,7 @@ namespace Blackjack_Game
                 CleanNameText();
                 NameObject[2].SetActive(true);
 
-                //AntoVoice();
+                Girl_Voice();
 
                 People.gameObject.SetActive(true);
 
@@ -2062,6 +2072,73 @@ namespace Blackjack_Game
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_3;
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_4;
         #endregion
+
+        [Header("赫蒂声音")]
+        #region 赫蒂声音
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_01_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_01_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_01_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_01_4;
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_02_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_02_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_02_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_02_4;
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_03_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_03_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_03_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_03_4;
+
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_04_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_04_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_04_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_04_4;
+
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_05_1;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_05_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_05_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_05_4;
+
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_06_1;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_06_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_06_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_06_4;
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_07_1;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_07_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_07_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_07_4;
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_08_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_08_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_08_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_08_4;
+
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_09_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_09_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_09_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_09_4;
+
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_10_1;
+        //[SerializeField] List<AudioClip> hettyPlaylist_CG_10_2;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_10_3;
+        [SerializeField] List<AudioClip> hettyPlaylist_CG_10_4;
+
+
+        #endregion
+
 
         [Header("爱丽丝声音")]
         #region 爱丽丝声音
@@ -2191,6 +2268,162 @@ namespace Blackjack_Game
 
                 #endregion
 
+
+                #region 赫蒂声音调用
+
+                case 2011:
+                    Playlist = hettyPlaylist_CG_01_1;
+                    break;
+                //case 2012:
+                //    Playlist = hettyPlaylist_CG_01_2;
+                //    break;
+                case 2013:
+                    Playlist = hettyPlaylist_CG_01_3;
+                    break;
+                case 2014:
+                    Playlist = hettyPlaylist_CG_01_4;
+                    break;
+
+
+
+                case 2021:
+                    Playlist = hettyPlaylist_CG_02_1;
+                    break;
+                //case 2022:
+                //    Playlist = hettyPlaylist_CG_02_2;
+                //    break;
+                case 2023:
+                    Playlist = hettyPlaylist_CG_02_3;
+                    break;
+                case 2024:
+                    Playlist = hettyPlaylist_CG_02_4;
+                    break;
+
+
+
+                case 2031:
+                    Playlist = hettyPlaylist_CG_03_1;
+                    break;
+                //case 2032:
+                //    Playlist = hettyPlaylist_CG_03_2;
+                //    break;
+                case 2033:
+                    Playlist = hettyPlaylist_CG_03_3;
+                    break;
+                case 2034:
+                    Playlist = hettyPlaylist_CG_03_4;
+                    break;
+
+
+
+                case 2041:
+                    Playlist = hettyPlaylist_CG_04_1;
+                    break;
+                //case 2042:
+                //    Playlist = hettyPlaylist_CG_04_2;
+                //    break;
+                case 2043:
+                    Playlist = hettyPlaylist_CG_04_3;
+                    break;
+                case 2044:
+                    Playlist = hettyPlaylist_CG_04_4;
+                    break;
+
+
+
+                case 2051:
+                    Playlist = hettyPlaylist_CG_05_1;
+                    break;
+                case 2052:
+                    Playlist = hettyPlaylist_CG_05_2;
+                    break;
+                case 2053:
+                    Playlist = hettyPlaylist_CG_05_3;
+                    break;
+                case 2054:
+                    Playlist = hettyPlaylist_CG_05_4;
+                    break;
+
+
+
+                case 2061:
+                    Playlist = hettyPlaylist_CG_06_1;
+                    break;
+                case 2062:
+                    Playlist = hettyPlaylist_CG_06_2;
+                    break;
+                case 2063:
+                    Playlist = hettyPlaylist_CG_06_3;
+                    break;
+                case 2064:
+                    Playlist = hettyPlaylist_CG_06_4;
+                    break;
+
+
+
+                case 2071:
+                    Playlist = hettyPlaylist_CG_07_1;
+                    break;
+                case 2072:
+                    Playlist = hettyPlaylist_CG_07_2;
+                    break;
+                case 2073:
+                    Playlist = hettyPlaylist_CG_07_3;
+                    break;
+                case 2074:
+                    Playlist = hettyPlaylist_CG_07_4;
+                    break;
+
+
+
+
+                case 2081:
+                    Playlist = hettyPlaylist_CG_08_1;
+                    break;
+                //case 2082:
+                //    Playlist = hettyPlaylist_CG_08_2;
+                //    break;
+                case 2083:
+                    Playlist = hettyPlaylist_CG_08_3;
+                    break;
+                case 2084:
+                    Playlist = hettyPlaylist_CG_08_4;
+                    break;
+
+
+
+                case 2091:
+                    Playlist = hettyPlaylist_CG_09_1;
+                    break;
+                //case 2092:
+                //    Playlist = hettyPlaylist_CG_09_2;
+                //    break;
+                case 2093:
+                    Playlist = hettyPlaylist_CG_09_3;
+                    break;
+                case 2094:
+                    Playlist = hettyPlaylist_CG_09_4;
+                    break;
+
+
+
+
+                case 2101:
+                    Playlist = hettyPlaylist_CG_10_1;
+                    break;
+                //case 2102:
+                //    Playlist = hettyPlaylist_CG_10_2;
+                //    break;
+                case 2103:
+                    Playlist = hettyPlaylist_CG_10_3;
+                    break;
+                case 2104:
+                    Playlist = hettyPlaylist_CG_10_4;
+                    break;
+
+                #endregion
+
+
                 #region 爱丽丝声音调用
 
                 case 3011:
@@ -2211,7 +2444,7 @@ namespace Blackjack_Game
                 case 3021:
                     Playlist = alicePlaylist_CG_02_1;
                     break;
-                case 3012:
+                case 3022:
                     Playlist = alicePlaylist_CG_02_2;
                     break;
                 case 3023:
