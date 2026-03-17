@@ -858,6 +858,7 @@ MonoBehaviour:
   Alice_CG_04: {fileID: 688623419}
   Alice_CG_05: {fileID: 1218095115}
   Alice_CG_06: {fileID: 781569541}
+  Alice_CG_07: {fileID: 448743804}
   Alice_CG_08: {fileID: 982105434}
   Alice_CG_09: {fileID: 955088166}
   Alice_CG_10: {fileID: 798705700}
@@ -1686,6 +1687,190 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 151.3222, y: 46.219}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &448743801
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 448743802}
+  - component: {fileID: 448743806}
+  - component: {fileID: 448743805}
+  - component: {fileID: 448743804}
+  - component: {fileID: 448743803}
+  - component: {fileID: 448743807}
+  m_Layer: 0
+  m_Name: Spine(Alice_CG_07)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &448743802
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.0152, y: 1.17, z: 0}
+  m_LocalScale: {x: 0.3445901, y: 0.3445901, z: 0.3445901}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1677054566}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &448743803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9db98c60740638449864eb028fbe7ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonDataAsset: {fileID: 11400000, guid: abf67a204dcadce478440e39e6e9a3d8, type: 2}
+  initialSkinName: 
+  fixPrefabOverrideViaMeshFilter: 2
+  initialFlipX: 0
+  initialFlipY: 0
+  updateWhenInvisible: 3
+  separatorSlotNames: []
+  zSpacing: 0
+  useClipping: 1
+  immutableTriangles: 0
+  pmaVertexColors: 1
+  clearStateOnDisable: 0
+  tintBlack: 0
+  singleSubmesh: 0
+  fixDrawOrder: 0
+  addNormals: 0
+  calculateTangents: 0
+  maskInteraction: 0
+  maskMaterials:
+    materialsMaskDisabled: []
+    materialsInsideMask: []
+    materialsOutsideMask: []
+  disableRenderingOnOverride: 1
+  physicsPositionInheritanceFactor: {x: 1, y: 1}
+  physicsRotationInheritanceFactor: 1
+  physicsMovementRelativeTo: {fileID: 0}
+  translator:
+    autoReset: 1
+    useCustomMixMode: 1
+    layerMixModes: 01000000
+    layerBlendModes: 01000000
+  updateTiming: 1
+--- !u!95 &448743804
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3077b5ea8e5128e4cb60a1c15f9215d8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!23 &448743805
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  - {fileID: 2100000, guid: 417e407b71c586f48a5ef8c5692e62a7, type: 2}
+  - {fileID: 2100000, guid: af0839000ff02ea48a795ee8fa5dfee4, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &448743806
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  m_Mesh: {fileID: 0}
+--- !u!114 &448743807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448743801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7127f58a5447fc24bb21d5dbd9965ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1333524835}
+  audioS: {fileID: 1333524836}
 --- !u!1 &449782035
 GameObject:
   m_ObjectHideFlags: 0
@@ -10761,6 +10946,7 @@ Transform:
   - {fileID: 688623417}
   - {fileID: 1218095119}
   - {fileID: 781569539}
+  - {fileID: 448743802}
   - {fileID: 982105432}
   - {fileID: 955088164}
   - {fileID: 798705698}
@@ -22215,6 +22401,63 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 83cbde4628297c84ebeff2c5a94c4fc7, type: 3}
   - {fileID: 8300000, guid: fdc7ae38017eb5c45b14a4a66fc3fbad, type: 3}
   - {fileID: 8300000, guid: f58d210a30b27754eac5a8a1dabe2fa1, type: 3}
+  Hetty_CG_01_Tease_Clips:
+  - {fileID: 8300000, guid: 6b52a74ba7d32d74a95c634020ac02ee, type: 3}
+  - {fileID: 8300000, guid: 82e61052dd00b894692e0fbfdc24ecdf, type: 3}
+  - {fileID: 8300000, guid: 4f8345e55261e364f8af69d055d47d8d, type: 3}
+  Hetty_CG_01_moan_Clips:
+  - {fileID: 8300000, guid: 613cd329d5b3f4647aa9959bfba1dba3, type: 3}
+  - {fileID: 8300000, guid: 00629883a9496424c9e07f26c6a8871d, type: 3}
+  Hetty_CG_01_moanLoad_Clips:
+  - {fileID: 8300000, guid: 3305d90b726c5e4458ff7d6d7712f8ed, type: 3}
+  - {fileID: 8300000, guid: 352be67ad81b26d4ca4e3c2dc57b5d7e, type: 3}
+  - {fileID: 8300000, guid: d4ec7e8ed64556c4990971af17166ff8, type: 3}
+  Hetty_CG_02_Tease_Clips:
+  - {fileID: 8300000, guid: 6f0544be2acb6b94dbfda9f7592ab197, type: 3}
+  Hetty_CG_02_moan_Clips:
+  - {fileID: 8300000, guid: 546309cc0adc5364e81d92e6d7aeb849, type: 3}
+  - {fileID: 8300000, guid: f155968dc3de6974b859b41b1489e4a8, type: 3}
+  Hetty_CG_02_moanLoad_Clips:
+  - {fileID: 8300000, guid: 3e7e9cd5796d6d94b9a57f4518ceb653, type: 3}
+  - {fileID: 8300000, guid: a4fafe734158f0940b807bc26a6ab861, type: 3}
+  - {fileID: 8300000, guid: a22888aa1eeb8724ab38b8ca16d88ae4, type: 3}
+  Hetty_CG_02_Afterglow_Clips:
+  - {fileID: 8300000, guid: d53fdf9cdbe0dfd40be5ddca9107e5ad, type: 3}
+  Hetty_CG_03_Tease_Clips:
+  - {fileID: 8300000, guid: 91a78c5766764d74f88c345d93c02135, type: 3}
+  Hetty_CG_03_moan_Clips:
+  - {fileID: 8300000, guid: fa87199301063ce4193cd8be138b8133, type: 3}
+  Hetty_CG_03_moanLoad_Clips:
+  - {fileID: 8300000, guid: 14d396e7268849b409929cd5fa4dedbe, type: 3}
+  - {fileID: 8300000, guid: 7c829cff5fba21c4e931652cf9b5a2f6, type: 3}
+  Hetty_CG_03_Fera_Clips:
+  - {fileID: 8300000, guid: 1cc88195a404bea4c8149c0700d92f83, type: 3}
+  Hetty_CG_03_FeraLoud_Clips:
+  - {fileID: 8300000, guid: e53a34d78539fb941a218dda39a45d93, type: 3}
+  Hetty_CG_03_Afterglow_Clips:
+  - {fileID: 8300000, guid: e7f7663b82cc72d4a8fed389f9c8be8f, type: 3}
+  Hetty_CG_04_Tease_Clips:
+  - {fileID: 8300000, guid: 00854577d179a2c49a79075addb2c249, type: 3}
+  Hetty_CG_04_moan_Clips:
+  - {fileID: 8300000, guid: 86096bc2bf3fb674f8e566facef8cfb0, type: 3}
+  - {fileID: 8300000, guid: cb1fd81576c49c346985d712686cbc21, type: 3}
+  Hetty_CG_04_moanLoad_Clips:
+  - {fileID: 8300000, guid: 728d6fbcd78890743b153d6af78cf09d, type: 3}
+  - {fileID: 8300000, guid: 972aeaba7a49bbb4da6d63ec121ce763, type: 3}
+  - {fileID: 8300000, guid: d76c0926f536ed948b3cbcac74016184, type: 3}
+  Hetty_CG_04_Afterglow_Clips:
+  - {fileID: 8300000, guid: 7b4dbab62e931614eac0b0a2799e0571, type: 3}
+  Hetty_CG_05_Tease_Clips:
+  - {fileID: 8300000, guid: 40c39d919f1121c469086d3b25f0d085, type: 3}
+  Hetty_CG_05_moan_Clips:
+  - {fileID: 8300000, guid: 48d6602d4bb800349bcc2e0d77568e2c, type: 3}
+  - {fileID: 8300000, guid: 6be47312a30666347b80b65bba0a23ea, type: 3}
+  Hetty_CG_05_moanLoad_Clips:
+  - {fileID: 8300000, guid: 6c360b48b4ff8aa4db291d9ac1ca6562, type: 3}
+  - {fileID: 8300000, guid: 17eeeafffee7f11418d2144e901b14b9, type: 3}
+  - {fileID: 8300000, guid: 6e81e6e59155fe048a68e59bcec3eb60, type: 3}
+  Hetty_CG_05_Afterglow_Clips:
+  - {fileID: 8300000, guid: bc1ff5f97db5fd94e8c354d30d0816fd, type: 3}
   Ailce_CG_01_moan_Clips:
   - {fileID: 8300000, guid: b64537989e6f116439075b2b54dc6e13, type: 3}
   - {fileID: 8300000, guid: b4531fa91c58cc44dabf6136647cc15f, type: 3}
@@ -22244,6 +22487,68 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 16a72e5f38224e04495f1c34967e9972, type: 3}
   Ailce_CG_03_Afterglow_Clips:
   - {fileID: 8300000, guid: 2a9d511a798c06b4196c1f924326c23c, type: 3}
+  Ailce_CG_04_moan_Clips:
+  - {fileID: 8300000, guid: 98ae8e3c577d8a841b2b4cf3a582001c, type: 3}
+  - {fileID: 8300000, guid: 72feb88926ca65e4fa8fffdbe13628f7, type: 3}
+  Ailce_CG_04_moanLoad_Clips:
+  - {fileID: 8300000, guid: 60914be7b48eeda46979a616edaf05d5, type: 3}
+  - {fileID: 8300000, guid: 1649f5062d1475347b2dcac8710368a1, type: 3}
+  Ailce_CG_05_Tease_Clips:
+  - {fileID: 8300000, guid: fe910845c27463443b8a799bd461259c, type: 3}
+  Ailce_CG_05_moan_Clips:
+  - {fileID: 8300000, guid: da3fd1c49b3367b4092a73fda666aa50, type: 3}
+  - {fileID: 8300000, guid: 875ed3e3e0625c04c91850c2f4a536c8, type: 3}
+  Ailce_CG_05_moanLoad_Clips:
+  - {fileID: 8300000, guid: 8c50e005569126241b871f024c604ec3, type: 3}
+  - {fileID: 8300000, guid: bf04b4f1c9003d24a9ebdd44f0380613, type: 3}
+  Ailce_CG_05_Afterglow_Clips:
+  - {fileID: 8300000, guid: f016b110ca35f8b49bfeed978a35c2cc, type: 3}
+  Ailce_CG_06_Tease_Clips:
+  - {fileID: 8300000, guid: 08ae7508058e3774bad13cf0f9d492d0, type: 3}
+  Ailce_CG_06_moan_Clips:
+  - {fileID: 8300000, guid: 84ff5addad023f54a993932c6f72139c, type: 3}
+  Ailce_CG_06_moanLoad_Clips:
+  - {fileID: 8300000, guid: 4aa15f13d5e8620438edbb7307f3b288, type: 3}
+  Ailce_CG_06_Afterglow_Clips:
+  - {fileID: 8300000, guid: 449b586a2fa44354d956db47d9fa56b5, type: 3}
+  Ailce_CG_07_Tease_Clips:
+  - {fileID: 8300000, guid: 386511b9bb9e90442acb3097915c176b, type: 3}
+  Ailce_CG_07_moan_Clips:
+  - {fileID: 8300000, guid: 7051048bc23013241a3ddfce4e08fdf5, type: 3}
+  - {fileID: 8300000, guid: d0ba58ce0b35e154dabb365751bd49ea, type: 3}
+  Ailce_CG_07_moanLoad_Clips:
+  - {fileID: 8300000, guid: d7d3a76f39d71b04ba1c90ed9fdeb29d, type: 3}
+  - {fileID: 8300000, guid: bfbbeb23841227c429b550ce00ca1be8, type: 3}
+  Ailce_CG_07_Afterglow_Clips:
+  - {fileID: 8300000, guid: 9f2f72829c0e6e548a81cafa064a2cff, type: 3}
+  Ailce_CG_08_moan_Clips:
+  - {fileID: 8300000, guid: f4faf6dcd8d3b044cb1d904554cc2903, type: 3}
+  - {fileID: 8300000, guid: 39ef298c0cd5a79488b52b21fcf85301, type: 3}
+  Ailce_CG_08_moanLoad_Clips:
+  - {fileID: 8300000, guid: 8664fc103e5e9e14bbf97617fd263f88, type: 3}
+  - {fileID: 8300000, guid: b9c06131a07a6d54aa44a999773b1616, type: 3}
+  Ailce_CG_08_Afterglow_Clips:
+  - {fileID: 8300000, guid: 6e13e916bc4356a40b0d2fd329ae5aad, type: 3}
+  Ailce_CG_09_Tease_Clips:
+  - {fileID: 8300000, guid: 7d2d90be169da8e46bd12fd9dff041dc, type: 3}
+  Ailce_CG_09_moan_Clips:
+  - {fileID: 8300000, guid: 75b553929d9d46946b62b4a9754c27e2, type: 3}
+  - {fileID: 8300000, guid: f67b371c774575043b0ca2966b9e3541, type: 3}
+  Ailce_CG_09_moanLoad_Clips:
+  - {fileID: 8300000, guid: 9172783636740be4fb92c4cc044fbb65, type: 3}
+  - {fileID: 8300000, guid: 7a598b8bc9a4e32459b508c2c703b35d, type: 3}
+  Ailce_CG_09_Afterglow_Clips:
+  - {fileID: 8300000, guid: 08d5956c296e5944aaeb1a1fa5f95a59, type: 3}
+  Ailce_CG_10_Tease_Clips:
+  - {fileID: 8300000, guid: 8d1593ad8e5563c48a37f97f28dac590, type: 3}
+  Ailce_CG_10_moan_Clips:
+  - {fileID: 8300000, guid: 238be7c7f1f8bed4a8337e20ff42e64b, type: 3}
+  - {fileID: 8300000, guid: f34af67a740afb7488b430543324f65b, type: 3}
+  Ailce_CG_10_moanLoad_Clips:
+  - {fileID: 8300000, guid: 85aff674c0ad7af4990830a990b3cd0c, type: 3}
+  - {fileID: 8300000, guid: 6606ca69a8113c243ae8580ab239b072, type: 3}
+  Ailce_CG_10_Afterglow_Clips:
+  - {fileID: 8300000, guid: c7302e3fc011c384aabf68a7077c3fa3, type: 3}
   moanLoop: {fileID: 1183872096}
   resumeMoanAfterVoice: 1
   uiManager: {fileID: 1983342863}

@@ -31,6 +31,7 @@ public class Spine_FrameEvents : MonoBehaviour
     public Animator Alice_CG_04;
     public Animator Alice_CG_05;
     public Animator Alice_CG_06;
+    public Animator Alice_CG_07;
     public Animator Alice_CG_08;
     public Animator Alice_CG_09;
     public Animator Alice_CG_10;
@@ -137,6 +138,10 @@ public class Spine_FrameEvents : MonoBehaviour
 
             case 36:
                 currentAnimator = Alice_CG_06;
+                break;
+
+            case 37:
+                currentAnimator = Alice_CG_07;
                 break;
 
             case 38:

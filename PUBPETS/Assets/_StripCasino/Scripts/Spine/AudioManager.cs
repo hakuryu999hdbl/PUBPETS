@@ -61,6 +61,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip SE_Whip_1, SE_Whip_2, SE_Whip_3;
 
+    public AudioClip SE_Dog_1, SE_Dog_2, SE_Dog_3;
+
 
     public AudioClip Jinv_xitian_fast1;
 

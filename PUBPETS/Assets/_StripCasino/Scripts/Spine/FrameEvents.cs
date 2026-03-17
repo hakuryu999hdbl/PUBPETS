@@ -167,7 +167,23 @@ public class FrameEvents : MonoBehaviour
 
     }
 
+    public void _SE_Dog()
+    {
+        switch (Random.Range(0, 6))//不让狗叫的太频繁
+        {
+            case 0:
+                audioS.PlayOneShot(AudioManager.SE_Dog_1);
+                break;
+            case 1:
+                audioS.PlayOneShot(AudioManager.SE_Dog_2);
+                break;
+            case 2:
+                audioS.PlayOneShot(AudioManager.SE_Dog_3);
+                break;
+          
+        }
 
+    }
 
 
     //吸舔声音

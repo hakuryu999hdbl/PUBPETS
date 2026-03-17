@@ -126,7 +126,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Alice_CG_03_3";//获胜失败和CG使用
+            GameFlowData.nextAVGId = "Hetty_CG_05_3";//获胜失败和CG使用
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
             //BGM.instance.AudioPlayBackgroundMusic(9);//爱丽丝AVG音乐
@@ -518,7 +518,7 @@ namespace Blackjack_Game
                     case "Alice_CG_06_3":
                         Load_AVG(3063);//开启爱丽丝第六个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(36);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
                     case "Alice_CG_06_4":
                         Load_AVG(3064);//开启爱丽丝第六个失败剧情
@@ -538,7 +538,7 @@ namespace Blackjack_Game
                     case "Alice_CG_07_3":
                         Load_AVG(3073);//开启爱丽丝第七个CG
                         dialog.spine_FrameEvents.SetCurrentAnimator(37);
-                        BGM.instance.AudioPlayBackgroundMusic(4);//CG酒馆环境音
+                        BGM.instance.AudioPlayBackgroundMusic(5);//CG地下城入口
                         break;
                     case "Alice_CG_07_4":
                         Load_AVG(3074);//开启爱丽丝第七个失败剧情
