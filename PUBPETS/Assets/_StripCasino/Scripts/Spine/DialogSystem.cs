@@ -62,7 +62,7 @@ namespace Blackjack_Game
         public Sprite Black,
                       BarCounter,
                       Background_DungeonEntrance, Background_DungeonCorridor, Background_Town,
-                      Background_Shop;
+                      Background_Shop, Background_Hetty_Home;
 
         public GameObject Lose_Black;//失败后的黑色外圈
 
@@ -2256,7 +2256,13 @@ namespace Blackjack_Game
                     Lose_Black.SetActive(true);//黑色外圈
                     index++;
                     break;
+                case "Hetty_Home_Black":
+                    case_BG();
 
+                    Background.sprite = Background_Hetty_Home;//赫蒂的家
+                    Lose_Black.SetActive(true);//黑色外圈
+                    index++;
+                    break;
 
 
                 case "BG":
@@ -2291,6 +2297,13 @@ namespace Blackjack_Game
                     index++;
                     break;
 
+
+                case "Hetty_Home":
+                    Background.sprite = Background_Hetty_Home;//赫蒂的家
+                    case_BG();
+
+                    index++;
+                    break;
 
                 #endregion
 
