@@ -49,8 +49,9 @@ namespace Blackjack_Game
 
         public Image People;
         public Animator People_Anim;
-        public Sprite ShopManager, Andon, Enemy, XXX, Eirik, MimicHades, Doll3, Jeweler,
-                       NPC_1, NPC_2, NPC_3, NPC_4,
+        public Sprite ShopManager, Andon, XXX, Eirik, MimicHades, Doll3, Jeweler,
+                      Enemy_1, Enemy_2,
+                      NPC_1, NPC_2, NPC_3, NPC_4,
                       Anto_Lose,
                       Anto_01, Anto_02, Anto_03, Anto_04, Anto_05, Anto_06,
                       Anto_07, Anto_08, Anto_09, Anto_10, Anto_11, Anto_12,
@@ -1608,6 +1609,317 @@ namespace Blackjack_Game
                     break;
 
 
+
+
+                case "Hetty_CG_06_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_06_Tease_Clips);
+                    break;
+
+                case "Hetty_CG_06_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_06_moan_Clips);
+                    break;
+
+                case "Hetty_CG_06_Loop_moanFist":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_06_moanFist_Clips);
+                    break;
+
+                case "Hetty_CG_06_Loop_moanFistLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_06_moanFistLoud_Clips);
+                    break;
+
+                case "Hetty_CG_06_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_06_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+                case "Hetty_CG_07_Loop_AnalFuck":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_07_AnalFuck_Clips);
+                    break;
+                case "Hetty_CG_07_Loop_AnalFuck_Suppress":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_07_AnalFuck_Suppress_Clips);
+                    break;
+                case "Hetty_CG_07_Loop_AnalFuckHard":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_07_AnalFuckHard_Clips);
+                    break;
+                case "Hetty_CG_07_Loop_AnalFuckHard_Suppress":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_07_AnalFuckHard_Suppress_Clips);
+                    break;
+
+
+                case "Hetty_CG_07_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_07_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                case "Hetty_CG_08_Loop_BlowjobDeep":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_08_BlowjobDeep_Clips);
+                    break;
+                case "Hetty_CG_08_Loop_BlowjobDeep_Suppress":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_08_BlowjobDeep_Suppress_Clips);
+                    break;
+                case "Hetty_CG_08_Loop_BlowjobFast":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_08_BlowjobFast_Clips);
+                    break;
+                case "Hetty_CG_08_Loop_BlowjobFast_Suppress":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_08_BlowjobFast_Suppress_Clips);
+                    break;
+
+
+                case "Hetty_CG_08_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_08_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+                case "Hetty_CG_09_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_09_Tease_Clips);
+                    break;
+
+                case "Hetty_CG_09_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_09_moan_Clips);
+                    break;
+
+                case "Hetty_CG_09_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_09_moanLoad_Clips);
+                    break;
+
+                case "Hetty_CG_09_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_09_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+                case "Hetty_CG_10_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_10_Tease_Clips);
+                    break;
+
+                case "Hetty_CG_10_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_10_moan_Clips);
+                    break;
+
+                case "Hetty_CG_10_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_10_moanLoad_Clips);
+                    break;
+
+                case "Hetty_CG_10_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Hetty_CG_10_Afterglow_Clips);
+                    break;
+
+
                 #endregion
 
 
@@ -2402,7 +2714,7 @@ namespace Blackjack_Game
                     People_Anim.SetBool("Dark", false);
                     index++;
                     break;
-                case "Enemy":
+                case "Enemy_1":
                     text.color = new Color(0.65f, 0.7f, 0.8f, 1.0f); // 灰蓝
                     CleanNameText();
                     NameObject[8].SetActive(true);
@@ -2410,7 +2722,19 @@ namespace Blackjack_Game
                     voiceSource.Stop();
 
                     People.gameObject.SetActive(true);
-                    People.sprite = Enemy;
+                    People.sprite = Enemy_1;
+                    People_Anim.SetBool("Dark", false);
+                    index++;
+                    break;
+                case "Enemy_2":
+                    text.color = new Color(0.65f, 0.7f, 0.8f, 1.0f); // 灰蓝
+                    CleanNameText();
+                    NameObject[8].SetActive(true);
+
+                    voiceSource.Stop();
+
+                    People.gameObject.SetActive(true);
+                    People.sprite = Enemy_2;
                     People_Anim.SetBool("Dark", false);
                     index++;
                     break;
@@ -3530,6 +3854,43 @@ namespace Blackjack_Game
         public List<AudioClip> Hetty_CG_05_moan_Clips = new List<AudioClip>();//赫蒂CG_05_娇喘音频列表
         public List<AudioClip> Hetty_CG_05_moanLoad_Clips = new List<AudioClip>();//赫蒂CG_05_娇喘音频列表
         public List<AudioClip> Hetty_CG_05_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_05_事后喘息
+
+
+        public List<AudioClip> Hetty_CG_06_Tease_Clips = new List<AudioClip>();//赫蒂CG_06_轻声诱惑音频列表
+        public List<AudioClip> Hetty_CG_06_moan_Clips = new List<AudioClip>();//赫蒂CG_06_娇喘音频列表
+        public List<AudioClip> Hetty_CG_06_moanFist_Clips = new List<AudioClip>();//赫蒂CG_06_拳交娇喘音频列表
+        public List<AudioClip> Hetty_CG_06_moanFistLoud_Clips = new List<AudioClip>();//赫蒂CG_06_拳交剧烈娇喘音频列表
+        public List<AudioClip> Hetty_CG_06_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_06_事后喘息
+
+
+        public List<AudioClip> Hetty_CG_07_AnalFuck_Clips = new List<AudioClip>();          // 赫蒂CG_07_肛交正常抽插娇喘音频列表
+        public List<AudioClip> Hetty_CG_07_AnalFuck_Suppress_Clips = new List<AudioClip>(); // 赫蒂CG_07_肛交抽插（压抑/咬唇/忍耐型）娇喘音频列表
+        public List<AudioClip> Hetty_CG_07_AnalFuckHard_Clips = new List<AudioClip>();      // 赫蒂CG_07_肛交激烈/快速抽插娇喘音频列表
+        public List<AudioClip> Hetty_CG_07_AnalFuckHard_Suppress_Clips = new List<AudioClip>();// 赫蒂CG_07_激烈肛交（压抑/强忍高潮）娇喘音频列表
+        public List<AudioClip> Hetty_CG_07_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_07_事后喘息
+
+
+
+        public List<AudioClip> Hetty_CG_08_BlowjobDeep_Clips = new List<AudioClip>();           // 赫蒂CG_08_深喉/深含/喉咙被顶到娇喘音频列表
+        public List<AudioClip> Hetty_CG_08_BlowjobDeep_Suppress_Clips = new List<AudioClip>();  // 赫蒂CG_08_深喉（压抑/强忍呕感/闷哼型）娇喘音频列表
+        public List<AudioClip> Hetty_CG_08_BlowjobFast_Clips = new List<AudioClip>();           // 赫蒂CG_08_快速口交/激烈舔吸/高速活塞口交娇喘音频列表
+        public List<AudioClip> Hetty_CG_08_BlowjobFast_Suppress_Clips = new List<AudioClip>();  // 赫蒂CG_08_快速口交（压抑/强忍高潮/含糊呻吟）娇喘音频列表
+        public List<AudioClip> Hetty_CG_08_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_08_事后喘息
+
+
+
+        public List<AudioClip> Hetty_CG_09_Tease_Clips = new List<AudioClip>();//赫蒂CG_09_轻声诱惑音频列表
+        public List<AudioClip> Hetty_CG_09_moan_Clips = new List<AudioClip>();//赫蒂CG_09_娇喘音频列表
+        public List<AudioClip> Hetty_CG_09_moanLoad_Clips = new List<AudioClip>();//赫蒂CG_09_娇喘音频列表
+        public List<AudioClip> Hetty_CG_09_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_09_事后喘息
+
+
+
+        public List<AudioClip> Hetty_CG_10_Tease_Clips = new List<AudioClip>();//赫蒂CG_10_轻声诱惑音频列表
+        public List<AudioClip> Hetty_CG_10_moan_Clips = new List<AudioClip>();//赫蒂CG_10_娇喘音频列表
+        public List<AudioClip> Hetty_CG_10_moanLoad_Clips = new List<AudioClip>();//赫蒂CG_10_娇喘音频列表
+        public List<AudioClip> Hetty_CG_10_Afterglow_Clips = new List<AudioClip>();//赫蒂CG_10_事后喘息
+
 
 
         [Header("爱丽丝CG_娇喘音频列表")]
