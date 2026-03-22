@@ -3212,6 +3212,48 @@ namespace Blackjack_Game
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_2;
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_3;
         [SerializeField] List<AudioClip> antoPlaylist_CG_03_4;
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_04_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_04_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_04_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_04_4;
+
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_05_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_05_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_05_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_05_4;
+
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_06_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_06_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_06_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_06_4;
+
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_07_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_07_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_07_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_07_4;
+
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_08_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_08_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_08_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_08_4;
+
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_09_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_09_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_09_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_09_4;
+
+        [SerializeField] List<AudioClip> antoPlaylist_CG_10_1;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_10_2;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_10_3;
+        [SerializeField] List<AudioClip> antoPlaylist_CG_10_4;
+
+
         #endregion
 
         [Header("赫蒂声音")]
@@ -3405,6 +3447,112 @@ namespace Blackjack_Game
                     break;
                 case 1034:
                     Playlist = antoPlaylist_CG_03_4;
+                    break;
+
+
+                case 1041:
+                    Playlist = antoPlaylist_CG_04_1;
+                    break;
+                case 1042:
+                    Playlist = antoPlaylist_CG_04_2;
+                    break;
+                case 1043:
+                    Playlist = antoPlaylist_CG_04_3;
+                    break;
+                case 1044:
+                    Playlist = antoPlaylist_CG_04_4;
+                    break;
+
+
+
+                case 1051:
+                    Playlist = antoPlaylist_CG_05_1;
+                    break;
+                case 1052:
+                    Playlist = antoPlaylist_CG_05_2;
+                    break;
+                case 1053:
+                    Playlist = antoPlaylist_CG_05_3;
+                    break;
+                case 1054:
+                    Playlist = antoPlaylist_CG_05_4;
+                    break;
+
+
+
+                case 1061:
+                    Playlist = antoPlaylist_CG_06_1;
+                    break;
+                case 1062:
+                    Playlist = antoPlaylist_CG_06_2;
+                    break;
+                case 1063:
+                    Playlist = antoPlaylist_CG_06_3;
+                    break;
+                case 1064:
+                    Playlist = antoPlaylist_CG_06_4;
+                    break;
+
+
+
+                case 1071:
+                    Playlist = antoPlaylist_CG_07_1;
+                    break;
+                case 1072:
+                    Playlist = antoPlaylist_CG_07_2;
+                    break;
+                case 1073:
+                    Playlist = antoPlaylist_CG_07_3;
+                    break;
+                case 1074:
+                    Playlist = antoPlaylist_CG_07_4;
+                    break;
+
+
+
+
+                case 1081:
+                    Playlist = antoPlaylist_CG_08_1;
+                    break;
+                case 1082:
+                    Playlist = antoPlaylist_CG_08_2;
+                    break;
+                case 1083:
+                    Playlist = antoPlaylist_CG_08_3;
+                    break;
+                case 1084:
+                    Playlist = antoPlaylist_CG_08_4;
+                    break;
+
+
+
+                case 1091:
+                    Playlist = antoPlaylist_CG_09_1;
+                    break;
+                case 1092:
+                    Playlist = antoPlaylist_CG_09_2;
+                    break;
+                case 1093:
+                    Playlist = antoPlaylist_CG_09_3;
+                    break;
+                case 1094:
+                    Playlist = antoPlaylist_CG_09_4;
+                    break;
+
+
+
+
+                case 1101:
+                    Playlist = antoPlaylist_CG_10_1;
+                    break;
+                case 1102:
+                    Playlist = antoPlaylist_CG_10_2;
+                    break;
+                case 1103:
+                    Playlist = antoPlaylist_CG_10_3;
+                    break;
+                case 1104:
+                    Playlist = antoPlaylist_CG_10_4;
                     break;
 
                 #endregion

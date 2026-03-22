@@ -126,7 +126,7 @@ namespace Blackjack_Game
 
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Alice_CG_10_3";//获胜失败和CG使用
+            //GameFlowData.nextAVGId = "Anto_CG_05_2";//获胜失败和CG使用
             //PlayerPrefs.SetInt("language", 0);
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -282,7 +282,7 @@ namespace Blackjack_Game
                         break;
                     case "Anto_CG_05_2":
                         Load_AVG(1052);//开启安托第五个CG前端AVG
-                        BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
+                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
                         break;
                     case "Anto_CG_05_3":
                         Load_AVG(1053);//开启安托第五个CG
