@@ -123,10 +123,10 @@ namespace Blackjack_Game
 
 
             Debug.Log("UIManager.要播放的AVG是：" + GameFlowData.nextAVGId);
-
+             
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Anto_CG_05_2";//获胜失败和CG使用
+            GameFlowData.nextAVGId = "Anto_CG_07_3";//获胜失败和CG使用
             //PlayerPrefs.SetInt("language", 0);
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐

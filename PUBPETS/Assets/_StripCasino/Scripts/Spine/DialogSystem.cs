@@ -1241,6 +1241,10 @@ namespace Blackjack_Game
 
 
 
+
+
+
+
                 case "Anto_CG_02_Loop_moanTentacle":
                     text_2.color = Color.white;
 
@@ -1282,6 +1286,9 @@ namespace Blackjack_Game
 
 
 
+
+
+
                 case "Anto_CG_03_Loop_moanPoleDance":
                     text_2.color = Color.white;
 
@@ -1317,6 +1324,267 @@ namespace Blackjack_Game
                     //重启娇喘
                     PlayMoanLoop(Anto_CG_03_FaintingGasp_Clips);
                     break;
+
+
+
+
+
+
+                case "Anto_CG_04_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_04_Tease_Clips);
+                    break;
+
+                case "Anto_CG_04_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_04_moan_Clips);
+                    break;
+
+
+                case "Anto_CG_04_Loop_moanFist":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_04_moanFist_Clips);
+                    break;
+
+
+                case "Anto_CG_04_Loop_moanFistLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_04_moanFistLoud_Clips);
+                    break;
+
+
+                case "Anto_CG_04_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_04_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+                case "Anto_CG_05_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_05_Tease_Clips);
+                    break;
+
+
+                case "Anto_CG_05_Loop_Feramoan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_05_Feramoan_Clips);
+                    break;
+
+
+                case "Anto_CG_05_Loop_FeramoanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_05_FeramoanLoud_Clips);
+                    break;
+
+
+                case "Anto_CG_05_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_05_moan_Clips);
+                    break;
+
+
+                case "Anto_CG_05_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_05_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+                case "Anto_CG_06_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_06_Tease_Clips);
+                    break;
+
+
+                case "Anto_CG_06_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_06_moan_Clips);
+                    break;
+
+
+
+                case "Anto_CG_06_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_06_moanLoud_Clips);
+                    break;
+
+
+                case "Anto_CG_06_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_06_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+                case "Anto_CG_07_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_07_Tease_Clips);
+                    break;
+
+
+                case "Anto_CG_07_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_07_moan_Clips);
+                    break;
+
+
+
+                case "Anto_CG_07_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_07_moanLoud_Clips);
+                    break;
+
+
+                case "Anto_CG_07_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_07_Afterglow_Clips);
+                    break;
+
+
+
+
 
 
                 #endregion
@@ -3322,7 +3590,6 @@ namespace Blackjack_Game
 
         #endregion
 
-
         [Header("爱丽丝声音")]
         #region 爱丽丝声音
 
@@ -3387,6 +3654,10 @@ namespace Blackjack_Game
         [SerializeField] List<AudioClip> alicePlaylist_CG_10_4;
 
         #endregion
+
+
+
+
 
 
         int VoiceIndex = 0;
@@ -3962,6 +4233,55 @@ namespace Blackjack_Game
         public List<AudioClip> Anto_CG_03_moanLoudPoleDance_Clips = new List<AudioClip>();//安托CG_03_钢管舞剧烈喘息音频列表
         public List<AudioClip> Anto_CG_03_FaintingGasp_Clips = new List<AudioClip>();//安托CG_03_昏厥喘息音频列表
 
+
+        public List<AudioClip> Anto_CG_04_Tease_Clips = new List<AudioClip>();//安托CG_04_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_04_moan_Clips = new List<AudioClip>();//安托CG_04_娇喘音频列表
+        public List<AudioClip> Anto_CG_04_moanFist_Clips = new List<AudioClip>();//安托CG_04_拳交娇喘音频列表
+        public List<AudioClip> Anto_CG_04_moanFistLoud_Clips = new List<AudioClip>();//安托CG_04_拳交剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_04_Afterglow_Clips = new List<AudioClip>();//安托CG_04_事后喘息
+
+
+
+        public List<AudioClip> Anto_CG_05_Tease_Clips = new List<AudioClip>();//安托CG_05_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_05_Feramoan_Clips = new List<AudioClip>();//安托CG_05_口交娇喘音频列表
+        public List<AudioClip> Anto_CG_05_FeramoanLoud_Clips = new List<AudioClip>();//安托CG_05_口交剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_05_moan_Clips = new List<AudioClip>();//安托CG_05_娇喘音频列表
+        public List<AudioClip> Anto_CG_05_Afterglow_Clips = new List<AudioClip>();//安托CG_05_事后喘息
+
+
+        public List<AudioClip> Anto_CG_06_Tease_Clips = new List<AudioClip>();//安托CG_06_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_06_moan_Clips = new List<AudioClip>();//安托CG_06_娇喘音频列表
+        public List<AudioClip> Anto_CG_06_moanLoud_Clips = new List<AudioClip>();//安托CG_06_剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_06_Afterglow_Clips = new List<AudioClip>();//安托CG_06_事后喘息
+
+
+        public List<AudioClip> Anto_CG_07_Tease_Clips = new List<AudioClip>();//安托CG_07_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_07_moan_Clips = new List<AudioClip>();//安托CG_07_娇喘音频列表
+        public List<AudioClip> Anto_CG_07_moanLoud_Clips = new List<AudioClip>();//安托CG_07_剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_07_Afterglow_Clips = new List<AudioClip>();//安托CG_07_事后喘息
+
+
+        public List<AudioClip> Anto_CG_08_Tease_Clips = new List<AudioClip>();//安托CG_08_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_08_moan_Clips = new List<AudioClip>();//安托CG_08_娇喘音频列表
+        public List<AudioClip> Anto_CG_08_moanLoud_Clips = new List<AudioClip>();//安托CG_08_剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_08_Afterglow_Clips = new List<AudioClip>();//安托CG_08_事后喘息
+
+
+        public List<AudioClip> Anto_CG_09_Tease_Clips = new List<AudioClip>();//安托CG_09_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_09_moanFist_Clips = new List<AudioClip>();//安托CG_09_拳交娇喘音频列表
+        public List<AudioClip> Anto_CG_09_moanFistLoud_Clips = new List<AudioClip>();//安托CG_09_拳交剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_09_moan_Clips = new List<AudioClip>();//安托CG_09_娇喘音频列表
+        public List<AudioClip> Anto_CG_09_moanLoud_Clips = new List<AudioClip>();//安托CG_09_剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_09_Afterglow_Clips = new List<AudioClip>();//安托CG_09_事后喘息
+
+
+
+        public List<AudioClip> Anto_CG_10_Tease_Clips = new List<AudioClip>();//安托CG_10_轻声诱惑音频列表
+        public List<AudioClip> Anto_CG_10_moanFist_Clips = new List<AudioClip>();//安托CG_10_拳交娇喘音频列表
+        public List<AudioClip> Anto_CG_10_moan_Clips = new List<AudioClip>();//安托CG_10_娇喘音频列表
+        public List<AudioClip> Anto_CG_10_moanLoud_Clips = new List<AudioClip>();//安托CG_10_剧烈娇喘音频列表
+        public List<AudioClip> Anto_CG_10_moanScream_Clips = new List<AudioClip>(); // 安托CG_10_尖叫娇喘
+        public List<AudioClip> Anto_CG_10_Afterglow_Clips = new List<AudioClip>();//安托CG_10_事后喘息
 
 
 
