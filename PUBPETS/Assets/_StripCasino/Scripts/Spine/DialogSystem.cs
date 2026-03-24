@@ -4472,6 +4472,9 @@ namespace Blackjack_Game
         /// </summary>
         #region
 
+
+        #region  安托/赫蒂/爱丽丝
+
         [Header("安托CG_循环娇喘音频列表")]
         public List<AudioClip> Anto_CG_01_moan_Clips = new List<AudioClip>();//安托CG_01_娇喘音频列表
         public List<AudioClip> Anto_CG_01_moanLoud_Clips = new List<AudioClip>();//安托CG_01_剧烈娇喘音频列表
@@ -4679,6 +4682,7 @@ namespace Blackjack_Game
         public List<AudioClip> Ailce_CG_10_moanLoad_Clips = new List<AudioClip>();//爱丽丝CG_10_娇喘音频列表
         public List<AudioClip> Ailce_CG_10_Afterglow_Clips = new List<AudioClip>();//爱丽丝CG_10_事后喘息
 
+        #endregion
 
 
         // —— 新增字段 —— //
@@ -4710,7 +4714,79 @@ namespace Blackjack_Game
             if (moanLoop != null && moanLoop.clip != null) moanLoop.UnPause();
         }
 
+
         #endregion
+
+
+
+
+
+        /// <summary>
+        /// Spine帧事件声音播放器
+        /// </summary>
+        #region
+        public static DialogSystem _instance;
+
+        private void Awake()
+        {
+            _instance = this;
+        }
+
+
+        [Header("Spine帧事件声音播放器")]
+        [SerializeField] private AudioSource eventSource;
+
+        private Coroutine eventResumeCo;
+        private float lastEventVoiceTime = -999f;
+        [SerializeField] private float eventVoiceCooldown = 0.08f; // 防止同一瞬间连发
+
+        public void PlaySpineEventVoice(AudioClip clip)
+        {
+            if (clip == null) return;
+
+            // 1. 台词优先级最高：台词播放中，帧事件声音直接不播
+            if (voiceSource != null && voiceSource.isPlaying)
+                return;
+
+            // 2. 防止短时间内重复触发太密
+            if (Time.time - lastEventVoiceTime < eventVoiceCooldown)
+                return;
+
+            lastEventVoiceTime = Time.time;
+
+            // 3. 帧事件播放前，暂停娇喘循环
+            PauseMoanLoop();
+
+            // 4. 停掉上一次等待恢复的协程，避免多个恢复打架
+            if (eventResumeCo != null)
+                StopCoroutine(eventResumeCo);
+
+            // 5. 播放帧事件音
+            eventSource.PlayOneShot(clip);
+
+            // 6. 播完后恢复娇喘（前提是台词没在播）
+            eventResumeCo = StartCoroutine(ResumeMoanAfterEventCo(clip.length));
+        }
+
+
+        private IEnumerator ResumeMoanAfterEventCo(float delay)
+        {
+            yield return new WaitForSeconds(delay);
+
+            // 如果此时台词正在播放，就不要恢复娇喘
+            if (voiceSource != null && voiceSource.isPlaying)
+                yield break;
+
+            ResumeMoanLoop();
+        }
+
+
+        #endregion
+
+
+
+
+
 
 
         /// <summary>

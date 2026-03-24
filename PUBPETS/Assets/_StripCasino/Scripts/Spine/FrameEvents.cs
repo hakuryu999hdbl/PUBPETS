@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Blackjack_Game;
 
 public class FrameEvents : MonoBehaviour
 {
@@ -342,17 +343,19 @@ public class FrameEvents : MonoBehaviour
 
 
 
+
+
     //------------安托声音
 
-    public void _Anto_Game_034() { audioS.PlayOneShot(AudioManager.Anto_Game_034); }
-    public void _Anto_Game_035() { audioS.PlayOneShot(AudioManager.Anto_Game_035); }
-    public void _Anto_Game_036() { audioS.PlayOneShot(AudioManager.Anto_Game_036); }
+    public void _Anto_Game_034() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_034);}
+    public void _Anto_Game_035() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_035); }
+    public void _Anto_Game_036() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_036); }
 
     //------------爱丽丝声音
 
-    public void _Alice_Game_062() { audioS.PlayOneShot(AudioManager.Alice_Game_062); }
-    public void _Alice_Game_063() { audioS.PlayOneShot(AudioManager.Alice_Game_063); }
-    public void _Alice_Game_066() { audioS.PlayOneShot(AudioManager.Alice_Game_066); }
+    public void _Alice_Game_062() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_062); }
+    public void _Alice_Game_063() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_063); }
+    public void _Alice_Game_066() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_066); }
 
     #endregion
 }
