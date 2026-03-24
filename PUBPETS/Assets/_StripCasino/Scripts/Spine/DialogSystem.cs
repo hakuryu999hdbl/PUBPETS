@@ -1245,6 +1245,10 @@ namespace Blackjack_Game
 
 
 
+
+
+
+
                 case "Anto_CG_02_Loop_moanTentacle":
                     text_2.color = Color.white;
 
@@ -1289,6 +1293,10 @@ namespace Blackjack_Game
 
 
 
+
+
+
+
                 case "Anto_CG_03_Loop_moanPoleDance":
                     text_2.color = Color.white;
 
@@ -1324,6 +1332,11 @@ namespace Blackjack_Game
                     //重启娇喘
                     PlayMoanLoop(Anto_CG_03_FaintingGasp_Clips);
                     break;
+
+
+
+
+
 
 
 
@@ -1392,6 +1405,11 @@ namespace Blackjack_Game
                     //重启娇喘
                     PlayMoanLoop(Anto_CG_04_Afterglow_Clips);
                     break;
+
+
+
+
+
 
 
 
@@ -1471,6 +1489,10 @@ namespace Blackjack_Game
 
 
 
+
+
+
+
                 case "Anto_CG_06_Loop_Tease":
                     text_2.color = Color.white;
 
@@ -1522,6 +1544,11 @@ namespace Blackjack_Game
                     //重启娇喘
                     PlayMoanLoop(Anto_CG_06_Afterglow_Clips);
                     break;
+
+
+
+
+
 
 
 
@@ -1582,6 +1609,231 @@ namespace Blackjack_Game
                     PlayMoanLoop(Anto_CG_07_Afterglow_Clips);
                     break;
 
+
+
+
+
+
+
+
+
+
+                case "Anto_CG_08_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_08_Tease_Clips);
+                    break;
+
+
+                case "Anto_CG_08_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_08_moan_Clips);
+                    break;
+
+
+
+                case "Anto_CG_08_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_08_moanLoud_Clips);
+                    break;
+
+
+                case "Anto_CG_08_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_08_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+
+
+
+
+                case "Anto_CG_09_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_Tease_Clips);
+                    break;
+
+                case "Anto_CG_09_Loop_moanFist":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_moanFist_Clips);
+                    break;
+
+
+                case "Anto_CG_09_Loop_moanFistLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_moanFistLoud_Clips);
+                    break;
+
+                case "Anto_CG_09_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_moan_Clips);
+                    break;
+
+                case "Anto_CG_09_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_moanLoud_Clips);
+                    break;
+
+
+
+                case "Anto_CG_09_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_09_Afterglow_Clips);
+                    break;
+
+
+
+
+
+
+                case "Anto_CG_10_Loop_Tease":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_Tease_Clips);
+                    break;
+
+                case "Anto_CG_10_Loop_moanFist":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_moanFist_Clips);
+                    break;
+
+
+
+                case "Anto_CG_10_Loop_moan":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_moan_Clips);
+                    break;
+
+                case "Anto_CG_10_Loop_moanLoud":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_moanLoud_Clips);
+                    break;
+
+                case "Anto_CG_10_Loop_moanScream":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_moanScream_Clips);
+                    break;
+
+
+
+                case "Anto_CG_10_Loop_Afterglow":
+                    text_2.color = Color.white;
+
+                    voiceSource.Stop();
+
+                    Background.gameObject.SetActive(false);// 透明背景播放CG
+                    index++;
+
+                    //重启娇喘
+                    PlayMoanLoop(Anto_CG_10_Afterglow_Clips);
+                    break;
 
 
 
@@ -3184,6 +3436,7 @@ namespace Blackjack_Game
                 case "Anto_16":
                     People.sprite = Anto_16;
                     case_Anto();
+                    index++;
                     break;
 
 

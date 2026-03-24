@@ -1652,9 +1652,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -3352,7 +3352,7 @@ GameObject:
   - component: {fileID: 619976399}
   - component: {fileID: 619976398}
   - component: {fileID: 619976397}
-  - component: {fileID: 619976396}
+  - component: {fileID: 619976401}
   m_Layer: 5
   m_Name: Text_NPC_4
   m_TagString: Untagged
@@ -3360,24 +3360,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &619976396
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 619976395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u5192\u967A\u8005"
-  C_1: "\u5192\u9669\u8005"
-  C_2: "\u5192\u96AA\u8005"
-  E: Adventurer
-  K: "\uBAA8\uD5D8\uAC00"
-  isTyped: 0
 --- !u!114 &619976397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3417,7 +3399,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -3454,6 +3436,24 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 151.3222, y: 46.219}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &619976401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 619976395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u5192\u967A\u8005"
+  C_1: "\u5192\u9669\u8005"
+  C_2: "\u5192\u96AA\u8005"
+  E: Adventurer
+  K: "\uBAA8\uD5D8\uAC00"
+  isTyped: 0
 --- !u!1 &666313232
 GameObject:
   m_ObjectHideFlags: 0
@@ -5426,7 +5426,7 @@ GameObject:
   - component: {fileID: 841430643}
   - component: {fileID: 841430642}
   - component: {fileID: 841430641}
-  - component: {fileID: 841430640}
+  - component: {fileID: 841430644}
   m_Layer: 5
   m_Name: Text_NPC_3
   m_TagString: Untagged
@@ -5453,24 +5453,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0}
   m_SizeDelta: {x: 151.3222, y: 46.219}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &841430640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 841430638}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u5192\u967A\u8005"
-  C_1: "\u5192\u9669\u8005"
-  C_2: "\u5192\u96AA\u8005"
-  E: Adventurer
-  K: "\uBAA8\uD5D8\uAC00"
-  isTyped: 0
 --- !u!114 &841430641
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5510,7 +5492,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -5528,6 +5510,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 841430638}
   m_CullTransparentMesh: 1
+--- !u!114 &841430644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841430638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u5192\u967A\u8005"
+  C_1: "\u5192\u9669\u8005"
+  C_2: "\u5192\u96AA\u8005"
+  E: Adventurer
+  K: "\uBAA8\uD5D8\uAC00"
+  isTyped: 0
 --- !u!1 &865060698
 GameObject:
   m_ObjectHideFlags: 0
@@ -7693,7 +7693,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -8731,7 +8731,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -9880,9 +9880,9 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 30
+    m_FontSize: 26
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -11608,7 +11608,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -11617,7 +11617,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uFF1F\uFF1F\uFF1F"
+  m_Text: " \uFF1F\uFF1F\uFF1F"
 --- !u!222 &1722213906
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13977,7 +13977,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -15415,7 +15415,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -17788,7 +17788,6 @@ GameObject:
   - component: {fileID: 1412925816187650163}
   - component: {fileID: 4391374809839486535}
   - component: {fileID: 673587725195805526}
-  - component: {fileID: 7793281310332475603}
   m_Layer: 5
   m_Name: Text_Me
   m_TagString: Untagged
@@ -18525,7 +18524,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -19226,24 +19225,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7433890687868138977}
   m_CullTransparentMesh: 1
---- !u!114 &4521497488152083377
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9174937626903395550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u5192\u967A\u8005"
-  C_1: "\u5192\u9669\u8005"
-  C_2: "\u5192\u96AA\u8005"
-  E: Adventurer
-  K: "\uBAA8\uD5D8\uAC00"
-  isTyped: 0
 --- !u!114 &4535089690704378414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19568,7 +19549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
-  m_EffectDistance: {x: 2, y: -2}
+  m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 0
 --- !u!114 &4802326950731680472
 MonoBehaviour:
@@ -21438,7 +21419,7 @@ MonoBehaviour:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
     m_FontSize: 30
     m_FontStyle: 0
-    m_BestFit: 1
+    m_BestFit: 0
     m_MinSize: 2
     m_MaxSize: 92
     m_Alignment: 4
@@ -22454,8 +22435,8 @@ MonoBehaviour:
   - {fileID: 8300000, guid: baec60aa921e45f4c922d3cb76d5e545, type: 3}
   antoPlaylist_CG_08_2:
   - {fileID: 8300000, guid: 263240b083fc1ba44b1f1db77411e9ae, type: 3}
-  antoPlaylist_CG_08_3:
   - {fileID: 8300000, guid: dac415e2455a1e34ab52181a62a439c0, type: 3}
+  antoPlaylist_CG_08_3:
   - {fileID: 8300000, guid: 2f22e96c9200600489a09214e3c09167, type: 3}
   - {fileID: 8300000, guid: 14853b9eabbcd7147a0671435413a4c7, type: 3}
   - {fileID: 8300000, guid: 73c0afbf264d99545b032ba3f1516d7d, type: 3}
@@ -22563,6 +22544,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 1975250eb6df1d6499e15eb9d423b74e, type: 3}
   - {fileID: 8300000, guid: bf433e1e451b6f54cbbd5a498ee2f565, type: 3}
   - {fileID: 8300000, guid: 91675dae6797d5e4cb16053e7cfa00c3, type: 3}
+  antoPlaylist_CG_10_2:
   - {fileID: 8300000, guid: a416fce7825b1b24ca403e68e86f600d, type: 3}
   - {fileID: 8300000, guid: deab83c5c0f97634985f60f1403dbabd, type: 3}
   - {fileID: 8300000, guid: 5d8b11cea7b42b742a3b5551c3ea7686, type: 3}
@@ -22571,15 +22553,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0b78926210540ee4f872d9b82606e18c, type: 3}
   - {fileID: 8300000, guid: 277ab011cedf8d949aee9bf7bdb3e869, type: 3}
   - {fileID: 8300000, guid: bf0ee9a1e20eafd488a3d6813fb30304, type: 3}
-  antoPlaylist_CG_10_2:
-  - {fileID: 8300000, guid: ce72553422d567a42b162bfd13badbcc, type: 3}
-  - {fileID: 8300000, guid: 221455870f2b0b649b212fbee2ef5cdf, type: 3}
-  - {fileID: 8300000, guid: c16b698daa79c194fbea795289c78736, type: 3}
-  - {fileID: 8300000, guid: 78cac024df5316744a55608bdd94d1d4, type: 3}
-  - {fileID: 8300000, guid: 858c1001ffdd106409aef0a1d52e2917, type: 3}
-  - {fileID: 8300000, guid: 7de982894fcb38842bd38d7719da4296, type: 3}
-  - {fileID: 8300000, guid: 59045cce56f144f4c81f58e91b7846e4, type: 3}
-  - {fileID: 8300000, guid: a37f5bc1346f9124b9f16ca943c1fadd, type: 3}
   antoPlaylist_CG_10_3:
   - {fileID: 8300000, guid: 20c345262178b494a8d9c3387b0af877, type: 3}
   - {fileID: 8300000, guid: 15fddf53d8a7a1d4ab1cd06452e3473e, type: 3}
@@ -22614,7 +22587,14 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 902c5b26ea7da64458d6ec265f6c136f, type: 3}
   - {fileID: 8300000, guid: d99e0fe5c0fb5064ab92490bc1c17b09, type: 3}
   antoPlaylist_CG_10_4:
-  - {fileID: 8300000, guid: baf2435ea3f5c634f8e7fb20669b5693, type: 3}
+  - {fileID: 8300000, guid: ce72553422d567a42b162bfd13badbcc, type: 3}
+  - {fileID: 8300000, guid: 221455870f2b0b649b212fbee2ef5cdf, type: 3}
+  - {fileID: 8300000, guid: c16b698daa79c194fbea795289c78736, type: 3}
+  - {fileID: 8300000, guid: 78cac024df5316744a55608bdd94d1d4, type: 3}
+  - {fileID: 8300000, guid: 858c1001ffdd106409aef0a1d52e2917, type: 3}
+  - {fileID: 8300000, guid: 7de982894fcb38842bd38d7719da4296, type: 3}
+  - {fileID: 8300000, guid: 59045cce56f144f4c81f58e91b7846e4, type: 3}
+  - {fileID: 8300000, guid: a37f5bc1346f9124b9f16ca943c1fadd, type: 3}
   hettyPlaylist_CG_01_1:
   - {fileID: 8300000, guid: 76b9c03efefa7b34f944727444d82c4e, type: 3}
   - {fileID: 8300000, guid: 924c9acd2efa8bb43aece01965a20001, type: 3}
@@ -24844,24 +24824,6 @@ RectTransform:
   m_AnchoredPosition: {x: 38.6, y: -12.500009}
   m_SizeDelta: {x: 70.59698, y: 39.52467}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7793281310332475603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3463248298651461292}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u308F\u305F\u3057"
-  C_1: "\u6211"
-  C_2: "\u6211"
-  E: Me
-  K: "\uB098"
-  isTyped: 0
 --- !u!114 &7796041236922705448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25685,7 +25647,7 @@ MonoBehaviour:
   J: "\u95C7\u5546\u4EBA"
   C_1: "\u9ED1\u5E02\u5546\u4EBA"
   C_2: "\u9ED1\u5E02\u5546\u4EBA"
-  E: BlackMarketer
+  E: Marketer
   K: "\uC554\uC2DC\uC7A5 \uC0C1\uC778"
   isTyped: 0
 --- !u!114 &8797373518544523158
@@ -26106,7 +26068,7 @@ GameObject:
   - component: {fileID: 4241554118340877143}
   - component: {fileID: 6658216773622057591}
   - component: {fileID: 7506999779475046422}
-  - component: {fileID: 4521497488152083377}
+  - component: {fileID: 9174937626903395551}
   m_Layer: 5
   m_Name: Text_NPC_2
   m_TagString: Untagged
@@ -26114,6 +26076,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
+--- !u!114 &9174937626903395551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9174937626903395550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u5192\u967A\u8005"
+  C_1: "\u5192\u9669\u8005"
+  C_2: "\u5192\u96AA\u8005"
+  E: Adventurer
+  K: "\uBAA8\uD5D8\uAC00"
+  isTyped: 0
 --- !u!114 &9178217787332020857
 MonoBehaviour:
   m_ObjectHideFlags: 0
