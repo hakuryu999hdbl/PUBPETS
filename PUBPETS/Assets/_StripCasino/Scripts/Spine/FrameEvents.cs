@@ -351,11 +351,67 @@ public class FrameEvents : MonoBehaviour
     public void _Anto_Game_035() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_035); }
     public void _Anto_Game_036() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_036); }
 
+    public void _Anto_Game_039() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_039); }
+    public void _Anto_Game_048() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_048); }
+    public void _Anto_Game_052() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_052); }
+    public void _Anto_Game_062() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_062); }
+    public void _Anto_Game_070() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_070); }
+    public void _Anto_Game_078() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_078); }
+    public void _Anto_Game_086() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_086); }
+    public void _Anto_Game_095() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_095); }
+    public void _Anto_Game_099() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_099); }
+    public void _Anto_Game_107() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Anto_Game_107); }
+
+
+
+
+
+
+    //------------赫蒂声音
+
+    public void _Hetty_Game_064() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_064); }
+    public void _Hetty_Game_069() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_069); }
+    public void _Hetty_Game_074() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_074); }
+    public void _Hetty_Game_092() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_092); }
+    public void _Hetty_Game_102() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_102); }
+    public void _Hetty_Game_103() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_103); }
+    public void _Hetty_Game_116() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_116); }
+    public void _Hetty_Game_117() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_117); }
+    public void _Hetty_Game_130() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_130); }
+    public void _Hetty_Game_139() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_139); }
+
+
+
+
+
     //------------爱丽丝声音
 
     public void _Alice_Game_062() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_062); }
     public void _Alice_Game_063() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_063); }
     public void _Alice_Game_066() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_066); }
+
+
+    public void _Alice_Game_73() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_073); }
+    public void _Alice_Game_74() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_074); }
+
+    public void _Alice_Game_77() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_077); }
+
+    public void _Alice_Game_84() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_084); }
+    public void _Alice_Game_85() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_085); }
+    public void _Alice_Game_87() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_087); }
+    public void _Alice_Game_88() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_088); }
+
+
+
+    public void _Alice_Game_94() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_094); }
+    public void _Alice_Game_95() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_095); }
+
+    public void _Alice_Game_102() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_102); }
+    public void _Alice_Game_107() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_107); }
+
+    public void _Alice_Game_111() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_111); }
+
+    public void _Alice_Game_120() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_120); }
 
     #endregion
 }

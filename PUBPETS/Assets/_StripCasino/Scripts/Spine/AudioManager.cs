@@ -86,8 +86,42 @@ public class AudioManager : MonoBehaviour
 
 
 
+
+
     public AudioClip Anto_Game_034, Anto_Game_035, Anto_Game_036;
+    public AudioClip Anto_Game_039, Anto_Game_048;
+    public AudioClip Anto_Game_052;
+    public AudioClip Anto_Game_062;
+    public AudioClip Anto_Game_070;
+    public AudioClip Anto_Game_078;
+    public AudioClip Anto_Game_086, Anto_Game_095;
+    public AudioClip Anto_Game_099, Anto_Game_107;
+
+
+
+
+
+
+    public AudioClip Hetty_Game_064, Hetty_Game_069;
+    public AudioClip Hetty_Game_074;
+    public AudioClip Hetty_Game_092;
+    public AudioClip Hetty_Game_102, Hetty_Game_103;
+    public AudioClip Hetty_Game_116, Hetty_Game_117;
+    public AudioClip Hetty_Game_130;
+    public AudioClip Hetty_Game_139;
+
+
+
+
+
     public AudioClip Alice_Game_062, Alice_Game_063, Alice_Game_066;
+    public AudioClip Alice_Game_073, Alice_Game_074;
+    public AudioClip Alice_Game_077;
+    public AudioClip Alice_Game_084,Alice_Game_085,Alice_Game_087,Alice_Game_088;
+    public AudioClip Alice_Game_094,Alice_Game_095;
+    public AudioClip Alice_Game_102,Alice_Game_107;
+    public AudioClip Alice_Game_111;
+    public AudioClip Alice_Game_120;
 
     #endregion
 }
