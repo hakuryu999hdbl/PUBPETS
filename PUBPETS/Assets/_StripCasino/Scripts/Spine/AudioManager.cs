@@ -106,6 +106,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip Hetty_Game_074;
     public AudioClip Hetty_Game_092;
     public AudioClip Hetty_Game_102, Hetty_Game_103;
+    public AudioClip Hetty_Game_107, Hetty_Game_108;
     public AudioClip Hetty_Game_116, Hetty_Game_117;
     public AudioClip Hetty_Game_130;
     public AudioClip Hetty_Game_139;

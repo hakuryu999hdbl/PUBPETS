@@ -375,6 +375,8 @@ public class FrameEvents : MonoBehaviour
     public void _Hetty_Game_092() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_092); }
     public void _Hetty_Game_102() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_102); }
     public void _Hetty_Game_103() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_103); }
+    public void _Hetty_Game_107() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_107); }
+    public void _Hetty_Game_108() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_108); }
     public void _Hetty_Game_116() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_116); }
     public void _Hetty_Game_117() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_117); }
     public void _Hetty_Game_130() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Hetty_Game_130); }

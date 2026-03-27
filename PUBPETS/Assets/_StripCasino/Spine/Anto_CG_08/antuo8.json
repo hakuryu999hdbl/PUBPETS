@@ -1,7 +1,7 @@
 {
 "skeleton": {
-	"hash": "2CRhtG17jbQ",
-	"spine": "4.2.42",
+	"hash": "FjM04qt1xzo",
+	"spine": "4.2.40",
 	"x": -2041,
 	"y": -1868.02,
 	"width": 4124.19,
@@ -359,6 +359,7 @@
 	{ "name": "fog3", "bone": "fog3", "attachment": "fog" },
 	{ "name": "fog2", "bone": "fog2", "attachment": "fog" },
 	{ "name": "shexiangji", "bone": "shexiangji", "attachment": "shexiangji" },
+	{ "name": "hongdian", "bone": "root", "attachment": "hongdian" },
 	{ "name": "xiangkuang", "bone": "root", "attachment": "xiangkuang" },
 	{ "name": "guangyun", "bone": "guangyun", "attachment": "guangyun" },
 	{ "name": "bjingye", "bone": "bone" },
@@ -552,6 +553,9 @@
 					"width": 2899,
 					"height": 1881
 				}
+			},
+			"hongdian": {
+				"hongdian": { "x": -1662.16, "y": -669.3, "width": 228, "height": 228 }
 			},
 			"jibaying": {
 				"jibaying": {
@@ -783,6 +787,7 @@
 	}
 ],
 "events": {
+	"_Anto_Game_078": { "audio": "AVG/Anto_2/GAME/078.wav" },
 	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
 	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
 	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
@@ -849,6 +854,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"mei1": {
@@ -1477,6 +1492,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"mei1": {
@@ -2123,6 +2148,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"mei1": {
 				"attachment": [
 					{ "name": "mei1" }
@@ -2754,6 +2789,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -3529,7 +3574,8 @@
 		"events": [
 			{ "name": "_SE_Clothes_2" },
 			{ "time": 0.3333, "name": "_SE_Clothes" },
-			{ "time": 1, "name": "_SE_Semen_fuck_in" }
+			{ "time": 1, "name": "_SE_Semen_fuck_in" },
+			{ "time": 1.3333, "name": "_Anto_Game_078" }
 		]
 	},
 	"animation3": {
@@ -3591,6 +3637,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -4655,6 +4711,16 @@
 					{ "time": 1.6667, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"jibaying": {
 				"rgba": [
 					{
@@ -5440,6 +5506,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"mei1": {
 				"attachment": [
 					{ "name": "mei1" }
@@ -6086,6 +6162,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"mei1": {
@@ -6736,6 +6822,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"mei1": {
@@ -7403,6 +7499,16 @@
 				],
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -8217,7 +8323,8 @@
 		"events": [
 			{ "name": "_SE_Clothes_2" },
 			{ "time": 0.1667, "name": "_SE_Clothes" },
-			{ "time": 0.8667, "name": "_SE_Semen_fuck_in" }
+			{ "time": 0.8667, "name": "_SE_Semen_fuck_in" },
+			{ "time": 1, "name": "_Anto_Game_078" }
 		]
 	},
 	"animation6": {
@@ -8284,6 +8391,16 @@
 			"heishou": {
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -9396,6 +9513,16 @@
 			"heishou": {
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -10511,6 +10638,16 @@
 					{ "name": "heishou" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"jibaying": {
 				"attachment": [
 					{ "name": "jibaying" }
@@ -11621,6 +11758,16 @@
 			"heishou": {
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -12737,6 +12884,16 @@
 					{ "name": "heishou" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"jibaying": {
 				"attachment": [
 					{ "name": "jibaying" }
@@ -13847,6 +14004,16 @@
 			"heishou": {
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -14960,6 +15127,16 @@
 			"heishou": {
 				"attachment": [
 					{ "name": "heishou" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -16140,6 +16317,22 @@
 				"attachment": [
 					{ "name": "heishou" },
 					{ "time": 2 }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" },
+					{ "time": 2.3333, "name": "hongdian" },
+					{ "time": 2.5667 },
+					{ "time": 2.8, "name": "hongdian" },
+					{ "time": 3.3333, "name": "hongdian" },
+					{ "time": 3.5667 },
+					{ "time": 3.8, "name": "hongdian" }
 				]
 			},
 			"jibaying": {
@@ -17678,6 +17871,16 @@
 						"curve": [ 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 1, 1.778, 1, 1.556, 0, 1.778, 1 ]
 					},
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"mei1": {

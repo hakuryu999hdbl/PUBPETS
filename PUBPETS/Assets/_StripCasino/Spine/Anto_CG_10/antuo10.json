@@ -1,7 +1,7 @@
 {
 "skeleton": {
-	"hash": "1MGQU+3GaiA",
-	"spine": "4.2.42",
+	"hash": "2cB6qZr/v8o",
+	"spine": "4.2.40",
 	"x": -2248.51,
 	"y": -2592.74,
 	"width": 4632.02,
@@ -300,7 +300,6 @@
 	{ "name": "Blijingye", "bone": "Blijingye" },
 	{ "name": "koubishou", "bone": "root", "attachment": "koubishou" },
 	{ "name": "shoushanghan", "bone": "root", "attachment": "shoushanghan" },
-	{ "name": "jiezhi", "bone": "bone52", "attachment": "jiezhi" },
 	{ "name": "zuilijingye", "bone": "bone16" },
 	{ "name": "JB", "bone": "bone66" },
 	{ "name": "bone67", "bone": "bone67", "attachment": "bone67" },
@@ -309,6 +308,7 @@
 	{ "name": "fog3", "bone": "fog3", "attachment": "fog" },
 	{ "name": "fog2", "bone": "fog2", "attachment": "fog" },
 	{ "name": "heimu", "bone": "root", "attachment": "heimu" },
+	{ "name": "hongdian", "bone": "root", "attachment": "hongdian" },
 	{ "name": "xiangkuang", "bone": "root", "attachment": "xiangkuang" },
 	{ "name": "heimu1", "bone": "root" }
 ],
@@ -521,6 +521,9 @@
 					"height": 3234
 				}
 			},
+			"hongdian": {
+				"hongdian": { "x": -1561.18, "y": 297.92, "scaleX": 0.9281, "scaleY": 0.9281, "width": 228, "height": 228 }
+			},
 			"JB": {
 				"JB": {
 					"type": "mesh",
@@ -532,9 +535,6 @@
 					"width": 689,
 					"height": 502
 				}
-			},
-			"jiezhi": {
-				"jiezhi": { "x": 72.26, "y": -40.06, "rotation": -33.41, "width": 119, "height": 101 }
 			},
 			"jy": {
 				"jy": {
@@ -633,7 +633,16 @@
 				}
 			},
 			"shoushanghan": {
-				"shoushanghan": { "x": -1475, "y": -1018.5, "width": 397, "height": 481 }
+				"shoushanghan": {
+					"type": "mesh",
+					"uvs": [ 0.85057, 0, 0.97248, 0.11258, 1, 0.24806, 1, 0.25991, 0.82427, 0.43896, 0.78117, 0.57799, 0.80721, 0.79027, 0.60131, 0.96438, 0.53775, 1, 0.50368, 1, 0.64564, 0.8578, 0.64226, 0.80838, 0.21438, 0.65395, 0.21026, 0.52247, 0, 0.69896, 0, 0.67287, 0.41296, 0.10984, 0.36678, 0.23654, 0.25966, 0.51943, 0.35758, 0.61321, 0.5785, 0.55033, 0.72494, 0.5575, 0.68532, 0.42642, 0.94375, 0.14382, 0.84576, 0.10257, 0.78399, 0.02209, 0.63787, 0.09226, 0.5788, 0.26441, 0.48497, 0.3044, 0.61604, 0.03963, 0.84597, 0 ],
+					"triangles": [ 8, 9, 7, 10, 7, 9, 7, 10, 6, 10, 11, 6, 12, 19, 11, 19, 20, 11, 11, 5, 6, 11, 21, 5, 11, 20, 21, 14, 15, 13, 13, 15, 17, 12, 18, 19, 12, 13, 18, 5, 21, 4, 21, 22, 4, 18, 13, 17, 15, 16, 17, 3, 4, 23, 4, 22, 23, 26, 27, 28, 29, 26, 28, 23, 2, 3, 23, 1, 2, 1, 23, 24, 24, 30, 0, 1, 24, 0, 24, 25, 30, 26, 29, 25, 25, 29, 30 ],
+					"vertices": [ 2, 51, -99.18, 86.48, 0.42861, 52, 285.33, 151.83, 0.57139, 2, 51, -57.35, 145.85, 0.21546, 52, 295.9, 79.97, 0.78454, 2, 51, 3.67, 171.21, 0.03722, 52, 269.14, 19.56, 0.96278, 2, 51, 9.22, 172.5, 0.03359, 52, 266, 14.8, 0.96641, 2, 51, 108.87, 123.97, 0.0027, 52, 160.34, -18.66, 0.9973, 2, 51, 177.88, 122.4, 0.18915, 52, 109.23, -65.06, 0.81085, 2, 51, 275.02, 155.53, 0.32746, 52, 61.63, -155.98, 0.67254, 2, 51, 375.05, 94.8, 0.32765, 52, -52.72, -180.87, 0.67235, 2, 51, 397.44, 74.09, 0.32613, 52, -83.22, -181.28, 0.67387, 2, 51, 400.5, 60.91, 0.32601, 52, -94.51, -173.83, 0.67399, 2, 51, 321.14, 100.37, 0.33618, 52, -9.8, -147.77, 0.66382, 2, 51, 298.29, 93.7, 0.35009, 52, 2.17, -127.19, 0.64991, 2, 51, 264.27, -88.55, 0.72484, 52, -98.71, 28.36, 0.27516, 2, 51, 203.03, -104.43, 0.88142, 52, -65.25, 82.05, 0.11858, 2, 51, 304.58, -166.58, 0.96336, 52, -181.68, 57.16, 0.03664, 2, 51, 292.35, -169.41, 0.96278, 52, -174.77, 67.63, 0.03722, 1, 51, -8.49, -70.84, 1, 2, 51, 55.02, -74.94, 0.99439, 52, 62.35, 162.63, 0.00561, 2, 51, 197.18, -85.65, 0.85751, 52, -48.08, 72.47, 0.14249, 2, 51, 232.35, -37.59, 0.63823, 52, -40.47, 13.41, 0.36177, 2, 51, 183.08, 41.02, 0.38248, 52, 49.4, -9.64, 0.61752, 2, 51, 173.32, 98.43, 0.18527, 52, 96.02, -44.54, 0.81473, 1, 52, 117.62, 16.75, 1, 2, 51, -40.14, 138.13, 0.17296, 52, 278.11, 73.71, 0.82704, 2, 51, -50.68, 95.76, 0.34486, 52, 256.56, 111.7, 0.65514, 2, 51, -82.86, 63.13, 0.54051, 52, 257.41, 157.51, 0.45949, 2, 51, -36.88, 14.24, 0.94358, 52, 190.41, 161.29, 0.05642, 1, 51, 49.08, 10.08, 1, 2, 51, 76.23, -21.86, 1, 52, 83.54, 109.54, 0, 2, 51, -59.59, 0.08, 0.91932, 52, 197.11, 187.19, 0.08068, 2, 51, -98.76, 84.7, 0.43094, 52, 283.8, 152.83, 0.56906 ],
+					"hull": 31,
+					"edges": [ 0, 60, 0, 2, 2, 4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16, 16, 18, 18, 20, 20, 22, 22, 24, 24, 26, 26, 28, 28, 30, 30, 32, 32, 34, 34, 36, 36, 38, 38, 40, 40, 42, 42, 44, 44, 46, 46, 48, 48, 50, 50, 52, 52, 54, 54, 56, 56, 58, 58, 60 ],
+					"width": 397,
+					"height": 481
+				}
 			},
 			"tiequan": {
 				"nanrenyoushou": { "x": 402.02, "y": -13.49, "rotation": 167.14, "width": 966, "height": 938 },
@@ -867,6 +876,8 @@
 	}
 ],
 "events": {
+	"_Anto_Game_099": { "audio": "AVG/Anto_2/GAME/099.wav" },
+	"_Anto_Game_107": { "audio": "AVG/Anto_2/GAME/107.wav" },
 	"_SE_Clothes": { "audio": "SE/SE_Clothes.wav" },
 	"_SE_Clothes_2": { "audio": "SE/SE_Clothes_2.mp3" },
 	"_SE_LotionGauze": { "audio": "SE/SE_LotionGauze_1.mp3" },
@@ -911,6 +922,16 @@
 			"hanshuitui": {
 				"attachment": [
 					{}
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"lianshanghan": {
@@ -1535,6 +1556,16 @@
 						"curve": [ 0.333, 1, 0.667, 1, 0.333, 1, 0.667, 1, 0.333, 1, 0.667, 1, 0.333, 0, 0.667, 1 ]
 					},
 					{ "time": 1, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"lianshanghan": {
@@ -2182,6 +2213,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"lianshanghan": {
 				"attachment": [
 					{ "name": "lianshanghan" }
@@ -2800,6 +2841,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"lianshanghan": {
@@ -3441,6 +3492,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"lianshanghan": {
 				"attachment": [
 					{ "name": "lianshanghan" }
@@ -4059,6 +4120,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"lianshanghan": {
@@ -4682,6 +4753,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"lianshanghan": {
 				"attachment": [
 					{ "name": "lianshanghan" }
@@ -5300,6 +5381,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"lianshanghan": {
@@ -5933,6 +6024,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"lianshanghan": {
 				"attachment": [
 					{ "name": "lianshanghan" }
@@ -6551,6 +6652,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -7315,7 +7426,8 @@
 		"events": [
 			{ "name": "_SE_LotionGauze" },
 			{ "time": 0.3333, "name": "_SE_Clothes" },
-			{ "time": 0.6667, "name": "_SE_Semen_fuck_in" }
+			{ "time": 0.6667, "name": "_SE_Semen_fuck_in" },
+			{ "time": 0.8, "name": "_Anto_Game_099" }
 		]
 	},
 	"animation6": {
@@ -7345,6 +7457,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -8471,6 +8593,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -9608,6 +9740,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"JB": {
 				"attachment": [
 					{ "name": "JB" }
@@ -10740,6 +10882,16 @@
 					{ "time": 2, "color": "ffffffff" }
 				]
 			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
+				]
+			},
 			"JB": {
 				"rgba": [
 					{
@@ -11846,6 +11998,7 @@
 		"events": [
 			{ "name": "_SE_LotionGauze" },
 			{ "time": 0.5, "name": "_SE_Semen_3" },
+			{ "time": 1, "name": "_Anto_Game_107" },
 			{ "time": 1, "name": "_SE_Semen_fuck_out" }
 		]
 	},
@@ -11881,6 +12034,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -12522,6 +12685,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -13341,6 +13514,7 @@
 		"events": [
 			{ "name": "_SE_Clothes" },
 			{ "time": 0.4667, "name": "_SE_Semen_fuck_in" },
+			{ "time": 0.6667, "name": "_Anto_Game_099" },
 			{ "time": 1.3333, "name": "_SE_Semen_2" }
 		]
 	},
@@ -13376,6 +13550,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -14598,6 +14782,22 @@
 				],
 				"attachment": [
 					{ "time": 0.8333, "name": "heimu1" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" },
+					{ "time": 2, "name": "hongdian" },
+					{ "time": 2.2333 },
+					{ "time": 2.4667, "name": "hongdian" },
+					{ "time": 3, "name": "hongdian" },
+					{ "time": 3.2333 },
+					{ "time": 3.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
@@ -16243,6 +16443,7 @@
 		"events": [
 			{ "name": "_SE_Semen_1" },
 			{ "time": 0.6667, "name": "_SE_Semen_2" },
+			{ "time": 2, "name": "_Anto_Game_107" },
 			{ "time": 2, "name": "_SE_Clothes" },
 			{ "time": 3, "name": "_SE_Water" }
 		]
@@ -16279,6 +16480,16 @@
 					{ "time": 1.3, "color": "ffffff00", "curve": "stepped" },
 					{ "time": 1.3333, "color": "ffffff00" },
 					{ "time": 2, "color": "ffffffff" }
+				]
+			},
+			"hongdian": {
+				"attachment": [
+					{ "name": "hongdian" },
+					{ "time": 0.2333 },
+					{ "time": 0.4667, "name": "hongdian" },
+					{ "time": 1, "name": "hongdian" },
+					{ "time": 1.2333 },
+					{ "time": 1.4667, "name": "hongdian" }
 				]
 			},
 			"JB": {
