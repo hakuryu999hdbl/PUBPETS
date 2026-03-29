@@ -126,7 +126,7 @@ namespace Blackjack_Game
              
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            GameFlowData.nextAVGId = "Anto_CG_10_3";//获胜失败和CG使用
+            GameFlowData.nextAVGId = "Alice_CG_08_3";//获胜失败和CG使用
             //PlayerPrefs.SetInt("language", 0);
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
