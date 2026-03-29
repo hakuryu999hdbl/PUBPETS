@@ -4811,23 +4811,6 @@ namespace Blackjack_Game
 
 
 
-        //假如帧事件发音期间，循环娇喘音开启，那么压低直到帧事件发音结束
-
-        [SerializeField] private float moanNormalVolume = 1f;
-        [SerializeField] private float moanDuckedVolume = 0.2f; // 帧事件期间压低到20%
-        private void DuckMoanLoop()
-        {
-            if (moanLoop != null)
-                moanLoop.volume = moanDuckedVolume;
-        }
-
-        private void UnduckMoanLoop()
-        {
-            if (moanLoop != null)
-                moanLoop.volume = moanNormalVolume;
-        }
-
-
 
         #endregion
 
