@@ -315,7 +315,7 @@ public class FrameEvents : MonoBehaviour
 
     public void _SE_Water() 
     {
-        audioS.PlayOneShot(AudioManager.SE_Water);
+        //audioS.PlayOneShot(AudioManager.SE_Water);
 
     }
 
@@ -398,8 +398,32 @@ public class FrameEvents : MonoBehaviour
 
     public void _Alice_Game_77() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_077); }
 
-    public void _Alice_Game_84() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_084); }
-    public void _Alice_Game_85() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_085); }
+    public void _Alice_Game_84() 
+    {
+
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_084);
+                break;
+            case 1:
+                DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_085);
+                break;
+        }
+      
+    }//这个嗅嗅的声音，因为是循环的，所以随机触发比较好
+    public void _Alice_Game_85() 
+    {
+        switch (Random.Range(0, 3))
+        {
+            case 0:
+                DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_084);
+                break;
+            case 1:
+                DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_085);
+                break;
+        }
+    }//这个嗅嗅的声音，因为是循环的，所以随机触发比较好
     public void _Alice_Game_87() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_087); }
     public void _Alice_Game_88() { DialogSystem._instance.PlaySpineEventVoice(AudioManager.Alice_Game_088); }
 

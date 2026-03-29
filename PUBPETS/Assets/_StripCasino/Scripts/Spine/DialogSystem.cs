@@ -3915,7 +3915,6 @@ namespace Blackjack_Game
 
         int VoiceIndex = 0;
 
-
         public void Girl_Voice()
         {
 
@@ -4437,8 +4436,11 @@ namespace Blackjack_Game
 
             // 2) 播放台词前：暂停呻吟循环
             PauseMoanLoop();
-            if (resumeCo != null) StopCoroutine(resumeCo);
-
+            if (resumeCo != null) StopCoroutine(resumeCo);//如果循环娇喘在放，暂停循环娇喘
+            if (eventResumeCo != null) StopCoroutine(eventResumeCo);//如果Spine帧事件触发声音，暂停帧事件声音
+                                                                    // 台词优先：如果帧事件短叫声正在播，直接掐掉
+            if (eventSource != null && eventSource.isPlaying)
+                eventSource.Stop();
 
 
             // 3) 播台词
@@ -4459,7 +4461,9 @@ namespace Blackjack_Game
         {
             // 避免 pitch / 重新触发导致误判，改用 isPlaying 轮询最稳
             yield return new WaitWhile(() => voiceSource != null && voiceSource.isPlaying);
-            ResumeMoanLoop();
+
+            TryResumeMoanLoop();
+            //ResumeMoanLoop();
         }
 
         #endregion
@@ -4698,6 +4702,19 @@ namespace Blackjack_Game
         {
             if (pool == null || pool.Count == 0) return;
 
+
+            //// 台词中不启动
+            //if (voiceSource != null && voiceSource.isPlaying)
+            //    return;
+            //
+            //// 帧事件中不启动
+            //if (eventSource != null && eventSource.isPlaying)
+            //    return;
+
+
+
+
+
             var clip = pool[Random.Range(0, pool.Count)];
             moanLoop.clip = clip;
             moanLoop.loop = true;
@@ -4714,6 +4731,17 @@ namespace Blackjack_Game
             if (moanLoop != null && moanLoop.clip != null) moanLoop.UnPause();
         }
 
+        private void TryResumeMoanLoop()
+        {
+            if (voiceSource != null && voiceSource.isPlaying)
+                return;
+
+            if (eventSource != null && eventSource.isPlaying)
+                return;
+
+            ResumeMoanLoop();
+
+        }//如果启动循环娇喘，只有非台词非Spine帧事件触发语音期间
 
         #endregion
 
@@ -4743,6 +4771,7 @@ namespace Blackjack_Game
         public void PlaySpineEventVoice(AudioClip clip)
         {
             if (clip == null) return;
+            if (eventSource == null) return;
 
             // 1. 台词优先级最高：台词播放中，帧事件声音直接不播
             if (voiceSource != null && voiceSource.isPlaying)
@@ -4776,9 +4805,28 @@ namespace Blackjack_Game
             // 如果此时台词正在播放，就不要恢复娇喘
             if (voiceSource != null && voiceSource.isPlaying)
                 yield break;
-
-            ResumeMoanLoop();
+            TryResumeMoanLoop();
+            //ResumeMoanLoop();
         }
+
+
+
+        //假如帧事件发音期间，循环娇喘音开启，那么压低直到帧事件发音结束
+
+        [SerializeField] private float moanNormalVolume = 1f;
+        [SerializeField] private float moanDuckedVolume = 0.2f; // 帧事件期间压低到20%
+        private void DuckMoanLoop()
+        {
+            if (moanLoop != null)
+                moanLoop.volume = moanDuckedVolume;
+        }
+
+        private void UnduckMoanLoop()
+        {
+            if (moanLoop != null)
+                moanLoop.volume = moanNormalVolume;
+        }
+
 
 
         #endregion
