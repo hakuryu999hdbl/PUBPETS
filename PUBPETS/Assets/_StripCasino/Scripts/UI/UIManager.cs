@@ -2144,126 +2144,135 @@ namespace Blackjack_Game
         //获得胜利开启CG
         public void Load_Win_AVG()
         {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            switch (GameFlowData.nextAVGId)
+            if (GameFlowData.returnPath == "replay") //如果这是在通关后的选择关卡游玩，那么直接重新开始新的一天
             {
-                case "VSAnto":
-                    switch (data.antoProgress)
-                    {
-                        case 1:
-                            GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-                            break;
-                        case 2:
-                            GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
-                            break;
-                        case 3:
-                            GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
-                            break;
-                        case 4:
-                            GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
-                            break;
-                        case 5:
-                            GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
-                            break;
-                        case 6:
-                            GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
-                            break;
-                        case 7:
-                            GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
-                            break;
-                        case 8:
-                            GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
-                            break;
-                        case 9:
-                            GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
-                            break;
-                        case 10:
-                            GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
-                            break;
-                    }
-                    break;
 
-                case "VSHetty":
-                    switch (data.hettyProgress)
-                    {
-                        case 1:
-                            GameFlowData.nextAVGId = "Hetty_CG_01_2";//开启赫蒂第一个CG前端AVG
-                            break;
-                        case 2:
-                            GameFlowData.nextAVGId = "Hetty_CG_02_2";//开启赫蒂第二个CG前端AVG
-                            break;
-                        case 3:
-                            GameFlowData.nextAVGId = "Hetty_CG_03_2";//开启赫蒂第三个CG前端AVG
-                            break;
-                        case 4:
-                            GameFlowData.nextAVGId = "Hetty_CG_04_2";//开启赫蒂第四个CG前端AVG
-                            break;
-                        case 5:
-                            GameFlowData.nextAVGId = "Hetty_CG_05_2";//开启赫蒂第五个CG前端AVG
-                            break;
-                        case 6:
-                            GameFlowData.nextAVGId = "Hetty_CG_06_2";//开启赫蒂第六个CG前端AVG
-                            break;
-                        case 7:
-                            GameFlowData.nextAVGId = "Hetty_CG_07_2";//开启赫蒂第七个CG前端AVG
-                            break;
-                        case 8:
-                            GameFlowData.nextAVGId = "Hetty_CG_08_2";//开启赫蒂第八个CG前端AVG
-                            break;
-                        case 9:
-                            GameFlowData.nextAVGId = "Hetty_CG_09_2";//开启赫蒂第九个CG前端AVG
-                            break;
-                        case 10:
-                            GameFlowData.nextAVGId = "Hetty_CG_10_2";//开启赫蒂第十个CG前端AVG
-                            break;
-                    }
-                    break;
-
-                case "VSAlice":
-                    switch (data.aliceProgress)
-                    {
-                        case 1:
-                            GameFlowData.nextAVGId = "Alice_CG_01_2";//开启爱丽丝第一个CG前端AVG
-                            break;
-                        case 2:
-                            GameFlowData.nextAVGId = "Alice_CG_02_2";//开启爱丽丝第二个CG前端AVG
-                            break;
-                        case 3:
-                            GameFlowData.nextAVGId = "Alice_CG_03_2";//开启爱丽丝第三个CG前端AVG
-                            break;
-                        case 4:
-                            GameFlowData.nextAVGId = "Alice_CG_04_2";//开启爱丽丝第四个CG前端AVG
-                            break;
-                        case 5:
-                            GameFlowData.nextAVGId = "Alice_CG_05_2";//开启爱丽丝第五个CG前端AVG
-                            break;
-                        case 6:
-                            GameFlowData.nextAVGId = "Alice_CG_06_2";//开启爱丽丝第六个CG前端AVG
-                            break;
-                        case 7:
-                            GameFlowData.nextAVGId = "Alice_CG_07_2";//开启爱丽丝第七个CG前端AVG
-                            break;
-                        case 8:
-                            GameFlowData.nextAVGId = "Alice_CG_08_2";//开启爱丽丝第八个CG前端AVG
-                            break;
-                        case 9:
-                            GameFlowData.nextAVGId = "Alice_CG_09_2";//开启爱丽丝第九个CG前端AVG
-                            break;
-                        case 10:
-                            GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
-                            break;
-                    }
-                    break;
+                GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                GameFlowData.returnPath = null;
+            }
+            else
+            {
 
 
+                SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+                switch (GameFlowData.nextAVGId)
+                {
+                    case "VSAnto":
+                        switch (data.antoProgress)
+                        {
+                            case 1:
+                                GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+                                break;
+                            case 2:
+                                GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+                                break;
+                            case 3:
+                                GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+                                break;
+                            case 4:
+                                GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
+                                break;
+                            case 5:
+                                GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
+                                break;
+                            case 6:
+                                GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
+                                break;
+                            case 7:
+                                GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
+                                break;
+                            case 8:
+                                GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
+                                break;
+                            case 9:
+                                GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
+                                break;
+                            case 10:
+                                GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
+                                break;
+                        }
+                        break;
+
+                    case "VSHetty":
+                        switch (data.hettyProgress)
+                        {
+                            case 1:
+                                GameFlowData.nextAVGId = "Hetty_CG_01_2";//开启赫蒂第一个CG前端AVG
+                                break;
+                            case 2:
+                                GameFlowData.nextAVGId = "Hetty_CG_02_2";//开启赫蒂第二个CG前端AVG
+                                break;
+                            case 3:
+                                GameFlowData.nextAVGId = "Hetty_CG_03_2";//开启赫蒂第三个CG前端AVG
+                                break;
+                            case 4:
+                                GameFlowData.nextAVGId = "Hetty_CG_04_2";//开启赫蒂第四个CG前端AVG
+                                break;
+                            case 5:
+                                GameFlowData.nextAVGId = "Hetty_CG_05_2";//开启赫蒂第五个CG前端AVG
+                                break;
+                            case 6:
+                                GameFlowData.nextAVGId = "Hetty_CG_06_2";//开启赫蒂第六个CG前端AVG
+                                break;
+                            case 7:
+                                GameFlowData.nextAVGId = "Hetty_CG_07_2";//开启赫蒂第七个CG前端AVG
+                                break;
+                            case 8:
+                                GameFlowData.nextAVGId = "Hetty_CG_08_2";//开启赫蒂第八个CG前端AVG
+                                break;
+                            case 9:
+                                GameFlowData.nextAVGId = "Hetty_CG_09_2";//开启赫蒂第九个CG前端AVG
+                                break;
+                            case 10:
+                                GameFlowData.nextAVGId = "Hetty_CG_10_2";//开启赫蒂第十个CG前端AVG
+                                break;
+                        }
+                        break;
+
+                    case "VSAlice":
+                        switch (data.aliceProgress)
+                        {
+                            case 1:
+                                GameFlowData.nextAVGId = "Alice_CG_01_2";//开启爱丽丝第一个CG前端AVG
+                                break;
+                            case 2:
+                                GameFlowData.nextAVGId = "Alice_CG_02_2";//开启爱丽丝第二个CG前端AVG
+                                break;
+                            case 3:
+                                GameFlowData.nextAVGId = "Alice_CG_03_2";//开启爱丽丝第三个CG前端AVG
+                                break;
+                            case 4:
+                                GameFlowData.nextAVGId = "Alice_CG_04_2";//开启爱丽丝第四个CG前端AVG
+                                break;
+                            case 5:
+                                GameFlowData.nextAVGId = "Alice_CG_05_2";//开启爱丽丝第五个CG前端AVG
+                                break;
+                            case 6:
+                                GameFlowData.nextAVGId = "Alice_CG_06_2";//开启爱丽丝第六个CG前端AVG
+                                break;
+                            case 7:
+                                GameFlowData.nextAVGId = "Alice_CG_07_2";//开启爱丽丝第七个CG前端AVG
+                                break;
+                            case 8:
+                                GameFlowData.nextAVGId = "Alice_CG_08_2";//开启爱丽丝第八个CG前端AVG
+                                break;
+                            case 9:
+                                GameFlowData.nextAVGId = "Alice_CG_09_2";//开启爱丽丝第九个CG前端AVG
+                                break;
+                            case 10:
+                                GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
+                                break;
+                        }
+                        break;
+
+
+                }
             }
 
-
-
-
-
             LoadingScene_Spine();
+
+
         }//这是剧情内部打开CG路径
 
 
@@ -2734,7 +2743,78 @@ namespace Blackjack_Game
 
         #endregion
 
+        /// <summary>
+        /// 局内教程
+        /// </summary>
+        #region
 
+        [Header("局内教程")]
+        public GameObject TutorialPanel;
+        public void OpenTutorialPanel()
+        {
+            Time.timeScale = 0f;
+            TutorialPanel.SetActive(true);
+        }
+        public void CloseTutorialPanel()
+        {
+            Time.timeScale = 1f;
+            TutorialPanel.SetActive(false);
+        }
+
+
+        public GameObject BasicRule, DoubleDown, Insurance, Split, Introduce_Anto, Introduce_Hetty, Introduce_Alice, Item;
+
+        // Method to call when a tab is clicked
+        public void TutorialPanel_OnTabClick(string tabName)
+        {
+            //AudioManager_2.SoundPlay(5);//手动SE音频替换
+
+
+            BasicRule.SetActive(false);
+            DoubleDown.SetActive(false);
+            Insurance.SetActive(false);
+            Split.SetActive(false);
+            Introduce_Anto.SetActive(false);
+            Introduce_Hetty.SetActive(false);
+            Introduce_Alice.SetActive(false);
+            Item.SetActive(false);
+            switch (tabName)
+            {
+                case "BasicRule":
+                    BasicRule.SetActive(true);
+                    break;
+                case "DoubleDown":
+                    DoubleDown.SetActive(true);
+                    break;
+                case "Insurance":
+                    Insurance.SetActive(true);
+                    break;
+                case "Split":
+                    Split.SetActive(true);
+                    break;
+                case "Introduce_Anto":
+                    Introduce_Anto.SetActive(true);
+                    break;
+                case "Introduce_Hetty":
+                    Introduce_Hetty.SetActive(true);
+                    break;
+                case "Introduce_Alice":
+                    Introduce_Alice.SetActive(true);
+                    break;
+                case "Item":
+                    Item.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
+
+        }
+
+
+
+
+
+        #endregion
 
     }
 }

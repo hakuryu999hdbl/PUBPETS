@@ -9639,7 +9639,7 @@ GameObject:
   - component: {fileID: 787422175}
   - component: {fileID: 787422174}
   - component: {fileID: 787422173}
-  - component: {fileID: 787422172}
+  - component: {fileID: 787422176}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -9666,24 +9666,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &787422172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787422170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u5360\u3044\u6C34\u6676 \u2192 \u81EA\u5206\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
-  C_1: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u4F60\u7684\u4E0B\u4E00\u5F20\u724C"
-  C_2: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u4F60\u7684\u4E0B\u4E00\u5F35\u724C"
-  E: "Divination Crystal \u2192 See your next card"
-  K: "\uC810\uC131 \uD06C\uB9AC\uC2A4\uD0C8 \u2192 \uB2E4\uC74C \uCE74\uB4DC \uBCF4\uAE30"
-  isTyped: 0
 --- !u!114 &787422173
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9732,7 +9714,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5360\u3044\u6C34\u6676 \u2192 \u81EA\u5206\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
+  m_Text: "\u5360\u3044\u6C34\u6676 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068
+    \u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
 --- !u!222 &787422175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -9741,6 +9724,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 787422170}
   m_CullTransparentMesh: 1
+--- !u!114 &787422176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 787422170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u5360\u3044\u6C34\u6676 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068
+    \u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u76D6\u724C\uFF0C\u724C\u5E93\u7B2C\u4E00\u7B2C\u4E8C\u5F20\u724C"
+  C_2: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u84CB\u724C\uFF0C\u724C\u5EAB\u7B2C\u4E00\u7B2C\u4E8C\u5F35\u724C"
+  E: "Divination Crystal \u2192 Peek at female dealer's hole card, deck's 1st and
+    2nd card"
+  K: "\uC810\uC220 \uC218\uC815 \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uD640\uCE74\uB4DC\uC640
+    \uB371\uC758 1\uBC88\uC9F8, 2\uBC88\uC9F8 \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &790115095
 GameObject:
   m_ObjectHideFlags: 0
@@ -10115,7 +10119,7 @@ GameObject:
   - component: {fileID: 811029306}
   - component: {fileID: 811029305}
   - component: {fileID: 811029304}
-  - component: {fileID: 811029303}
+  - component: {fileID: 811029307}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -10142,24 +10146,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &811029303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 811029301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u5360\u3044\u6C34\u6676 \u2192 \u81EA\u5206\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
-  C_1: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u4F60\u7684\u4E0B\u4E00\u5F20\u724C"
-  C_2: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u4F60\u7684\u4E0B\u4E00\u5F35\u724C"
-  E: "Divination Crystal \u2192 See your next card"
-  K: "\uC810\uC131 \uD06C\uB9AC\uC2A4\uD0C8 \u2192 \uB2E4\uC74C \uCE74\uB4DC \uBCF4\uAE30"
-  isTyped: 0
 --- !u!114 &811029304
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10208,7 +10194,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u5360\u3044\u6C34\u6676 \u2192 \u81EA\u5206\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
+  m_Text: "\u5360\u3044\u6C34\u6676 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068
+    \u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
 --- !u!222 &811029306
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10217,6 +10204,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811029301}
   m_CullTransparentMesh: 1
+--- !u!114 &811029307
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811029301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u5360\u3044\u6C34\u6676 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068
+    \u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u76D6\u724C\uFF0C\u724C\u5E93\u7B2C\u4E00\u7B2C\u4E8C\u5F20\u724C"
+  C_2: "\u5360\u535C\u6C34\u6676 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u84CB\u724C\uFF0C\u724C\u5EAB\u7B2C\u4E00\u7B2C\u4E8C\u5F35\u724C"
+  E: "Divination Crystal \u2192 Peek at female dealer's hole card, deck's 1st and
+    2nd card"
+  K: "\uC810\uC220 \uC218\uC815 \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uD640\uCE74\uB4DC\uC640
+    \uB371\uC758 1\uBC88\uC9F8, 2\uBC88\uC9F8 \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &851031561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10379,7 +10387,7 @@ GameObject:
   - component: {fileID: 872830266}
   - component: {fileID: 872830265}
   - component: {fileID: 872830264}
-  - component: {fileID: 872830263}
+  - component: {fileID: 872830267}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -10406,28 +10414,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &872830263
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 872830261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u900F\u8996\u306E\u85AC \u2192\u4F7F\u7528\u3059\u308B\u3068\u3001\u30C7\u30C3\u30AD\u306E2\u679A\u76EE\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u308B\uFF08\u591A\u304F\u306E\u5834\u5408\u306F\u30C7\u30A3\u30FC\u30E9\u30FC\u304C\u6B21\u306B\u5F15\u304F\u30AB\u30FC\u30C9\uFF09"
-  C_1: "\u900F\u89C6\u836F\u6C34 \u2192\u770B\u724C\u5806\u4E0B\u4E0B\u5F20\u724C\uFF08\u5927\u90E8\u5206\u60C5\u51B5\u4E0B\u4E3A\u5973\u8377\u5B98\u4E0B\u4E00\u5F20\u724C\uFF09"
-  C_2: "\u900F\u8996\u85E5\u6C34 \u2192\u4F7F\u7528\u5F8C\u53EF\u67E5\u770B\u724C\u5806\u4E2D\u4E0B\u4E0B\u5F35\u724C\uFF08\u5927\u591A\u6578\u60C5\u6CC1\u4E0B\u70BA\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F35\u724C\uFF09"
-  E: "Potion of X-Ray Vision \u2192Lets you peek at the third card in the deck (usually
-    the dealer's next card)"
-  K: "\uD22C\uC2DC \uBB3C\uC57D \u2192\uC0AC\uC6A9 \uC2DC, \uCE74\uB4DC \uB354\uBBF8\uC758
-    \uC138 \uBC88\uC9F8 \uCE74\uB4DC\uB97C \uBCFC \uC218 \uC788\uC2B5\uB2C8\uB2E4
-    (\uB300\uBD80\uBD84\uC758 \uACBD\uC6B0 \uB51C\uB7EC\uAC00 \uB2E4\uC74C\uC5D0
-    \uBC1B\uC744 \uCE74\uB4DC)"
-  isTyped: 0
 --- !u!114 &872830264
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10476,7 +10462,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u900F\u8996\u306E\u85AC \u2192\u4F7F\u7528\u3059\u308B\u3068\u3001\u30C7\u30C3\u30AD\u306E2\u679A\u76EE\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u308B\uFF08\u591A\u304F\u306E\u5834\u5408\u306F\u30C7\u30A3\u30FC\u30E9\u30FC\u304C\u6B21\u306B\u5F15\u304F\u30AB\u30FC\u30C9\uFF09"
+  m_Text: "\u900F\u8996\u306E\u85AC \u2192\u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
 --- !u!222 &872830266
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10485,6 +10471,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 872830261}
   m_CullTransparentMesh: 1
+--- !u!114 &872830267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872830261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u900F\u8996\u306E\u85AC \u2192\u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u900F\u89C6\u836F\u6C34 \u2192\u770B\u724C\u5E93\u7B2C\u4E00\u7B2C\u4E8C\u5F20\u724C"
+  C_2: "\u900F\u8996\u85E5\u6C34 \u2192 \u67E5\u770B\u724C\u5EAB\u7B2C\u4E00\u7B2C\u4E8C\u5F35\u724C"
+  E: "Clairvoyance Potion \u2192 Peek at deck's 1st and 2nd card"
+  K: "\uD22C\uC2DC \uBB3C\uC57D \u2192 \uB371\uC758 1\uBC88\uC9F8, 2\uBC88\uC9F8
+    \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &873565069
 GameObject:
   m_ObjectHideFlags: 0
@@ -10844,9 +10849,19 @@ MonoBehaviour:
   AllowedBackgroundRunning_1: {fileID: 0}
   AllowedBackgroundRunning_2: {fileID: 0}
   isAllowedBackgroundRunning: 0
+  Day: {fileID: 0}
   dialog: {fileID: 0}
   AVG: {fileID: 0}
   GameOver: 0
+  TutorialPanel: {fileID: 0}
+  BasicRule: {fileID: 0}
+  DoubleDown: {fileID: 0}
+  Insurance: {fileID: 0}
+  Split: {fileID: 0}
+  Introduce_Anto: {fileID: 0}
+  Introduce_Hetty: {fileID: 0}
+  Introduce_Alice: {fileID: 0}
+  Item: {fileID: 0}
 --- !u!4 &885168787
 Transform:
   m_ObjectHideFlags: 0
@@ -11645,7 +11660,7 @@ GameObject:
   - component: {fileID: 969055065}
   - component: {fileID: 969055064}
   - component: {fileID: 969055063}
-  - component: {fileID: 969055062}
+  - component: {fileID: 969055066}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -11672,25 +11687,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &969055062
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 969055060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
-  C_1: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F20\u724C"
-  C_2: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F35\u724C  "
-  E: "Magic Eye Stone \u2192 See the next card of the female dealer"
-  K: "\uB9C8\uBC95\uC758 \uB208\uB3CC \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uB2E4\uC74C
-    \uCE74\uB4DC \uBCF4\uAE30"
-  isTyped: 0
 --- !u!114 &969055063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11739,7 +11735,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
+  m_Text: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068\u5C71\u672D\u306E1\u679A\u76EE\u3092\u78BA\u8A8D"
 --- !u!222 &969055065
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11748,6 +11744,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 969055060}
   m_CullTransparentMesh: 1
+--- !u!114 &969055066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969055060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068\u5C71\u672D\u306E1\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u76D6\u724C\uFF0C\u724C\u5E93\u7B2C\u4E00\u5F20\u724C"
+  C_2: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u84CB\u724C\uFF0C\u724C\u5EAB\u7B2C\u4E00\u5F35\u724C"
+  E: "Magic Eye Stone \u2192 Peek at female dealer's hole card and deck's 1st card"
+  K: "\uB9C8\uC548\uC11D \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uD640\uCE74\uB4DC\uC640
+    \uB371\uC758 1\uBC88\uC9F8 \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &975665895
 GameObject:
   m_ObjectHideFlags: 0
@@ -15187,9 +15202,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ef18b675afb5d5b41a9f9a86aff4f4ed, type: 3}
   - {fileID: 8300000, guid: 99dfad892e39d454b8ad1f9a34d7d517, type: 3}
   - {fileID: 8300000, guid: aca0b78fd8db42042be25688d97e64d4, type: 3}
-  - {fileID: 8300000, guid: b540685eeda480c44adf180d3dd43d09, type: 3}
-  - {fileID: 8300000, guid: 966a16becb90a76408553a6fc27091a2, type: 3}
-  - {fileID: 8300000, guid: c7c9f5d1164063b45a4d2b43273573f2, type: 3}
+  - {fileID: 8300000, guid: 6cafc35e97da11747862967ed57fdb6e, type: 3}
+  - {fileID: 8300000, guid: 39f4f4efdfefd96409dcbbad73ebdf2a, type: 3}
+  - {fileID: 8300000, guid: 4a04b051970caaa4b9134e86313d65c9, type: 3}
   - {fileID: 8300000, guid: d5dadc9fd7cf8674289338d357c95411, type: 3}
   isPlaying: 0
   WhichMusic: 6
@@ -16939,7 +16954,7 @@ GameObject:
   - component: {fileID: 1334571284}
   - component: {fileID: 1334571283}
   - component: {fileID: 1334571282}
-  - component: {fileID: 1334571281}
+  - component: {fileID: 1334571285}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -16966,25 +16981,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1334571281
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1334571279}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u6B21\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B"
-  C_1: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F20\u724C"
-  C_2: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F35\u724C  "
-  E: "Magic Eye Stone \u2192 See the next card of the female dealer"
-  K: "\uB9C8\uBC95\uC758 \uB208\uB3CC \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uB2E4\uC74C
-    \uCE74\uB4DC \uBCF4\uAE30"
-  isTyped: 0
 --- !u!114 &1334571282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17042,6 +17038,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1334571279}
   m_CullTransparentMesh: 1
+--- !u!114 &1334571285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1334571279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u9B54\u773C\u77F3 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u7A74\u672D\u3068\u5C71\u672D\u306E1\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u76D6\u724C\uFF0C\u724C\u5E93\u7B2C\u4E00\u5F20\u724C"
+  C_2: "\u9B54\u773C\u77F3 \u2192 \u67E5\u770B\u5973\u8377\u5B98\u84CB\u724C\uFF0C\u724C\u5EAB\u7B2C\u4E00\u5F35\u724C"
+  E: "Magic Eye Stone \u2192 Peek at female dealer's hole card and deck's 1st card"
+  K: "\uB9C8\uC548\uC11D \u2192 \uC5EC\uC131 \uB51C\uB7EC\uC758 \uD640\uCE74\uB4DC\uC640
+    \uB371\uC758 1\uBC88\uC9F8 \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &1349811084
 GameObject:
   m_ObjectHideFlags: 0
@@ -21689,7 +21704,7 @@ GameObject:
   - component: {fileID: 1784101339}
   - component: {fileID: 1784101338}
   - component: {fileID: 1784101337}
-  - component: {fileID: 1784101336}
+  - component: {fileID: 1784101340}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -21716,28 +21731,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0.000030517578, y: 11.5}
   m_SizeDelta: {x: 424.4423, y: 112.4123}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1784101336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1784101334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  J: "\u900F\u8996\u306E\u85AC \u2192\u4F7F\u7528\u3059\u308B\u3068\u3001\u30C7\u30C3\u30AD\u306E2\u679A\u76EE\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u308B\uFF08\u591A\u304F\u306E\u5834\u5408\u306F\u30C7\u30A3\u30FC\u30E9\u30FC\u304C\u6B21\u306B\u5F15\u304F\u30AB\u30FC\u30C9\uFF09"
-  C_1: "\u900F\u89C6\u836F\u6C34 \u2192\u770B\u724C\u5806\u4E0B\u4E0B\u5F20\u724C\uFF08\u5927\u90E8\u5206\u60C5\u51B5\u4E0B\u4E3A\u5973\u8377\u5B98\u4E0B\u4E00\u5F20\u724C\uFF09"
-  C_2: "\u900F\u8996\u85E5\u6C34 \u2192\u4F7F\u7528\u5F8C\u53EF\u67E5\u770B\u724C\u5806\u4E2D\u4E0B\u4E0B\u5F35\u724C\uFF08\u5927\u591A\u6578\u60C5\u6CC1\u4E0B\u70BA\u5973\u8377\u5B98\u7684\u4E0B\u4E00\u5F35\u724C\uFF09"
-  E: "Potion of X-Ray Vision \u2192Lets you peek at the third card in the deck (usually
-    the dealer's next card)"
-  K: "\uD22C\uC2DC \uBB3C\uC57D \u2192\uC0AC\uC6A9 \uC2DC, \uCE74\uB4DC \uB354\uBBF8\uC758
-    \uC138 \uBC88\uC9F8 \uCE74\uB4DC\uB97C \uBCFC \uC218 \uC788\uC2B5\uB2C8\uB2E4
-    (\uB300\uBD80\uBD84\uC758 \uACBD\uC6B0 \uB51C\uB7EC\uAC00 \uB2E4\uC74C\uC5D0
-    \uBC1B\uC744 \uCE74\uB4DC)"
-  isTyped: 0
 --- !u!114 &1784101337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21786,7 +21779,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u900F\u8996\u306E\u85AC \u2192\u4F7F\u7528\u3059\u308B\u3068\u3001\u30C7\u30C3\u30AD\u306E2\u679A\u76EE\u306E\u30AB\u30FC\u30C9\u3092\u898B\u308B\u3053\u3068\u304C\u3067\u304D\u308B\uFF08\u591A\u304F\u306E\u5834\u5408\u306F\u30C7\u30A3\u30FC\u30E9\u30FC\u304C\u6B21\u306B\u5F15\u304F\u30AB\u30FC\u30C9\uFF09"
+  m_Text: "\u900F\u8996\u306E\u85AC \u2192\u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
 --- !u!222 &1784101339
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -21795,6 +21788,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1784101334}
   m_CullTransparentMesh: 1
+--- !u!114 &1784101340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1784101334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  J: "\u900F\u8996\u306E\u85AC \u2192\u5C71\u672D\u306E1\u679A\u76EE\u30FB2\u679A\u76EE\u3092\u78BA\u8A8D"
+  C_1: "\u900F\u89C6\u836F\u6C34 \u2192\u770B\u724C\u5E93\u7B2C\u4E00\u7B2C\u4E8C\u5F20\u724C"
+  C_2: "\u900F\u8996\u85E5\u6C34 \u2192 \u67E5\u770B\u724C\u5EAB\u7B2C\u4E00\u7B2C\u4E8C\u5F35\u724C"
+  E: "Clairvoyance Potion \u2192 Peek at deck's 1st and 2nd card"
+  K: "\uD22C\uC2DC \uBB3C\uC57D \u2192 \uB371\uC758 1\uBC88\uC9F8, 2\uBC88\uC9F8
+    \uCE74\uB4DC \uD655\uC778"
+  isTyped: 0
 --- !u!1 &1787291303
 GameObject:
   m_ObjectHideFlags: 0

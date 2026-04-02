@@ -1248,6 +1248,27 @@ namespace Blackjack_Game
                     case 1:
                         //占卜水晶
                         StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+                        StartCoroutine(Item_ViewCard());//看女荷官的盖牌   
+                        StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(1, "蓋牌+トップ2枚");
+                                break;
+                            case 1: // 简体中文
+                                Show(1, "查看盖牌和顶牌2张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(1, "查看蓋牌和頂牌2張");
+                                break;
+                            case 3: // 英语
+                                Show(1, "Peek Hole + Top 2");
+                                break;
+                            case 4: // 韩语
+                                Show(1, "홀카드+탑 2장");
+                                break;
+                        }
 
                         currentCount = data.Item_2;
                         currentCount--;
@@ -1264,6 +1285,26 @@ namespace Blackjack_Game
                     case 3:
                         //魔眼石
                         StartCoroutine(Item_ViewCard());//看女荷官的盖牌     
+                        StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(3, "蓋牌+トップ1枚");
+                                break;
+                            case 1: // 简体中文
+                                Show(3, "查看盖牌和顶牌1张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(3, "查看蓋牌和頂牌1張");
+                                break;
+                            case 3: // 英语
+                                Show(3, "Peek Hole + Top 1");
+                                break;
+                            case 4: // 韩语
+                                Show(3, "홀카드+탑 1장");
+                                break;
+                        }
 
                         currentCount = data.Item_4;
                         currentCount--;
@@ -1290,7 +1331,27 @@ namespace Blackjack_Game
                         break;
                     case 7:
                         //透视药水
+                        StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
                         StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(7, "トップ2枚表示");
+                                break;
+                            case 1: // 简体中文
+                                Show(7, "查看顶牌2张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(7, "查看頂牌2張");
+                                break;
+                            case 3: // 英语
+                                Show(7, "See Top 2 Cards");
+                                break;
+                            case 4: // 韩语
+                                Show(7, "탑 2장 보기");
+                                break;
+                        }
 
                         currentCount = data.Item_8;
                         currentCount--;
@@ -1384,6 +1445,27 @@ namespace Blackjack_Game
                     case 1:
                         //占卜水晶
                         StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+                        StartCoroutine(Item_ViewCard());//看女荷官的盖牌   
+                        StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(1, "蓋牌+トップ2枚");
+                                break;
+                            case 1: // 简体中文
+                                Show(1, "查看盖牌和顶牌2张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(1, "查看蓋牌和頂牌2張");
+                                break;
+                            case 3: // 英语
+                                Show(1, "Peek Hole + Top 2");
+                                break;
+                            case 4: // 韩语
+                                Show(1, "홀카드+탑 2장");
+                                break;
+                        }
 
                         currentCount = data.Item_2;
                         currentCount--;
@@ -1400,6 +1482,26 @@ namespace Blackjack_Game
                     case 3:
                         //魔眼石
                         StartCoroutine(Item_ViewCard());//看女荷官的盖牌     
+                        StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(3, "蓋牌+トップ1枚");
+                                break;
+                            case 1: // 简体中文
+                                Show(3, "查看盖牌和顶牌1张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(3, "查看蓋牌和頂牌1張");
+                                break;
+                            case 3: // 英语
+                                Show(3, "Peek Hole + Top 1");
+                                break;
+                            case 4: // 韩语
+                                Show(3, "홀카드+탑 1장");
+                                break;
+                        }
 
                         currentCount = data.Item_4;
                         currentCount--;
@@ -1431,7 +1533,28 @@ namespace Blackjack_Game
                         break;
                     case 7:
                         //透视药水
+                        StartCoroutine(Item_ViewNextCard());//看牌堆下一张卡
                         StartCoroutine(Item_ViewSecondNextCard());//看牌堆下下张卡
+
+
+                        switch (PlayerPrefs.GetInt("language"))
+                        {
+                            case 0: // 日语
+                                Show(7, "トップ2枚表示");
+                                break;
+                            case 1: // 简体中文
+                                Show(7, "查看顶牌2张");
+                                break;
+                            case 2: // 繁体中文
+                                Show(7, "查看頂牌2張");
+                                break;
+                            case 3: // 英语
+                                Show(7, "See Top 2 Cards");
+                                break;
+                            case 4: // 韩语
+                                Show(7, "탑 2장 보기");
+                                break;
+                        }
 
                         currentCount = data.Item_8;
                         currentCount--;
@@ -1562,34 +1685,34 @@ namespace Blackjack_Game
             PeekCard.gameObject.SetActive(true);
             PeekCard.mesh = nextCard.GetMesh();
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(3, "ディーラーの伏せ札を見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(3, "查看庄家盖牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(3, "查看莊家蓋牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(3, "Reveal Dealer's Hole Card");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(3, "딜러의 히든 카드 확인");
-                    break;
-
-            }
+            //switch (PlayerPrefs.GetInt("language"))
+            //{
+            //    case 0:
+            //        // 日语
+            //        Show(3, "ディーラーの伏せ札を見る");
+            //        break;
+            //
+            //    case 1:
+            //        // 简体中文
+            //        Show(3, "查看庄家盖牌");
+            //        break;
+            //
+            //    case 2:
+            //        // 繁体中文
+            //        Show(3, "查看莊家蓋牌");
+            //        break;
+            //
+            //    case 3:
+            //        // 英语
+            //        Show(3, "Reveal Dealer's Hole Card");
+            //        break;
+            //
+            //    case 4:
+            //        // 韩语
+            //        Show(3, "딜러의 히든 카드 확인");
+            //        break;
+            //
+            //}
 
 
             //Invoke(nameof(Unclock), 0.5f);
@@ -1618,34 +1741,34 @@ namespace Blackjack_Game
             PeekNextCard.mesh = nextCard.GetMesh();
 
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(1, "山札の次のカードを見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(1, "查看牌堆下一张牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(1, "查看牌堆下一張牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(1, "Reveal Next Card in Deck");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(1, "덱의 다음 카드 확인");
-                    break;
-
-            }
+            //switch (PlayerPrefs.GetInt("language"))
+            //{
+            //    case 0:
+            //        // 日语
+            //        Show(1, "山札の次のカードを見る");
+            //        break;
+            //
+            //    case 1:
+            //        // 简体中文
+            //        Show(1, "查看牌堆下一张牌");
+            //        break;
+            //
+            //    case 2:
+            //        // 繁体中文
+            //        Show(1, "查看牌堆下一張牌");
+            //        break;
+            //
+            //    case 3:
+            //        // 英语
+            //        Show(1, "Reveal Next Card in Deck");
+            //        break;
+            //
+            //    case 4:
+            //        // 韩语
+            //        Show(1, "덱의 다음 카드 확인");
+            //        break;
+            //
+            //}
 
             //锁按钮再解锁
             //_ui.DisableButtons();
@@ -1669,34 +1792,34 @@ namespace Blackjack_Game
             PeekSecondNextCard.mesh = nextCard.GetMesh();
 
 
-            switch (PlayerPrefs.GetInt("language"))
-            {
-                case 0:
-                    // 日语
-                    Show(7, "山札の二枚目を見る");
-                    break;
-
-                case 1:
-                    // 简体中文
-                    Show(7, "查看牌堆下下张牌");
-                    break;
-
-                case 2:
-                    // 繁体中文
-                    Show(7, "查看牌堆下下張牌");
-                    break;
-
-                case 3:
-                    // 英语
-                    Show(7, "Reveal Second Card in Deck");
-                    break;
-
-                case 4:
-                    // 韩语
-                    Show(7, "덱의 두 번째 카드 확인");
-                    break;
-
-            }
+            //switch (PlayerPrefs.GetInt("language"))
+            //{
+            //    case 0:
+            //        // 日语
+            //        Show(7, "山札の二枚目を見る");
+            //        break;
+            //
+            //    case 1:
+            //        // 简体中文
+            //        Show(7, "查看牌堆下下张牌");
+            //        break;
+            //
+            //    case 2:
+            //        // 繁体中文
+            //        Show(7, "查看牌堆下下張牌");
+            //        break;
+            //
+            //    case 3:
+            //        // 英语
+            //        Show(7, "Reveal Second Card in Deck");
+            //        break;
+            //
+            //    case 4:
+            //        // 韩语
+            //        Show(7, "덱의 두 번째 카드 확인");
+            //        break;
+            //
+            //}
 
             //锁按钮再解锁
             //_ui.DisableButtons();
@@ -3583,77 +3706,5 @@ namespace Blackjack_Game
         #endregion
 
 
-        /// <summary>
-        /// 局内教程
-        /// </summary>
-        #region
-
-        [Header("局内教程")]
-        public GameObject TutorialPanel;
-        public void OpenTutorialPanel()
-        {
-            Time.timeScale = 0f;
-            TutorialPanel.SetActive(true);
-        }
-        public void CloseTutorialPanel()
-        {
-            Time.timeScale = 1f;
-            TutorialPanel.SetActive(false);
-        }
-
-
-        public GameObject BasicRule, DoubleDown, Insurance, Split, Introduce_Anto, Introduce_Hetty, Introduce_Alice, Item;
-
-        // Method to call when a tab is clicked
-        public void OnTabClick(string tabName)
-        {
-            //AudioManager_2.SoundPlay(5);//手动SE音频替换
-
-
-            BasicRule.SetActive(false);
-            DoubleDown.SetActive(false);
-            Insurance.SetActive(false);
-            Split.SetActive(false);
-            Introduce_Anto.SetActive(false);
-            Introduce_Hetty.SetActive(false);
-            Introduce_Alice.SetActive(false);
-            Item.SetActive(false);
-            switch (tabName)
-            {
-                case "BasicRule":
-                    BasicRule.SetActive(true);
-                    break;
-                case "DoubleDown":
-                    DoubleDown.SetActive(true);
-                    break;
-                case "Insurance":
-                    Insurance.SetActive(true);
-                    break;
-                case "Split":
-                    Split.SetActive(true);
-                    break;
-                case "Introduce_Anto":
-                    Introduce_Anto.SetActive(true);
-                    break;
-                case "Introduce_Hetty":
-                    Introduce_Hetty.SetActive(true);
-                    break;
-                case "Introduce_Alice":
-                    Introduce_Alice.SetActive(true);
-                    break;
-                case "Item":
-                    Item.SetActive(true);
-                    break;
-                default:
-                    break;
-            }
-
-        }
-
-
-
-
-
-        #endregion
     }
 }

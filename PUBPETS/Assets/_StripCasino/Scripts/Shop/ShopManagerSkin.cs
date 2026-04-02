@@ -230,13 +230,13 @@ namespace Blackjack_Game
             switch (id)
             {
                 case 1: return 150; // 紫色心情
-                case 2: return 150; // 占卜水晶
+                case 2: return 150; // 占卜水晶（看盖牌和顶牌和第二张牌）
                 case 3: return 500; // 均衡徽章
-                case 4: return 100; // 魔眼石
+                case 4: return 100; // 魔眼石（看盖牌和顶牌）
                 case 5: return 300; // 酒瓶
                 case 6: return 400; // 藏宝图残片
                 case 7: return 150; // 幸运币
-                case 8: return 50;  // 透视药水
+                case 8: return 50;  // 透视药水（看顶牌和第二张牌）
 
                 case 9: return 150; // 绿色心情
                 case 10: return 250; // 匕首（丢弃顶牌）

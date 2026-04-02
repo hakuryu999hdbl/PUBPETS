@@ -777,6 +777,9 @@ namespace Blackjack_Game
         }
         public void Menu_SelectStage_Anto(int Lv) 
         {
+            GameFlowData.returnPath = "replay";//这个是通关后的选择关卡路径
+
+
             switch (Lv)
             {
                 case 1:
@@ -830,6 +833,9 @@ namespace Blackjack_Game
         }
         public void Menu_SelectStage_Hetty(int Lv)
         {
+            GameFlowData.returnPath = "replay";//这个是通关后的选择关卡路径
+
+
             switch (Lv)
             {
                 case 1:
@@ -884,6 +890,9 @@ namespace Blackjack_Game
         }
         public void Menu_SelectStage_Alice(int Lv)
         {
+            GameFlowData.returnPath = "replay";//这个是通关后的选择关卡路径
+
+
             switch (Lv)
             {
                 case 1:
