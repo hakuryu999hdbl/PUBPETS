@@ -41948,7 +41948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc3d6029411081445a7812583cca3863, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  J: "\u7A7A\u74F6 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u500D\u306B"
+  J: "\u7A7A\u304D\u74F6  \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u500D\u306B"
   C_1: "\u7A7A\u74F6 \u2192 \u5973\u8377\u5B98\u7684\u70B9\u6570\u7FFB\u500D"
   C_2: "\u7A7A\u74F6 \u2192 \u5973\u8377\u5B98\u7684\u9EDE\u6578\u7FFB\u500D"
   E: "Empty Bottle \u2192 Double the female dealer's points"
@@ -42002,7 +42002,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\u7A7A\u74F6 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u500D\u306B"
+  m_Text: "\u7A7A\u304D\u74F6 \u2192 \u5973\u30C7\u30A3\u30FC\u30E9\u30FC\u306E\u70B9\u6570\u3092\u500D\u306B"
 --- !u!222 &1006870209
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -81037,6 +81037,7 @@ GameObject:
   - component: {fileID: 1851889082}
   - component: {fileID: 1851889081}
   - component: {fileID: 1851889080}
+  - component: {fileID: 1851889083}
   m_Layer: 8
   m_Name: PeekCard
   m_TagString: Untagged
@@ -81126,6 +81127,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1851889076}
   m_Mesh: {fileID: 4300000, guid: 9aba3f2c6e028ca448652020f7f1532c, type: 3}
+--- !u!95 &1851889083
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1851889076}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 874d226c93a18e347b1dc978b4c5c773, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1854451184
 GameObject:
   m_ObjectHideFlags: 0

@@ -109,6 +109,9 @@ namespace Blackjack_Game
 
         public void OnClickStand()
         {
+
+            PeekCard.gameObject.SetActive(false);//站牌的时候，盖牌就必须消失
+
             if (PeekNextCard.gameObject.activeInHierarchy)
             {
                 PeekNextCard.GetComponent<Animator>().SetTrigger("Out");//卡片回去动画帧事件消失

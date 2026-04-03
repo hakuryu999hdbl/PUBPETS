@@ -1719,6 +1719,7 @@ namespace Blackjack_Game
         public void OpenURL_Ci_en()
         {
             Application.OpenURL("https://ci-en.dlsite.com/creator/23364");
+            Application.OpenURL("https://ci-en.dlsite.com/creator/16247");
         }
 
         public void OpenURL_YYY()

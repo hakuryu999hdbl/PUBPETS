@@ -5106,6 +5106,7 @@ namespace Blackjack_Game
                     }
                     else
                     {
+
                         // ✅ 记录上一局CG缩略图（安托10）
                         data.lastCGGirl = 1;   // 1=安托
                         data.lastCGIndex = 10;
@@ -5114,9 +5115,8 @@ namespace Blackjack_Game
                         data.antoProgress = 11;
                         SaveManager.SaveGame(data);
 
-                        CheckClean();//检测三位女荷官是否通关
+                        CheckClean();//检测三位女荷官是否通关（安托）
 
-                        RandomToShop();
                     }
                     break;
 
@@ -5360,12 +5360,11 @@ namespace Blackjack_Game
                         data.lastCGIndex = 10;
 
                         //赫蒂已经通关
-                        data.hettyProgress = 10;
+                        data.hettyProgress = 11;
                         SaveManager.SaveGame(data);
 
-                        CheckClean();//检测三位女荷官是否通关
+                        CheckClean();//检测三位女荷官是否通关（赫蒂）
 
-                        RandomToShop();
                     }
                     break;
 
@@ -5603,9 +5602,9 @@ namespace Blackjack_Game
                         data.aliceProgress = 11;
                         SaveManager.SaveGame(data);
 
-                        CheckClean();//检测三位女荷官是否通关
+                        CheckClean();//检测三位女荷官是否通关（爱丽丝）
 
-                        RandomToShop();
+                       
                     }
                     break;
 
@@ -5704,14 +5703,25 @@ namespace Blackjack_Game
             {
                 data.HasCleared = true;
 
-
+                AI_Stage_Clean_Panel();//直接跳出通关界面
 
                 SaveManager.SaveGame(data);
 
                 Debug.Log("【通关达成】三位女荷官进度已满");
             }
+            else 
+            {
+                RandomToShop();//否则照常继续
+            }
         }
 
+
+        public void GoOn_RandomToShop()
+        {
+            //通关完成，返回主菜单
+            //RandomToShop();
+            uiManager.LoadingScene_Lobby();
+        }
 
         #endregion
 
@@ -5840,5 +5850,34 @@ namespace Blackjack_Game
             RefreshRecipeShopUI();
         }//打开商店
         #endregion
+
+
+
+
+        /// <summary>
+        /// 最终通关界面
+        /// </summary>
+        #region
+        public GameObject All_Unclock_Panel;
+        public Text All_Unclock_Text;
+        public void AI_Stage_Clean_Panel() 
+        {
+
+            All_Unclock_Panel.SetActive(true);
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            int days = data.DayCount;
+
+            All_Unclock_Text.text = "<color=#FF9500>Dominated in </color>" + days + " <color=#FF9500>Days</color>";
+
+
+        }
+
+
+
+
+        #endregion
+
+
     }
 }
