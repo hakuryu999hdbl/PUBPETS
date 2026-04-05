@@ -3654,6 +3654,21 @@ namespace Blackjack_Game
             Turns.text = turns.ToString();
             Revenue.text = revenue.ToString();
             ItemsUsed.text = itemsUsed.ToString();
+
+            if (itemsUsed>=3) 
+            {
+                UIManager.Achieventment_ACH_CHEAT_BARTENDER();//【作弊酒保】单局内使用3个及以上物品。
+            }
+
+            if (revenue >= 3000)
+            {
+                UIManager.Achieventment_ACH_GAMBLER_BARTENDER();//【赌徒酒保】单局内收益超过3000的情况下战胜女荷官。
+            }
+
+            if (revenue <= -3000)
+            {
+                UIManager.Achieventment_ACH_REVENGE_BARTENDER();//【复仇酒保】单局内亏损超过3000的情况下战胜女荷官。
+            }
         }
 
         public int turns;//一共经过的回合数

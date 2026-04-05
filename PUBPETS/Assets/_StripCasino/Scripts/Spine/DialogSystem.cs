@@ -5115,6 +5115,9 @@ namespace Blackjack_Game
                         data.antoProgress = 11;
                         SaveManager.SaveGame(data);
 
+                        uiManager.Achieventment_ACH_ANTO_BRIDE();//【安托花嫁】安托好感度满。
+
+
                         CheckClean();//检测三位女荷官是否通关（安托）
 
                     }
@@ -5363,6 +5366,8 @@ namespace Blackjack_Game
                         data.hettyProgress = 11;
                         SaveManager.SaveGame(data);
 
+                        uiManager.Achieventment_ACH_HETTY_BRIDE(); //【赫蒂花嫁】赫蒂好感度满。
+
                         CheckClean();//检测三位女荷官是否通关（赫蒂）
 
                     }
@@ -5601,6 +5606,8 @@ namespace Blackjack_Game
                         //爱丽丝已经通关
                         data.aliceProgress = 11;
                         SaveManager.SaveGame(data);
+
+                        uiManager.Achieventment_ACH_ALICE_BRIDE(); //【爱丽丝花嫁】爱丽丝好感度满。
 
                         CheckClean();//检测三位女荷官是否通关（爱丽丝）
 
@@ -5871,6 +5878,7 @@ namespace Blackjack_Game
             All_Unclock_Text.text = "<color=#FF9500>Dominated in </color>" + days + " <color=#FF9500>Days</color>";
 
 
+            uiManager.Achieventment_ACH_ALL_BRIDES();//【全员花嫁】通关。
         }
 
 

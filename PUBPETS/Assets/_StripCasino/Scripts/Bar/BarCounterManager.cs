@@ -722,6 +722,14 @@ namespace Blackjack_Game
 
             // 可选：暂停游戏等
             //Time.timeScale = 0;
+
+            if (revenue==0) 
+            {
+                uiManager.Achieventment_ACH_LAZY_BARTENDER();//【偷懒酒保】一天完全不营业。
+            }
+
+
+
         }
 
         // 调用这个方法当顾客完成调酒后记录

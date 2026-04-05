@@ -126,7 +126,7 @@ namespace Blackjack_Game
              
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Alice_CG_01_1";//获胜失败和CG使用
+            //GameFlowData.nextAVGId = "Alice_CG_06_1";//获胜失败和CG使用
             //PlayerPrefs.SetInt("language", 0);
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -2814,6 +2814,107 @@ namespace Blackjack_Game
 
 
 
+
+        #endregion
+
+
+
+        /// <summary>
+        /// 成就端口
+        /// </summary>
+        #region
+        /////////////////////////////////////////////////【电脑控制/Steam】/////////////////////////////////////////////////
+
+        public void Achieventment_ACH_ANTO_BRIDE()
+        {
+            Debug.Log("【成就触发】ACH_ANTO_BRIDE（安托花嫁）");
+            UnlockSteamAchievement("ACH_ANTO_BRIDE");
+        } //【安托花嫁】安托好感度满。
+
+        public void Achieventment_ACH_HETTY_BRIDE()
+        {
+            Debug.Log("【成就触发】ACH_HETTY_BRIDE（赫蒂花嫁）");
+            UnlockSteamAchievement("ACH_HETTY_BRIDE");
+        } //【赫蒂花嫁】赫蒂好感度满。
+
+        public void Achieventment_ACH_ALICE_BRIDE()
+        {
+            Debug.Log("【成就触发】ACH_ALICE_BRIDE（爱丽丝花嫁）");
+            UnlockSteamAchievement("ACH_ALICE_BRIDE");
+        } //【爱丽丝花嫁】爱丽丝好感度满。
+
+        public void Achieventment_ACH_ALL_BRIDES()
+        {
+            Debug.Log("【成就触发】ACH_ALL_BRIDES（全员花嫁）");
+            UnlockSteamAchievement("ACH_ALL_BRIDES");
+        } //【全员花嫁】通关。
+
+
+        public void Achieventment_ACH_LAZY_BARTENDER()
+        {
+            Debug.Log("【成就触发】ACH_LAZY_BARTENDER（偷懒酒保）");
+            UnlockSteamAchievement("ACH_LAZY_BARTENDER");
+        } //【偷懒酒保】一天完全不营业。
+
+
+        public void Achieventment_ACH_CHEAT_BARTENDER()
+        {
+            Debug.Log("【成就触发】ACH_CHEAT_BARTENDER（作弊酒保）");
+            UnlockSteamAchievement("ACH_CHEAT_BARTENDER");
+        } //【作弊酒保】单局内使用3个及以上物品。
+
+        public void Achieventment_ACH_GAMBLER_BARTENDER()
+        {
+            Debug.Log("【成就触发】ACH_GAMBLER_BARTENDER（赌徒酒保）");
+            UnlockSteamAchievement("ACH_GAMBLER_BARTENDER");
+        } //【赌徒酒保】单局内收益超过3000的情况下战胜女荷官。
+
+        public void Achieventment_ACH_REVENGE_BARTENDER()
+        {
+            Debug.Log("【成就触发】ACH_REVENGE_BARTENDER（复仇酒保）");
+            UnlockSteamAchievement("ACH_REVENGE_BARTENDER");
+        } //【复仇酒保】单局内亏损超过3000的情况下战胜女荷官。
+
+
+        // 本局里已经触发过的成就（防止自己 UI 重复弹）
+        private HashSet<string> _localUnlockedAchievements = new HashSet<string>();
+
+
+        private void UnlockSteamAchievement(string achievementID)
+        {
+            // 本地已经触发过了，就不要再弹 UI 了
+            // if (_localUnlockedAchievements.Contains(achievementID))
+            // {
+            //     Debug.Log($"成就 {achievementID} 已在本局触发过，直接忽略");
+            //     return;
+            // }
+            //
+            // _localUnlockedAchievements.Add(achievementID);
+            //
+            // // 这里是你原来的“成就弹窗”逻辑
+            // Debug.Log("成就弹窗：" + achievementID);
+            // // TODO: 如果你有成就UI动画，在这里调用，例如：
+            // // ShowAchievementPopup(achievementID);
+            //
+            // // 提交给 Steam
+            // if (SteamManager.Initialized)
+            // {
+            //     bool success = SteamUserStats.SetAchievement(achievementID);
+            //     if (success)
+            //     {
+            //         SteamUserStats.StoreStats();   // 把成就保存到 Steam
+            //         Debug.Log("成功解锁 Steam 成就：" + achievementID);
+            //     }
+            //     else
+            //     {
+            //         Debug.LogError("Steam 成就解锁失败：" + achievementID);
+            //     }
+            // }
+            // else
+            // {
+            //     Debug.LogWarning("Steam API 未初始化，只进行本地弹窗：" + achievementID);
+            // }
+        }
 
         #endregion
 
