@@ -72,6 +72,9 @@ namespace Blackjack_Game
         public float autoDelay = 1.5f; // 每句之间的间隔秒数
         public GameObject Auto_On, Auto_Off, Auto_on, Auto_off;
 
+
+
+
         public void ToggleAutoMode()
         {
             autoMode = !autoMode;
@@ -154,6 +157,15 @@ namespace Blackjack_Game
                     Black_Half_CG.SetActive(true);
                     break;
 
+
+                case 12:
+                case 13:
+                    //获得配方这里需要拿掉快进件防止错过
+                    Black_Half_AVG.SetActive(true);
+                    Skip.SetActive(false);
+                    break;
+
+
                 default:
                     Black_Half_AVG.SetActive(true);
                     break;
@@ -166,6 +178,13 @@ namespace Blackjack_Game
 
 
         }//一开始不会产生空白，OnEnable会在Start之前，Awake之后被调用
+
+
+
+        [Header("跳过遮蔽")]
+        public GameObject Skip;
+
+
 
         public void ForceEndDialogue()
         {
