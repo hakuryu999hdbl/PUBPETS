@@ -2799,7 +2799,7 @@ namespace Blackjack_Game
 
 
             //检测对应女荷官等级
-            LimitPlace = Progress * 200;
+            LimitPlace = Progress * 100;
             Limit.text = LimitPlace.ToString();//本局赌注上限
 
 
@@ -2807,7 +2807,7 @@ namespace Blackjack_Game
             //LimitBetPlate._Instance.max = LimitPlace;
             //LimitBetPlate.SetLimit(1, LimitPlace);
 
-            maxHealth = Progress * 1000;
+            maxHealth = Progress * 500;
 
             currentHealth = maxHealth;
             //UpdateFill();

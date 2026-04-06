@@ -571,9 +571,9 @@ namespace Blackjack_Game
                 // ✅ 随机酒：按复杂度小幅提升
                 int c = Mathf.Clamp(currentRandomCount, 2, 5);
 
-                int baseMin = 300;
-                int baseMax = 500;
-                int stepBonus = (c - 2) * 80;   // 2步=0, 3步=+80, 4步=+160, 5步=+240
+                int baseMin = 80;
+                int baseMax = 200;
+                int stepBonus = (c - 2) * 20;   // 2步=0, 3步=+80, 4步=+160, 5步=+240
 
                 reward = Random.Range(baseMin + stepBonus, baseMax + stepBonus + 1);
             }
@@ -962,6 +962,40 @@ namespace Blackjack_Game
 
 
         }
+
+
+        //每日奖金
+        bool isTakenDailyBonus = false;
+        public GameObject DailyBonusButton;
+        public void DailyBonus() 
+        {
+            if (!isTakenDailyBonus) 
+            {
+                SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+
+                Debug.Log("调酒成功！");
+
+                float dailyBonus;
+
+
+                dailyBonus = data.antoProgress * 50 + data.antoProgress * 50 + data.antoProgress * 50;
+
+
+                BalanceManager.ChangeBalance(dailyBonus);
+                startText.gameObject.SetActive(true);
+                startText.text = dailyBonus.ToString();//营收数字显示
+
+                AudioManager_2.SoundPlay(3);//手动SE音频替换
+
+
+                DailyBonusButton.SetActive(false);
+
+                isTakenDailyBonus = true;
+            }
+
+        }
+
         #endregion
 
 
