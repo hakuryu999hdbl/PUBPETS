@@ -15,8 +15,23 @@ namespace Blackjack_Game
             originalPosition = transform.localPosition;
         }
 
+
+        // --- 新增冷却变量 ---
+        private static float lastGlobalClickTime = 0f;
+        private const float clickCooldown = 0.1f; // 100毫秒，兼顾手感与防错
+
+
         public void OnClick()
         {
+
+
+            // 全局连点/多点触控拦截
+            // 使用 static 变量是因为玩家可能两只手指同时点两个不同的筹码，这会导致余额扣减混乱
+            if (Time.time - lastGlobalClickTime < clickCooldown) return;
+            lastGlobalClickTime = Time.time;
+
+
+
             if (!LimitBetPlate.AllowLimit(value))
             {
                 transform.DOComplete();
@@ -37,8 +52,8 @@ namespace Blackjack_Game
             }
             else
             {
-                transform.DOComplete();
-                transform.DOShakePosition(.2f, 4f, 20, 0);
+                //transform.DOComplete();
+                //transform.DOShakePosition(.2f, 4f, 20, 0);
             }
 
 
@@ -54,9 +69,11 @@ namespace Blackjack_Game
             //AudioManager.SoundPlay(0);
             AudioManager_2.SoundPlay(0);//手动SE音频替换
 
-            transform.DOKill();
-            transform.localPosition = originalPosition;
-            transform.DOScale(.9f, .8f).SetEase(Ease.OutElastic).From();
+
+            //点击触发
+            //transform.DOKill();
+            //transform.localPosition = originalPosition;
+            //transform.DOScale(.9f, .8f).SetEase(Ease.OutElastic).From();
         }
 
         public void Deselected()

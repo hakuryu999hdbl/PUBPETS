@@ -439,10 +439,21 @@ namespace Blackjack_Game
         }
 
 
+        //防止手机端卡住，这里做个0.2f冷却
+        private float lastClickTime = 0f;
+        private float clickCooldown = 0.2f; // 冷却时间，200毫秒足够防止误触
+
+
+
         // 这个函数绑定到每个物品按钮上
         public void OnClickIngredient(string id)
         {
             if (!timeRunning) { return; }//计时开始钱戳物品
+
+
+            // 增加冷却锁：防止多点触控或超快连点
+            if (Time.time - lastClickTime < clickCooldown) return;
+            lastClickTime = Time.time;
 
 
             if (id == currentRecipe[currentIndex])
@@ -976,10 +987,13 @@ namespace Blackjack_Game
 
                 Debug.Log("调酒成功！");
 
-                float dailyBonus;
+                float dailyBonus = 200;
 
+                if (data.antoProgress >= 11) { dailyBonus += 100; }
+                if (data.hettyProgress >= 11) { dailyBonus += 100; }
+                if (data.aliceProgress >= 11) { dailyBonus += 100; }
 
-                dailyBonus = data.antoProgress * 50 + data.antoProgress * 50 + data.antoProgress * 50;
+                //dailyBonus = data.antoProgress * 50 + data.antoProgress * 50 + data.antoProgress * 50;
 
 
                 BalanceManager.ChangeBalance(dailyBonus);

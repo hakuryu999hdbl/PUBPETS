@@ -1247,6 +1247,11 @@ namespace Blackjack_Game
                         Dealer_StealItems_0(); //玩家使用紫色心情，安托偷过来给自己-3
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）        
 
+
+                        currentCount = data.Item_1;
+                        currentCount--;
+                        data.Item_1 = currentCount;
+
                         break;
                     case 1:
                         //占卜水晶
@@ -1276,6 +1281,7 @@ namespace Blackjack_Game
                         currentCount = data.Item_2;
                         currentCount--;
                         data.Item_2 = currentCount;
+
                         break;
                     case 2:
                         //均衡徽章
@@ -1284,6 +1290,7 @@ namespace Blackjack_Game
                         currentCount = data.Item_3;
                         currentCount--;
                         data.Item_3 = currentCount;
+
                         break;
                     case 3:
                         //魔眼石
@@ -1312,10 +1319,15 @@ namespace Blackjack_Game
                         currentCount = data.Item_4;
                         currentCount--;
                         data.Item_4 = currentCount;
+
                         break;
                     case 4:                      
                         Dealer_StealItems_4(); //玩家使用酒瓶，安托偷过来给自己双倍
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
+
+                        currentCount = data.Item_5;
+                        currentCount--;
+                        data.Item_5 = currentCount;
 
                         break;
                     case 5:
@@ -1330,6 +1342,10 @@ namespace Blackjack_Game
                     case 6:
                         Dealer_StealItems_6(); //玩家使用幸运币，安托偷过来给自己+1
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
+
+                        currentCount = data.Item_7;
+                        currentCount--;
+                        data.Item_7 = currentCount;
 
                         break;
                     case 7:
@@ -1368,6 +1384,11 @@ namespace Blackjack_Game
                         Dealer_StealItems_8(); //玩家使用绿色心情，安托偷过来给自己＋3
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
+
+                        currentCount = data.Item_9;
+                        currentCount--;
+                        data.Item_9 = currentCount;
+
                         break;
 
                     case 9:
@@ -1377,11 +1398,16 @@ namespace Blackjack_Game
                         currentCount = data.Item_10;
                         currentCount--;
                         data.Item_10 = currentCount;
+
                         break;
 
                     case 10:           
                         Dealer_StealItems_10();//玩家使用黑棋子，安托偷过来给自己＋5
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
+
+                        currentCount = data.Item_11;
+                        currentCount--;
+                        data.Item_11 = currentCount;
 
                         break;
 
@@ -1399,17 +1425,29 @@ namespace Blackjack_Game
                         Dealer_StealItems_12(); //玩家使用空瓶，安托偷过来给玩家双倍
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
+                        currentCount = data.Item_13;
+                        currentCount--;
+                        data.Item_13 = currentCount;
+
                         break;
 
                     case 13:                      
                         Dealer_StealItems_13(); //玩家使用白棋子，安托偷过来给玩家＋5
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
 
+                        currentCount = data.Item_14;
+                        currentCount--;
+                        data.Item_14 = currentCount;
+
                         break;
 
                     case 14:
                         Dealer_StealItems_14(); //玩家使用厄运币，安托偷过来给自己-1
                         ConsumeOne();//消耗一颗爱心（先执行再扣爱心）    
+
+                        currentCount = data.Item_15;
+                        currentCount--;
+                        data.Item_15 = currentCount;
 
                         break;
 
