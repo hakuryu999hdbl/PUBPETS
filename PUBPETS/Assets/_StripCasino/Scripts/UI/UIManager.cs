@@ -2820,11 +2820,7 @@ namespace Blackjack_Game
             GameFlowData.nextAVGId = "StartShop_02";//商人出现
             LoadingScene_Spine();
         }
-        public void BarToRecipe()
-        {
-            GameFlowData.nextAVGId = "StartRecipe";//酒品商店
-            LoadingScene_Spine();
-        }
+     
         #endregion
 
         /// <summary>

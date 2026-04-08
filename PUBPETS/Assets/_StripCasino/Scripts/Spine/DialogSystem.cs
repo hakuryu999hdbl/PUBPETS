@@ -221,9 +221,6 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Japanese/J_StartShop_02"));
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Japanese/J_StartRecipe_02"));
 
                     #region  安托日语
 
@@ -406,9 +403,6 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartShop_02"));
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Simplified_Chinese/C1_StartRecipe_02"));
 
                     #region  安托简中
 
@@ -593,9 +587,6 @@ namespace Blackjack_Game
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartShop_02"));
 
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Traditional_Chinese/C2_StartRecipe_02"));
 
                     #region  安托繁中
 
@@ -779,9 +770,6 @@ namespace Blackjack_Game
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_English/E_StartShop_02"));
 
 
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_English/E_StartRecipe_02"));
 
 
 
@@ -967,10 +955,6 @@ namespace Blackjack_Game
                     textAssets.Add(10, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_01"));
                     textAssets.Add(11, Resources.Load<TextAsset>("TXT_Korean/K_StartShop_02"));
 
-
-                    //离开酒馆获得配方
-                    textAssets.Add(12, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_01"));
-                    textAssets.Add(13, Resources.Load<TextAsset>("TXT_Korean/K_StartRecipe_02"));
 
                     #region  安托韩语
 
@@ -3600,24 +3584,7 @@ namespace Blackjack_Game
                 #endregion
 
 
-                #region AVG特殊功能
-                case "ShowRecipe":
-                    text.color = Color.white;
-                    CleanNameText();
-
-                    voiceSource.Stop();
-
-                    OpenRecipeShop();
-
-
-
-                    //Background.sprite = Black;// 过场
-                    //People.gameObject.SetActive(false);
-                    index++;
-                    break;
-
-
-                    #endregion
+               
 
 
 
@@ -5630,7 +5597,7 @@ namespace Blackjack_Game
 
                         CheckClean();//检测三位女荷官是否通关（爱丽丝）
 
-                       
+
                     }
                     break;
 
@@ -5656,60 +5623,24 @@ namespace Blackjack_Game
 
         void RandomToShop()
         {
-            bool allUnlocked = IsAllRecipesUnlocked();
 
             int roll = Random.Range(0, 100);
 
-            if (!allUnlocked)
+            if (roll < 80)
             {
-                // 还没集满酒：允许配方商店
-                if (roll < 30)
-                {
-                    //配方商人出现
-                    GameFlowData.nextAVGId = "StartRecipe";   // 30%
-                }
-                else if (roll < 70)
-                {
-                    //商人出现
-                    GameFlowData.nextAVGId = "StartShop_02";  // 40%
-                }
-                else
-                {
-                    //无事发生
-                    GameFlowData.nextAVGId = "StartShop_01";  // 30%
-                }
+                //商人出现
+                GameFlowData.nextAVGId = "StartShop_02";  // 40%
             }
             else
             {
-
-                Debug.Log("已经买齐所有酒，不需要再去买配方了");
-
-                // 已集满酒：彻底禁止配方商店
-                if (roll < 60)
-                {
-                    //商人出现
-                    GameFlowData.nextAVGId = "StartShop_02";  // 60%
-                }
-                else
-                {
-                    //无事发生
-                    GameFlowData.nextAVGId = "StartShop_01";  // 40%
-                }
+                //无事发生
+                GameFlowData.nextAVGId = "StartShop_01";  // 30%
             }
 
 
             uiManager.LoadingScene_Spine();
         }//根据酒品来选择去不去酒品商店
 
-        bool IsAllRecipesUnlocked()
-        {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            if (data.unlockedDrinkNames == null)
-                return false;
-
-            return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
-        }
 
 
 
@@ -5735,7 +5666,7 @@ namespace Blackjack_Game
 
                 Debug.Log("【通关达成】三位女荷官进度已满");
             }
-            else 
+            else
             {
                 RandomToShop();//否则照常继续
             }
@@ -5753,131 +5684,6 @@ namespace Blackjack_Game
 
 
 
-        /// <summary>
-        /// 配方商店
-        /// </summary>
-        #region
-
-        [Header("配方商店")]
-        public GameObject RecipePanel;//配方商店界面
-
-        public void BuyRecipe(int Wine_Number)
-        {
-            // 找到对应条目
-            var item = shopItems.Find(x => x.wineNumber == Wine_Number);
-            if (item == null)
-            {
-                Debug.LogWarning("未找到商店条目 Wine_Number=" + Wine_Number);
-                return;
-            }
-
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-            // 已解锁就直接返回（防重复点）
-            if (data.unlockedDrinkNames.Contains(item.drinkName))
-            {
-                Debug.Log("已解锁：" + item.drinkName);
-                RefreshRecipeShopUI();
-                return;
-            }
-
-            // 钱够不够：你项目现在 balance 是 SaveData 里有的
-            if (data.balance < item.cost)
-            {
-                Debug.Log("钱不够，需：" + item.cost);
-                // 可在这里播放拒绝SE / 弹提示
-                AudioManager_2.SoundPlay(4);
-                return;
-            }
-
-            // ✅ 扣钱：用 BalanceManager 统一做（会更新UI+写存档）
-            BalanceManager.ChangeBalance(-item.cost);
-
-            // ✅ 关键：重新 Load 一次最新存档，避免被旧 data 覆盖
-            data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-
-
-            // 解锁
-            data.unlockedDrinkNames.Add(item.drinkName);
-
-            // 存档
-            SaveManager.SaveGame(data);
-
-
-
-            // 刷商店UI + 刷解锁图标（如果你做了解锁图标列表）
-            RefreshRecipeShopUI();
-
-            AudioManager_2.SoundPlay(3); // 成功音效
-            Debug.Log("购买并解锁：" + item.drinkName);
-
-        }
-
-
-        //public bool UnlockRecipe(string drinkName)
-        //{
-        //    SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-        //
-        //    if (data.unlockedDrinkNames == null)
-        //        data.unlockedDrinkNames = new List<string>();
-        //
-        //    if (data.unlockedDrinkNames.Contains(drinkName))
-        //        return false;
-        //
-        //    data.unlockedDrinkNames.Add(drinkName);
-        //
-        //    SaveManager.SaveGame(data);              // ✅只传 data
-        //    //RefreshUnlockedRecipesFromSave();
-        //    return true;
-        //}//存入酒品
-
-
-        [Header("配方商店条目")]
-        public List<RecipeShopItem> shopItems = new List<RecipeShopItem>();
-
-        [System.Serializable]
-        public class RecipeShopItem
-        {
-            public int wineNumber;        // 按钮传入用（1~7）
-            public string drinkName;      // 存档key：例如 "魔女之吻"
-            public float cost;            // 售价
-            public GameObject rowGO;      // 这一行UI（整行隐藏用）
-            public Text costText;     // 价格文本（可选）
-        }
-        public void RefreshRecipeShopUI()
-        {
-            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-
-            if (data.unlockedDrinkNames == null)
-                data.unlockedDrinkNames = new List<string>();
-
-            foreach (var item in shopItems)
-            {
-                bool unlocked = data.unlockedDrinkNames.Contains(item.drinkName);
-
-                // 已解锁：整行隐藏（你要的“不显示”）
-                if (item.rowGO != null)
-                    item.rowGO.SetActive(!unlocked);
-
-                // 如果要动态显示价格
-                //if (item.costText != null)
-                //    item.costText.text = ((int)item.cost).ToString();
-            }
-        }//更新酒品
-
-        public void OpenRecipeShop()
-        {
-            RecipePanel.SetActive(true);
-            RefreshRecipeShopUI();
-        }//打开商店
-        #endregion
-
-
 
 
         /// <summary>
@@ -5886,7 +5692,7 @@ namespace Blackjack_Game
         #region
         public GameObject All_Unclock_Panel;
         public Text All_Unclock_Text;
-        public void AI_Stage_Clean_Panel() 
+        public void AI_Stage_Clean_Panel()
         {
 
             All_Unclock_Panel.SetActive(true);
