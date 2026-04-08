@@ -146,20 +146,6 @@ namespace Blackjack_Game
                         break;
 
 
-                    case "StartRecipe":
-
-                        if (UnityEngine.Random.Range(0, 2) == 0)
-                        {
-                            Load_AVG(12);//神秘人购买配方
-                        }
-                        else
-                        {
-                            Load_AVG(13);//珠宝商购买配方
-                        }
-
-                        BGM.instance.AudioPlayBackgroundMusic(6);//CG地下城环境音
-                        break;
-
 
                     #region  Anto
                     case "VSAnto":
@@ -827,9 +813,26 @@ namespace Blackjack_Game
 
 
 
+
             if (SceneManager.GetActiveScene().name != "BarCounter")
             {
+
                 WaitToNormal();//开头加载就鼠标变化
+            }
+            else 
+            {
+                //开头经营状态
+                SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+                if (data.IsClosed)
+                {
+                    //不经营状态
+                    WaitToNormal();//开头加载就鼠标变化
+                }
+                else
+                {
+                    //经营状态，等待321倒计时结束来重置鼠标
+
+                }
             }
 
 

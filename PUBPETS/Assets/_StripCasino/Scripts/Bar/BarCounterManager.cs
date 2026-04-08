@@ -20,10 +20,26 @@ namespace Blackjack_Game
 
         void Start()
         {
-            //mainCamera.SetInteger("ChangeView", 2);//摄像头朝向女荷官
 
 
-            StartWork();//设定为先开始
+
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.IsClosed)
+            {
+                //不经营状态
+                StopWork();
+                UIManager.instance.SetNormal();
+            }
+            else
+            {
+
+                //开头经营状态
+                StartWork();//设定为先开始
+
+            }
+
+
+        
 
             Dealer_Progress();//读取女荷官进度
 
@@ -99,6 +115,9 @@ namespace Blackjack_Game
             BGM.instance.AudioPlayBackgroundMusic(11);//暂时通过这个改变音乐
 
             StopWorkButton.SetActive(false);
+
+            //隐藏列表
+            unlockedDrinkList.SetActive(false);
         }
 
 
@@ -727,8 +746,7 @@ namespace Blackjack_Game
             guestCountText.text = guestCount.ToString();
             revenueText.text = revenue.ToString();
 
-            //隐藏列表
-            unlockedDrinkList.SetActive(false);
+          
 
 
             // 可选：暂停游戏等
@@ -957,7 +975,7 @@ namespace Blackjack_Game
 
 
         /// <summary>
-        /// 女荷官按钮上显示当前进度
+        /// 女荷官按钮上显示当前进度/每日奖金/切换经营状态
         /// </summary>
         #region
 
@@ -1010,10 +1028,32 @@ namespace Blackjack_Game
 
         }
 
+
+        //切换经营状态
+        public void SwitchBusinessStatus() 
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+            if (data.IsClosed)
+            {
+                //切换为经营状态
+                data.IsClosed = false;
+            }
+            else
+            {
+
+                //切换为不经营状态
+                data.IsClosed = true;
+
+            }
+            SaveManager.SaveGame(data);
+        }
+
+
+
         #endregion
 
 
 
-      
+
     }
 }
