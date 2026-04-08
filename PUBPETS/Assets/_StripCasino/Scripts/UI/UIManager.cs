@@ -54,34 +54,6 @@ namespace Blackjack_Game
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 if (Application.platform == RuntimePlatform.Android)
                 {
                     Debug.Log("当前是 Android");
@@ -102,6 +74,11 @@ namespace Blackjack_Game
 
                     AllowBackgroundRunning();
                 }
+
+
+                RefreshModeUI();//刷新图片视频CG浏览模式
+
+
 
 
             }//主菜单的设置
@@ -2552,114 +2529,269 @@ namespace Blackjack_Game
 
 
 
+        [Header("图片播放模式")]
+        public bool isImageMode = false;//是否为图片播放模式
+        public ImageManager imageManager;
+
+
+        public Text videoText;
+        public Text imageText;
+
+        public Color activeColor = new Color(1f, 0.9f, 0.6f); // 金色偏亮
+        public Color inactiveColor = new Color(0.5f, 0.5f, 0.5f);
+
+
+        public void RefreshModeUI()
+        {
+            if (isImageMode)
+            {
+                // Image 亮，Video 暗
+                imageText.color = activeColor;
+                videoText.color = inactiveColor;
+            }
+            else
+            {
+                // Video 亮，Image 暗
+                videoText.color = activeColor;
+                imageText.color = inactiveColor;
+            }
+        }
+
+        public void SetImageMode(bool value)
+        {
+            isImageMode = value;
+            RefreshModeUI();
+
+
+            AudioManager_2.SoundPlay(0);//手动SE音频替换
+        }
+
+
+
         public void CG_Thumbnail_RePlay(int CG_Number)
         {
-            switch (CG_Number)
+
+
+            if (isImageMode)
+            {
+
+                switch (CG_Number)
+                {
+
+                    case 11:
+                        imageManager.ChangeImage("anto", 1);
+                        break;
+                    case 12:
+                        imageManager.ChangeImage("anto", 2);
+                        break;
+                    case 13:
+                        imageManager.ChangeImage("anto", 3);
+                        break;
+                    case 14:
+                        imageManager.ChangeImage("anto", 4);
+                        break;
+                    case 15:
+                        imageManager.ChangeImage("anto", 5);
+                        break;
+                    case 16:
+                        imageManager.ChangeImage("anto", 6);
+                        break;
+                    case 17:
+                        imageManager.ChangeImage("anto", 7);
+                        break;
+                    case 18:
+                        imageManager.ChangeImage("anto", 8);
+                        break;
+                    case 19:
+                        imageManager.ChangeImage("anto", 9);
+                        break;
+                    case 20:
+                        imageManager.ChangeImage("anto", 10);
+                        break;
+
+
+
+                    case 21:
+                        imageManager.ChangeImage("hetty", 1);
+                        break;
+                    case 22:
+                        imageManager.ChangeImage("hetty", 2);
+                        break;
+                    case 23:
+                        imageManager.ChangeImage("hetty", 3);
+                        break;
+                    case 24:
+                        imageManager.ChangeImage("hetty", 4);
+                        break;
+                    case 25:
+                        imageManager.ChangeImage("hetty", 5);
+                        break;
+                    case 26:
+                        imageManager.ChangeImage("hetty", 6);
+                        break;
+                    case 27:
+                        imageManager.ChangeImage("hetty", 7);
+                        break;
+                    case 28:
+                        imageManager.ChangeImage("hetty", 8);
+                        break;
+                    case 29:
+                        imageManager.ChangeImage("hetty", 9);
+                        break;
+                    case 30:
+                        imageManager.ChangeImage("hetty", 10);
+                        break;
+
+
+
+                    case 31:
+                        imageManager.ChangeImage("alice", 1);
+                        break;
+                    case 32:
+                        imageManager.ChangeImage("alice", 2);
+                        break;
+                    case 33:
+                        imageManager.ChangeImage("alice", 3);
+                        break;
+                    case 34:
+                        imageManager.ChangeImage("alice", 4);
+                        break;
+                    case 35:
+                        imageManager.ChangeImage("alice", 5);
+                        break;
+                    case 36:
+                        imageManager.ChangeImage("alice", 6);
+                        break;
+                    case 37:
+                        imageManager.ChangeImage("alice", 7);
+                        break;
+                    case 38:
+                        imageManager.ChangeImage("alice", 8);
+                        break;
+                    case 39:
+                        imageManager.ChangeImage("alice", 9);
+                        break;
+                    case 40:
+                        imageManager.ChangeImage("alice", 10);
+                        break;
+                }
+
+
+            }
+            else 
             {
 
 
-
-                case 11:
-                    GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
-                    break;
-                case 12:
-                    GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
-                    break;
-                case 13:
-                    GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
-                    break;
-                case 14:
-                    GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
-                    break;
-                case 15:
-                    GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
-                    break;
-                case 16:
-                    GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
-                    break;
-                case 17:
-                    GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
-                    break;
-                case 18:
-                    GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
-                    break;
-                case 19:
-                    GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
-                    break;
-                case 20:
-                    GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
-                    break;
+                switch (CG_Number)
+                {
 
 
 
-                case 21:
-                    GameFlowData.nextAVGId = "Hetty_CG_01_2";//开启赫蒂第一个CG前端AVG
-                    break;
-                case 22:
-                    GameFlowData.nextAVGId = "Hetty_CG_02_2";//开启赫蒂第二个CG前端AVG
-                    break;
-                case 23:
-                    GameFlowData.nextAVGId = "Hetty_CG_03_2";//开启赫蒂第三个CG前端AVG
-                    break;
-                case 24:
-                    GameFlowData.nextAVGId = "Hetty_CG_04_2";//开启赫蒂第四个CG前端AVG
-                    break;
-                case 25:
-                    GameFlowData.nextAVGId = "Hetty_CG_05_2";//开启赫蒂第五个CG前端AVG
-                    break;
-                case 26:
-                    GameFlowData.nextAVGId = "Hetty_CG_06_2";//开启赫蒂第六个CG前端AVG
-                    break;
-                case 27:
-                    GameFlowData.nextAVGId = "Hetty_CG_07_2";//开启赫蒂第七个CG前端AVG
-                    break;
-                case 28:
-                    GameFlowData.nextAVGId = "Hetty_CG_08_2";//开启赫蒂第八个CG前端AVG
-                    break;
-                case 29:
-                    GameFlowData.nextAVGId = "Hetty_CG_09_2";//开启赫蒂第九个CG前端AVG
-                    break;
-                case 30:
-                    GameFlowData.nextAVGId = "Hetty_CG_10_2";//开启赫蒂第十个CG前端AVG
-                    break;
+                    case 11:
+                        GameFlowData.nextAVGId = "Anto_CG_01_2";//开启安托第一个CG前端AVG
+                        break;
+                    case 12:
+                        GameFlowData.nextAVGId = "Anto_CG_02_2";//开启安托第二个CG前端AVG
+                        break;
+                    case 13:
+                        GameFlowData.nextAVGId = "Anto_CG_03_2";//开启安托第三个CG前端AVG
+                        break;
+                    case 14:
+                        GameFlowData.nextAVGId = "Anto_CG_04_2";//开启安托第四个CG前端AVG
+                        break;
+                    case 15:
+                        GameFlowData.nextAVGId = "Anto_CG_05_2";//开启安托第五个CG前端AVG
+                        break;
+                    case 16:
+                        GameFlowData.nextAVGId = "Anto_CG_06_2";//开启安托第六个CG前端AVG
+                        break;
+                    case 17:
+                        GameFlowData.nextAVGId = "Anto_CG_07_2";//开启安托第七个CG前端AVG
+                        break;
+                    case 18:
+                        GameFlowData.nextAVGId = "Anto_CG_08_2";//开启安托第八个CG前端AVG
+                        break;
+                    case 19:
+                        GameFlowData.nextAVGId = "Anto_CG_09_2";//开启安托第九个CG前端AVG
+                        break;
+                    case 20:
+                        GameFlowData.nextAVGId = "Anto_CG_10_2";//开启安托第十个CG前端AVG
+                        break;
 
 
 
-                case 31:
-                    GameFlowData.nextAVGId = "Alice_CG_01_2";//开启爱丽丝第一个CG前端AVG
-                    break;
-                case 32:
-                    GameFlowData.nextAVGId = "Alice_CG_02_2";//开启爱丽丝第二个CG前端AVG
-                    break;
-                case 33:
-                    GameFlowData.nextAVGId = "Alice_CG_03_2";//开启爱丽丝第三个CG前端AVG
-                    break;
-                case 34:
-                    GameFlowData.nextAVGId = "Alice_CG_04_2";//开启爱丽丝第四个CG前端AVG
-                    break;
-                case 35:
-                    GameFlowData.nextAVGId = "Alice_CG_05_2";//开启爱丽丝第五个CG前端AVG
-                    break;
-                case 36:
-                    GameFlowData.nextAVGId = "Alice_CG_06_2";//开启爱丽丝第六个CG前端AVG
-                    break;
-                case 37:
-                    GameFlowData.nextAVGId = "Alice_CG_07_2";//开启爱丽丝第七个CG前端AVG
-                    break;
-                case 38:
-                    GameFlowData.nextAVGId = "Alice_CG_08_2";//开启爱丽丝第八个CG前端AVG
-                    break;
-                case 39:
-                    GameFlowData.nextAVGId = "Alice_CG_09_2";//开启爱丽丝第九个CG前端AVG
-                    break;
-                case 40:
-                    GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
-                    break;
+                    case 21:
+                        GameFlowData.nextAVGId = "Hetty_CG_01_2";//开启赫蒂第一个CG前端AVG
+                        break;
+                    case 22:
+                        GameFlowData.nextAVGId = "Hetty_CG_02_2";//开启赫蒂第二个CG前端AVG
+                        break;
+                    case 23:
+                        GameFlowData.nextAVGId = "Hetty_CG_03_2";//开启赫蒂第三个CG前端AVG
+                        break;
+                    case 24:
+                        GameFlowData.nextAVGId = "Hetty_CG_04_2";//开启赫蒂第四个CG前端AVG
+                        break;
+                    case 25:
+                        GameFlowData.nextAVGId = "Hetty_CG_05_2";//开启赫蒂第五个CG前端AVG
+                        break;
+                    case 26:
+                        GameFlowData.nextAVGId = "Hetty_CG_06_2";//开启赫蒂第六个CG前端AVG
+                        break;
+                    case 27:
+                        GameFlowData.nextAVGId = "Hetty_CG_07_2";//开启赫蒂第七个CG前端AVG
+                        break;
+                    case 28:
+                        GameFlowData.nextAVGId = "Hetty_CG_08_2";//开启赫蒂第八个CG前端AVG
+                        break;
+                    case 29:
+                        GameFlowData.nextAVGId = "Hetty_CG_09_2";//开启赫蒂第九个CG前端AVG
+                        break;
+                    case 30:
+                        GameFlowData.nextAVGId = "Hetty_CG_10_2";//开启赫蒂第十个CG前端AVG
+                        break;
+
+
+
+                    case 31:
+                        GameFlowData.nextAVGId = "Alice_CG_01_2";//开启爱丽丝第一个CG前端AVG
+                        break;
+                    case 32:
+                        GameFlowData.nextAVGId = "Alice_CG_02_2";//开启爱丽丝第二个CG前端AVG
+                        break;
+                    case 33:
+                        GameFlowData.nextAVGId = "Alice_CG_03_2";//开启爱丽丝第三个CG前端AVG
+                        break;
+                    case 34:
+                        GameFlowData.nextAVGId = "Alice_CG_04_2";//开启爱丽丝第四个CG前端AVG
+                        break;
+                    case 35:
+                        GameFlowData.nextAVGId = "Alice_CG_05_2";//开启爱丽丝第五个CG前端AVG
+                        break;
+                    case 36:
+                        GameFlowData.nextAVGId = "Alice_CG_06_2";//开启爱丽丝第六个CG前端AVG
+                        break;
+                    case 37:
+                        GameFlowData.nextAVGId = "Alice_CG_07_2";//开启爱丽丝第七个CG前端AVG
+                        break;
+                    case 38:
+                        GameFlowData.nextAVGId = "Alice_CG_08_2";//开启爱丽丝第八个CG前端AVG
+                        break;
+                    case 39:
+                        GameFlowData.nextAVGId = "Alice_CG_09_2";//开启爱丽丝第九个CG前端AVG
+                        break;
+                    case 40:
+                        GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
+                        break;
+                }
+
+                GameFlowData.returnPath = "cg";//这个是CG鉴赏路径
+
+                LoadingScene_Spine();
+
+
             }
 
-            GameFlowData.returnPath = "cg";//这个是CG鉴赏路径
-
-            LoadingScene_Spine();
 
         }//主界面菜单打开CG
 

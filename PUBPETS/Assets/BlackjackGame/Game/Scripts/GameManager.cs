@@ -1234,6 +1234,121 @@ namespace Blackjack_Game
             {
                 ConsumeOne();//消耗一颗爱心
                 Interrupt_Item(CurrentItem);//女荷官反制
+
+
+                //该物品依旧被消耗
+                switch (CurrentItem)
+                {
+                    case 0:
+                        //紫色心情
+                        currentCount = data.Item_1;
+                        currentCount--;
+                        data.Item_1 = currentCount;
+                        break;
+                    case 1:
+                        //占卜水晶
+                        currentCount = data.Item_2;
+                        currentCount--;
+                        data.Item_2 = currentCount;
+                        break;
+                    case 2:
+                        //均衡徽章
+                        currentCount = data.Item_3;
+                        currentCount--;
+                        data.Item_3 = currentCount;
+                        break;
+                    case 3:
+                        //魔眼石
+                        currentCount = data.Item_4;
+                        currentCount--;
+                        data.Item_4 = currentCount;
+                        break;
+                    case 4:
+                        //酒瓶
+                        currentCount = data.Item_5;
+                        currentCount--;
+                        data.Item_5 = currentCount;
+                        break;
+                    case 5:
+                        //藏宝图残片
+                        currentCount = data.Item_6;
+                        currentCount--;
+                        data.Item_6 = currentCount;
+                        break;
+                    case 6:
+                        //幸运币
+                        currentCount = data.Item_7;
+                        currentCount--;
+                        data.Item_7 = currentCount;
+                        break;
+                    case 7:
+                        //透视药水
+                        currentCount = data.Item_8;
+                        currentCount--;
+                        data.Item_8 = currentCount;
+                        break;
+
+
+
+                    case 8:
+                        //绿色心情
+                        currentCount = data.Item_9;
+                        currentCount--;
+                        data.Item_9 = currentCount;
+                        break;
+
+                    case 9:
+                        //匕首
+                        currentCount = data.Item_10;
+                        currentCount--;
+                        data.Item_10 = currentCount;
+                        break;
+
+                    case 10:
+                        //黑棋子
+                        currentCount = data.Item_11;
+                        currentCount--;
+                        data.Item_11 = currentCount;
+                        break;
+
+                    case 11:
+                        //魔眼药水
+                        currentCount = data.Item_12;
+                        currentCount--;
+                        data.Item_12 = currentCount;
+                        break;
+
+                    case 12:
+                        //空瓶
+                        currentCount = data.Item_13;
+                        currentCount--;
+                        data.Item_13 = currentCount;
+                        break;
+
+                    case 13:
+                        //白棋子
+                        currentCount = data.Item_14;
+                        currentCount--;
+                        data.Item_14 = currentCount;
+                        break;
+
+                    case 14:
+                        //厄运币
+                        currentCount = data.Item_15;
+                        currentCount--;
+                        data.Item_15 = currentCount;
+                        break;
+
+                    case 15:
+                        //皇室徽章
+                        currentCount = data.Item_16;
+                        currentCount--;
+                        data.Item_16 = currentCount;
+                        break;
+                }
+
+
+
             }
             else if (reaction == DealerReaction.Steal)
             {
@@ -2755,7 +2870,7 @@ namespace Blackjack_Game
 
                     //女荷官反制槽
                     int antoHearts = GetAntoHearts(Progress);
-                    maxCounter = 5;   // 安托上限
+                    maxCounter = 3;   // 安托上限
                     Init(antoHearts);
 
 
@@ -2789,7 +2904,7 @@ namespace Blackjack_Game
 
                     //女荷官反制槽
                     int hettyHearts = GetHettyHearts(Progress);
-                    maxCounter = 4;   // 赫蒂上限
+                    maxCounter = 2;   // 赫蒂上限
                     Init(hettyHearts);
 
 
@@ -2822,7 +2937,7 @@ namespace Blackjack_Game
 
                     //女荷官反制槽
                     int aliceHearts = GetAliceHearts(Progress);
-                    maxCounter = 7;   // 爱丽丝上限
+                    maxCounter = 4;   // 爱丽丝上限
                     Init(aliceHearts);
 
 
@@ -2865,23 +2980,23 @@ namespace Blackjack_Game
         int GetAntoHearts(int p)
         {
             if (p <= 3) return 0;
-            if (p <= 6) return 2;
-            if (p <= 9) return 4;
-            return 5;
+            if (p <= 6) return 1;
+            if (p <= 9) return 2;
+            return 3;
         }
         int GetHettyHearts(int p)
         {
             if (p <= 3) return 0;
             if (p <= 6) return 1;
             if (p <= 9) return 2;
-            return 3;
+            return 2;
         }
         int GetAliceHearts(int p)
         {
             if (p <= 3) return 0;
-            if (p <= 6) return 3;
-            if (p <= 9) return 5;
-            return 7;
+            if (p <= 6) return 2;
+            if (p <= 9) return 3;
+            return 4;
         }
 
 

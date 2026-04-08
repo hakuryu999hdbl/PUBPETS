@@ -50,13 +50,62 @@ namespace Blackjack_Game
         // 随机 4 个不重复（1..8）
         public void RandomizeFour()
         {
-            List<int> pool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            //明显提高：2 / 4 / 8 / 16
+            //小幅提高：13 / 14
+
+
+
+
+
+            List<int> pool = new List<int>
+    {
+        1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16
+    };
+
+            // 权重表（可以随意调）
+            Dictionary<int, float> weights = new Dictionary<int, float>()
+    {
+        {1,1},{2,2.5f},{3,1},{4,2.5f},
+        {5,1},{6,1},{7,1},{8,2.5f},
+        {9,1},{10,1},{11,1},{12,1},
+        {13,1.5f},{14,1.5f},{15,1},{16,2.5f}
+    };
+
             for (int i = 0; i < 4; i++)
             {
-                int r = Random.Range(0, pool.Count);
-                current[i] = pool[r];
-                pool.RemoveAt(r);
+                float totalWeight = 0f;
+                foreach (var num in pool)
+                    totalWeight += weights[num];
+
+                float r = Random.Range(0, totalWeight);
+
+                float cumulative = 0f;
+                for (int j = 0; j < pool.Count; j++)
+                {
+                    cumulative += weights[pool[j]];
+                    if (r <= cumulative)
+                    {
+                        current[i] = pool[j];
+                        pool.RemoveAt(j);
+                        break;
+                    }
+                }
             }
+
+
+
+
+
+
+
+
+            //List<int> pool = new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 };
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    int r = Random.Range(0, pool.Count);
+            //    current[i] = pool[r];
+            //    pool.RemoveAt(r);
+            //}
         }
         // 按你现有命名：Item_{槽}/Item_0{编号}
         private void ApplySkins()
