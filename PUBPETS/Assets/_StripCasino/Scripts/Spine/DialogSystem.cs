@@ -97,6 +97,8 @@ namespace Blackjack_Game
                 Auto_off.SetActive(false);
             }
 
+            ShowText();//点击自动播放后自动连接下一句
+
         }//自动播放
 
         private void OnEnable()
@@ -1146,8 +1148,22 @@ namespace Blackjack_Game
             StartCoroutine(SetTextUI());
         }
 
+
+
+
+        //防止手机端卡住，这里做个0.2f冷却
+        private float lastClickTime = 0f;
+        private float clickCooldown = 0.2f; // 冷却时间，200毫秒足够防止误触
+
+
         public void ShowText()
         {
+
+            // 增加冷却锁：防止多点触控或超快连点
+            if (Time.time - lastClickTime < clickCooldown) return;
+            lastClickTime = Time.time;
+
+
             if (textFinished && !cancelTyping)
             {
                 if (index >= textList.Count) // 添加边界检查
@@ -4846,8 +4862,6 @@ namespace Blackjack_Game
 
                 //商人不出现
                 case 10:
-                case 12:
-                case 13:
                     GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
                     uiManager.LoadingScene_Spine();
                     break;
@@ -5103,8 +5117,9 @@ namespace Blackjack_Game
 
                         uiManager.Achieventment_ACH_ANTO_BRIDE();//【安托花嫁】安托好感度满。
 
+                        ReultBlack_Anto.SetActive(true);
 
-                        CheckClean();//检测三位女荷官是否通关（安托）
+                        //CheckClean();//检测三位女荷官是否通关（安托）
 
                     }
                     break;
@@ -5354,7 +5369,11 @@ namespace Blackjack_Game
 
                         uiManager.Achieventment_ACH_HETTY_BRIDE(); //【赫蒂花嫁】赫蒂好感度满。
 
-                        CheckClean();//检测三位女荷官是否通关（赫蒂）
+
+
+                        ReultBlack_Hetty.SetActive(true);
+
+                        //CheckClean();//检测三位女荷官是否通关（赫蒂）
 
                     }
                     break;
@@ -5595,7 +5614,11 @@ namespace Blackjack_Game
 
                         uiManager.Achieventment_ACH_ALICE_BRIDE(); //【爱丽丝花嫁】爱丽丝好感度满。
 
-                        CheckClean();//检测三位女荷官是否通关（爱丽丝）
+
+                        ReultBlack_Alice.SetActive(true);
+
+
+                        //CheckClean();//检测三位女荷官是否通关（爱丽丝）
 
 
                     }
@@ -5644,7 +5667,7 @@ namespace Blackjack_Game
 
 
 
-        void CheckClean()
+        public void CheckClean()
         {
 
             //如果本局胜利时，三位女荷官都进度已满，打开【通关】记录
@@ -5668,7 +5691,12 @@ namespace Blackjack_Game
             }
             else
             {
-                RandomToShop();//否则照常继续
+                //RandomToShop();//否则照常继续
+
+
+                //开启第二天
+                GameFlowData.nextAVGId = "StartWork_01";//开启经营AVG
+                uiManager.LoadingScene_Spine();
             }
         }
 
@@ -5706,8 +5734,9 @@ namespace Blackjack_Game
             uiManager.Achieventment_ACH_ALL_BRIDES();//【全员花嫁】通关。
         }
 
+        public GameObject ReultBlack_Anto, ReultBlack_Hetty, ReultBlack_Alice;
 
-
+        
 
         #endregion
 

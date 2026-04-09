@@ -2980,23 +2980,23 @@ namespace Blackjack_Game
         int GetAntoHearts(int p)
         {
             if (p <= 3) return 0;
-            if (p <= 6) return 1;
-            if (p <= 9) return 2;
-            return 3;
+            if (p <= 6) return 2;
+            if (p <= 9) return 3;
+            return 5;
         }
         int GetHettyHearts(int p)
         {
             if (p <= 3) return 0;
             if (p <= 6) return 1;
             if (p <= 9) return 2;
-            return 2;
+            return 3;
         }
         int GetAliceHearts(int p)
         {
             if (p <= 3) return 0;
-            if (p <= 6) return 2;
-            if (p <= 9) return 3;
-            return 4;
+            if (p <= 6) return 3;
+            if (p <= 9) return 5;
+            return 7;
         }
 
 

@@ -601,8 +601,8 @@ namespace Blackjack_Game
                 // ✅ 随机酒：按复杂度小幅提升
                 int c = Mathf.Clamp(currentRandomCount, 2, 5);
 
-                int baseMin = 80;
-                int baseMax = 200;
+                int baseMin = 60;
+                int baseMax = 150;
                 int stepBonus = (c - 2) * 20;   // 2步=0, 3步=+80, 4步=+160, 5步=+240
 
                 reward = Random.Range(baseMin + stepBonus, baseMax + stepBonus + 1);
