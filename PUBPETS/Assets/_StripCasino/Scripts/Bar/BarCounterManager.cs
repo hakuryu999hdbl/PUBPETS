@@ -1037,6 +1037,8 @@ namespace Blackjack_Game
             {
                 //切换为经营状态
                 data.IsClosed = false;
+
+  
             }
             else
             {
@@ -1044,11 +1046,12 @@ namespace Blackjack_Game
                 //切换为不经营状态
                 data.IsClosed = true;
 
+
             }
             SaveManager.SaveGame(data);
         }
-
-
+        public Sprite Open,Close;
+        public Image Board;
 
         #endregion
 
