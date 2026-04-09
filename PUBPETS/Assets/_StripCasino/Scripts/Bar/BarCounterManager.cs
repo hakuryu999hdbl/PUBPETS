@@ -22,7 +22,6 @@ namespace Blackjack_Game
         {
 
 
-
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
             if (data.IsClosed)
             {
@@ -39,7 +38,8 @@ namespace Blackjack_Game
             }
 
 
-        
+            InitBusinessStatus();//初始更新状态
+
 
             Dealer_Progress();//读取女荷官进度
 
@@ -1030,6 +1030,20 @@ namespace Blackjack_Game
 
 
         //切换经营状态
+        public void InitBusinessStatus()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+
+            if (data.IsClosed)
+            {
+                Board.sprite = Close;
+            }
+            else
+            {
+                Board.sprite = Open;
+            }
+        }
+
         public void SwitchBusinessStatus() 
         {
             SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
@@ -1037,15 +1051,16 @@ namespace Blackjack_Game
             {
                 //切换为经营状态
                 data.IsClosed = false;
+                Board.sprite = Open;
 
-  
+
             }
             else
             {
 
                 //切换为不经营状态
                 data.IsClosed = true;
-
+                Board.sprite = Close;
 
             }
             SaveManager.SaveGame(data);
