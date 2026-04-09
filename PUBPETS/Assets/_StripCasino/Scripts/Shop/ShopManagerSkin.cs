@@ -278,23 +278,23 @@ namespace Blackjack_Game
         {
             switch (id)
             {
-                case 1: return 150; // 紫色心情
-                case 2: return 150; // 占卜水晶（看盖牌和顶牌和第二张牌）
-                case 3: return 500; // 均衡徽章
-                case 4: return 100; // 魔眼石（看盖牌和顶牌）
+                case 1: return 350; // 紫色心情
+                case 2: return 600; // 占卜水晶（看盖牌和顶牌和第二张牌）
+                case 3: return 750; // 均衡徽章
+                case 4: return 500; // 魔眼石（看盖牌和顶牌）
                 case 5: return 300; // 酒瓶
-                case 6: return 400; // 藏宝图残片
-                case 7: return 150; // 幸运币
-                case 8: return 50;  // 透视药水（看顶牌和第二张牌）
+                case 6: return 500; // 藏宝图残片
+                case 7: return 550; // 幸运币
+                case 8: return 500;  // 透视药水（看顶牌和第二张牌）
 
-                case 9: return 150; // 绿色心情
+                case 9: return 450; // 绿色心情
                 case 10: return 250; // 匕首（丢弃顶牌）
-                case 11: return 350; // 黑棋子
-                case 12: return 200; // 魔眼药水（洗牌）
-                case 13: return 300; // 空瓶（庄家翻倍）
-                case 14: return 350; // 白棋子（庄家+5）
-                case 15: return 150; // 厄运币（玩家-1）
-                case 16: return 450; // 皇室家徽（双倍奖励）
+                case 11: return 650; // 黑棋子
+                case 12: return 300; // 魔眼药水（洗牌）
+                case 13: return 700; // 空瓶（庄家翻倍）
+                case 14: return 600; // 白棋子（庄家+5）
+                case 15: return 400; // 厄运币（玩家-1）
+                case 16: return 800; // 皇室家徽（双倍奖励）
 
                 default: return 0;
             }
