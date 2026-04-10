@@ -9577,6 +9577,7 @@ GameObject:
   - component: {fileID: 1290536654}
   - component: {fileID: 1290536652}
   - component: {fileID: 1290536653}
+  - component: {fileID: 1290536657}
   m_Layer: 0
   m_Name: Spine(Anto_CG_06)
   m_TagString: Untagged
@@ -9728,6 +9729,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1677054566}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290536657
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290536651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7127f58a5447fc24bb21d5dbd9965ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioManager: {fileID: 1333524835}
+  audioS: {fileID: 1333524836}
 --- !u!1 &1309801346
 GameObject:
   m_ObjectHideFlags: 0
