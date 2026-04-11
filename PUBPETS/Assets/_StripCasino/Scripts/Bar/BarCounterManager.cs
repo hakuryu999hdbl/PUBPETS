@@ -602,7 +602,7 @@ namespace Blackjack_Game
                 int c = Mathf.Clamp(currentRandomCount, 2, 5);
 
                 int baseMin = 60;
-                int baseMax = 150;
+                int baseMax = 80;
                 int stepBonus = (c - 2) * 20;   // 2步=0, 3步=+80, 4步=+160, 5步=+240
 
                 reward = Random.Range(baseMin + stepBonus, baseMax + stepBonus + 1);
@@ -735,6 +735,8 @@ namespace Blackjack_Game
             {
                 TimeUp();
             }
+
+            KeyBoard();//键盘输入酒品
         }
 
         public void TimeUp()
@@ -1071,7 +1073,65 @@ namespace Blackjack_Game
         #endregion
 
 
+        /// <summary>
+        /// 设置好的快捷键触发
+        /// </summary>
+        #region
 
+        void KeyBoard()
+        {
+             if (Input.GetKeyDown(KeyCode.Q))
+             {
+                OnClickIngredient("Wine_5");
+             }
+             if (Input.GetKeyDown(KeyCode.W))
+             {
+                OnClickIngredient("Wine_2");
+            }
+             if (Input.GetKeyDown(KeyCode.E))
+             {
+                OnClickIngredient("Wine_4");
+            }
+             if (Input.GetKeyDown(KeyCode.A))
+             {
+                OnClickIngredient("Wine_1");
+            }
+
+            if (Input.GetKeyDown(KeyCode.S))
+            {
+                OnClickIngredient("Wine_3");
+            }
+            if (Input.GetKeyDown(KeyCode.D))
+            {
+                OnClickIngredient("Wine_6");
+            }
+
+
+
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                OnClickIngredient("Lemon");
+            }
+            if (Input.GetKeyDown(KeyCode.I))
+            {
+                OnClickIngredient("Wine_7");
+            }
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                OnClickIngredient("Mint");
+            }
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                OnClickIngredient("Ice");
+            }
+
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                OnClickIngredient("Wine_8");
+            }
+
+        }
+        #endregion
 
     }
 }

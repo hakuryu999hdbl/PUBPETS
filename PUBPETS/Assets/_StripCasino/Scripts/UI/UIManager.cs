@@ -83,6 +83,7 @@ namespace Blackjack_Game
 
             }//主菜单的设置
 
+            //Debug.Log("目前是否根据系统语言进行设置" + PlayerPrefs.GetInt("language_initialized"));//0无设置  1已经设置好
             Debug.Log("目前储存的语言" + PlayerPrefs.GetInt("language"));//0日语 1简体中文 2繁体中文 3英语 4韩语
 
             //Debug.Log("目前储存的Hit按键设置" + PlayerPrefs.GetString("KeyBindings_Hit"));
@@ -841,11 +842,24 @@ namespace Blackjack_Game
         }
 
 
+        //如果在这个场景中还没有跳出过一次检测版本菜单，那么打开菜单
+        public GameObject SaveMenu_Panel;
+        public GameObject VersionUp_Panel;
+        bool isOpenVersionUp_Panel = false;
+        public void OpenSaveMenu()
+        {
+            if (isOpenVersionUp_Panel)
+            {
+                SaveMenu_Panel.SetActive(true);
+                VersionUp_Panel.SetActive(false);
+            }
+            else 
+            {
+                VersionUp_Panel.SetActive(true);
+                isOpenVersionUp_Panel = true;
+            }
 
-
-
-
-
+        }
 
 
 
@@ -1717,8 +1731,14 @@ namespace Blackjack_Game
             Debug.Log("Exiting game...");
 
             Application.Quit();
+
+            OpenURL_DLsite();
         }
 
+        public void OpenURL_DLsite()
+        {
+            Application.OpenURL("https://www.dlsite.com/maniax/announce/=/product_id/RJ01483203.html");//打开DL商店页面
+        }
         #endregion
 
 
@@ -2998,13 +3018,13 @@ namespace Blackjack_Game
         {
             Debug.Log("【成就触发】ACH_GAMBLER_BARTENDER（赌徒酒保）");
             UnlockSteamAchievement("ACH_GAMBLER_BARTENDER");
-        } //【赌徒酒保】单局内收益超过3000的情况下战胜女荷官。
+        } //【赌徒酒保】单局内收益超过1000的情况下战胜女荷官。
 
         public void Achieventment_ACH_REVENGE_BARTENDER()
         {
             Debug.Log("【成就触发】ACH_REVENGE_BARTENDER（复仇酒保）");
             UnlockSteamAchievement("ACH_REVENGE_BARTENDER");
-        } //【复仇酒保】单局内亏损超过3000的情况下战胜女荷官。
+        } //【复仇酒保】单局内亏损超过1000的情况下战胜女荷官。
 
 
         // 本局里已经触发过的成就（防止自己 UI 重复弹）

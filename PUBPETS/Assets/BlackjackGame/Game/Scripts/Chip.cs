@@ -16,9 +16,13 @@ namespace Blackjack_Game
         }
 
 
-        // --- 新增冷却变量 ---
+        // --- 新增冷却变量 ---（点击0.2秒）
         private static float lastGlobalClickTime = 0f;
         private const float clickCooldown = 0.1f; // 100毫秒，兼顾手感与防错
+
+        // --- 新增冷却变量 ---（提示0.5秒）
+        private float lastLimitTriggerTime = -1f;
+        private float limitTriggerCooldown = 0.5f;
 
 
         public void OnClick()
@@ -36,6 +40,15 @@ namespace Blackjack_Game
             {
                 transform.DOComplete();
                 transform.DOShakePosition(.2f, 4f, 20, 0);
+
+                // 半秒内不重复触发
+                if (Time.time - lastLimitTriggerTime >= limitTriggerCooldown)
+                {
+                    GameManager._Instance.LimitNumber.SetTrigger("Show");
+                    lastLimitTriggerTime = Time.time;
+                    AudioManager_2.SoundPlay(2);//手动SE音频替换
+                }
+
                 return;
             }
 
@@ -54,6 +67,8 @@ namespace Blackjack_Game
             {
                 //transform.DOComplete();
                 //transform.DOShakePosition(.2f, 4f, 20, 0);
+
+               
             }
 
 

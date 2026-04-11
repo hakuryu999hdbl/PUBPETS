@@ -760,19 +760,14 @@ namespace Blackjack_Game
 
                         if (currentHealth < maxHealth / 2)
                         {
-                            if(Progress == 7&& Progress == 8&& Progress == 9)
+                            if(Progress == 7&& Progress == 8&& Progress == 9 && Progress == 10)
                             {
                                 if (Random.Range(0, 2) == 0)
                                 {
-                                    AddCounter(1);//在7，8，9关的时候赫蒂半血以下随机恢复1颗
+                                    AddCounter(1);//在7，8，9，10关的时候赫蒂半血以下随机恢复1颗
                                 }
                             }
 
-                            if (Progress >=10)
-                            {
-                                AddCounter(1);//在10关的时候赫蒂半血以下固定恢复1颗
-
-                            }
                         }
 
                         if (Progress >= 4)
@@ -1149,6 +1144,10 @@ namespace Blackjack_Game
                 ChipBox.SetInteger("Situation", 0);
             }
         }
+
+        public Animator LimitNumber;
+
+
         #endregion
 
 
@@ -2843,7 +2842,7 @@ namespace Blackjack_Game
             //根据存档来显示对应的动画器
             switch (GameFlowData.nextAVGId)
             {
-                default:
+            
                 case "VSAnto":
                 case "Anto_CG_01_1":
                 case "Anto_CG_02_1":
@@ -2877,7 +2876,7 @@ namespace Blackjack_Game
 
 
                     break;
-
+                
                 case "VSHetty":
                 case "Hetty_CG_01_1":
                 case "Hetty_CG_02_1":
@@ -2909,7 +2908,7 @@ namespace Blackjack_Game
 
 
                     break;
-
+                default:
                 case "VSAlice":
                 case "Alice_CG_01_1":
                 case "Alice_CG_02_1":
@@ -3197,7 +3196,10 @@ namespace Blackjack_Game
 
             if (newSituation > _Instance.currentSituation)
             {
-                _Instance.ApplyDamage(newSituation);
+                //_Instance.ApplyDamage(newSituation);
+
+                // 每次只推进一个阶段
+                _Instance.ApplyDamage(_Instance.currentSituation + 1);
             }
             else
             {
@@ -3813,14 +3815,14 @@ namespace Blackjack_Game
                 UIManager.Achieventment_ACH_CHEAT_BARTENDER();//【作弊酒保】单局内使用3个及以上物品。
             }
 
-            if (revenue >= 3000)
+            if (revenue >= 1000)
             {
-                UIManager.Achieventment_ACH_GAMBLER_BARTENDER();//【赌徒酒保】单局内收益超过3000的情况下战胜女荷官。
+                UIManager.Achieventment_ACH_GAMBLER_BARTENDER();//【赌徒酒保】单局内收益超过1000的情况下战胜女荷官。
             }
 
-            if (revenue <= -3000)
+            if (revenue <= -1000)
             {
-                UIManager.Achieventment_ACH_REVENGE_BARTENDER();//【复仇酒保】单局内亏损超过3000的情况下战胜女荷官。
+                UIManager.Achieventment_ACH_REVENGE_BARTENDER();//【复仇酒保】单局内亏损超过1000的情况下战胜女荷官。
             }
         }
 
