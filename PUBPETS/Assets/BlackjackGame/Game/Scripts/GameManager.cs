@@ -3878,6 +3878,34 @@ namespace Blackjack_Game
         }
         #endregion
 
+        public void Exit_CleanTable() 
+        {
+            // 1. 如果桌上还有未结算下注，先退钱
+            if (Player.bet > 0)
+            {
+                BalanceManager.ChangeBalance(Player.bet);
+                Player.bet = 0;
+            }
 
+            // 2. 清下注历史，避免下次 Undo/Clear 还残留
+            if (BetHistoryManager._Instance != null)
+            {
+                BetHistoryManager._Instance.ResetHistory();
+            }
+
+            // 3. 清筹码堆显示
+            ChipManager.ClearStack(StackType.Standard);
+            ChipManager.ClearStack(StackType.Split);
+            ChipManager.ClearStack(StackType.Double);
+            ChipManager.ClearStack(StackType.DoubleSplit);
+            ChipManager.ClearStack(StackType.Insurance);
+
+            // 4. 清桌上的牌
+            table.Cleanup();
+
+            // 5. 收尾状态
+            GameActive = false;
+            ChangeGameState(GameState.OnIdle);
+        }
     }
 }

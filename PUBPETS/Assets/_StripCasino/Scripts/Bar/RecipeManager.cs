@@ -68,7 +68,12 @@ namespace Blackjack_Game
             // 存档
             SaveManager.SaveGame(data);
 
-
+            // ✅ 检测是否买齐所有特殊酒配方
+            if (IsAllRecipesUnlocked())
+            {
+                Debug.Log("【成就检测】已买齐所有特殊酒配方");
+                UIManager.instance.Achieventment_ACH_PRO_BARTENDER();
+            }
 
             // 刷商店UI + 刷解锁图标（如果你做了解锁图标列表）
             RefreshRecipeShopUI();
@@ -142,16 +147,16 @@ namespace Blackjack_Game
         //检测是否解锁所有酒品
 
         //bool allUnlocked = IsAllRecipesUnlocked();
-        //
-        //bool IsAllRecipesUnlocked()
-        //{
-        //    SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
-        //
-        //    if (data.unlockedDrinkNames == null)
-        //        return false;
-        //
-        //    return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
-        //}
+        
+        bool IsAllRecipesUnlocked()
+        {
+            SaveData data = SaveManager.LoadGame(GameFlowData.CurrentPlayer);
+        
+            if (data.unlockedDrinkNames == null)
+                return false;
+        
+            return data.unlockedDrinkNames.Count >= 10;//这是特殊酒总数
+        }
 
 
 

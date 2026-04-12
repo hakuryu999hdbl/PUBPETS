@@ -3026,6 +3026,14 @@ namespace Blackjack_Game
             UnlockSteamAchievement("ACH_REVENGE_BARTENDER");
         } //【复仇酒保】单局内亏损超过1000的情况下战胜女荷官。
 
+        public void Achieventment_ACH_PRO_BARTENDER()
+        {
+            Debug.Log("【成就触发】ACH_PRO_BARTENDER（专业酒保）");
+            UnlockSteamAchievement("ACH_PRO_BARTENDER");
+        } //【专业酒保】玩家买齐所有特殊酒配方。
+
+
+
 
         // 本局里已经触发过的成就（防止自己 UI 重复弹）
         private HashSet<string> _localUnlockedAchievements = new HashSet<string>();

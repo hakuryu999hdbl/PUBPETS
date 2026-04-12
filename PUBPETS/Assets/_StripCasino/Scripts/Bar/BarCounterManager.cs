@@ -468,7 +468,7 @@ namespace Blackjack_Game
         public void OnClickIngredient(string id)
         {
             if (!timeRunning) { return; }//计时开始钱戳物品
-
+            if (isMakingWine) return;//处于调酒中不能点击了
 
             // 增加冷却锁：防止多点触控或超快连点
             if (Time.time - lastClickTime < clickCooldown) return;
@@ -564,6 +564,12 @@ namespace Blackjack_Game
                     //展示挡板
                     Block_Panel.SetActive(true);
                     UIManager.instance.SetWait();
+
+
+                    // 🔥 新增：兜底（2.3秒后强制完成）
+                    Invoke(nameof(MakeWineSuccess), 2.3f); // 这个时间按动画长度填
+                    isMakingWine = true;//开始调酒了，不能再点了
+
                 }
 
                 AudioManager_2.SoundPlay(5);//手动SE音频替换
@@ -586,6 +592,12 @@ namespace Blackjack_Game
         //酒完成动画调用
         public void MakeWineSuccess()
         {
+            if (!isMakingWine) return; // 防重复
+            isMakingWine = false;//调酒完成，可以点击了
+
+
+
+
             OverDialog();//目前要求消失
 
             Debug.Log("调酒成功！");
@@ -627,6 +639,9 @@ namespace Blackjack_Game
             //普通酒复杂度清零
             currentRandomCount = 0;
         }
+
+
+        private bool isMakingWine = false;//////////////////////////////////////////是否在调酒，调酒的时候不能点击按钮
 
 
         //在点击暂停营业的时候，外部调用

@@ -9040,6 +9040,7 @@ GameObject:
   - component: {fileID: 249246035}
   - component: {fileID: 249246034}
   - component: {fileID: 249246036}
+  - component: {fileID: 249246037}
   m_Layer: 5
   m_Name: Stand
   m_TagString: Untagged
@@ -9162,6 +9163,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &249246037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 249246032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &255104160
 GameObject:
   m_ObjectHideFlags: 0
@@ -10370,6 +10383,7 @@ GameObject:
   - component: {fileID: 283541379}
   - component: {fileID: 283541378}
   - component: {fileID: 283541380}
+  - component: {fileID: 283541381}
   m_Layer: 5
   m_Name: Clear
   m_TagString: Untagged
@@ -10480,6 +10494,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &283541381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283541376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &283709670
 GameObject:
   m_ObjectHideFlags: 0
@@ -26018,6 +26044,7 @@ GameObject:
   - component: {fileID: 631734342}
   - component: {fileID: 631734341}
   - component: {fileID: 631734343}
+  - component: {fileID: 631734344}
   m_Layer: 5
   m_Name: Undo
   m_TagString: Untagged
@@ -26128,6 +26155,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &631734344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631734339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &638870735
 GameObject:
   m_ObjectHideFlags: 0
@@ -36843,6 +36882,7 @@ GameObject:
   - component: {fileID: 907143881}
   - component: {fileID: 907143880}
   - component: {fileID: 907143882}
+  - component: {fileID: 907143883}
   m_Layer: 5
   m_Name: Double
   m_TagString: Untagged
@@ -36965,6 +37005,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &907143883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907143878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &908302414
 GameObject:
   m_ObjectHideFlags: 0
@@ -42917,6 +42969,7 @@ GameObject:
   - component: {fileID: 1030646885}
   - component: {fileID: 1030646884}
   - component: {fileID: 1030646886}
+  - component: {fileID: 1030646887}
   m_Layer: 5
   m_Name: Deal
   m_TagString: Untagged
@@ -43040,6 +43093,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1030646887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030646882}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1037213618
 GameObject:
   m_ObjectHideFlags: 0
@@ -46856,6 +46921,7 @@ GameObject:
   - component: {fileID: 1155278927}
   - component: {fileID: 1155278926}
   - component: {fileID: 1155278928}
+  - component: {fileID: 1155278929}
   m_Layer: 5
   m_Name: Split
   m_TagString: Untagged
@@ -46978,6 +47044,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1155278929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155278924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79a27e2bd8e86046a572c61bf165e13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1158030074 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3704619629376080545, guid: 83a6604f5b68e0546bd2d88e08045bbf,
@@ -78891,6 +78969,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 588359051}
+        m_TargetAssemblyTypeName: Blackjack_Game.GameManager, Assembly-CSharp
+        m_MethodName: Exit_CleanTable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1808822515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86876,6 +86966,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1361604369}
         m_TargetAssemblyTypeName: UIManager, Assembly-CSharp
         m_MethodName: OpenPauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 588359051}
+        m_TargetAssemblyTypeName: Blackjack_Game.GameManager, Assembly-CSharp
+        m_MethodName: Exit_CleanTable
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

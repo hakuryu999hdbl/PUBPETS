@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,8 @@ namespace Blackjack_Game
         }
         public void FinishWine() 
         {
-            barCounterManager.MakeWineSuccess();
+            //动画帧事件不稳定，我用那边Invoke触发
+            //barCounterManager.MakeWineSuccess();
         }
 
     }
