@@ -2566,6 +2566,11 @@ namespace Blackjack_Game
 
         public void RefreshModeUI()
         {
+            // 如果对象不存在 或 已隐藏，就直接跳过
+            if (imageText == null || videoText == null)
+                return;
+
+
             if (isImageMode)
             {
                 // Image 亮，Video 暗
