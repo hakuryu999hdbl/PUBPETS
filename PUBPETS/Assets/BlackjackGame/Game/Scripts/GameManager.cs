@@ -64,6 +64,12 @@ namespace Blackjack_Game
         public void OnClickDeal()
         {
             GameActive = true;
+
+            // 一旦正式开始赌局，隐藏暂停和离开
+            SetMatchUIVisible(false);
+
+
+
             if (State == GameState.OnIdle)
             {
                 StartCoroutine(InitialDeal());
@@ -486,7 +492,8 @@ namespace Blackjack_Game
             ChangeGameState(GameState.OnIdle);
             GameActive = false;
 
-
+            // 赌局结束，恢复暂停和离开
+            SetMatchUIVisible(true);
         }
 
 
@@ -3877,9 +3884,31 @@ namespace Blackjack_Game
 
         }
         #endregion
+        [Header("赌局中需要隐藏的按钮")]
+        public GameObject PauseButton;
+        public GameObject LeaveButton;
+        private void SetMatchUIVisible(bool visible)
+        {
+            if (PauseButton != null)
+                PauseButton.SetActive(visible);
+
+            if (LeaveButton != null)
+                LeaveButton.SetActive(visible);
+        }//我刚才又发现了，如果赌局开始，玩家退出，那么还是会产生（下一次进来就会赌注上限混乱）的问题  一旦赌局开始就把暂停菜单和离开按钮去掉，直到赌局结束
+
+
 
         public void Exit_CleanTable() 
         {
+            // 赌局开始后不允许退出清桌
+            //if (GameActive || State != GameState.OnIdle)
+            //{
+            //    Debug.Log("赌局已开始，禁止退出清桌");
+            //    return;
+            //}
+
+
+
             // 1. 如果桌上还有未结算下注，先退钱
             if (Player.bet > 0)
             {
