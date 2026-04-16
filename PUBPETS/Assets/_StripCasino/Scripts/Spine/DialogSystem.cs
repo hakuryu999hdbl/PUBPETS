@@ -69,10 +69,11 @@ namespace Blackjack_Game
 
         [Header("自动播放")]
         public bool autoMode = false; // 是否自动播放
-        public float autoDelay = 1.5f; // 每句之间的间隔秒数
+        public float autoDelay = 2f; // 每句之间的间隔秒数
         public GameObject Auto_On, Auto_Off, Auto_on, Auto_off;
 
-
+        // 当前这句是否有女生语音（用于声音结束再下一句）
+        private bool currentLineHasGirlVoice = false;
 
 
         public void ToggleAutoMode()
@@ -1138,6 +1139,8 @@ namespace Blackjack_Game
             if (textAssets.TryGetValue(animation_number, out TextAsset selectedText))
             {
                 GetTextFormFile(selectedText);
+
+                VoiceIndex = 0;//开始重置
             }
             else
             {
@@ -1211,6 +1214,12 @@ namespace Blackjack_Game
             textFinished = false;
             textLabel.text = "";
             textLabel_2.text = "";/////////////////////////////////////////
+
+
+            currentLineHasGirlVoice = false;//这句不是女生声音
+
+
+
 
             //判断一整行的字符是
             Text text = textLabel;
@@ -3690,8 +3699,20 @@ namespace Blackjack_Game
             // ✅ 如果开启自动播放并且还有后续文本，就自动播放下一句
             if (autoMode && index < textList.Count)
             {
-                yield return new WaitForSeconds(autoDelay); // 自动延迟
-                ShowText(); // 自动下一句
+                if (currentLineHasGirlVoice && voiceSource != null && voiceSource.clip != null)
+                {
+                    // 这句有女生语音：等语音播完再跳下一句
+                    yield return new WaitWhile(() => voiceSource.isPlaying);
+                }
+                else
+                {
+                    // 普通句子：固定等待2秒
+                    yield return new WaitForSeconds(autoDelay);
+                }
+
+                // 再次确认自动模式还开着，避免等待途中被用户手动关闭
+                if (autoMode)
+                    ShowText();
             }
         }
 
@@ -3919,6 +3940,10 @@ namespace Blackjack_Game
 
         public void Girl_Voice()
         {
+
+            currentLineHasGirlVoice = true;//这句是女孩声音
+
+
 
             // 1) 选择「当前台词列表」
             //List<AudioClip> newList = null;
