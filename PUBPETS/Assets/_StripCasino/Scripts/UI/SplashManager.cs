@@ -31,13 +31,13 @@ public class SplashManager : MonoBehaviour
 
     private void Start()
     {
-        InitLanguageOnce();//开始的时候检测本地语言并设置，第二次打开不再设置
+        InitLanguageOnce();
     }
 
 
     void InitLanguageOnce()
     {
-        // 是否已经做过语言初始化
+
         if (PlayerPrefs.HasKey("language_initialized"))
             return;
 
@@ -67,7 +67,7 @@ public class SplashManager : MonoBehaviour
                 return 4;
 
             default:
-                return 3; // 默认英语
+                return 3; 
         }
     }
 
