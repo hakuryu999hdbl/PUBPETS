@@ -157,6 +157,12 @@ namespace Blackjack_Game
                 case 3083:
                 case 3093:
                 case 3103:
+
+                // 新增赠品CG正文
+                case 20532:
+                case 20732:
+                case 30732:
+
                     Black_Half_CG.SetActive(true);
                     break;
 
@@ -3984,7 +3990,15 @@ namespace Blackjack_Game
         #endregion
 
 
-
+        [Header("赠品CG台词语音")]
+        [SerializeField]
+        private List<AudioClip> bonusHettyPlaylist_CG_05_2 = new List<AudioClip>();
+        [SerializeField]
+        private List<AudioClip> bonusHettyPlaylist_CG_05_3 = new List<AudioClip>();
+        [SerializeField]
+        private List<AudioClip> bonusHettyPlaylist_CG_07_3 = new List<AudioClip>();
+        [SerializeField]
+        private List<AudioClip> bonusAlicePlaylist_CG_07_3 = new List<AudioClip>();
 
 
 
@@ -4467,13 +4481,27 @@ namespace Blackjack_Game
                     Playlist = alicePlaylist_CG_10_4;
                     break;
 
-                    #endregion
+                #endregion
 
 
 
 
 
+                case 20522:
+                    Playlist = bonusHettyPlaylist_CG_05_2;
+                    break;
 
+                case 20532:
+                    Playlist = bonusHettyPlaylist_CG_05_3;
+                    break;
+
+                case 20732:
+                    Playlist = bonusHettyPlaylist_CG_07_3;
+                    break;
+
+                case 30732:
+                    Playlist = bonusAlicePlaylist_CG_07_3;
+                    break;
 
 
 
@@ -5702,6 +5730,21 @@ namespace Blackjack_Game
                     break;
 
                 #endregion
+
+
+                // 赫蒂05赠品：前置AVG结束，进入动画正文
+                case 20522:
+                    GameFlowData.nextAVGId = "Bonus_Hetty_05_3";
+                    uiManager.LoadingScene_Spine();
+                    break;
+
+                // 三个赠品CG结束，直接返回鉴赏
+                case 20532:
+                case 20732:
+                case 30732:
+                    GameFlowData.returnPath = "cg";
+                    uiManager.LoadingScene_Lobby();
+                    break;
 
 
 

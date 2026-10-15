@@ -100,9 +100,12 @@ public class ImageManager : MonoBehaviour
     public List<Sprite> Thumbnail_Alice_10 = new List<Sprite>();
 
     // --- 接口套入部分 ---
+    [Header("赠品CG图片")]
+    public List<Sprite> Thumbnail_Hetty_05_2 = new List<Sprite>();
+    public List<Sprite> Thumbnail_Hetty_07_2 = new List<Sprite>();
+    public List<Sprite> Thumbnail_Alice_07_2 = new List<Sprite>();
 
 
-  
 
 
 
@@ -153,6 +156,8 @@ public class ImageManager : MonoBehaviour
         8 => Thumbnail_Hetty_08,
         9 => Thumbnail_Hetty_09,
         10 => Thumbnail_Hetty_10,
+        11 => Thumbnail_Hetty_05_2,
+        12 => Thumbnail_Hetty_07_2,
         _ => null
     };
 
@@ -168,6 +173,7 @@ public class ImageManager : MonoBehaviour
         8 => Thumbnail_Alice_08,
         9 => Thumbnail_Alice_09,
         10 => Thumbnail_Alice_10,
+        11 => Thumbnail_Alice_07_2,
         _ => null
     };
 }

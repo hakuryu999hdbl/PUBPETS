@@ -782,7 +782,35 @@ namespace Blackjack_Game
                         Load_AVG(2104);//开启赫蒂第十个失败剧情
                         BGM.instance.AudioPlayBackgroundMusic(7);//赫蒂AVG音乐
                         break;
-                        #endregion
+                    #endregion
+
+
+                    // 赫蒂05赠品：前置AVG
+                    case "Bonus_Hetty_05_2":
+                        Load_AVG(20522);
+                        BGM.instance.AudioPlayBackgroundMusic(7);
+                        break;
+
+                    // 赫蒂05赠品：动画正文
+                    case "Bonus_Hetty_05_3":
+                        Load_AVG(20532);
+                        dialog.spine_FrameEvents.SetCurrentAnimator(41);
+                        BGM.instance.AudioPlayBackgroundMusic(6);
+                        break;
+
+                    // 赫蒂07赠品：直接进入动画正文
+                    case "Bonus_Hetty_07_3":
+                        Load_AVG(20732);
+                        dialog.spine_FrameEvents.SetCurrentAnimator(42);
+                        BGM.instance.AudioPlayBackgroundMusic(6);
+                        break;
+
+                    // 爱丽丝07赠品：直接进入动画正文
+                    case "Bonus_Alice_07_3":
+                        Load_AVG(30732);
+                        dialog.spine_FrameEvents.SetCurrentAnimator(43);
+                        BGM.instance.AudioPlayBackgroundMusic(6);
+                        break;
                 }
 
             }
@@ -1034,8 +1062,20 @@ namespace Blackjack_Game
         public GameObject Thumbnail_Alice_09;
         public GameObject Thumbnail_Alice_10;
 
+        [Header("赠品CG（默认解锁）")]
+        public GameObject Thumbnail_Hetty_05_2;
+        public GameObject Thumbnail_Hetty_07_2;
+        public GameObject Thumbnail_Alice_07_2;
+
         public void CheckAndShowAntoCG()
         {
+            // 赠品CG始终解锁，不读取剧情进度
+            Thumbnail_Hetty_05_2.SetActive(true);
+            Thumbnail_Hetty_07_2.SetActive(true);
+            Thumbnail_Alice_07_2.SetActive(true);
+
+
+
             int maxAntoProgress = 0;
             int maxHettyProgress = 0;
             int maxAliceProgress = 0;
@@ -1105,7 +1145,11 @@ namespace Blackjack_Game
         Thumbnail_Hetty_06, Thumbnail_Hetty_07, Thumbnail_Hetty_08, Thumbnail_Hetty_09, Thumbnail_Hetty_10,
 
         Thumbnail_Alice_01, Thumbnail_Alice_02, Thumbnail_Alice_03, Thumbnail_Alice_04, Thumbnail_Alice_05,
-        Thumbnail_Alice_06, Thumbnail_Alice_07, Thumbnail_Alice_08, Thumbnail_Alice_09, Thumbnail_Alice_10
+        Thumbnail_Alice_06, Thumbnail_Alice_07, Thumbnail_Alice_08, Thumbnail_Alice_09, Thumbnail_Alice_10,
+
+        Thumbnail_Hetty_05_2,
+        Thumbnail_Hetty_07_2,
+        Thumbnail_Alice_07_2
     );
 
            
@@ -2702,6 +2746,19 @@ namespace Blackjack_Game
                     case 40:
                         imageManager.ChangeImage("alice", 10);
                         break;
+
+
+                    case 41:
+                        imageManager.ChangeImage("hetty", 11);
+                        break;
+
+                    case 42:
+                        imageManager.ChangeImage("hetty", 12);
+                        break;
+
+                    case 43:
+                        imageManager.ChangeImage("alice", 11);
+                        break;
                 }
 
 
@@ -2810,6 +2867,15 @@ namespace Blackjack_Game
                         break;
                     case 40:
                         GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
+                        break;
+                    case 41:
+                        GameFlowData.nextAVGId = "Bonus_Hetty_05_2";
+                        break;
+                    case 42:
+                        GameFlowData.nextAVGId = "Bonus_Hetty_07_3";
+                        break;
+                    case 43:
+                        GameFlowData.nextAVGId = "Bonus_Alice_07_3";
                         break;
                 }
 
