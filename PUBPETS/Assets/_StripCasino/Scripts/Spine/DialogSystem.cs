@@ -400,9 +400,9 @@ namespace Blackjack_Game
 
 
                     //新增剧情
-                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_05_2"));
                     textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_05_3"));
 
+                    textAssets.Add(20722, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_07_2"));
                     textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_07_3"));
 
                     textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Alice_CG_07_1"));
@@ -594,9 +594,9 @@ namespace Blackjack_Game
 
 
                     //新增剧情
-                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_05_2"));
                     textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_05_3"));
 
+                    textAssets.Add(20722, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_07_2"));
                     textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_07_3"));
 
                     textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Alice_CG_07_1"));
@@ -787,10 +787,10 @@ namespace Blackjack_Game
 
 
 
-                    //新增剧情
-                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_05_2"));
+                    //新增剧情            
                     textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_05_3"));
 
+                    textAssets.Add(20722, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_07_2"));
                     textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_07_3"));
 
                     textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Alice_CG_07_1"));
@@ -984,9 +984,9 @@ namespace Blackjack_Game
 
 
                     //新增剧情
-                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_05_2"));
                     textAssets.Add(20532, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_05_3"));
 
+                    textAssets.Add(20722, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_07_2"));
                     textAssets.Add(20732, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_07_3"));
 
                     textAssets.Add(30712, Resources.Load<TextAsset>("TXT_English/New_E/E_Alice_CG_07_1"));
@@ -1177,9 +1177,9 @@ namespace Blackjack_Game
 
 
                     //新增剧情
-                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_05_2"));
                     textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_05_3"));
 
+                    textAssets.Add(20722, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_07_2"));
                     textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_07_3"));
 
                     textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Alice_CG_07_1"));
@@ -3992,11 +3992,13 @@ namespace Blackjack_Game
 
         [Header("赠品CG台词语音")]
         [SerializeField]
-        private List<AudioClip> bonusHettyPlaylist_CG_05_2 = new List<AudioClip>();
-        [SerializeField]
         private List<AudioClip> bonusHettyPlaylist_CG_05_3 = new List<AudioClip>();
         [SerializeField]
+        private List<AudioClip> bonusHettyPlaylist_CG_07_2 = new List<AudioClip>();
+        [SerializeField]
         private List<AudioClip> bonusHettyPlaylist_CG_07_3 = new List<AudioClip>();
+        [SerializeField]
+        private List<AudioClip> bonusAlicePlaylist_CG_07_1 = new List<AudioClip>();
         [SerializeField]
         private List<AudioClip> bonusAlicePlaylist_CG_07_3 = new List<AudioClip>();
 
@@ -4487,18 +4489,21 @@ namespace Blackjack_Game
 
 
 
-                case 20522:
-                    Playlist = bonusHettyPlaylist_CG_05_2;
-                    break;
 
                 case 20532:
                     Playlist = bonusHettyPlaylist_CG_05_3;
                     break;
 
+                case 20722:
+                    Playlist = bonusHettyPlaylist_CG_07_2;
+                    break;
                 case 20732:
                     Playlist = bonusHettyPlaylist_CG_07_3;
                     break;
 
+                case 30712:
+                    Playlist = bonusAlicePlaylist_CG_07_1;
+                    break;
                 case 30732:
                     Playlist = bonusAlicePlaylist_CG_07_3;
                     break;
@@ -5732,9 +5737,9 @@ namespace Blackjack_Game
                 #endregion
 
 
-                // 赫蒂05赠品：前置AVG结束，进入动画正文
-                case 20522:
-                    GameFlowData.nextAVGId = "Bonus_Hetty_05_3";
+                // 赫蒂07赠品：前置AVG结束，进入动画正文
+                case 20722:
+                    GameFlowData.nextAVGId = "Bonus_Hetty_07_3";
                     uiManager.LoadingScene_Spine();
                     break;
 

@@ -104,7 +104,7 @@ namespace Blackjack_Game
              
 
             //ーーーーーーーーーーーーーーーーーーーーー手动测试AVGーーーーーーーーーーーーーーーーーーーーーーーー
-            //GameFlowData.nextAVGId = "Anto_CG_03_1";//获胜失败和CG使用
+            //GameFlowData.nextAVGId = "Bonus_Alice_07_1";//获胜失败和CG使用
             //PlayerPrefs.SetInt("language", 0);
             //GameFlowData.nextAVGId = "VSHetty";
             //BGM.instance.AudioPlayBackgroundMusic(3);//安托AVG音乐
@@ -785,11 +785,7 @@ namespace Blackjack_Game
                     #endregion
 
 
-                    // 赫蒂05赠品：前置AVG
-                    case "Bonus_Hetty_05_2":
-                        Load_AVG(20522);
-                        BGM.instance.AudioPlayBackgroundMusic(7);
-                        break;
+
 
                     // 赫蒂05赠品：动画正文
                     case "Bonus_Hetty_05_3":
@@ -798,12 +794,27 @@ namespace Blackjack_Game
                         BGM.instance.AudioPlayBackgroundMusic(6);
                         break;
 
+
+                    // 赫蒂07赠品：前置AVG
+                    case "Bonus_Hetty_07_2":
+                        Load_AVG(20722);
+                        BGM.instance.AudioPlayBackgroundMusic(7);
+                        break;
+
                     // 赫蒂07赠品：直接进入动画正文
                     case "Bonus_Hetty_07_3":
                         Load_AVG(20732);
                         dialog.spine_FrameEvents.SetCurrentAnimator(42);
                         BGM.instance.AudioPlayBackgroundMusic(6);
                         break;
+
+
+                    // 爱丽丝07赠品：前前置AVG
+                    case "Bonus_Alice_07_1":
+                        Load_AVG(30712);
+                        BGM.instance.AudioPlayBackgroundMusic(9);
+                        break;
+
 
                     // 爱丽丝07赠品：直接进入动画正文
                     case "Bonus_Alice_07_3":
@@ -2869,10 +2880,10 @@ namespace Blackjack_Game
                         GameFlowData.nextAVGId = "Alice_CG_10_2";//开启爱丽丝第十个CG前端AVG
                         break;
                     case 41:
-                        GameFlowData.nextAVGId = "Bonus_Hetty_05_2";
+                        GameFlowData.nextAVGId = "Bonus_Hetty_05_3";
                         break;
                     case 42:
-                        GameFlowData.nextAVGId = "Bonus_Hetty_07_3";
+                        GameFlowData.nextAVGId = "Bonus_Hetty_07_2";
                         break;
                     case 43:
                         GameFlowData.nextAVGId = "Bonus_Alice_07_3";
