@@ -392,6 +392,16 @@ namespace Blackjack_Game
 
                     #endregion
 
+
+                    //新增剧情
+                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_05_2"));
+                    textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_05_3"));
+
+                    textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Hetty_CG_07_3"));
+
+                    textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Alice_CG_07_1"));
+                    textAssets.Add(30732, Resources.Load<TextAsset>("TXT_Japanese/New_J/J_Alice_CG_07_3"));
+
                     break;
                 case 1:
                     //剧情开头
@@ -576,6 +586,16 @@ namespace Blackjack_Game
                     #endregion
 
 
+
+                    //新增剧情
+                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_05_2"));
+                    textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_05_3"));
+
+                    textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Hetty_CG_07_3"));
+
+                    textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Alice_CG_07_1"));
+                    textAssets.Add(30732, Resources.Load<TextAsset>("TXT_Simplified_Chinese/New_C1/C1_Alice_CG_07_3"));
+
                     break;
                 case 2:
                     //剧情开头
@@ -758,6 +778,17 @@ namespace Blackjack_Game
                     textAssets.Add(3104, Resources.Load<TextAsset>("TXT_Traditional_Chinese/Alice_C2/C2_Alice_CG_10_4"));
 
                     #endregion
+
+
+
+                    //新增剧情
+                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_05_2"));
+                    textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_05_3"));
+
+                    textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Hetty_CG_07_3"));
+
+                    textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Alice_CG_07_1"));
+                    textAssets.Add(30732, Resources.Load<TextAsset>("TXT_Traditional_Chinese/New_C2/C2_Alice_CG_07_3"));
 
                     break;
                 case 3:
@@ -946,6 +977,16 @@ namespace Blackjack_Game
 
 
 
+                    //新增剧情
+                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_05_2"));
+                    textAssets.Add(20532, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_05_3"));
+
+                    textAssets.Add(20732, Resources.Load<TextAsset>("TXT_English/New_E/E_Hetty_CG_07_3"));
+
+                    textAssets.Add(30712, Resources.Load<TextAsset>("TXT_English/New_E/E_Alice_CG_07_1"));
+                    textAssets.Add(30732, Resources.Load<TextAsset>("TXT_English/New_E/E_Alice_CG_07_3"));
+
+
                     break;
                 case 4:
                     //剧情开头
@@ -1126,6 +1167,17 @@ namespace Blackjack_Game
                     textAssets.Add(3104, Resources.Load<TextAsset>("TXT_Korean/Alice_K/K_Alice_CG_10_4"));
 
                     #endregion
+
+
+
+                    //新增剧情
+                    textAssets.Add(20522, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_05_2"));
+                    textAssets.Add(20532, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_05_3"));
+
+                    textAssets.Add(20732, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Hetty_CG_07_3"));
+
+                    textAssets.Add(30712, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Alice_CG_07_1"));
+                    textAssets.Add(30732, Resources.Load<TextAsset>("TXT_Korean/New_K/K_Alice_CG_07_3"));
 
                     break;
             }
