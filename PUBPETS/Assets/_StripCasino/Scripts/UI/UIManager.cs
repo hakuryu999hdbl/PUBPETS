@@ -1218,10 +1218,10 @@ namespace Blackjack_Game
 
         [Header("Y范围（到顶/到底就隐藏按钮）")]
         public float topLimit = -23f;     // 最上不能超过这个值
-        public float bottomLimit = 1889f; // 最下不能超过这个值
+        float bottomLimit = 2128f; // 最下不能超过这个值
 
-
-
+        //全体CG为30个 bottomLimit = 1889f;
+        //全体CG为33个 bottomLimit = 2128f;
 
 
         public void MoveUp()
