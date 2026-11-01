@@ -887,17 +887,18 @@ namespace Blackjack_Game
         bool isOpenVersionUp_Panel = false;
         public void OpenSaveMenu()
         {
-            if (isOpenVersionUp_Panel)
-            {
-                SaveMenu_Panel.SetActive(true);
-                VersionUp_Panel.SetActive(false);
-            }
-            else 
-            {
-                VersionUp_Panel.SetActive(true);
-                isOpenVersionUp_Panel = true;
-            }
+            //if (isOpenVersionUp_Panel)
+            //{
+            //    SaveMenu_Panel.SetActive(true);
+            //    VersionUp_Panel.SetActive(false);
+            //}
+            //else 
+            //{
+            //    VersionUp_Panel.SetActive(true);
+            //    isOpenVersionUp_Panel = true;
+            //}
 
+            SaveMenu_Panel.SetActive(true);
         }
 
 
@@ -1787,7 +1788,7 @@ namespace Blackjack_Game
 
             Application.Quit();
 
-            OpenURL_DLsite();
+            //OpenURL_DLsite();
         }
 
         public void OpenURL_DLsite()
